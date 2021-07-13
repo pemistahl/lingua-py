@@ -1,0 +1,16 @@
+##### German #####
+
+>>> Accuracy on average: 80.70%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 60.80%
+Erroneously classified as English: 20.30%, Swedish: 3.10%, Dutch: 2.70%, Finnish: 1.70%, Basque: 1.40%, Polish: 1.30%, Danish: 1.10%, Estonian: 1.00%, French: 1.00%, Spanish: 0.90%, Unknown: 0.90%, Turkish: 0.80%, Italian: 0.70%, Lithuanian: 0.60%, Hungarian: 0.40%, Portuguese: 0.30%, Bokmal: 0.20%, Slovak: 0.20%, Afrikaans: 0.10%, Czech: 0.10%, Indonesian: 0.10%, Latvian: 0.10%, Romanian: 0.10%, Slovene: 0.10%
+
+>> Detection of 1000 word pairs (average length: 18 chars)
+Accuracy: 81.40%
+Erroneously classified as English: 3.90%, Dutch: 3.70%, Swedish: 2.60%, Danish: 1.50%, Finnish: 1.40%, Basque: 0.80%, French: 0.70%, Italian: 0.70%, Unknown: 0.60%, Estonian: 0.40%, Polish: 0.40%, Bokmal: 0.30%, Spanish: 0.30%, Hungarian: 0.20%, Nynorsk: 0.20%, Turkish: 0.20%, Albanian: 0.10%, Catalan: 0.10%, Malay: 0.10%, Portuguese: 0.10%, Romanian: 0.10%, Slovak: 0.10%, Tagalog: 0.10%
+
+>> Detection of 1000 sentences (average length: 111 chars)
+Accuracy: 99.90%
+Erroneously classified as Estonian: 0.10%
+

@@ -1,0 +1,16 @@
+##### Romanian #####
+
+>>> Accuracy on average: 86.50%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 68.90%
+Erroneously classified as Latin: 4.30%, Italian: 2.60%, Esperanto: 1.90%, Basque: 1.60%, English: 1.50%, Spanish: 1.40%, Catalan: 1.30%, Turkish: 1.30%, French: 1.20%, Portuguese: 1.20%, German: 0.80%, Lithuanian: 0.70%, Malay: 0.70%, Shona: 0.70%, Sotho: 0.70%, Tswana: 0.70%, Croatian: 0.60%, Dutch: 0.60%, Xhosa: 0.60%, Afrikaans: 0.50%, Albanian: 0.50%, Irish: 0.50%, Swahili: 0.50%, Tsonga: 0.50%, Bosnian: 0.40%, Estonian: 0.40%, Ganda: 0.40%, Zulu: 0.40%, Danish: 0.30%, Finnish: 0.20%, Indonesian: 0.20%, Nynorsk: 0.20%, Polish: 0.20%, Slovak: 0.20%, Slovene: 0.20%, Somali: 0.20%, Azerbaijani: 0.10%, Czech: 0.10%, Icelandic: 0.10%, Maori: 0.10%, Swedish: 0.10%, Tagalog: 0.10%, Vietnamese: 0.10%, Welsh: 0.10%, Yoruba: 0.10%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 91.50%
+Erroneously classified as Latin: 1.50%, Portuguese: 0.90%, English: 0.80%, Spanish: 0.70%, Catalan: 0.60%, Italian: 0.60%, Basque: 0.40%, Bokmal: 0.30%, French: 0.30%, German: 0.30%, Sotho: 0.30%, Albanian: 0.20%, Czech: 0.20%, Hungarian: 0.20%, Malay: 0.20%, Swahili: 0.20%, Bosnian: 0.10%, Esperanto: 0.10%, Estonian: 0.10%, Somali: 0.10%, Tagalog: 0.10%, Tsonga: 0.10%, Vietnamese: 0.10%, Xhosa: 0.10%
+
+>> Detection of 1000 sentences (average length: 118 chars)
+Accuracy: 99.10%
+Erroneously classified as Tagalog: 0.30%, Latin: 0.20%, Bosnian: 0.10%, French: 0.10%, Italian: 0.10%, Portuguese: 0.10%
+

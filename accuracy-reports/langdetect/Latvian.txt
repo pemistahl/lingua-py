@@ -1,0 +1,16 @@
+##### Latvian #####
+
+>>> Accuracy on average: 88.57%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 75.80%
+Erroneously classified as Lithuanian: 4.00%, Finnish: 2.40%, Estonian: 1.90%, Indonesian: 1.70%, Italian: 1.30%, Romanian: 1.30%, Tagalog: 1.10%, Croatian: 0.90%, Slovene: 0.80%, Slovak: 0.70%, Somali: 0.70%, Unknown: 0.70%, Danish: 0.60%, French: 0.60%, Portuguese: 0.60%, English: 0.50%, Swedish: 0.50%, Turkish: 0.50%, Welsh: 0.50%, Afrikaans: 0.40%, Dutch: 0.40%, Polish: 0.40%, Catalan: 0.30%, Spanish: 0.30%, Swahili: 0.30%, Albanian: 0.20%, Czech: 0.20%, German: 0.20%, Hungarian: 0.20%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 91.30%
+Erroneously classified as Lithuanian: 2.50%, Indonesian: 0.70%, Croatian: 0.60%, Estonian: 0.50%, Portuguese: 0.50%, Slovene: 0.50%, Dutch: 0.40%, French: 0.40%, Slovak: 0.40%, Finnish: 0.30%, Italian: 0.30%, Afrikaans: 0.20%, Czech: 0.20%, Romanian: 0.20%, Tagalog: 0.20%, Unknown: 0.20%, Catalan: 0.10%, Danish: 0.10%, English: 0.10%, Polish: 0.10%, Somali: 0.10%, Spanish: 0.10%
+
+>> Detection of 1000 sentences (average length: 109 chars)
+Accuracy: 98.60%
+Erroneously classified as Estonian: 0.50%, Afrikaans: 0.10%, Albanian: 0.10%, Catalan: 0.10%, English: 0.10%, Hungarian: 0.10%, Indonesian: 0.10%, Lithuanian: 0.10%, Slovene: 0.10%, Somali: 0.10%
+

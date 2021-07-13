@@ -1,0 +1,16 @@
+##### Polish #####
+
+>>> Accuracy on average: 88.67%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 73.20%
+Erroneously classified as English: 16.50%, German: 2.60%, Unknown: 1.40%, Spanish: 1.30%, Lithuanian: 1.20%, Estonian: 0.50%, Slovene: 0.50%, Basque: 0.40%, Italian: 0.40%, Czech: 0.30%, French: 0.30%, Chinese: 0.20%, Swedish: 0.20%, Welsh: 0.20%, Danish: 0.10%, Dutch: 0.10%, Finnish: 0.10%, Hungarian: 0.10%, Latvian: 0.10%, Romanian: 0.10%, Slovak: 0.10%, Turkish: 0.10%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 92.80%
+Erroneously classified as English: 1.70%, German: 0.60%, Spanish: 0.60%, French: 0.50%, Hungarian: 0.50%, Czech: 0.40%, Danish: 0.30%, Lithuanian: 0.30%, Welsh: 0.30%, Unknown: 0.30%, Croatian: 0.20%, Dutch: 0.20%, Indonesian: 0.20%, Slovak: 0.20%, Basque: 0.10%, Bosnian: 0.10%, Irish: 0.10%, Italian: 0.10%, Latvian: 0.10%, Portuguese: 0.10%, Romanian: 0.10%, Slovene: 0.10%, Swedish: 0.10%
+
+>> Detection of 1000 sentences (average length: 99 chars)
+Accuracy: 100.00%
+Erroneously classified as 
+

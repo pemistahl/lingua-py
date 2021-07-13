@@ -1,0 +1,16 @@
+##### Georgian #####
+
+>>> Accuracy on average: 98.93%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 96.80%
+Erroneously classified as Chinese: 1.40%, Czech: 0.70%, Punjabi: 0.40%, Hebrew: 0.30%, Gujarati: 0.10%, Japanese: 0.10%, Tamil: 0.10%, Unknown: 0.10%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 100.00%
+Erroneously classified as 
+
+>> Detection of 1000 sentences (average length: 102 chars)
+Accuracy: 100.00%
+Erroneously classified as 
+

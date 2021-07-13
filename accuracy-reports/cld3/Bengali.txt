@@ -1,0 +1,16 @@
+##### Bengali #####
+
+>>> Accuracy on average: 98.93%
+
+>> Detection of 1000 single words (average length: 7 chars)
+Accuracy: 98.50%
+Erroneously classified as Unknown: 0.60%, Chinese: 0.30%, Finnish: 0.10%, Kazakh: 0.10%, Macedonian: 0.10%, Russian: 0.10%, Serbian: 0.10%, Spanish: 0.10%
+
+>> Detection of 1000 word pairs (average length: 15 chars)
+Accuracy: 99.20%
+Erroneously classified as Finnish: 0.30%, Unknown: 0.30%, Japanese: 0.10%, Russian: 0.10%
+
+>> Detection of 1000 sentences (average length: 87 chars)
+Accuracy: 99.10%
+Erroneously classified as Korean: 0.30%, Hindi: 0.20%, Swedish: 0.20%, Chinese: 0.10%, Unknown: 0.10%
+

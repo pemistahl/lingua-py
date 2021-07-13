@@ -1,0 +1,16 @@
+##### Indonesian #####
+
+>>> Accuracy on average: 79.93%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 55.90%
+Erroneously classified as Tagalog: 8.70%, Estonian: 4.00%, Finnish: 3.70%, Italian: 3.00%, Swahili: 2.60%, Somali: 2.10%, Lithuanian: 1.90%, Romanian: 1.50%, Unknown: 1.50%, Afrikaans: 1.40%, English: 1.30%, Croatian: 1.10%, Portuguese: 1.10%, Spanish: 1.00%, Turkish: 1.00%, Danish: 0.90%, Dutch: 0.90%, Slovene: 0.90%, French: 0.80%, Albanian: 0.70%, Catalan: 0.60%, German: 0.60%, Swedish: 0.60%, Welsh: 0.60%, Latvian: 0.50%, Slovak: 0.50%, Hungarian: 0.40%, Czech: 0.10%, Vietnamese: 0.10%
+
+>> Detection of 1000 word pairs (average length: 15 chars)
+Accuracy: 84.00%
+Erroneously classified as Tagalog: 4.70%, Estonian: 1.50%, Italian: 1.20%, Swahili: 1.00%, Finnish: 0.90%, Lithuanian: 0.80%, English: 0.70%, Somali: 0.70%, Croatian: 0.50%, Afrikaans: 0.40%, Danish: 0.40%, Albanian: 0.30%, French: 0.30%, Portuguese: 0.30%, Turkish: 0.30%, Unknown: 0.30%, Dutch: 0.20%, Latvian: 0.20%, Romanian: 0.20%, Slovene: 0.20%, Spanish: 0.20%, Welsh: 0.20%, Catalan: 0.10%, German: 0.10%, Hungarian: 0.10%, Polish: 0.10%, Slovak: 0.10%
+
+>> Detection of 1000 sentences (average length: 105 chars)
+Accuracy: 99.90%
+Erroneously classified as Tagalog: 0.10%
+

@@ -1,0 +1,16 @@
+##### Yoruba #####
+
+>>> Accuracy on average: 36.97%
+
+>> Detection of 1000 single words (average length: 7 chars)
+Accuracy: 1.30%
+Erroneously classified as Unknown: 95.70%, English: 1.20%, Spanish: 0.40%, Indonesian: 0.30%, German: 0.20%, Nynorsk: 0.20%, Xhosa: 0.20%, Czech: 0.10%, Latin: 0.10%, Malay: 0.10%, Portuguese: 0.10%, Tagalog: 0.10%
+
+>> Detection of 1000 word pairs (average length: 15 chars)
+Accuracy: 22.10%
+Erroneously classified as Unknown: 69.00%, English: 5.20%, Danish: 0.40%, Indonesian: 0.30%, Latin: 0.30%, Portuguese: 0.30%, Spanish: 0.30%, Swahili: 0.30%, Estonian: 0.20%, French: 0.20%, Nynorsk: 0.20%, Catalan: 0.10%, Croatian: 0.10%, Esperanto: 0.10%, Hungarian: 0.10%, Italian: 0.10%, Shona: 0.10%, Slovene: 0.10%, Tagalog: 0.10%, Tsonga: 0.10%, Turkish: 0.10%, Xhosa: 0.10%, Zulu: 0.10%
+
+>> Detection of 1000 sentences (average length: 86 chars)
+Accuracy: 87.50%
+Erroneously classified as Unknown: 9.40%, English: 2.50%, Spanish: 0.20%, Danish: 0.10%, Ganda: 0.10%, Portuguese: 0.10%, Xhosa: 0.10%
+

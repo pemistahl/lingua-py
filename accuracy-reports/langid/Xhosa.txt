@@ -1,0 +1,16 @@
+##### Xhosa #####
+
+>>> Accuracy on average: 52.60%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 13.20%
+Erroneously classified as English: 39.40%, German: 9.10%, Indonesian: 3.80%, Finnish: 3.40%, Italian: 3.30%, Spanish: 3.20%, Unknown: 3.20%, Dutch: 2.70%, French: 2.40%, Polish: 2.40%, Estonian: 1.60%, Basque: 1.40%, Romanian: 1.30%, Hungarian: 1.20%, Slovene: 1.00%, Swedish: 0.90%, Lithuanian: 0.80%, Zulu: 0.80%, Czech: 0.70%, Danish: 0.70%, Arabic: 0.50%, Albanian: 0.40%, Slovak: 0.40%, Malay: 0.30%, Tagalog: 0.30%, Turkish: 0.30%, Azerbaijani: 0.20%, Croatian: 0.20%, Portuguese: 0.20%, Swahili: 0.20%, Bokmal: 0.10%, Chinese: 0.10%, Esperanto: 0.10%, Latvian: 0.10%, Nynorsk: 0.10%
+
+>> Detection of 1000 word pairs (average length: 18 chars)
+Accuracy: 48.60%
+Erroneously classified as English: 12.90%, Indonesian: 3.60%, Italian: 3.60%, Spanish: 3.60%, Unknown: 3.20%, German: 3.10%, Zulu: 2.70%, Basque: 2.20%, Swahili: 2.00%, Estonian: 1.70%, Polish: 1.30%, French: 1.20%, Portuguese: 1.20%, Croatian: 0.90%, Dutch: 0.90%, Romanian: 0.90%, Finnish: 0.80%, Malay: 0.80%, Slovene: 0.80%, Czech: 0.60%, Esperanto: 0.60%, Turkish: 0.60%, Swedish: 0.40%, Welsh: 0.30%, Catalan: 0.20%, Danish: 0.20%, Hungarian: 0.20%, Lithuanian: 0.20%, Slovak: 0.20%, Tagalog: 0.20%, Azerbaijani: 0.10%, Nynorsk: 0.10%, Vietnamese: 0.10%
+
+>> Detection of 1000 sentences (average length: 127 chars)
+Accuracy: 96.00%
+Erroneously classified as Zulu: 2.00%, Swahili: 0.60%, Italian: 0.30%, Basque: 0.20%, English: 0.20%, German: 0.20%, Indonesian: 0.20%, Portuguese: 0.10%, Spanish: 0.10%, Unknown: 0.10%
+

@@ -1,0 +1,16 @@
+##### Maori #####
+
+>>> Accuracy on average: 60.73%
+
+>> Detection of 1000 single words (average length: 7 chars)
+Accuracy: 12.00%
+Erroneously classified as Unknown: 87.30%, English: 0.40%, Danish: 0.10%, Ganda: 0.10%, Malay: 0.10%
+
+>> Detection of 1000 word pairs (average length: 15 chars)
+Accuracy: 71.90%
+Erroneously classified as Unknown: 24.50%, English: 2.90%, Danish: 0.20%, Xhosa: 0.20%, Afrikaans: 0.10%, Ganda: 0.10%, Malay: 0.10%
+
+>> Detection of 1000 sentences (average length: 108 chars)
+Accuracy: 98.30%
+Erroneously classified as English: 0.80%, Unknown: 0.70%, Danish: 0.10%, Slovak: 0.10%
+

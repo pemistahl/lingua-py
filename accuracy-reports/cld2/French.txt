@@ -1,0 +1,16 @@
+##### French #####
+
+>>> Accuracy on average: 46.43%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 12.20%
+Erroneously classified as Unknown: 82.30%, English: 4.60%, Danish: 0.30%, Indonesian: 0.20%, Latin: 0.20%, Dutch: 0.10%, Spanish: 0.10%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 47.60%
+Erroneously classified as Unknown: 40.10%, English: 11.70%, Swedish: 0.20%, Croatian: 0.10%, Danish: 0.10%, Nynorsk: 0.10%, Swahili: 0.10%
+
+>> Detection of 1000 sentences (average length: 112 chars)
+Accuracy: 79.50%
+Erroneously classified as Unknown: 19.00%, English: 1.30%, Latin: 0.10%, Portuguese: 0.10%
+

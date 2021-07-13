@@ -1,0 +1,16 @@
+##### Tagalog #####
+
+>>> Accuracy on average: 49.73%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 9.30%
+Erroneously classified as Unknown: 87.00%, English: 1.30%, Indonesian: 0.80%, Danish: 0.40%, Malay: 0.40%, Latin: 0.20%, Xhosa: 0.20%, Croatian: 0.10%, Nynorsk: 0.10%, Shona: 0.10%, Somali: 0.10%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 44.50%
+Erroneously classified as Unknown: 48.90%, English: 4.00%, Indonesian: 1.20%, German: 0.30%, Malay: 0.30%, Danish: 0.20%, Albanian: 0.10%, Basque: 0.10%, Catalan: 0.10%, French: 0.10%, Latin: 0.10%, Turkish: 0.10%
+
+>> Detection of 1000 sentences (average length: 123 chars)
+Accuracy: 95.40%
+Erroneously classified as Unknown: 2.40%, English: 2.10%, Latin: 0.10%
+

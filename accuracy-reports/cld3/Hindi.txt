@@ -1,0 +1,16 @@
+##### Hindi #####
+
+>>> Accuracy on average: 58.40%
+
+>> Detection of 1000 single words (average length: 6 chars)
+Accuracy: 34.50%
+Erroneously classified as Marathi: 32.00%, Unknown: 26.50%, Chinese: 1.20%, Korean: 0.80%, Estonian: 0.70%, Finnish: 0.50%, Dutch: 0.40%, English: 0.40%, Lithuanian: 0.40%, Serbian: 0.30%, Swedish: 0.30%, Azerbaijani: 0.20%, Czech: 0.20%, German: 0.20%, Slovak: 0.20%, Welsh: 0.20%, Xhosa: 0.20%, Yoruba: 0.20%, Catalan: 0.10%, Danish: 0.10%, Irish: 0.10%, Kazakh: 0.10%, Latvian: 0.10%, Turkish: 0.10%
+
+>> Detection of 1000 word pairs (average length: 14 chars)
+Accuracy: 45.30%
+Erroneously classified as Marathi: 29.00%, Unknown: 23.80%, Estonian: 0.30%, Finnish: 0.30%, Latin: 0.30%, Lithuanian: 0.30%, Yoruba: 0.20%, Azerbaijani: 0.10%, Chinese: 0.10%, Esperanto: 0.10%, Korean: 0.10%, Slovak: 0.10%
+
+>> Detection of 1000 sentences (average length: 81 chars)
+Accuracy: 95.40%
+Erroneously classified as Marathi: 2.40%, Unknown: 1.90%, English: 0.30%
+

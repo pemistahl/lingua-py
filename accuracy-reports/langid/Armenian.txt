@@ -1,0 +1,16 @@
+##### Armenian #####
+
+>>> Accuracy on average: 93.83%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 82.80%
+Erroneously classified as Chinese: 15.20%, Thai: 0.80%, Unknown: 0.40%, Hindi: 0.20%, Marathi: 0.20%, Bengali: 0.10%, Gujarati: 0.10%, Japanese: 0.10%, Punjabi: 0.10%
+
+>> Detection of 1000 word pairs (average length: 18 chars)
+Accuracy: 99.10%
+Erroneously classified as Chinese: 0.50%, Thai: 0.20%, Bulgarian: 0.10%, Marathi: 0.10%
+
+>> Detection of 1000 sentences (average length: 122 chars)
+Accuracy: 99.60%
+Erroneously classified as Russian: 0.30%, Mongolian: 0.10%
+

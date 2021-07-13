@@ -1,0 +1,16 @@
+##### Vietnamese #####
+
+>>> Accuracy on average: 66.09%
+
+>> Detection of 879 single words (average length: 4 chars)
+Accuracy: 25.60%
+Erroneously classified as Unknown: 23.55%, Azerbaijani: 4.21%, Chinese: 3.98%, Korean: 2.96%, Hungarian: 2.84%, English: 2.39%, Irish: 2.28%, Belarusian: 1.48%, Bulgarian: 1.48%, Ukrainian: 1.48%, Catalan: 1.37%, Kazakh: 1.25%, Latin: 1.25%, Swedish: 1.25%, Yoruba: 1.14%, Czech: 1.02%, Indonesian: 1.02%, Afrikaans: 0.91%, French: 0.91%, German: 0.91%, Icelandic: 0.91%, Japanese: 0.80%, Portuguese: 0.80%, Serbian: 0.80%, Bosnian: 0.68%, Latvian: 0.68%, Malay: 0.68%, Slovak: 0.68%, Dutch: 0.57%, Finnish: 0.57%, Hindi: 0.57%, Lithuanian: 0.57%, Russian: 0.57%, Sotho: 0.57%, Danish: 0.46%, Italian: 0.46%, Polish: 0.46%, Shona: 0.46%, Somali: 0.46%, Spanish: 0.46%, Turkish: 0.46%, Welsh: 0.46%, Zulu: 0.46%, Estonian: 0.34%, Macedonian: 0.34%, Maori: 0.34%, Marathi: 0.34%, Mongolian: 0.34%, Xhosa: 0.34%, Albanian: 0.23%, Armenian: 0.23%, Romanian: 0.23%, Basque: 0.11%, Esperanto: 0.11%, Persian: 0.11%, Slovene: 0.11%
+
+>> Detection of 957 word pairs (average length: 12 chars)
+Accuracy: 73.56%
+Erroneously classified as Unknown: 13.69%, English: 2.61%, Hungarian: 1.25%, Azerbaijani: 1.04%, Welsh: 1.04%, Swedish: 0.84%, Czech: 0.63%, Danish: 0.63%, Afrikaans: 0.42%, Irish: 0.42%, Yoruba: 0.42%, Catalan: 0.31%, Dutch: 0.31%, German: 0.31%, Kazakh: 0.31%, Sotho: 0.31%, Shona: 0.21%, Slovak: 0.21%, Spanish: 0.21%, Xhosa: 0.21%, Basque: 0.10%, Belarusian: 0.10%, Finnish: 0.10%, French: 0.10%, Icelandic: 0.10%, Korean: 0.10%, Lithuanian: 0.10%, Macedonian: 0.10%, Portuguese: 0.10%, Zulu: 0.10%
+
+>> Detection of 1000 sentences (average length: 120 chars)
+Accuracy: 99.10%
+Erroneously classified as Unknown: 0.60%, Azerbaijani: 0.10%, English: 0.10%, Slovak: 0.10%
+

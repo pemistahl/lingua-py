@@ -1,0 +1,16 @@
+##### Afrikaans #####
+
+>>> Accuracy on average: 55.07%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 12.70%
+Erroneously classified as Unknown: 83.90%, Dutch: 1.30%, English: 0.80%, Danish: 0.30%, Basque: 0.10%, Croatian: 0.10%, Finnish: 0.10%, Indonesian: 0.10%, Latin: 0.10%, Malay: 0.10%, Nynorsk: 0.10%, Somali: 0.10%, Swahili: 0.10%, Xhosa: 0.10%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 56.10%
+Erroneously classified as Unknown: 36.40%, Dutch: 4.70%, English: 1.70%, German: 0.30%, Italian: 0.20%, Danish: 0.10%, Estonian: 0.10%, Nynorsk: 0.10%, Tsonga: 0.10%, Welsh: 0.10%, Xhosa: 0.10%
+
+>> Detection of 1000 sentences (average length: 102 chars)
+Accuracy: 96.40%
+Erroneously classified as Unknown: 2.50%, English: 0.80%, Dutch: 0.20%, Italian: 0.10%
+

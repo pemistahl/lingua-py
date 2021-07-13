@@ -1,0 +1,16 @@
+##### Indonesian #####
+
+>>> Accuracy on average: 50.73%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 16.40%
+Erroneously classified as English: 43.00%, German: 9.40%, Spanish: 3.50%, Swedish: 2.80%, Malay: 2.40%, Finnish: 2.10%, Unknown: 2.10%, Estonian: 2.00%, Lithuanian: 2.00%, Dutch: 1.80%, Polish: 1.50%, French: 1.40%, Slovene: 1.40%, Italian: 1.30%, Portuguese: 1.20%, Czech: 1.00%, Basque: 0.80%, Turkish: 0.70%, Romanian: 0.60%, Xhosa: 0.60%, Croatian: 0.40%, Hungarian: 0.40%, Latvian: 0.40%, Danish: 0.30%, Tagalog: 0.20%, Albanian: 0.10%, Esperanto: 0.10%, Zulu: 0.10%
+
+>> Detection of 1000 word pairs (average length: 15 chars)
+Accuracy: 54.10%
+Erroneously classified as Malay: 9.80%, English: 9.30%, German: 3.30%, Spanish: 2.90%, Tagalog: 2.40%, Italian: 1.70%, Unknown: 1.50%, Estonian: 1.40%, Finnish: 1.40%, Portuguese: 1.20%, Dutch: 1.10%, French: 1.10%, Slovene: 1.00%, Polish: 0.90%, Swedish: 0.90%, Basque: 0.80%, Lithuanian: 0.80%, Xhosa: 0.80%, Romanian: 0.60%, Esperanto: 0.50%, Croatian: 0.40%, Danish: 0.40%, Swahili: 0.40%, Czech: 0.30%, Hungarian: 0.30%, Latvian: 0.30%, Welsh: 0.20%, Icelandic: 0.10%, Turkish: 0.10%
+
+>> Detection of 1000 sentences (average length: 105 chars)
+Accuracy: 81.70%
+Erroneously classified as Malay: 16.80%, Basque: 0.30%, Unknown: 0.30%, Italian: 0.20%, Tagalog: 0.20%, French: 0.10%, German: 0.10%, Polish: 0.10%, Spanish: 0.10%, Xhosa: 0.10%
+

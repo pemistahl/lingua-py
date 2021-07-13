@@ -1,0 +1,16 @@
+##### Japanese #####
+
+>>> Accuracy on average: 85.67%
+
+>> Detection of 157 single words (average length: 1 chars)
+Accuracy: 60.51%
+Erroneously classified as Chinese: 15.29%, English: 14.65%, Arabic: 1.27%, Czech: 1.27%, French: 1.27%, Georgian: 1.27%, Punjabi: 1.27%, Swedish: 1.27%, Bengali: 0.64%, Korean: 0.64%, Russian: 0.64%
+
+>> Detection of 1000 word pairs (average length: 2 chars)
+Accuracy: 96.50%
+Erroneously classified as Chinese: 2.60%, Thai: 0.30%, Czech: 0.20%, French: 0.10%, Georgian: 0.10%, Korean: 0.10%, Persian: 0.10%
+
+>> Detection of 412 sentences (average length: 43 chars)
+Accuracy: 100.00%
+Erroneously classified as 
+

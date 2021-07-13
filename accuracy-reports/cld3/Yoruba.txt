@@ -1,0 +1,16 @@
+##### Yoruba #####
+
+>>> Accuracy on average: 14.60%
+
+>> Detection of 1000 single words (average length: 7 chars)
+Accuracy: 5.10%
+Erroneously classified as Unknown: 24.30%, Vietnamese: 12.20%, Azerbaijani: 5.10%, Latin: 4.80%, Serbian: 3.00%, Hungarian: 2.80%, Xhosa: 2.40%, English: 2.30%, Irish: 2.20%, Finnish: 1.90%, Turkish: 1.90%, Indonesian: 1.80%, Shona: 1.80%, Italian: 1.70%, Icelandic: 1.40%, Czech: 1.30%, Japanese: 1.30%, German: 1.20%, Malay: 1.20%, Somali: 1.10%, Dutch: 1.00%, Latvian: 1.00%, Romanian: 1.00%, Swahili: 1.00%, Swedish: 1.00%, Afrikaans: 0.90%, Lithuanian: 0.90%, Esperanto: 0.80%, Estonian: 0.80%, Catalan: 0.70%, Chinese: 0.70%, Slovak: 0.70%, Slovene: 0.70%, Croatian: 0.60%, French: 0.60%, Maori: 0.60%, Zulu: 0.60%, Bosnian: 0.50%, Korean: 0.50%, Polish: 0.50%, Portuguese: 0.50%, Basque: 0.40%, Kazakh: 0.40%, Sotho: 0.40%, Ukrainian: 0.40%, Welsh: 0.40%, Albanian: 0.30%, Danish: 0.20%, Macedonian: 0.20%, Mongolian: 0.20%, Spanish: 0.20%, Arabic: 0.10%, Belarusian: 0.10%, Bulgarian: 0.10%, Persian: 0.10%, Russian: 0.10%
+
+>> Detection of 1000 word pairs (average length: 15 chars)
+Accuracy: 10.60%
+Erroneously classified as Unknown: 25.00%, Vietnamese: 14.90%, Xhosa: 3.50%, Azerbaijani: 3.20%, Finnish: 2.70%, Latin: 2.60%, Hungarian: 2.50%, Shona: 2.20%, Turkish: 1.90%, English: 1.60%, Slovak: 1.60%, Icelandic: 1.50%, Italian: 1.50%, Somali: 1.50%, Estonian: 1.40%, Indonesian: 1.40%, Irish: 1.40%, Malay: 1.40%, Zulu: 1.20%, Basque: 1.10%, German: 1.00%, Lithuanian: 1.00%, Esperanto: 0.90%, Romanian: 0.90%, Spanish: 0.90%, Swahili: 0.90%, Welsh: 0.90%, Bosnian: 0.80%, Dutch: 0.80%, Polish: 0.80%, Swedish: 0.80%, Croatian: 0.70%, Czech: 0.70%, Slovene: 0.60%, French: 0.50%, Serbian: 0.50%, Danish: 0.40%, Latvian: 0.40%, Afrikaans: 0.30%, Albanian: 0.30%, Maori: 0.30%, Chinese: 0.20%, Mongolian: 0.20%, Ukrainian: 0.20%, Macedonian: 0.10%, Sotho: 0.10%, Urdu: 0.10%
+
+>> Detection of 1000 sentences (average length: 86 chars)
+Accuracy: 28.10%
+Erroneously classified as Vietnamese: 43.50%, Unknown: 7.70%, Romanian: 5.70%, Slovene: 1.70%, Azerbaijani: 1.50%, Irish: 1.20%, Hungarian: 0.90%, Slovak: 0.90%, Czech: 0.80%, English: 0.80%, Estonian: 0.80%, Japanese: 0.80%, Bosnian: 0.70%, Albanian: 0.50%, Swahili: 0.40%, Zulu: 0.40%, French: 0.30%, Italian: 0.30%, Latvian: 0.30%, Lithuanian: 0.30%, Spanish: 0.30%, Turkish: 0.30%, Croatian: 0.20%, Esperanto: 0.20%, Maori: 0.20%, Polish: 0.20%, Xhosa: 0.20%, Afrikaans: 0.10%, Basque: 0.10%, Danish: 0.10%, Icelandic: 0.10%, Indonesian: 0.10%, Latin: 0.10%, Malay: 0.10%, Somali: 0.10%
+

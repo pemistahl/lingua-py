@@ -1,0 +1,16 @@
+##### Esperanto #####
+
+>>> Accuracy on average: 57.23%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 22.40%
+Erroneously classified as Unknown: 21.20%, Latin: 5.80%, Italian: 3.20%, Serbian: 3.10%, Finnish: 3.00%, Spanish: 2.80%, Ukrainian: 2.40%, Lithuanian: 2.30%, Bosnian: 2.20%, Estonian: 2.10%, Indonesian: 2.10%, Malay: 2.00%, Portuguese: 1.80%, Croatian: 1.70%, Shona: 1.60%, Latvian: 1.40%, Slovene: 1.30%, Turkish: 1.30%, Azerbaijani: 1.20%, German: 1.00%, Basque: 0.90%, Macedonian: 0.90%, Swedish: 0.90%, Russian: 0.80%, Chinese: 0.70%, English: 0.70%, French: 0.70%, Hungarian: 0.70%, Japanese: 0.60%, Persian: 0.60%, Zulu: 0.60%, Romanian: 0.50%, Sotho: 0.50%, Catalan: 0.40%, Polish: 0.40%, Welsh: 0.40%, Xhosa: 0.40%, Yoruba: 0.40%, Afrikaans: 0.30%, Danish: 0.30%, Irish: 0.30%, Slovak: 0.30%, Bulgarian: 0.20%, Czech: 0.20%, Icelandic: 0.20%, Kazakh: 0.20%, Korean: 0.20%, Maori: 0.20%, Mongolian: 0.20%, Albanian: 0.10%, Belarusian: 0.10%, Dutch: 0.10%, Swahili: 0.10%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 51.40%
+Erroneously classified as Unknown: 13.80%, Latin: 4.00%, Italian: 3.60%, Lithuanian: 3.60%, Spanish: 2.40%, Finnish: 2.10%, Estonian: 2.00%, Bosnian: 1.50%, Slovene: 1.40%, Portuguese: 1.10%, Basque: 1.00%, Romanian: 0.90%, Turkish: 0.90%, German: 0.80%, Indonesian: 0.80%, Latvian: 0.70%, Malay: 0.70%, Serbian: 0.60%, Azerbaijani: 0.50%, Croatian: 0.50%, Polish: 0.50%, Shona: 0.50%, Swedish: 0.50%, Afrikaans: 0.40%, Catalan: 0.40%, Slovak: 0.40%, Albanian: 0.30%, Sotho: 0.30%, Ukrainian: 0.30%, Yoruba: 0.30%, Dutch: 0.20%, Hungarian: 0.20%, Maori: 0.20%, Persian: 0.20%, Welsh: 0.20%, Czech: 0.10%, Danish: 0.10%, English: 0.10%, Irish: 0.10%, Japanese: 0.10%, Macedonian: 0.10%, Xhosa: 0.10%, Zulu: 0.10%
+
+>> Detection of 1000 sentences (average length: 101 chars)
+Accuracy: 97.90%
+Erroneously classified as Unknown: 0.60%, Lithuanian: 0.30%, Portuguese: 0.30%, Spanish: 0.30%, Albanian: 0.20%, Afrikaans: 0.10%, Estonian: 0.10%, Italian: 0.10%, Latvian: 0.10%
+

@@ -1,0 +1,16 @@
+##### Ganda #####
+
+>>> Accuracy on average: 61.33%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 23.00%
+Erroneously classified as Unknown: 74.30%, Xhosa: 0.90%, Indonesian: 0.50%, English: 0.30%, Malay: 0.20%, Tsonga: 0.20%, Croatian: 0.10%, Czech: 0.10%, Finnish: 0.10%, Maori: 0.10%, Polish: 0.10%, Serbian: 0.10%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 62.30%
+Erroneously classified as Unknown: 34.40%, English: 1.50%, Xhosa: 0.60%, Swahili: 0.30%, Basque: 0.10%, Croatian: 0.10%, Danish: 0.10%, Finnish: 0.10%, Icelandic: 0.10%, Polish: 0.10%, Somali: 0.10%, Tagalog: 0.10%, Turkish: 0.10%
+
+>> Detection of 1000 sentences (average length: 125 chars)
+Accuracy: 98.70%
+Erroneously classified as Unknown: 0.80%, English: 0.40%, Indonesian: 0.10%
+

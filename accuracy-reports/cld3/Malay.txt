@@ -1,0 +1,16 @@
+##### Malay #####
+
+>>> Accuracy on average: 22.27%
+
+>> Detection of 1000 single words (average length: 7 chars)
+Accuracy: 10.80%
+Erroneously classified as Unknown: 32.70%, Indonesian: 18.10%, Latin: 4.40%, Afrikaans: 2.30%, Shona: 2.30%, Serbian: 2.20%, Finnish: 1.70%, Ukrainian: 1.70%, English: 1.50%, Japanese: 1.40%, Lithuanian: 1.30%, Bosnian: 1.10%, Xhosa: 1.10%, Dutch: 1.00%, Zulu: 1.00%, Estonian: 0.90%, Portuguese: 0.80%, Turkish: 0.80%, Yoruba: 0.80%, Azerbaijani: 0.70%, Basque: 0.70%, Russian: 0.70%, Swedish: 0.70%, Bulgarian: 0.60%, Catalan: 0.60%, German: 0.60%, Spanish: 0.60%, Hungarian: 0.50%, Somali: 0.50%, Croatian: 0.40%, Esperanto: 0.40%, French: 0.40%, Irish: 0.40%, Kazakh: 0.40%, Korean: 0.40%, Sotho: 0.40%, Swahili: 0.40%, Welsh: 0.40%, Belarusian: 0.30%, Chinese: 0.30%, Polish: 0.30%, Slovene: 0.30%, Danish: 0.20%, Maori: 0.20%, Persian: 0.20%, Czech: 0.10%, Italian: 0.10%, Latvian: 0.10%, Mongolian: 0.10%, Romanian: 0.10%
+
+>> Detection of 1000 word pairs (average length: 15 chars)
+Accuracy: 22.50%
+Erroneously classified as Indonesian: 39.70%, Unknown: 18.90%, Latin: 2.30%, Shona: 1.80%, English: 1.50%, Basque: 1.40%, Afrikaans: 1.00%, Turkish: 0.90%, Catalan: 0.80%, Dutch: 0.70%, Finnish: 0.70%, Estonian: 0.60%, Somali: 0.60%, Swedish: 0.50%, Danish: 0.40%, German: 0.40%, Lithuanian: 0.40%, Xhosa: 0.40%, Sotho: 0.30%, Spanish: 0.30%, Swahili: 0.30%, Yoruba: 0.30%, Bosnian: 0.20%, Bulgarian: 0.20%, French: 0.20%, Hungarian: 0.20%, Italian: 0.20%, Japanese: 0.20%, Maori: 0.20%, Portuguese: 0.20%, Slovene: 0.20%, Zulu: 0.20%, Albanian: 0.10%, Azerbaijani: 0.10%, Chinese: 0.10%, Croatian: 0.10%, Esperanto: 0.10%, Icelandic: 0.10%, Korean: 0.10%, Latvian: 0.10%, Mongolian: 0.10%, Romanian: 0.10%, Serbian: 0.10%, Ukrainian: 0.10%, Welsh: 0.10%
+
+>> Detection of 1000 sentences (average length: 116 chars)
+Accuracy: 33.50%
+Erroneously classified as Indonesian: 61.20%, Unknown: 4.10%, Italian: 0.20%, Latin: 0.20%, Yoruba: 0.20%, Albanian: 0.10%, Catalan: 0.10%, English: 0.10%, Slovene: 0.10%, Swahili: 0.10%, Welsh: 0.10%
+

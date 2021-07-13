@@ -1,0 +1,62 @@
+#
+# Copyright © 2022 Peter M. Stahl pemistahl@gmail.com
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either expressed or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+name: build
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+env:
+  PYTHON_VERSION: 3.9
+
+jobs:
+  build-and-test:
+    name: Build and test
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Set up Poetry
+        uses: abatilo/actions-poetry@v2.1.3
+        with:
+          poetry-version: 1.1
+
+      - name: Set up virtual environment
+        run: poetry env use ${{ env.PYTHON_VERSION }}
+
+      - name: Install project dependencies
+        run: poetry install
+
+      - name: Check static types
+        run: poetry run mypy
+
+      - name: Run unit tests with code coverage
+        run: poetry run coverage run -m pytest
+
+      - name: Check code formatting
+        run: poetry run black --check .

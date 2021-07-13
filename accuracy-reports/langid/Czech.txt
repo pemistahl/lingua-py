@@ -1,0 +1,16 @@
+##### Czech #####
+
+>>> Accuracy on average: 66.43%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 44.20%
+Erroneously classified as English: 18.20%, Slovak: 13.60%, Slovene: 4.20%, Polish: 3.80%, Hungarian: 3.50%, German: 2.70%, Spanish: 2.10%, French: 1.50%, Lithuanian: 1.00%, Italian: 0.70%, Croatian: 0.50%, Dutch: 0.50%, Romanian: 0.50%, Swedish: 0.40%, Basque: 0.30%, Finnish: 0.30%, Malay: 0.30%, Unknown: 0.30%, Chinese: 0.20%, Danish: 0.20%, Estonian: 0.20%, Irish: 0.20%, Portuguese: 0.20%, Bosnian: 0.10%, Catalan: 0.10%, Indonesian: 0.10%, Xhosa: 0.10%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 68.60%
+Erroneously classified as Slovak: 12.50%, Slovene: 4.30%, English: 4.00%, Polish: 2.30%, German: 1.20%, Hungarian: 1.10%, Italian: 0.80%, Croatian: 0.70%, Spanish: 0.70%, Unknown: 0.60%, Romanian: 0.50%, Esperanto: 0.40%, French: 0.40%, Lithuanian: 0.40%, Dutch: 0.30%, Indonesian: 0.20%, Portuguese: 0.20%, Bosnian: 0.10%, Danish: 0.10%, Finnish: 0.10%, Latin: 0.10%, Latvian: 0.10%, Swedish: 0.10%, Turkish: 0.10%, Welsh: 0.10%
+
+>> Detection of 1000 sentences (average length: 93 chars)
+Accuracy: 86.50%
+Erroneously classified as Slovak: 5.20%, Slovene: 2.50%, English: 1.20%, Unknown: 0.70%, Polish: 0.60%, Croatian: 0.50%, Hungarian: 0.40%, Spanish: 0.40%, German: 0.30%, Latin: 0.30%, Portuguese: 0.20%, Romanian: 0.20%, Albanian: 0.10%, Danish: 0.10%, Esperanto: 0.10%, French: 0.10%, Icelandic: 0.10%, Irish: 0.10%, Italian: 0.10%, Latvian: 0.10%, Swahili: 0.10%, Swedish: 0.10%
+

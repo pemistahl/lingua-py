@@ -1,0 +1,16 @@
+##### Chinese #####
+
+>>> Accuracy on average: 91.53%
+
+>> Detection of 1000 single words (average length: 1 chars)
+Accuracy: 91.70%
+Erroneously classified as Japanese: 3.90%, Unknown: 1.40%, Latin: 0.60%, Swahili: 0.30%, Dutch: 0.20%, Italian: 0.20%, Romanian: 0.20%, Russian: 0.20%, Shona: 0.20%, Catalan: 0.10%, Danish: 0.10%, Hindi: 0.10%, Indonesian: 0.10%, Persian: 0.10%, Portuguese: 0.10%, Slovene: 0.10%, Sotho: 0.10%, Ukrainian: 0.10%, Urdu: 0.10%, Welsh: 0.10%
+
+>> Detection of 1000 word pairs (average length: 2 chars)
+Accuracy: 82.90%
+Erroneously classified as Japanese: 7.90%, Unknown: 4.00%, Danish: 0.60%, Afrikaans: 0.50%, Latin: 0.50%, Hindi: 0.40%, German: 0.30%, Malay: 0.30%, Spanish: 0.30%, Catalan: 0.20%, Icelandic: 0.20%, Persian: 0.20%, Slovene: 0.20%, Swedish: 0.20%, Urdu: 0.20%, Bosnian: 0.10%, Bulgarian: 0.10%, Dutch: 0.10%, Esperanto: 0.10%, Finnish: 0.10%, Irish: 0.10%, Italian: 0.10%, Marathi: 0.10%, Mongolian: 0.10%, Russian: 0.10%, Serbian: 0.10%
+
+>> Detection of 729 sentences (average length: 48 chars)
+Accuracy: 100.00%
+Erroneously classified as 
+
