@@ -24,7 +24,7 @@ from ._ngram import _get_ngram_name_by_length
 def _load_json(language: Language, ngram_length: int) -> Optional[str]:
     ngram_name = _get_ngram_name_by_length(ngram_length)
     iso_code = language.iso_code_639_1.name.lower()
-    relative_zip_file_path = f"../language-models/{iso_code}/{ngram_name}s.json.zip"
+    relative_zip_file_path = f"./language-models/{iso_code}/{ngram_name}s.json.zip"
     absolute_zip_file_path = Path(__file__).parent / relative_zip_file_path
     json_file_name = f"{ngram_name}s.json"
     try:

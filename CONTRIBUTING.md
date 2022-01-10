@@ -30,7 +30,7 @@ other than to be a valid txt file with UTF-8 encoding. Do **not** rename the lan
 6. Use [`TestDataFilesWriter`][test data files writer url] to create the test data files used for
 accuracy report generation. The input file from which to create the test data should have each
 sentence on a separate line. Do **not** rename the test data files.
-7. Create a new directory in [`/language-models`][language models directory url] named after the new
+7. Create a new directory in [`/lingua/language-models`][language models directory url] named after the new
 language's ISO 639-1 code and put the language model files into it.
 8. Put the generated test data files in [`/language-testdata`][test data directory url].
 9. Fix the existing unit tests by adding your new language.
@@ -46,5 +46,5 @@ this library's fields of application.
 [chars to languages mapping url]: https://github.com/pemistahl/lingua-py/blob/main/lingua/_constant.py#L35
 [language model files writer url]: https://github.com/pemistahl/lingua-py/blob/main/lingua/writer.py#L27
 [test data files writer url]: https://github.com/pemistahl/lingua-py/blob/main/lingua/writer.py#L147
-[language models directory url]: https://github.com/pemistahl/lingua-py/tree/main/language-models
+[language models directory url]: https://github.com/pemistahl/lingua-py/tree/main/lingua/language-models
 [test data directory url]: https://github.com/pemistahl/lingua-py/tree/main/language-testdata
