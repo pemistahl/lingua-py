@@ -425,3 +425,9 @@ LanguageDetectorBuilder.from_iso_codes_639_3(IsoCode639_3.ENG, IsoCode639_3.DEU)
 ## 10. What's next for version 1.1.0?
 
 Take a look at the [planned issues](https://github.com/pemistahl/lingua-py/milestone/1).
+
+## 11. Contributions
+
+Any contributions to *Lingua* are very much appreciated. Please read the instructions
+in [`CONTRIBUTING.md`](https://github.com/pemistahl/lingua-py/blob/main/CONTRIBUTING.md)
+for how to add new languages to the library.
