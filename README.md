@@ -3,6 +3,7 @@
 <br>
 
 [![build](https://github.com/pemistahl/lingua-py/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/pemistahl/lingua-py/actions/workflows/build.yml)
+[![codecov](https://codecov.io/gh/pemistahl/lingua-py/branch/main/graph/badge.svg)](https://codecov.io/gh/pemistahl/lingua-py)
 [![license](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 ## 1. What does this library do?

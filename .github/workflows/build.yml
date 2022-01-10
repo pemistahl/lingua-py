@@ -55,8 +55,16 @@ jobs:
       - name: Check static types
         run: poetry run mypy
 
-      - name: Run unit tests with code coverage
-        run: poetry run coverage run -m pytest
-
       - name: Check code formatting
         run: poetry run black --check .
+
+      - name: Run unit tests with code coverage
+        run: |
+          poetry run coverage run -m pytest
+          poetry run coverage xml
+
+      - name: Upload code coverage report
+        uses: codecov/codecov-action@v2
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./coverage.xml
