@@ -250,6 +250,7 @@ your own knowledge of the input text is always preferable.
 If you want to reproduce the accuracy results above, you can generate the test
 reports yourself for all classifiers and languages by executing:
 
+    poetry install --extras "langdetect langid gcld3 pycld2"
     poetry run python3 scripts/accuracy_reporter.py
 
 For each detector and language, a test report file is then written into

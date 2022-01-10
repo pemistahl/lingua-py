@@ -13,8 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""# Lingua Language Detection Library
-
+"""
 ## 1. What does this library do?
 
 Its task is simple: It tells you which language some provided textual data is
@@ -214,9 +213,19 @@ text, do not let those take part in the classifcation process. The filtering
 mechanism of the rule-based engine is quite good, however, filtering based on
 your own knowledge of the input text is always preferable.
 
-## 6. How to use?
+## 6. How to add it to your project?
 
-### 6.1 Basic usage
+*Lingua* is available in the
+[Python Package Index](https://pypi.org/project/lingua-language-detector)
+and can be installed with:
+
+```shell
+pip install lingua-language-detector
+```
+
+## 7. How to use?
+
+### 7.1 Basic usage
 
 ```python
 >>> from lingua import Language, LanguageDetectorBuilder
@@ -227,7 +236,7 @@ Language.ENGLISH
 
 ```
 
-### 6.2 Minimum relative distance
+### 7.2 Minimum relative distance
 
 By default, *Lingua* returns the most likely language for a given input text.
 However, there are certain words that are spelled the same in more than one
@@ -255,7 +264,7 @@ phrases, do not set the minimum relative distance too high. Otherwise, `None`
 will be returned most of the time as in the example above. This is the return
 value for cases where language detection is not reliably possible.
 
-### 6.3 Confidence values
+### 7.3 Confidence values
 
 Knowing about the most likely language is nice but how reliable is the computed
 likelihood? And how less likely are the other examined languages in comparison
@@ -291,7 +300,7 @@ the detector's languages for the given input text, the returned list will be
 empty. The confidence value for each language not being part of the returned
 list is assumed to be 0.0.
 
-## 6.4 Eager loading versus lazy loading
+## 7.4 Eager loading versus lazy loading
 
 By default, *Lingua* uses lazy-loading to load only those language models on
 demand which are considered relevant by the rule-based filter engine. For web
@@ -306,7 +315,7 @@ LanguageDetectorBuilder.from_all_languages().with_preloaded_language_models().bu
 Multiple instances of `LanguageDetector` share the same language models in
 memory which are accessed asynchronously by the instances.
 
-## 6.5 Methods to build the LanguageDetector
+## 7.5 Methods to build the LanguageDetector
 
 There might be classification tasks where you know beforehand that your
 language data is definitely not written in Latin, for instance. The detection

@@ -19,9 +19,17 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'lingua/**'
+      - 'scripts/**'
+      - 'tests/**'
   pull_request:
     branches:
       - main
+    paths:
+      - 'lingua/**'
+      - 'scripts/**'
+      - 'tests/**'
 
 env:
   PYTHON_VERSION: 3.9
