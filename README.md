@@ -34,14 +34,14 @@ of comprehensive open source libraries for this task, such as Google's
 Unfortunately, except for the last one they have two major drawbacks:
 
 1. Detection only works with quite lengthy text fragments. For very short
-   text snippets such as Twitter messages, it does not provide adequate results.
+   text snippets such as Twitter messages, they do not provide adequate results.
 2. The more languages take part in the decision process, the less accurate are
    the detection results.
 
-*Lingua* aims at eliminating these problems. It nearly does not need any
+*Lingua* aims at eliminating these problems. She nearly does not need any
 configuration and yields pretty accurate results on both long and short text,
-even on single words and phrases. It draws on both rule-based and statistical
-methods but does not use any dictionaries of words. It does not need a
+even on single words and phrases. She draws on both rule-based and statistical
+methods but does not use any dictionaries of words. She does not need a
 connection to any external API or service either. Once the library has been
 downloaded, it can be used completely offline.
 
