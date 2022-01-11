@@ -31,7 +31,7 @@ python = "^3.9"
 regex = "^2021.11"
 
 [tool.poetry.dev-dependencies]
-mypy = "^0.910"
+mypy = "^0.931"
 pytest = "^6.2"
 black = "^21.12b0"
 coverage = "^6.2"
