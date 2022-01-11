@@ -20,6 +20,8 @@ on:
     branches:
       - main
     paths:
+      - 'poetry.lock'
+      - 'pyproject.toml'
       - 'lingua/**'
       - 'scripts/**'
       - 'tests/**'
@@ -27,6 +29,8 @@ on:
     branches:
       - main
     paths:
+      - 'poetry.lock'
+      - 'pyproject.toml'
       - 'lingua/**'
       - 'scripts/**'
       - 'tests/**'
