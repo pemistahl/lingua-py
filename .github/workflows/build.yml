@@ -72,6 +72,7 @@ jobs:
           poetry run coverage xml
 
       - name: Upload code coverage report
+        if: ${{ github.event_name == 'push' }}
         uses: codecov/codecov-action@v2
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
