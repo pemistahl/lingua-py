@@ -28,7 +28,7 @@ packages = [
 
 [tool.poetry.dependencies]
 python = "^3.9"
-regex = "^2021.11"
+regex = ">=2021.11,<2023.0"
 
 [tool.poetry.dev-dependencies]
 mypy = "^0.931"
