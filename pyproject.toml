@@ -27,7 +27,7 @@ packages = [
 ]
 
 [tool.poetry.dependencies]
-python = "^3.6"
+python = "^3.7.1"
 regex = ">=2021.11,<2023.0"
 
 [tool.poetry.dev-dependencies]
