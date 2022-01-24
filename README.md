@@ -6,7 +6,9 @@
 [![codecov](https://codecov.io/gh/pemistahl/lingua-py/branch/main/graph/badge.svg)](https://codecov.io/gh/pemistahl/lingua-py)
 [![supported languages](https://img.shields.io/badge/supported%20languages-75-green.svg)](#supported-languages)
 [![docs](https://img.shields.io/badge/docs-API-yellowgreen)](https://pemistahl.github.io/lingua-py)
-[![pypi](https://img.shields.io/badge/PYPI-v1.0.0-blue)](https://pypi.org/project/lingua-language-detector)
+
+![supported Python versions](https://img.shields.io/badge/Python-%3E%3D%203.7-blue)
+[![pypi](https://img.shields.io/badge/PYPI-v1.0.1-blue)](https://pypi.org/project/lingua-language-detector)
 [![license](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 ## 1. What does this library do?
@@ -287,7 +289,7 @@ and can be installed with:
 
 ## 8. How to build?
 
-*Lingua* requires Python >= 3.9 and uses [Poetry](https://python-poetry.org) for packaging and
+*Lingua* requires Python >= 3.7 and uses [Poetry](https://python-poetry.org) for packaging and
 dependency management. You need to install it first if you have not done so yet.
 Afterwards, clone the repository and install the project dependencies:
 
