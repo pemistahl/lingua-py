@@ -20,7 +20,7 @@ import regex
 from collections import defaultdict, Counter, OrderedDict
 from dataclasses import dataclass
 from fractions import Fraction
-from typing import Optional, Any
+from typing import Counter as TypedCounter, Dict, List, FrozenSet, Optional, Any
 
 from ._constant import LETTER
 from .language import Language
@@ -48,24 +48,24 @@ class _LinguaJSONDecoder(json.JSONDecoder):
 @dataclass
 class _JSONLanguageModel:
     language: Language
-    ngrams: dict[str, str]
+    ngrams: Dict[str, str]
 
 
 @dataclass
 class _TrainingDataLanguageModel:
     language: Language
-    absolute_frequencies: Optional[dict[str, int]]
-    relative_frequencies: Optional[dict[str, Fraction]]
-    json_relative_frequencies: Optional[dict[str, float]]
+    absolute_frequencies: Optional[Dict[str, int]]
+    relative_frequencies: Optional[Dict[str, Fraction]]
+    json_relative_frequencies: Optional[Dict[str, float]]
 
     @classmethod
     def from_text(
         cls,
-        text: list[str],
+        text: List[str],
         language: Language,
         ngram_length: int,
         char_class: str,
-        lower_ngram_absolute_frequencies: Optional[dict[str, int]],
+        lower_ngram_absolute_frequencies: Optional[Dict[str, int]],
     ) -> "_TrainingDataLanguageModel":
         absolute_frequencies = cls.compute_absolute_frequencies(
             text, ngram_length, char_class
@@ -126,9 +126,9 @@ class _TrainingDataLanguageModel:
 
     @classmethod
     def compute_absolute_frequencies(
-        cls, text: list[str], ngram_length: int, char_class: str
-    ) -> dict[str, int]:
-        absolute_frequencies = Counter[str]()
+        cls, text: List[str], ngram_length: int, char_class: str
+    ) -> Dict[str, int]:
+        absolute_frequencies: TypedCounter[str] = Counter()
         regexp = regex.compile(r"^[{}]+$".format(char_class))
         for line in text:
             lowercased_line = line.lower()
@@ -142,9 +142,9 @@ class _TrainingDataLanguageModel:
     def compute_relative_frequencies(
         cls,
         ngram_length: int,
-        absolute_frequencies: dict[str, int],
-        lower_ngram_absolute_frequencies: Optional[dict[str, int]],
-    ) -> dict[str, Fraction]:
+        absolute_frequencies: Dict[str, int],
+        lower_ngram_absolute_frequencies: Optional[Dict[str, int]],
+    ) -> Dict[str, Fraction]:
         if lower_ngram_absolute_frequencies is None:
             return {}
         ngram_probabilities = {}
@@ -161,7 +161,7 @@ class _TrainingDataLanguageModel:
 
 @dataclass
 class _TestDataLanguageModel:
-    ngrams: frozenset[str]
+    ngrams: FrozenSet[str]
 
     @classmethod
     def from_text(cls, text: str, ngram_length: int) -> "_TestDataLanguageModel":

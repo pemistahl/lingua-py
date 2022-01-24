@@ -16,6 +16,7 @@
 import pytest
 
 from math import isclose, log
+from typing import Dict
 from unittest.mock import MagicMock
 
 from lingua.detector import LanguageDetector
@@ -28,7 +29,7 @@ from lingua._model import _TestDataLanguageModel
 # ##############################
 
 
-def create_training_model_mock(data: dict[str, float]):
+def create_training_model_mock(data: Dict[str, float]):
     def side_effect(arg: str) -> float:
         return data[arg]
 

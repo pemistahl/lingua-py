@@ -15,24 +15,22 @@
 
 import regex
 from regex import Pattern
-from typing import Final
+from typing import Dict, FrozenSet
 
 from .language import Language
 
-JAPANESE_CHARACTER_SET: Final[Pattern] = regex.compile(
-    r"^[\p{Hiragana}\p{Katakana}\p{Han}]+$"
-)
-LETTER: Final[Pattern] = regex.compile(r"^\p{L}+$")
-MULTIPLE_WHITESPACE: Final[Pattern] = regex.compile(r"\s+")
-NO_LETTER: Final[Pattern] = regex.compile(r"^[^\p{L}]+$")
-NUMBERS: Final[Pattern] = regex.compile(r"\p{N}")
-PUNCTUATION: Final[Pattern] = regex.compile(r"\p{P}")
+JAPANESE_CHARACTER_SET: Pattern = regex.compile(r"^[\p{Hiragana}\p{Katakana}\p{Han}]+$")
+LETTER: Pattern = regex.compile(r"^\p{L}+$")
+MULTIPLE_WHITESPACE: Pattern = regex.compile(r"\s+")
+NO_LETTER: Pattern = regex.compile(r"^[^\p{L}]+$")
+NUMBERS: Pattern = regex.compile(r"\p{N}")
+PUNCTUATION: Pattern = regex.compile(r"\p{P}")
 
-LANGUAGES_SUPPORTING_LOGOGRAMS: Final = frozenset(
+LANGUAGES_SUPPORTING_LOGOGRAMS: FrozenSet[Language] = frozenset(
     [Language.CHINESE, Language.JAPANESE, Language.KOREAN]
 )
 
-CHARS_TO_LANGUAGES_MAPPING: Final = {
+CHARS_TO_LANGUAGES_MAPPING: Dict[str, FrozenSet[Language]] = {
     "Ãã": frozenset([Language.PORTUGUESE, Language.VIETNAMESE]),
     "ĄąĘę": frozenset([Language.LITHUANIAN, Language.POLISH]),
     "Żż": frozenset([Language.POLISH, Language.ROMANIAN]),

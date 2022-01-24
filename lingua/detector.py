@@ -17,7 +17,7 @@ import operator
 
 from collections import Counter
 from dataclasses import dataclass
-from typing import Final, Optional, Tuple, List
+from typing import Counter as TypedCounter, Dict, FrozenSet, Optional, Tuple, List
 
 from ._constant import (
     CHARS_TO_LANGUAGES_MAPPING,
@@ -33,26 +33,26 @@ from .language import Language, _Alphabet
 from ._model import _TrainingDataLanguageModel, _TestDataLanguageModel
 from ._ngram import _range_of_lower_order_ngrams
 
-_UNIGRAM_MODELS: Final[dict[Language, _TrainingDataLanguageModel]] = {}
-_BIGRAM_MODELS: Final[dict[Language, _TrainingDataLanguageModel]] = {}
-_TRIGRAM_MODELS: Final[dict[Language, _TrainingDataLanguageModel]] = {}
-_QUADRIGRAM_MODELS: Final[dict[Language, _TrainingDataLanguageModel]] = {}
-_FIVEGRAM_MODELS: Final[dict[Language, _TrainingDataLanguageModel]] = {}
+_UNIGRAM_MODELS: Dict[Language, _TrainingDataLanguageModel] = {}
+_BIGRAM_MODELS: Dict[Language, _TrainingDataLanguageModel] = {}
+_TRIGRAM_MODELS: Dict[Language, _TrainingDataLanguageModel] = {}
+_QUADRIGRAM_MODELS: Dict[Language, _TrainingDataLanguageModel] = {}
+_FIVEGRAM_MODELS: Dict[Language, _TrainingDataLanguageModel] = {}
 
 
 @dataclass
 class LanguageDetector:
     """This class detects the language of text."""
 
-    _languages: frozenset[Language]
+    _languages: FrozenSet[Language]
     _minimum_relative_distance: float
-    _languages_with_unique_characters: frozenset[Language]
-    _one_language_alphabets: dict[_Alphabet, Language]
-    _unigram_language_models: dict[Language, _TrainingDataLanguageModel]
-    _bigram_language_models: dict[Language, _TrainingDataLanguageModel]
-    _trigram_language_models: dict[Language, _TrainingDataLanguageModel]
-    _quadrigram_language_models: dict[Language, _TrainingDataLanguageModel]
-    _fivegram_language_models: dict[Language, _TrainingDataLanguageModel]
+    _languages_with_unique_characters: FrozenSet[Language]
+    _one_language_alphabets: Dict[_Alphabet, Language]
+    _unigram_language_models: Dict[Language, _TrainingDataLanguageModel]
+    _bigram_language_models: Dict[Language, _TrainingDataLanguageModel]
+    _trigram_language_models: Dict[Language, _TrainingDataLanguageModel]
+    _quadrigram_language_models: Dict[Language, _TrainingDataLanguageModel]
+    _fivegram_language_models: Dict[Language, _TrainingDataLanguageModel]
 
     def __repr__(self):
         languages = sorted([language.name for language in self._languages])
@@ -65,7 +65,7 @@ class LanguageDetector:
     @classmethod
     def _from(
         cls,
-        languages: frozenset[Language],
+        languages: FrozenSet[Language],
         minimum_relative_distance: float,
         is_every_language_model_preloaded: bool,
     ) -> "LanguageDetector":
@@ -258,7 +258,7 @@ class LanguageDetector:
         normalized_whitespace = MULTIPLE_WHITESPACE.sub(" ", without_numbers)
         return normalized_whitespace
 
-    def _split_text_into_words(self, text: str) -> list[str]:
+    def _split_text_into_words(self, text: str) -> List[str]:
         normalized_text_builder = []
         for char in text:
             normalized_text_builder.append(char)
@@ -278,11 +278,11 @@ class LanguageDetector:
                     return True
         return False
 
-    def _detect_language_with_rules(self, words: list[str]) -> Optional[Language]:
-        total_language_counts = Counter[Optional[Language]]()
+    def _detect_language_with_rules(self, words: List[str]) -> Optional[Language]:
+        total_language_counts: TypedCounter[Optional[Language]] = Counter()
         half_word_count = len(words) * 0.5
         for word in words:
-            word_language_counts = Counter[Language]()
+            word_language_counts: TypedCounter[Language] = Counter()
             for char in word:
                 is_match = False
                 for alphabet, language in self._one_language_alphabets.items():
@@ -358,8 +358,8 @@ class LanguageDetector:
 
         return most_frequent_total_language
 
-    def _filter_languages_by_rules(self, words: list[str]) -> frozenset[Language]:
-        detected_alphabets = Counter[_Alphabet]()
+    def _filter_languages_by_rules(self, words: List[str]) -> FrozenSet[Language]:
+        detected_alphabets: TypedCounter[_Alphabet] = Counter()
         half_word_count = len(words) * 0.5
         for word in words:
             for alphabet in _Alphabet:
@@ -380,7 +380,7 @@ class LanguageDetector:
             for language in self._languages
             if most_frequent_alphabet in language._alphabets
         }
-        language_counts = Counter[Language]()
+        language_counts: TypedCounter[Language] = Counter()
 
         for word in words:
             for characters, languages in CHARS_TO_LANGUAGES_MAPPING.items():
@@ -407,8 +407,8 @@ class LanguageDetector:
         return frozenset(filtered_languages)
 
     def _look_up_language_models(
-        self, text: str, ngram_length: int, filtered_languages: frozenset[Language]
-    ) -> dict[Language, float]:
+        self, text: str, ngram_length: int, filtered_languages: FrozenSet[Language]
+    ) -> Dict[Language, float]:
         test_data_model = _TestDataLanguageModel.from_text(text, ngram_length)
         probabilities = self._compute_language_probabilities(
             test_data_model, filtered_languages
@@ -416,8 +416,8 @@ class LanguageDetector:
         return probabilities
 
     def _compute_language_probabilities(
-        self, model: _TestDataLanguageModel, filtered_languages: frozenset[Language]
-    ) -> dict[Language, float]:
+        self, model: _TestDataLanguageModel, filtered_languages: FrozenSet[Language]
+    ) -> Dict[Language, float]:
         probabilities = {}
         for language in filtered_languages:
             result = self._compute_sum_of_ngram_probabilities(language, model.ngrams)
@@ -426,7 +426,7 @@ class LanguageDetector:
         return probabilities
 
     def _compute_sum_of_ngram_probabilities(
-        self, language: Language, ngrams: frozenset[str]
+        self, language: Language, ngrams: FrozenSet[str]
     ) -> float:
         result = 0.0
         for ngram in ngrams:
@@ -465,10 +465,10 @@ class LanguageDetector:
     def _count_unigrams(
         self,
         text: str,
-        filtered_languages: frozenset[Language],
-    ) -> Counter[Language]:
+        filtered_languages: FrozenSet[Language],
+    ) -> TypedCounter[Language]:
         unigram_model = _TestDataLanguageModel.from_text(text, ngram_length=1)
-        unigram_counts = Counter[Language]()
+        unigram_counts: TypedCounter[Language] = Counter()
         for language in filtered_languages:
             for unigram in unigram_model.ngrams:
                 if self._look_up_ngram_probability(language, unigram) < 0:
@@ -477,10 +477,10 @@ class LanguageDetector:
 
     def _sum_up_probabilities(
         self,
-        probabilities: list[dict[Language, float]],
-        unigram_counts: Optional[Counter[Language]],
-        filtered_languages: frozenset[Language],
-    ) -> dict[Language, float]:
+        probabilities: List[Dict[Language, float]],
+        unigram_counts: Optional[TypedCounter[Language]],
+        filtered_languages: FrozenSet[Language],
+    ) -> Dict[Language, float]:
         summed_up_probabilities = {}
         for language in filtered_languages:
             result = 0.0
@@ -497,7 +497,7 @@ class LanguageDetector:
         self,
         language: Language,
         ngram_length: int,
-    ) -> Optional[dict[Language, _TrainingDataLanguageModel]]:
+    ) -> Optional[Dict[Language, _TrainingDataLanguageModel]]:
         json_data = _load_json(language, ngram_length)
         if json_data is None:
             return None

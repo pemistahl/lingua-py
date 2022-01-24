@@ -14,13 +14,12 @@
 # limitations under the License.
 
 import regex
-from typing import Final
 
 from lingua._json import _load_json
 from lingua.language import Language
 
 
-EXPECTED_UNIGRAM_MODEL: Final = """
+EXPECTED_UNIGRAM_MODEL: str = """
 {
     "language":"ENGLISH",
     "ngrams":{

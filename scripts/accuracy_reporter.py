@@ -24,7 +24,7 @@ import time
 from collections import Counter
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Optional, Tuple
+from typing import Counter as TypedCounter, Dict, List, Optional, Tuple
 
 from lingua import IsoCode639_1, Language, LanguageDetectorBuilder
 
@@ -34,7 +34,7 @@ class DetectorStatistics:
     _single_word_statistic: "Statistic"
     _word_pair_statistic: "Statistic"
     _sentence_statistic: "Statistic"
-    _average_accuracies: dict[Language, float]
+    _average_accuracies: Dict[Language, float]
 
     @classmethod
     def new(cls) -> "DetectorStatistics":
@@ -136,8 +136,8 @@ class DetectorStatistics:
 
 @dataclass
 class Statistic:
-    _language_counts: Counter[Optional[Language]]
-    _language_accuracies: dict[Optional[Language], float]
+    _language_counts: TypedCounter[Optional[Language]]
+    _language_accuracies: Dict[Optional[Language], float]
     _entity_count: int
     _entity_length_count: int
 
@@ -446,7 +446,7 @@ def main():
 
 def get_file_content(
     test_data_directory: Path, subdirectory: str, language: Language
-) -> list[str]:
+) -> List[str]:
     test_data_file_name = f"{language.iso_code_639_1.name.lower()}.txt"
     test_data_file_path = test_data_directory / subdirectory / test_data_file_name
     with test_data_file_path.open(mode="r") as test_data_file:

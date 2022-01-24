@@ -17,7 +17,7 @@ import json
 import pytest
 
 from fractions import Fraction
-from typing import Final
+from typing import Dict, FrozenSet
 
 from lingua.language import Language
 from lingua._model import (
@@ -28,12 +28,12 @@ from lingua._model import (
     _LinguaJSONEncoder,
 )
 
-TEXT: Final = """These sentences are intended for testing purposes.
+TEXT: str = """These sentences are intended for testing purposes.
     ⚠ Do not use them in production
     By the way, they consist of 23 words in total."""
 
 
-def map_values_to_fractions(dct: dict[str, str]) -> dict[str, Fraction]:
+def map_values_to_fractions(dct: Dict[str, str]) -> Dict[str, Fraction]:
     ngrams = {}
     for key, value in dct.items():
         numerator, denominator = value.split("/")
@@ -41,7 +41,7 @@ def map_values_to_fractions(dct: dict[str, str]) -> dict[str, Fraction]:
     return ngrams
 
 
-def expected_unigrams() -> frozenset[str]:
+def expected_unigrams() -> FrozenSet[str]:
     return frozenset(
         {
             "a",
@@ -68,7 +68,7 @@ def expected_unigrams() -> frozenset[str]:
     )
 
 
-def expected_unigram_absolute_frequencies() -> dict[str, int]:
+def expected_unigram_absolute_frequencies() -> Dict[str, int]:
     return {
         "a": 3,
         "b": 1,
@@ -93,7 +93,7 @@ def expected_unigram_absolute_frequencies() -> dict[str, int]:
     }
 
 
-def expected_unigram_relative_frequencies() -> dict[str, Fraction]:
+def expected_unigram_relative_frequencies() -> Dict[str, Fraction]:
     return map_values_to_fractions(
         {
             "a": "3/100",
@@ -120,7 +120,7 @@ def expected_unigram_relative_frequencies() -> dict[str, Fraction]:
     )
 
 
-def expected_bigrams() -> frozenset[str]:
+def expected_bigrams() -> FrozenSet[str]:
     return frozenset(
         {
             "de",
@@ -180,14 +180,14 @@ def expected_bigrams() -> frozenset[str]:
     )
 
 
-def expected_unigram_json_relative_frequencies() -> dict[str, float]:
+def expected_unigram_json_relative_frequencies() -> Dict[str, float]:
     return {
         ngram: frac.numerator / frac.denominator
         for ngram, frac in expected_unigram_relative_frequencies().items()
     }
 
 
-def expected_bigram_absolute_frequencies() -> dict[str, int]:
+def expected_bigram_absolute_frequencies() -> Dict[str, int]:
     return {
         "de": 1,
         "pr": 1,
@@ -245,7 +245,7 @@ def expected_bigram_absolute_frequencies() -> dict[str, int]:
     }
 
 
-def expected_bigram_relative_frequencies() -> dict[str, Fraction]:
+def expected_bigram_relative_frequencies() -> Dict[str, Fraction]:
     return map_values_to_fractions(
         {
             "de": "1/5",
@@ -305,7 +305,7 @@ def expected_bigram_relative_frequencies() -> dict[str, Fraction]:
     )
 
 
-def expected_trigrams() -> frozenset[str]:
+def expected_trigrams() -> FrozenSet[str]:
     return frozenset(
         {
             "rds",
@@ -363,7 +363,7 @@ def expected_trigrams() -> frozenset[str]:
     )
 
 
-def expected_trigram_absolute_frequencies() -> dict[str, int]:
+def expected_trigram_absolute_frequencies() -> Dict[str, int]:
     return {
         "rds": 1,
         "ose": 1,
@@ -419,7 +419,7 @@ def expected_trigram_absolute_frequencies() -> dict[str, int]:
     }
 
 
-def expected_trigram_relative_frequencies() -> dict[str, Fraction]:
+def expected_trigram_relative_frequencies() -> Dict[str, Fraction]:
     return map_values_to_fractions(
         {
             "rds": "1/1",
@@ -477,7 +477,7 @@ def expected_trigram_relative_frequencies() -> dict[str, Fraction]:
     )
 
 
-def expected_quadrigrams() -> frozenset[str]:
+def expected_quadrigrams() -> FrozenSet[str]:
     return frozenset(
         {
             "onsi",
@@ -522,7 +522,7 @@ def expected_quadrigrams() -> frozenset[str]:
     )
 
 
-def expected_quadrigram_absolute_frequencies() -> dict[str, int]:
+def expected_quadrigram_absolute_frequencies() -> Dict[str, int]:
     return {
         "onsi": 1,
         "sist": 1,
@@ -565,7 +565,7 @@ def expected_quadrigram_absolute_frequencies() -> dict[str, int]:
     }
 
 
-def expected_quadrigram_relative_frequencies() -> dict[str, Fraction]:
+def expected_quadrigram_relative_frequencies() -> Dict[str, Fraction]:
     return map_values_to_fractions(
         {
             "onsi": "1/1",
@@ -610,7 +610,7 @@ def expected_quadrigram_relative_frequencies() -> dict[str, Fraction]:
     )
 
 
-def expected_fivegrams() -> frozenset[str]:
+def expected_fivegrams() -> FrozenSet[str]:
     return frozenset(
         {
             "testi",
@@ -645,7 +645,7 @@ def expected_fivegrams() -> frozenset[str]:
     )
 
 
-def expected_fivegram_absolute_frequencies() -> dict[str, int]:
+def expected_fivegram_absolute_frequencies() -> Dict[str, int]:
     return {
         "testi": 1,
         "sente": 1,
@@ -678,7 +678,7 @@ def expected_fivegram_absolute_frequencies() -> dict[str, int]:
     }
 
 
-def expected_fivegram_relative_frequencies() -> dict[str, Fraction]:
+def expected_fivegram_relative_frequencies() -> Dict[str, Fraction]:
     return map_values_to_fractions(
         {
             "testi": "1/1",

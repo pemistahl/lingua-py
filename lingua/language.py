@@ -17,7 +17,7 @@ import regex
 
 from enum import Enum, auto
 from functools import total_ordering
-from typing import Optional, Pattern, Final
+from typing import Dict, FrozenSet, List, Optional, Pattern
 
 from .isocode import IsoCode639_1, IsoCode639_3
 
@@ -26,24 +26,24 @@ def _pattern(char_class: str) -> Pattern[str]:
     return regex.compile(r"^\p{{Is{}}}+$".format(char_class))
 
 
-_ARABIC_PATTERN: Final[Pattern] = _pattern("Arabic")
-_ARMENIAN_PATTERN: Final[Pattern] = _pattern("Armenian")
-_BENGALI_PATTERN: Final[Pattern] = _pattern("Bengali")
-_CYRILLIC_PATTERN: Final[Pattern] = _pattern("Cyrillic")
-_DEVANAGARI_PATTERN: Final[Pattern] = _pattern("Devanagari")
-_GEORGIAN_PATTERN: Final[Pattern] = _pattern("Georgian")
-_GREEK_PATTERN: Final[Pattern] = _pattern("Greek")
-_GUJARATI_PATTERN: Final[Pattern] = _pattern("Gujarati")
-_GURMUKHI_PATTERN: Final[Pattern] = _pattern("Gurmukhi")
-_HAN_PATTERN: Final[Pattern] = _pattern("Han")
-_HANGUL_PATTERN: Final[Pattern] = _pattern("Hangul")
-_HEBREW_PATTERN: Final[Pattern] = _pattern("Hebrew")
-_HIRAGANA_PATTERN: Final[Pattern] = _pattern("Hiragana")
-_KATAKANA_PATTERN: Final[Pattern] = _pattern("Katakana")
-_LATIN_PATTERN: Final[Pattern] = _pattern("Latin")
-_TAMIL_PATTERN: Final[Pattern] = _pattern("Tamil")
-_TELUGU_PATTERN: Final[Pattern] = _pattern("Telugu")
-_THAI_PATTERN: Final[Pattern] = _pattern("Thai")
+_ARABIC_PATTERN: Pattern = _pattern("Arabic")
+_ARMENIAN_PATTERN: Pattern = _pattern("Armenian")
+_BENGALI_PATTERN: Pattern = _pattern("Bengali")
+_CYRILLIC_PATTERN: Pattern = _pattern("Cyrillic")
+_DEVANAGARI_PATTERN: Pattern = _pattern("Devanagari")
+_GEORGIAN_PATTERN: Pattern = _pattern("Georgian")
+_GREEK_PATTERN: Pattern = _pattern("Greek")
+_GUJARATI_PATTERN: Pattern = _pattern("Gujarati")
+_GURMUKHI_PATTERN: Pattern = _pattern("Gurmukhi")
+_HAN_PATTERN: Pattern = _pattern("Han")
+_HANGUL_PATTERN: Pattern = _pattern("Hangul")
+_HEBREW_PATTERN: Pattern = _pattern("Hebrew")
+_HIRAGANA_PATTERN: Pattern = _pattern("Hiragana")
+_KATAKANA_PATTERN: Pattern = _pattern("Katakana")
+_LATIN_PATTERN: Pattern = _pattern("Latin")
+_TAMIL_PATTERN: Pattern = _pattern("Tamil")
+_TELUGU_PATTERN: Pattern = _pattern("Telugu")
+_THAI_PATTERN: Pattern = _pattern("Thai")
 
 
 class _Alphabet(Enum):
@@ -106,7 +106,7 @@ class _Alphabet(Enum):
         return False
 
     @classmethod
-    def all_supporting_single_language(cls) -> dict["_Alphabet", "Language"]:
+    def all_supporting_single_language(cls) -> Dict["_Alphabet", "Language"]:
         alphabets = {}
         for alphabet in _Alphabet:
             supported_languages = alphabet._supported_languages()
@@ -114,7 +114,7 @@ class _Alphabet(Enum):
                 alphabets[alphabet] = supported_languages[0]
         return alphabets
 
-    def _supported_languages(self) -> list["Language"]:
+    def _supported_languages(self) -> List["Language"]:
         languages = []
         for language in Language:
             if self in language._alphabets:
@@ -405,7 +405,7 @@ class Language(Enum):
         _: int,
         iso_code639_1: IsoCode639_1,
         iso_code639_3: IsoCode639_3,
-        alphabets: frozenset[_Alphabet],
+        alphabets: FrozenSet[_Alphabet],
         unique_characters: Optional[str] = None,
     ):
         self.iso_code_639_1 = iso_code639_1
@@ -426,26 +426,26 @@ class Language(Enum):
         return str(self)
 
     @classmethod
-    def all(cls) -> frozenset["Language"]:
+    def all(cls) -> FrozenSet["Language"]:
         """Return a set of all supported languages."""
         return frozenset(language for language in Language)
 
     @classmethod
-    def all_spoken_ones(cls) -> frozenset["Language"]:
+    def all_spoken_ones(cls) -> FrozenSet["Language"]:
         """Return a set of all supported spoken languages."""
         return frozenset(
             language for language in Language if language is not Language.LATIN
         )
 
     @classmethod
-    def all_with_arabic_script(cls) -> frozenset["Language"]:
+    def all_with_arabic_script(cls) -> FrozenSet["Language"]:
         """Return a set of all languages supporting the Arabic script."""
         return frozenset(
             language for language in Language if _Alphabet.ARABIC in language._alphabets
         )
 
     @classmethod
-    def all_with_cyrillic_script(cls) -> frozenset["Language"]:
+    def all_with_cyrillic_script(cls) -> FrozenSet["Language"]:
         """Return a set of all languages supporting the Cyrillic script."""
         return frozenset(
             language
@@ -454,7 +454,7 @@ class Language(Enum):
         )
 
     @classmethod
-    def all_with_devanagari_script(cls) -> frozenset["Language"]:
+    def all_with_devanagari_script(cls) -> FrozenSet["Language"]:
         """Return a set of all languages supporting the Devanagari script."""
         return frozenset(
             language
@@ -463,7 +463,7 @@ class Language(Enum):
         )
 
     @classmethod
-    def all_with_latin_script(cls) -> frozenset["Language"]:
+    def all_with_latin_script(cls) -> FrozenSet["Language"]:
         """Return a set of all languages supporting the Latin script."""
         return frozenset(
             language for language in Language if _Alphabet.LATIN in language._alphabets
