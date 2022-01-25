@@ -34,7 +34,7 @@ regex = ">=2021.11,<2023.0"
 mypy = "^0.931"
 pytest = "^6.2"
 black = "^21.12b0"
-coverage = "^6.2"
+coverage = "^6.3"
 langdetect = { version = "^1.0.9", optional = true }
 langid = { version = "^1.1.6", optional = true }
 gcld3 = { version = "^3.0.13", optional = true }
