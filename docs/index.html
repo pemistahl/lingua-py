@@ -38,7 +38,8 @@ ropes of those, a small flexible library comes in handy.</p>
 of comprehensive open source libraries for this task, such as Google's
 <a href="https://github.com/CLD2Owners/cld2"><em>CLD 2</em></a> and
 <a href="https://github.com/google/cld3"><em>CLD 3</em></a>,
-<a href="https://github.com/saffsd/langid.py"><em>langid</em></a> and
+<a href="https://github.com/saffsd/langid.py"><em>langid</em></a>,
+<a href="https://fasttext.cc/docs/en/language-identification.html"><em>fastText</em></a> and
 <a href="https://github.com/Mimino666/langdetect"><em>langdetect</em></a>.
 Unfortunately, except for the last one they have two major drawbacks:</p>
 <ol>
@@ -153,8 +154,8 @@ comprising ten thousand sentences. From each test corpus, a random unsorted
 subset of 1000 single words, 1000 word pairs and 1000 sentences has been
 extracted, respectively.</p>
 <p>Given the generated test data, I have compared the detection results of
-<em>Lingua</em>, <em>langdetect</em>, <em>langid</em>, <em>CLD 2</em> and <em>CLD 3</em> running over the data of
-<em>Lingua's</em> supported 75 languages. Languages that are not supported by the other
+<em>Lingua</em>, <em>fastText</em>, <em>langdetect</em>, <em>langid</em>, <em>CLD 2</em> and <em>CLD 3</em> running over the data
+of <em>Lingua's</em> supported 75 languages. Languages that are not supported by the other
 detectors are simply ignored for them during the detection process.</p>
 <p>The box plots below illustrate the distributions of the accuracy values for
 each classifier. The boxes themselves represent the areas which the middle

@@ -39,16 +39,17 @@ class AccuracyPlotDrawer:
     _plot_titles = ("Single Word", "Word Pair", "Sentence", "Average")
     _plot_title_suffix = "Detection Performance"
     _column_prefixes = ("single-words", "word-pairs", "sentences", "average")
-    _column_suffixes = ("cld2", "cld3", "langid", "langdetect", "lingua")
+    _column_suffixes = ("cld2", "cld3", "langid", "fasttext", "langdetect", "lingua")
     _legend_labels = (
         "CLD 2",
         "CLD 3",
         "langid 1.1.6",
+        "fastText 0.9.2",
         "langdetect 1.0.9",
         "Lingua 1.0.0",
     )
-    _hatches = ("/", "x", "+", ".", "O")
-    _palette = ("#b259ff", "#ff6347", "#ff8800", "#ffc400", "#41c46b")
+    _hatches = ("/", "x", "+", ".", "*", "O")
+    _palette = ("#347deb", "#b259ff", "#ff6347", "#ff8800", "#ffc400", "#41c46b")
     _ticks = np.arange(0, 101, 10)
     _legend_handles = [
         Patch(facecolor=color, edgecolor="black", label=label, hatch=hatch)

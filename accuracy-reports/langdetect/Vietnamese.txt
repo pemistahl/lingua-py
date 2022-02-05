@@ -1,14 +1,14 @@
 ##### Vietnamese #####
 
->>> Accuracy on average: 92.68%
+>>> Accuracy on average: 92.86%
 
 >> Detection of 879 single words (average length: 4 chars)
-Accuracy: 80.43%
-Erroneously classified as Tagalog: 2.05%, Romanian: 1.59%, Hungarian: 1.37%, Portuguese: 1.14%, Slovak: 1.14%, Somali: 1.14%, Catalan: 0.91%, Afrikaans: 0.80%, Czech: 0.80%, English: 0.80%, Estonian: 0.80%, Italian: 0.80%, French: 0.68%, Spanish: 0.68%, Finnish: 0.57%, Lithuanian: 0.57%, Welsh: 0.57%, Polish: 0.46%, Dutch: 0.34%, Indonesian: 0.34%, Latvian: 0.34%, Swedish: 0.34%, Turkish: 0.34%, German: 0.23%, Slovene: 0.23%, Swahili: 0.23%, Croatian: 0.11%, Danish: 0.11%, Unknown: 0.11%
+Accuracy: 80.77%
+Erroneously classified as Tagalog: 2.05%, Romanian: 1.59%, Hungarian: 1.37%, Portuguese: 1.25%, Somali: 1.14%, Slovak: 1.02%, Catalan: 0.91%, Czech: 0.80%, English: 0.80%, Estonian: 0.80%, Italian: 0.80%, Afrikaans: 0.68%, French: 0.68%, Spanish: 0.68%, Lithuanian: 0.57%, Finnish: 0.46%, Polish: 0.46%, Welsh: 0.46%, Dutch: 0.34%, Latvian: 0.34%, Swedish: 0.34%, Turkish: 0.34%, Danish: 0.23%, German: 0.23%, Indonesian: 0.23%, Slovene: 0.23%, Swahili: 0.23%, Croatian: 0.11%, Unknown: 0.11%
 
 >> Detection of 957 word pairs (average length: 12 chars)
-Accuracy: 97.70%
-Erroneously classified as English: 0.52%, Dutch: 0.21%, Swedish: 0.21%, Tagalog: 0.21%, Albanian: 0.10%, French: 0.10%, German: 0.10%, Italian: 0.10%, Polish: 0.10%, Romanian: 0.10%, Somali: 0.10%, Spanish: 0.10%, Turkish: 0.10%, Welsh: 0.10%, Unknown: 0.10%
+Accuracy: 97.91%
+Erroneously classified as English: 0.42%, Dutch: 0.21%, Swedish: 0.21%, Tagalog: 0.21%, Albanian: 0.10%, French: 0.10%, Italian: 0.10%, Polish: 0.10%, Portuguese: 0.10%, Romanian: 0.10%, Somali: 0.10%, Spanish: 0.10%, Turkish: 0.10%, Unknown: 0.10%
 
 >> Detection of 1000 sentences (average length: 120 chars)
 Accuracy: 99.90%

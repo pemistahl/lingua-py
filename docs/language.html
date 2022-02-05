@@ -34,7 +34,7 @@
 <dl>
 <dt id="lingua.language.Language"><code class="flex name class">
 <span>class <span class="ident">Language</span></span>
-<span>(</span><span>_: int, iso_code639_1: <a title="lingua.isocode.IsoCode639_1" href="isocode.html#lingua.isocode.IsoCode639_1">IsoCode639_1</a>, iso_code639_3: <a title="lingua.isocode.IsoCode639_3" href="isocode.html#lingua.isocode.IsoCode639_3">IsoCode639_3</a>, alphabets: frozenset, unique_characters: Optional[str] = None)</span>
+<span>(</span><span>_: int, iso_code639_1: <a title="lingua.isocode.IsoCode639_1" href="isocode.html#lingua.isocode.IsoCode639_1">IsoCode639_1</a>, iso_code639_3: <a title="lingua.isocode.IsoCode639_3" href="isocode.html#lingua.isocode.IsoCode639_3">IsoCode639_3</a>, alphabets: FrozenSet[lingua.language._Alphabet], unique_characters: Optional[str] = None)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>This enum specifies the so far 75 supported languages which can be
@@ -349,37 +349,37 @@ detected by <em>Lingua</em>.</p></div>
 <h3>Static methods</h3>
 <dl>
 <dt id="lingua.language.Language.all"><code class="name flex">
-<span>def <span class="ident">all</span></span>(<span>) ‑> frozenset</span>
+<span>def <span class="ident">all</span></span>(<span>) ‑> FrozenSet[<a title="lingua.language.Language" href="#lingua.language.Language">Language</a>]</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Return a set of all supported languages.</p></div>
 </dd>
 <dt id="lingua.language.Language.all_spoken_ones"><code class="name flex">
-<span>def <span class="ident">all_spoken_ones</span></span>(<span>) ‑> frozenset</span>
+<span>def <span class="ident">all_spoken_ones</span></span>(<span>) ‑> FrozenSet[<a title="lingua.language.Language" href="#lingua.language.Language">Language</a>]</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Return a set of all supported spoken languages.</p></div>
 </dd>
 <dt id="lingua.language.Language.all_with_arabic_script"><code class="name flex">
-<span>def <span class="ident">all_with_arabic_script</span></span>(<span>) ‑> frozenset</span>
+<span>def <span class="ident">all_with_arabic_script</span></span>(<span>) ‑> FrozenSet[<a title="lingua.language.Language" href="#lingua.language.Language">Language</a>]</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Return a set of all languages supporting the Arabic script.</p></div>
 </dd>
 <dt id="lingua.language.Language.all_with_cyrillic_script"><code class="name flex">
-<span>def <span class="ident">all_with_cyrillic_script</span></span>(<span>) ‑> frozenset</span>
+<span>def <span class="ident">all_with_cyrillic_script</span></span>(<span>) ‑> FrozenSet[<a title="lingua.language.Language" href="#lingua.language.Language">Language</a>]</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Return a set of all languages supporting the Cyrillic script.</p></div>
 </dd>
 <dt id="lingua.language.Language.all_with_devanagari_script"><code class="name flex">
-<span>def <span class="ident">all_with_devanagari_script</span></span>(<span>) ‑> frozenset</span>
+<span>def <span class="ident">all_with_devanagari_script</span></span>(<span>) ‑> FrozenSet[<a title="lingua.language.Language" href="#lingua.language.Language">Language</a>]</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Return a set of all languages supporting the Devanagari script.</p></div>
 </dd>
 <dt id="lingua.language.Language.all_with_latin_script"><code class="name flex">
-<span>def <span class="ident">all_with_latin_script</span></span>(<span>) ‑> frozenset</span>
+<span>def <span class="ident">all_with_latin_script</span></span>(<span>) ‑> FrozenSet[<a title="lingua.language.Language" href="#lingua.language.Language">Language</a>]</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Return a set of all languages supporting the Latin script.</p></div>

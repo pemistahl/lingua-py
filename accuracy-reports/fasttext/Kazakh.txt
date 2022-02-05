@@ -1,0 +1,16 @@
+##### Kazakh #####
+
+>>> Accuracy on average: 87.50%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 72.40%
+Erroneously classified as Russian: 9.30%, Unknown: 8.60%, Ukrainian: 4.30%, Macedonian: 1.20%, Bulgarian: 1.00%, Serbian: 0.80%, Italian: 0.70%, Belarusian: 0.60%, Mongolian: 0.60%, Czech: 0.30%, Marathi: 0.10%, Portuguese: 0.10%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 90.30%
+Erroneously classified as Russian: 3.50%, Unknown: 3.30%, Ukrainian: 2.10%, Belarusian: 0.70%, Czech: 0.10%
+
+>> Detection of 1000 sentences (average length: 102 chars)
+Accuracy: 99.80%
+Erroneously classified as Italian: 0.10%, Russian: 0.10%
+

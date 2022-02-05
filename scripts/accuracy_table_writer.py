@@ -23,21 +23,25 @@ class AccuracyTableWriter:
     _columns = (
         "average-lingua",
         "average-langdetect",
+        "average-fasttext",
         "average-langid",
         "average-cld3",
         "average-cld2",
         "single-words-lingua",
         "single-words-langdetect",
+        "single-words-fasttext",
         "single-words-langid",
         "single-words-cld3",
         "single-words-cld2",
         "word-pairs-lingua",
         "word-pairs-langdetect",
+        "word-pairs-fasttext",
         "word-pairs-langid",
         "word-pairs-cld3",
         "word-pairs-cld2",
         "sentences-lingua",
         "sentences-langdetect",
+        "sentences-fasttext",
         "sentences-langid",
         "sentences-cld3",
         "sentences-cld2",
@@ -45,30 +49,34 @@ class AccuracyTableWriter:
     _table = """<table>
     <tr>
         <th>Language</th>
-        <th colspan="5">Average</th>
-        <th colspan="5">Single Words</th>
-        <th colspan="5">Word Pairs</th>
-        <th colspan="5">Sentences</th>
+        <th colspan="6">Average</th>
+        <th colspan="6">Single Words</th>
+        <th colspan="6">Word Pairs</th>
+        <th colspan="6">Sentences</th>
     </tr>
     <tr>
         <th></th>
         <th>Lingua</th>
         <th>Langdetect</th>
+        <th>FastText</th>
         <th>Langid</th>
         <th>&nbsp;&nbsp;CLD3&nbsp;&nbsp;</th>
         <th>&nbsp;&nbsp;CLD2&nbsp;&nbsp;</th>
         <th>Lingua</th>
         <th>Langdetect</th>
+        <th>FastText</th>
         <th>Langid</th>
         <th>&nbsp;&nbsp;CLD3&nbsp;&nbsp;</th>
         <th>&nbsp;&nbsp;CLD2&nbsp;&nbsp;</th>
         <th>Lingua</th>
         <th>Langdetect</th>
+        <th>FastText</th>
         <th>Langid</th>
         <th>&nbsp;&nbsp;CLD3&nbsp;&nbsp;</th>
         <th>&nbsp;&nbsp;CLD2&nbsp;&nbsp;</th>
         <th>Lingua</th>
         <th>Langdetect</th>
+        <th>FastText</th>
         <th>Langid</th>
         <th>&nbsp;&nbsp;CLD3&nbsp;&nbsp;</th>
         <th>&nbsp;&nbsp;CLD2&nbsp;&nbsp;</th>
@@ -102,7 +110,7 @@ class AccuracyTableWriter:
 
             self._table += "\t</tr>\n"
 
-        self._table += '\t<tr>\n\t\t<td colspan="16"></td>\n\t</tr>\n'
+        self._table += '\t<tr>\n\t\t<td colspan="20"></td>\n\t</tr>\n'
         self._table += "\t<tr>\n\t\t<td><strong>Mean</strong></td>\n"
 
         for column in self._columns:
@@ -111,7 +119,7 @@ class AccuracyTableWriter:
             self._table += f'\t\t<td><img src="images/{color}.png"> <strong>{accuracy_value}</strong></td>\n'
 
         self._table += "\t</tr>\n"
-        self._table += '\t<tr>\n\t\t<td colspan="16"></td>\n\t</tr>\n'
+        self._table += '\t<tr>\n\t\t<td colspan="20"></td>\n\t</tr>\n'
         self._table += "\t<tr>\n\t\t<td>Median</td>\n"
 
         for column in self._columns:

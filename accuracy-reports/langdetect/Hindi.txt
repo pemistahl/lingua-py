@@ -1,16 +1,16 @@
 ##### Hindi #####
 
->>> Accuracy on average: 67.47%
+>>> Accuracy on average: 67.40%
 
 >> Detection of 1000 single words (average length: 6 chars)
-Accuracy: 44.00%
-Erroneously classified as Marathi: 29.90%, Unknown: 26.10%
+Accuracy: 44.10%
+Erroneously classified as Marathi: 29.80%, Unknown: 26.10%
 
 >> Detection of 1000 word pairs (average length: 14 chars)
-Accuracy: 59.60%
-Erroneously classified as Marathi: 22.20%, Unknown: 18.20%
+Accuracy: 59.30%
+Erroneously classified as Marathi: 22.50%, Unknown: 18.20%
 
 >> Detection of 1000 sentences (average length: 81 chars)
 Accuracy: 98.80%
-Erroneously classified as Marathi: 0.50%, Unknown: 0.40%, English: 0.30%
+Erroneously classified as Marathi: 0.60%, English: 0.30%, Unknown: 0.30%
 

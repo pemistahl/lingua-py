@@ -34,7 +34,8 @@ Python is widely used in natural language processing, so there are a couple
 of comprehensive open source libraries for this task, such as Google's
 [*CLD 2*](https://github.com/CLD2Owners/cld2) and
 [*CLD 3*](https://github.com/google/cld3),
-[*langid*](https://github.com/saffsd/langid.py) and
+[*langid*](https://github.com/saffsd/langid.py),
+[*fastText*](https://fasttext.cc/docs/en/language-identification.html) and
 [*langdetect*](https://github.com/Mimino666/langdetect).
 Unfortunately, except for the last one they have two major drawbacks:
 
@@ -153,8 +154,8 @@ subset of 1000 single words, 1000 word pairs and 1000 sentences has been
 extracted, respectively.
 
 Given the generated test data, I have compared the detection results of
-*Lingua*, *langdetect*, *langid*, *CLD 2* and *CLD 3* running over the data of
-*Lingua's* supported 75 languages. Languages that are not supported by the other
+*Lingua*, *fastText*, *langdetect*, *langid*, *CLD 2* and *CLD 3* running over the data
+of *Lingua's* supported 75 languages. Languages that are not supported by the other
 detectors are simply ignored for them during the detection process.
 
 The box plots below illustrate the distributions of the accuracy values for

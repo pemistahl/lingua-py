@@ -1,0 +1,16 @@
+##### Turkish #####
+
+>>> Accuracy on average: 85.87%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 69.80%
+Erroneously classified as English: 6.90%, Unknown: 3.10%, Czech: 2.60%, Icelandic: 1.80%, Italian: 1.50%, Azerbaijani: 1.30%, German: 1.30%, Spanish: 1.00%, Dutch: 0.80%, Esperanto: 0.80%, French: 0.80%, Indonesian: 0.80%, Portuguese: 0.80%, Bosnian: 0.60%, Estonian: 0.60%, Polish: 0.60%, Swedish: 0.60%, Croatian: 0.50%, Hungarian: 0.50%, Slovak: 0.50%, Finnish: 0.40%, Romanian: 0.40%, Malay: 0.30%, Tagalog: 0.30%, Catalan: 0.20%, Danish: 0.20%, Latin: 0.20%, Afrikaans: 0.10%, Albanian: 0.10%, Basque: 0.10%, Lithuanian: 0.10%, Serbian: 0.10%, Swahili: 0.10%, Urdu: 0.10%, Welsh: 0.10%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 88.10%
+Erroneously classified as English: 2.00%, Czech: 1.70%, Unknown: 1.30%, Icelandic: 1.20%, Slovak: 0.70%, Estonian: 0.60%, Esperanto: 0.50%, Azerbaijani: 0.40%, Croatian: 0.40%, Indonesian: 0.40%, Italian: 0.30%, Malay: 0.30%, Tagalog: 0.30%, Bosnian: 0.20%, Dutch: 0.20%, French: 0.20%, Latin: 0.20%, Polish: 0.20%, Swedish: 0.20%, Albanian: 0.10%, Catalan: 0.10%, Finnish: 0.10%, German: 0.10%, Hungarian: 0.10%, Spanish: 0.10%
+
+>> Detection of 1000 sentences (average length: 119 chars)
+Accuracy: 99.70%
+Erroneously classified as Azerbaijani: 0.10%, Estonian: 0.10%, Indonesian: 0.10%
+

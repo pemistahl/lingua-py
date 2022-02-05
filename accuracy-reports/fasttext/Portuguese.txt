@@ -1,0 +1,16 @@
+##### Portuguese #####
+
+>>> Accuracy on average: 72.60%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 47.40%
+Erroneously classified as Spanish: 19.10%, English: 10.30%, Italian: 8.70%, Unknown: 3.40%, French: 2.10%, Catalan: 1.80%, Esperanto: 1.50%, German: 0.80%, Swedish: 0.70%, Romanian: 0.60%, Hungarian: 0.50%, Latin: 0.40%, Lithuanian: 0.40%, Indonesian: 0.30%, Vietnamese: 0.30%, Czech: 0.20%, Danish: 0.20%, Polish: 0.20%, Russian: 0.20%, Basque: 0.10%, Bosnian: 0.10%, Chinese: 0.10%, Croatian: 0.10%, Japanese: 0.10%, Korean: 0.10%, Malay: 0.10%, Slovak: 0.10%, Turkish: 0.10%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 71.00%
+Erroneously classified as Spanish: 13.50%, English: 5.40%, Italian: 4.70%, Unknown: 2.30%, Catalan: 1.10%, French: 0.70%, German: 0.30%, Dutch: 0.20%, Esperanto: 0.20%, Vietnamese: 0.20%, Latin: 0.10%, Polish: 0.10%, Serbian: 0.10%, Turkish: 0.10%
+
+>> Detection of 1000 sentences (average length: 127 chars)
+Accuracy: 99.40%
+Erroneously classified as Spanish: 0.40%, French: 0.10%, Hungarian: 0.10%
+

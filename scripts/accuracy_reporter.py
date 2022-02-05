@@ -14,12 +14,14 @@
 # limitations under the License.
 
 import csv
+import fasttext
 import gcld3
 import langdetect
 import langid
 import os
 import pycld2
 import time
+import urllib.request
 
 from collections import Counter
 from dataclasses import dataclass
@@ -204,12 +206,24 @@ def main():
         .with_preloaded_language_models()
         .build()
     )
+
+    fasttext_model_url = (
+        "https://dl.fbaipublicfiles.com/fasttext/supervised-models/lid.176.bin"
+    )
+    fasttext_model_file = str(Path(__file__).parent / "fasttext_model.bin")
+    if not os.path.isfile(fasttext_model_file):
+        fasttext_model_file = urllib.request.urlretrieve(
+            fasttext_model_url, fasttext_model_file
+        )[0]
+    fasttext_detector = fasttext.load_model(fasttext_model_file)
+
     cld3_detector = gcld3.NNetLanguageIdentifier(min_num_bytes=0, max_num_bytes=512)
 
     test_data_directory = Path(__file__).parent / "../language-testdata"
     accuracy_reports_directory = Path(__file__).parent / "../accuracy-reports"
     lingua_reports_directory = accuracy_reports_directory / "lingua"
     langdetect_reports_directory = accuracy_reports_directory / "langdetect"
+    fasttext_reports_directory = accuracy_reports_directory / "fasttext"
     langid_reports_directory = accuracy_reports_directory / "langid"
     cld3_reports_directory = accuracy_reports_directory / "cld3"
     cld2_reports_directory = accuracy_reports_directory / "cld2"
@@ -219,6 +233,9 @@ def main():
 
     if not langdetect_reports_directory.is_dir():
         os.makedirs(langdetect_reports_directory)
+
+    if not fasttext_reports_directory.is_dir():
+        os.makedirs(fasttext_reports_directory)
 
     if not langid_reports_directory.is_dir():
         os.makedirs(langid_reports_directory)
@@ -250,6 +267,10 @@ def main():
                 "single-words-langid",
                 "word-pairs-langid",
                 "sentences-langid",
+                "average-fasttext",
+                "single-words-fasttext",
+                "word-pairs-fasttext",
+                "sentences-fasttext",
                 "average-langdetect",
                 "single-words-langdetect",
                 "word-pairs-langdetect",
@@ -276,6 +297,7 @@ def main():
 
             lingua_statistics = DetectorStatistics.new()
             langdetect_statistics = DetectorStatistics.new()
+            fasttext_statistics = DetectorStatistics.new()
             langid_statistics = DetectorStatistics.new()
             cld3_statistics = DetectorStatistics.new()
             cld2_statistics = DetectorStatistics.new()
@@ -292,6 +314,13 @@ def main():
                     langdetect_language = None
                 langdetect_statistics.add_single_word_counts(
                     langdetect_language, single_word
+                )
+
+                fasttext_language = map_detector_to_lingua(
+                    fasttext_detector.predict(single_word)[0][0].split("__label__")[1]
+                )
+                fasttext_statistics.add_single_word_counts(
+                    fasttext_language, single_word
                 )
 
                 langid_language = map_detector_to_lingua(
@@ -326,6 +355,11 @@ def main():
                     langdetect_language, word_pair
                 )
 
+                fasttext_language = map_detector_to_lingua(
+                    fasttext_detector.predict(word_pair)[0][0].split("__label__")[1]
+                )
+                fasttext_statistics.add_word_pair_counts(fasttext_language, word_pair)
+
                 langid_language = map_detector_to_lingua(langid.classify(word_pair)[0])
                 langid_statistics.add_word_pair_counts(langid_language, word_pair)
 
@@ -354,6 +388,11 @@ def main():
                     langdetect_language = None
                 langdetect_statistics.add_sentence_counts(langdetect_language, sentence)
 
+                fasttext_language = map_detector_to_lingua(
+                    fasttext_detector.predict(sentence)[0][0].split("__label__")[1]
+                )
+                fasttext_statistics.add_sentence_counts(fasttext_language, sentence)
+
                 langid_language = map_detector_to_lingua(langid.classify(sentence)[0])
                 langid_statistics.add_sentence_counts(langid_language, sentence)
 
@@ -372,12 +411,14 @@ def main():
 
             lingua_statistics.compute_accuracy_values()
             langdetect_statistics.compute_accuracy_values()
+            fasttext_statistics.compute_accuracy_values()
             langid_statistics.compute_accuracy_values()
             cld3_statistics.compute_accuracy_values()
             cld2_statistics.compute_accuracy_values()
 
             lingua_report = lingua_statistics.create_report_data(language)
             langdetect_report = langdetect_statistics.create_report_data(language)
+            fasttext_report = fasttext_statistics.create_report_data(language)
             langid_report = langid_statistics.create_report_data(language)
             cld3_report = cld3_statistics.create_report_data(language)
             cld2_report = cld2_statistics.create_report_data(language)
@@ -387,6 +428,9 @@ def main():
             )
             langdetect_aggregated_report_row = (
                 langdetect_statistics.create_aggregated_report_row(language)
+            )
+            fasttext_aggregated_report_row = (
+                fasttext_statistics.create_aggregated_report_row(language)
             )
             langid_aggregated_report_row = (
                 langid_statistics.create_aggregated_report_row(language)
@@ -402,6 +446,7 @@ def main():
                 f"{cld2_aggregated_report_row},"
                 f"{cld3_aggregated_report_row},"
                 f"{langid_aggregated_report_row},"
+                f"{fasttext_aggregated_report_row},"
                 f"{langdetect_aggregated_report_row},"
                 f"{lingua_aggregated_report_row}"
             )
@@ -412,6 +457,7 @@ def main():
             langdetect_reports_file_path = (
                 langdetect_reports_directory / report_file_name
             )
+            fasttext_reports_file_path = fasttext_reports_directory / report_file_name
             langid_reports_file_path = langid_reports_directory / report_file_name
             cld3_reports_file_path = cld3_reports_directory / report_file_name
             cld2_reports_file_path = cld2_reports_directory / report_file_name
@@ -425,6 +471,10 @@ def main():
                     mode="w"
                 ) as langdetect_reports_file:
                     langdetect_reports_file.write(langdetect_report)
+
+            if fasttext_report is not None:
+                with fasttext_reports_file_path.open(mode="w") as fasttext_reports_file:
+                    fasttext_reports_file.write(fasttext_report)
 
             if langid_report is not None:
                 with langid_reports_file_path.open(mode="w") as langid_reports_file:
