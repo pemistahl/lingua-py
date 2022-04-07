@@ -387,7 +387,8 @@ class LanguageDetector:
                 for character in characters:
                     if character in word:
                         for language in languages:
-                            language_counts[language] += 1
+                            if language in filtered_languages:
+                                language_counts[language] += 1
 
         languages_subset = {
             language
@@ -396,13 +397,7 @@ class LanguageDetector:
         }
 
         if len(languages_subset) > 0:
-            return frozenset(
-                {
-                    language
-                    for language in filtered_languages
-                    if language in languages_subset
-                }
-            )
+            return frozenset(languages_subset)
 
         return frozenset(filtered_languages)
 
