@@ -41,7 +41,7 @@ pdoc3 = { version = "^0.10.0", optional = true }
 
 [tool.poetry.dev-dependencies]
 mypy = "^0.942"
-pytest = "^7.0"
+pytest = "^7.1"
 black = "^22.1"
 coverage = "^6.3"
 
