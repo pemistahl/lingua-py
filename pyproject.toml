@@ -43,7 +43,7 @@ pdoc3 = { version = "^0.10.0", optional = true }
 mypy = "^0.960"
 pytest = "^7.1"
 black = "^22.3"
-coverage = "^6.3"
+coverage = "^6.4"
 
 [tool.poetry.extras]
 fasttext = ["fasttext"]
