@@ -42,7 +42,7 @@ pdoc3 = { version = "^0.10.0", optional = true }
 [tool.poetry.dev-dependencies]
 mypy = "^0.960"
 pytest = "^7.1"
-black = "^22.1"
+black = "^22.3"
 coverage = "^6.3"
 
 [tool.poetry.extras]
