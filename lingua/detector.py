@@ -382,13 +382,14 @@ class LanguageDetector:
         }
         language_counts: TypedCounter[Language] = Counter()
 
-        for word in words:
-            for characters, languages in CHARS_TO_LANGUAGES_MAPPING.items():
+        for characters, languages in CHARS_TO_LANGUAGES_MAPPING.items():
+            relevant_languages = languages.intersection(filtered_languages)
+
+            for word in words:
                 for character in characters:
                     if character in word:
-                        for language in languages:
-                            if language in filtered_languages:
-                                language_counts[language] += 1
+                        for language in relevant_languages:
+                            language_counts[language] += 1
 
         languages_subset = {
             language
