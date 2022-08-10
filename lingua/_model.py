@@ -56,7 +56,6 @@ class _TrainingDataLanguageModel:
     language: Language
     absolute_frequencies: Optional[Dict[str, int]]
     relative_frequencies: Optional[Dict[str, Fraction]]
-    json_relative_frequencies: Optional[Dict[str, float]]
 
     @classmethod
     def from_text(
@@ -77,11 +76,10 @@ class _TrainingDataLanguageModel:
             language=language,
             absolute_frequencies=absolute_frequencies,
             relative_frequencies=relative_frequencies,
-            json_relative_frequencies=None,
         )
 
     @classmethod
-    def from_json(cls, serialized_json: str) -> "_TrainingDataLanguageModel":
+    def from_json(cls, serialized_json: str) -> Dict[str, float]:
         json_language_model: _JSONLanguageModel = json.loads(
             serialized_json, cls=_LinguaJSONDecoder
         )
@@ -93,12 +91,7 @@ class _TrainingDataLanguageModel:
             for ngram in ngrams.split(" "):
                 json_relative_frequencies[ngram] = frequency
 
-        return _TrainingDataLanguageModel(
-            language=json_language_model.language,
-            absolute_frequencies=None,
-            relative_frequencies=None,
-            json_relative_frequencies=json_relative_frequencies,
-        )
+        return json_relative_frequencies
 
     def to_json(self) -> str:
         fractions_to_ngrams = defaultdict(list)
@@ -115,14 +108,6 @@ class _TrainingDataLanguageModel:
 
         model = _JSONLanguageModel(self.language, fractions_to_joined_ngrams)
         return regex.sub(r"([:,])\s*", r"\1", json.dumps(model, cls=_LinguaJSONEncoder))
-
-    def get_relative_frequency(self, ngram: str) -> float:
-        if (
-            self.json_relative_frequencies is None
-            or ngram not in self.json_relative_frequencies
-        ):
-            return 0.0
-        return self.json_relative_frequencies[ngram]
 
     @classmethod
     def compute_absolute_frequencies(

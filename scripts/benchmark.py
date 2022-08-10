@@ -78,28 +78,22 @@ def report_memory_usage_of_language_models():
 
     for language in Language:
         if language in detector._unigram_language_models:
-            unigrams_size += sys.getsizeof(
-                detector._unigram_language_models[language].json_relative_frequencies
-            )
+            unigrams_size += sys.getsizeof(detector._unigram_language_models[language])
 
         if language in detector._bigram_language_models:
-            bigrams_size += sys.getsizeof(
-                detector._bigram_language_models[language].json_relative_frequencies
-            )
+            bigrams_size += sys.getsizeof(detector._bigram_language_models[language])
 
         if language in detector._trigram_language_models:
-            trigrams_size += sys.getsizeof(
-                detector._trigram_language_models[language].json_relative_frequencies
-            )
+            trigrams_size += sys.getsizeof(detector._trigram_language_models[language])
 
         if language in detector._quadrigram_language_models:
             quadrigrams_size += sys.getsizeof(
-                detector._quadrigram_language_models[language].json_relative_frequencies
+                detector._quadrigram_language_models[language]
             )
 
         if language in detector._fivegram_language_models:
             fivegrams_size += sys.getsizeof(
-                detector._fivegram_language_models[language].json_relative_frequencies
+                detector._fivegram_language_models[language]
             )
 
     total_size = (

@@ -33,11 +33,11 @@ from .language import Language, _Alphabet
 from ._model import _TrainingDataLanguageModel, _TestDataLanguageModel
 from ._ngram import _range_of_lower_order_ngrams
 
-_UNIGRAM_MODELS: Dict[Language, _TrainingDataLanguageModel] = {}
-_BIGRAM_MODELS: Dict[Language, _TrainingDataLanguageModel] = {}
-_TRIGRAM_MODELS: Dict[Language, _TrainingDataLanguageModel] = {}
-_QUADRIGRAM_MODELS: Dict[Language, _TrainingDataLanguageModel] = {}
-_FIVEGRAM_MODELS: Dict[Language, _TrainingDataLanguageModel] = {}
+_UNIGRAM_MODELS: Dict[Language, Dict[str, float]] = {}
+_BIGRAM_MODELS: Dict[Language, Dict[str, float]] = {}
+_TRIGRAM_MODELS: Dict[Language, Dict[str, float]] = {}
+_QUADRIGRAM_MODELS: Dict[Language, Dict[str, float]] = {}
+_FIVEGRAM_MODELS: Dict[Language, Dict[str, float]] = {}
 
 
 @dataclass
@@ -48,11 +48,11 @@ class LanguageDetector:
     _minimum_relative_distance: float
     _languages_with_unique_characters: FrozenSet[Language]
     _one_language_alphabets: Dict[_Alphabet, Language]
-    _unigram_language_models: Dict[Language, _TrainingDataLanguageModel]
-    _bigram_language_models: Dict[Language, _TrainingDataLanguageModel]
-    _trigram_language_models: Dict[Language, _TrainingDataLanguageModel]
-    _quadrigram_language_models: Dict[Language, _TrainingDataLanguageModel]
-    _fivegram_language_models: Dict[Language, _TrainingDataLanguageModel]
+    _unigram_language_models: Dict[Language, Dict[str, float]]
+    _bigram_language_models: Dict[Language, Dict[str, float]]
+    _trigram_language_models: Dict[Language, Dict[str, float]]
+    _quadrigram_language_models: Dict[Language, Dict[str, float]]
+    _fivegram_language_models: Dict[Language, Dict[str, float]]
 
     def __repr__(self):
         languages = sorted([language.name for language in self._languages])
@@ -456,7 +456,7 @@ class LanguageDetector:
                 return 0
             language_models.update(models)
 
-        return language_models[language].get_relative_frequency(ngram)
+        return language_models[language].get(ngram, 0.0)
 
     def _count_unigrams(
         self,
@@ -493,7 +493,7 @@ class LanguageDetector:
         self,
         language: Language,
         ngram_length: int,
-    ) -> Optional[Dict[Language, _TrainingDataLanguageModel]]:
+    ) -> Optional[Dict[Language, Dict[str, float]]]:
         json_data = _load_json(language, ngram_length)
         if json_data is None:
             return None

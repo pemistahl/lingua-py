@@ -16,26 +16,10 @@
 import pytest
 
 from math import isclose, log
-from typing import Dict
-from unittest.mock import MagicMock
 
 from lingua.detector import LanguageDetector
 from lingua.language import Language, _Alphabet
 from lingua._model import _TestDataLanguageModel
-
-
-# ##############################
-# MOCKS
-# ##############################
-
-
-def create_training_model_mock(data: Dict[str, float]):
-    def side_effect(arg: str) -> float:
-        return data[arg]
-
-    mock = MagicMock()
-    mock.get_relative_frequency.side_effect = side_effect
-    return mock
 
 
 # ##############################
@@ -45,71 +29,61 @@ def create_training_model_mock(data: Dict[str, float]):
 
 @pytest.fixture
 def unigram_model_for_english():
-    return create_training_model_mock(
-        {
-            "a": log(0.01),
-            "l": log(0.02),
-            "t": log(0.03),
-            "e": log(0.04),
-            "r": log(0.05),
-            # unknown unigrams
-            "w": 0.0,
-        }
-    )
+    return {
+        "a": log(0.01),
+        "l": log(0.02),
+        "t": log(0.03),
+        "e": log(0.04),
+        "r": log(0.05),
+        # unknown unigrams
+        "w": 0.0,
+    }
 
 
 @pytest.fixture
 def bigram_model_for_english():
-    return create_training_model_mock(
-        {
-            "al": log(0.11),
-            "lt": log(0.12),
-            "te": log(0.13),
-            "er": log(0.14),
-            # unknown bigrams
-            "aq": 0.0,
-            "wx": 0.0,
-        }
-    )
+    return {
+        "al": log(0.11),
+        "lt": log(0.12),
+        "te": log(0.13),
+        "er": log(0.14),
+        # unknown bigrams
+        "aq": 0.0,
+        "wx": 0.0,
+    }
 
 
 @pytest.fixture
 def trigram_model_for_english():
-    return create_training_model_mock(
-        {
-            "alt": log(0.19),
-            "lte": log(0.2),
-            "ter": log(0.21),
-            # unknown trigrams
-            "aqu": 0.0,
-            "tez": 0.0,
-            "wxy": 0.0,
-        }
-    )
+    return {
+        "alt": log(0.19),
+        "lte": log(0.2),
+        "ter": log(0.21),
+        # unknown trigrams
+        "aqu": 0.0,
+        "tez": 0.0,
+        "wxy": 0.0,
+    }
 
 
 @pytest.fixture
 def quadrigram_model_for_english():
-    return create_training_model_mock(
-        {
-            "alte": log(0.25),
-            "lter": log(0.26),
-            # unknown quadrigrams
-            "aqua": 0.0,
-            "wxyz": 0.0,
-        }
-    )
+    return {
+        "alte": log(0.25),
+        "lter": log(0.26),
+        # unknown quadrigrams
+        "aqua": 0.0,
+        "wxyz": 0.0,
+    }
 
 
 @pytest.fixture
 def fivegram_model_for_english():
-    return create_training_model_mock(
-        {
-            "alter": log(0.29),
-            # unknown fivegrams
-            "aquas": 0.0,
-        }
-    )
+    return {
+        "alter": log(0.29),
+        # unknown fivegrams
+        "aquas": 0.0,
+    }
 
 
 # ##############################
@@ -119,61 +93,53 @@ def fivegram_model_for_english():
 
 @pytest.fixture
 def unigram_model_for_german():
-    return create_training_model_mock(
-        {
-            "a": log(0.06),
-            "l": log(0.07),
-            "t": log(0.08),
-            "e": log(0.09),
-            "r": log(0.1),
-            # unknown unigrams
-            "w": 0.0,
-        }
-    )
+    return {
+        "a": log(0.06),
+        "l": log(0.07),
+        "t": log(0.08),
+        "e": log(0.09),
+        "r": log(0.1),
+        # unknown unigrams
+        "w": 0.0,
+    }
 
 
 @pytest.fixture
 def bigram_model_for_german():
-    return create_training_model_mock(
-        {
-            "al": log(0.15),
-            "lt": log(0.16),
-            "te": log(0.17),
-            "er": log(0.18),
-            # unknown bigrams
-            "wx": 0.0,
-        }
-    )
+    return {
+        "al": log(0.15),
+        "lt": log(0.16),
+        "te": log(0.17),
+        "er": log(0.18),
+        # unknown bigrams
+        "wx": 0.0,
+    }
 
 
 @pytest.fixture
 def trigram_model_for_german():
-    return create_training_model_mock(
-        {
-            "alt": log(0.22),
-            "lte": log(0.23),
-            "ter": log(0.24),
-            # unknown trigrams
-            "wxy": 0.0,
-        }
-    )
+    return {
+        "alt": log(0.22),
+        "lte": log(0.23),
+        "ter": log(0.24),
+        # unknown trigrams
+        "wxy": 0.0,
+    }
 
 
 @pytest.fixture
 def quadrigram_model_for_german():
-    return create_training_model_mock(
-        {
-            "alte": log(0.27),
-            "lter": log(0.28),
-            # unknown quadrigrams
-            "wxyz": 0.0,
-        }
-    )
+    return {
+        "alte": log(0.27),
+        "lter": log(0.28),
+        # unknown quadrigrams
+        "wxyz": 0.0,
+    }
 
 
 @pytest.fixture
 def fivegram_model_for_german():
-    return create_training_model_mock({"alter": log(0.3)})
+    return {"alter": log(0.3)}
 
 
 # ##############################
