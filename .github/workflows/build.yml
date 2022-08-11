@@ -36,7 +36,7 @@ on:
       - 'tests/**'
 
 env:
-  PYTHON_VERSION: 3.7
+  PYTHON_VERSION: 3.8
 
 jobs:
   build-and-test:
