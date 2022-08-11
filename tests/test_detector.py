@@ -256,6 +256,7 @@ def detector_for_english_and_german(
     return LanguageDetector(
         _languages=frozenset([Language.ENGLISH, Language.GERMAN]),
         _minimum_relative_distance=0.0,
+        _is_low_accuracy_mode_enabled=False,
         _languages_with_unique_characters=frozenset(),
         _one_language_alphabets={},
         _unigram_language_models=unigram_models,
@@ -282,6 +283,7 @@ def detector_for_all_languages():
     return LanguageDetector(
         _languages=languages,
         _minimum_relative_distance=0.0,
+        _is_low_accuracy_mode_enabled=False,
         _languages_with_unique_characters=languages_with_unique_characters,
         _one_language_alphabets=one_language_alphabets,
         _unigram_language_models={},

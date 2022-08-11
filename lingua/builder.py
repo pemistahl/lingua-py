@@ -31,6 +31,7 @@ class LanguageDetectorBuilder:
         self._languages = languages
         self._minimum_relative_distance = 0.0
         self._is_every_language_model_preloaded = False
+        self._is_low_accuracy_mode_enabled = False
 
     def __repr__(self):
         languages = sorted([language.name for language in self._languages])
@@ -38,7 +39,8 @@ class LanguageDetectorBuilder:
             "LanguageDetectorBuilder("
             f"_languages={languages}, "
             f"_minimum_relative_distance={self._minimum_relative_distance}, "
-            f"_is_every_language_model_preloaded={self._is_every_language_model_preloaded})"
+            f"_is_every_language_model_preloaded={self._is_every_language_model_preloaded}), "
+            f"_is_low_accuracy_mode_enabled={self._is_low_accuracy_mode_enabled}"
         )
 
     @classmethod
@@ -188,12 +190,31 @@ class LanguageDetectorBuilder:
         self._is_every_language_model_preloaded = True
         return self
 
+    def with_low_accuracy_mode(self) -> "LanguageDetectorBuilder":
+        """Disables the high accuracy mode in order to save memory
+        and increase performance.
+
+        By default, Lingua's high detection accuracy comes at the cost
+        of loading large language models into memory which might not be
+        feasible for systems running low on resources.
+
+        This method disables the high accuracy mode so that only a small
+        subset of language models is loaded into memory. The downside of
+        this approach is that detection accuracy for short texts consisting
+        of less than 120 characters will drop significantly. However,
+        detection accuracy for texts which are longer than 120 characters
+        will remain mostly unaffected.
+        """
+        self._is_low_accuracy_mode_enabled = True
+        return self
+
     def build(self) -> LanguageDetector:
         """Create and return the configured LanguageDetector instance."""
         return LanguageDetector._from(
             self._languages,
             self._minimum_relative_distance,
             self._is_every_language_model_preloaded,
+            self._is_low_accuracy_mode_enabled,
         )
 
     @classmethod

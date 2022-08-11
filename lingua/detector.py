@@ -40,6 +40,7 @@ _TRIGRAM_MODELS: Dict[Language, np.ndarray] = {}
 _QUADRIGRAM_MODELS: Dict[Language, np.ndarray] = {}
 _FIVEGRAM_MODELS: Dict[Language, np.ndarray] = {}
 _CACHE: Dict[Language, Dict[str, np.float16]] = {}
+_HIGH_ACCURACY_MODE_MAX_TEXT_LENGTH = 120
 
 
 @dataclass
@@ -48,6 +49,7 @@ class LanguageDetector:
 
     _languages: FrozenSet[Language]
     _minimum_relative_distance: float
+    _is_low_accuracy_mode_enabled: bool
     _languages_with_unique_characters: FrozenSet[Language]
     _one_language_alphabets: Dict[_Alphabet, Language]
     _unigram_language_models: Dict[Language, np.ndarray]
@@ -71,6 +73,7 @@ class LanguageDetector:
         languages: FrozenSet[Language],
         minimum_relative_distance: float,
         is_every_language_model_preloaded: bool,
+        is_low_accuracy_mode_enabled: bool,
     ) -> "LanguageDetector":
         languages_with_unique_characters = frozenset(
             {
@@ -87,6 +90,7 @@ class LanguageDetector:
         detector = LanguageDetector(
             languages,
             minimum_relative_distance,
+            is_low_accuracy_mode_enabled,
             languages_with_unique_characters,
             one_language_alphabets,
             _UNIGRAM_MODELS,
@@ -103,39 +107,38 @@ class LanguageDetector:
         return detector
 
     def _preload_language_models(self):
-        (
-            unigram_models,
-            bigram_models,
-            trigram_models,
-            quadrigram_models,
-            fivegram_models,
-        ) = [
-            [
-                self._load_language_models(language, ngram_length)
-                for language in self._languages
-            ]
-            for ngram_length in range(1, 6)
+        trigram_models = [
+            self._load_language_models(language, 3) for language in self._languages
         ]
-
-        for unigram_model in unigram_models:
-            if unigram_model is not None:
-                self._unigram_language_models.update(unigram_model)
-
-        for bigram_model in bigram_models:
-            if bigram_model is not None:
-                self._bigram_language_models.update(bigram_model)
 
         for trigram_model in trigram_models:
             if trigram_model is not None:
                 self._trigram_language_models.update(trigram_model)
 
-        for quadrigram_model in quadrigram_models:
-            if quadrigram_model is not None:
-                self._quadrigram_language_models.update(quadrigram_model)
+        if not self._is_low_accuracy_mode_enabled:
+            (unigram_models, bigram_models, quadrigram_models, fivegram_models,) = [
+                [
+                    self._load_language_models(language, ngram_length)
+                    for language in self._languages
+                ]
+                for ngram_length in (1, 2, 4, 5)
+            ]
 
-        for fivegram_model in fivegram_models:
-            if fivegram_model is not None:
-                self._fivegram_language_models.update(fivegram_model)
+            for unigram_model in unigram_models:
+                if unigram_model is not None:
+                    self._unigram_language_models.update(unigram_model)
+
+            for bigram_model in bigram_models:
+                if bigram_model is not None:
+                    self._bigram_language_models.update(bigram_model)
+
+            for quadrigram_model in quadrigram_models:
+                if quadrigram_model is not None:
+                    self._quadrigram_language_models.update(quadrigram_model)
+
+            for fivegram_model in fivegram_models:
+                if fivegram_model is not None:
+                    self._fivegram_language_models.update(fivegram_model)
 
     def detect_language_of(self, text: str) -> Optional[Language]:
         """Detect the language of text.
@@ -220,8 +223,16 @@ class LanguageDetector:
             filtered_language = next(iter(filtered_languages))
             return [(filtered_language, 1.0)]
 
+        if self._is_low_accuracy_mode_enabled and len(cleaned_up_text) < 3:
+            return []
+
         character_count = len(cleaned_up_text)
-        ngram_length_range = range(3, 4) if character_count >= 120 else range(1, 6)
+        ngram_length_range = (
+            range(3, 4)
+            if character_count >= _HIGH_ACCURACY_MODE_MAX_TEXT_LENGTH
+            or self._is_low_accuracy_mode_enabled
+            else range(1, 6)
+        )
         unigram_counts = None
         all_probabilities = []
 

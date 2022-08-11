@@ -130,3 +130,10 @@ def test_cannot_build_with_minimum_relative_distance():
             exception_info.value.args[0]
             == "Minimum relative distance must lie in between 0.0 and 0.99"
         )
+
+
+def test_build_with_low_accuracy_mode():
+    builder = LanguageDetectorBuilder.from_all_languages()
+    assert builder._is_low_accuracy_mode_enabled is False
+    builder.with_low_accuracy_mode()
+    assert builder._is_low_accuracy_mode_enabled is True
