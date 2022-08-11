@@ -13,10 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import sys
 import timeit
-
-from lingua import LanguageDetectorBuilder, Language
 
 
 def benchmark_preloading_all_language_models():
@@ -27,10 +24,8 @@ def benchmark_preloading_all_language_models():
         .build()"""
 
     print("Measuring time to preload all language models...")
-    results = timeit.repeat(setup=setup, stmt=stmt, repeat=5, number=1)
-    print(
-        f"Average time after 5 repetitions: {sum(results) / len(results):.2f} seconds"
-    )
+    result = timeit.timeit(setup=setup, stmt=stmt, number=1)
+    print(f"Time: {result:.2f} seconds")
 
 
 def benchmark_language_detection():
@@ -55,57 +50,8 @@ def benchmark_language_detection():
     print(
         "Measuring time to detect language of 10,000 sentences after preloading all models..."
     )
-    results = timeit.repeat(setup=setup, stmt=stmt, repeat=5, number=1000)
-    print(
-        f"Average time after 5 repetitions: {sum(results) / len(results):.2f} seconds"
-    )
-
-
-def report_memory_usage_of_language_models():
-    unigrams_size = 0
-    bigrams_size = 0
-    trigrams_size = 0
-    quadrigrams_size = 0
-    fivegrams_size = 0
-
-    print("Measuring memory usage of language models...")
-    print("Preloading all language models...")
-    detector = (
-        LanguageDetectorBuilder.from_all_languages()
-        .with_preloaded_language_models()
-        .build()
-    )
-
-    for language in Language:
-        if language in detector._unigram_language_models:
-            unigrams_size += sys.getsizeof(detector._unigram_language_models[language])
-
-        if language in detector._bigram_language_models:
-            bigrams_size += sys.getsizeof(detector._bigram_language_models[language])
-
-        if language in detector._trigram_language_models:
-            trigrams_size += sys.getsizeof(detector._trigram_language_models[language])
-
-        if language in detector._quadrigram_language_models:
-            quadrigrams_size += sys.getsizeof(
-                detector._quadrigram_language_models[language]
-            )
-
-        if language in detector._fivegram_language_models:
-            fivegrams_size += sys.getsizeof(
-                detector._fivegram_language_models[language]
-            )
-
-    total_size = (
-        unigrams_size + bigrams_size + trigrams_size + quadrigrams_size + fivegrams_size
-    )
-
-    print(f"Unigrams: {unigrams_size / 1000000:.2f} MB")
-    print(f"Bigrams: {bigrams_size / 1000000:.2f} MB")
-    print(f"Trigrams: {trigrams_size / 1000000:.2f} MB")
-    print(f"Quadrigrams: {quadrigrams_size / 1000000:.2f} MB")
-    print(f"Fivegrams: {fivegrams_size / 1000000:.2f} MB")
-    print(f"Total: {total_size / 1000000:.2f} MB")
+    result = timeit.timeit(setup=setup, stmt=stmt, number=1000)
+    print(f"Time: {result:.2f} seconds")
 
 
 if __name__ == "__main__":
@@ -113,4 +59,3 @@ if __name__ == "__main__":
     print()
     benchmark_language_detection()
     print()
-    report_memory_usage_of_language_models()

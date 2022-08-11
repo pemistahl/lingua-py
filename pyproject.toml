@@ -44,6 +44,7 @@ mypy = "^0.971"
 pytest = "^7.1"
 black = "^22.6"
 coverage = "^6.4"
+psutil = "^5.9.1"
 
 [tool.poetry.extras]
 fasttext = ["fasttext"]
