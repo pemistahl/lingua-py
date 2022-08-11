@@ -15,6 +15,7 @@
 
 import json
 import math
+import numpy as np
 import regex
 
 from collections import defaultdict, Counter, OrderedDict
@@ -79,19 +80,22 @@ class _TrainingDataLanguageModel:
         )
 
     @classmethod
-    def from_json(cls, serialized_json: str) -> Dict[str, float]:
+    def from_json(cls, serialized_json: str, ngram_length: int) -> np.ndarray:
         json_language_model: _JSONLanguageModel = json.loads(
             serialized_json, cls=_LinguaJSONDecoder
         )
-        json_relative_frequencies = {}
+        frequencies = []
 
         for fraction, ngrams in json_language_model.ngrams.items():
             numerator, denominator = fraction.split("/")
             frequency = math.log(int(numerator) / int(denominator))
             for ngram in ngrams.split(" "):
-                json_relative_frequencies[ngram] = frequency
+                frequencies.append((ngram, frequency))
 
-        return json_relative_frequencies
+        dtype = [("ngram", f"U{ngram_length}"), ("frequency", "f2")]
+        arr = np.array(frequencies, dtype=dtype)
+        arr.sort()
+        return arr
 
     def to_json(self) -> str:
         fractions_to_ngrams = defaultdict(list)

@@ -13,6 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import numpy as np
 import operator
 
 from collections import Counter
@@ -33,11 +34,12 @@ from .language import Language, _Alphabet
 from ._model import _TrainingDataLanguageModel, _TestDataLanguageModel
 from ._ngram import _range_of_lower_order_ngrams
 
-_UNIGRAM_MODELS: Dict[Language, Dict[str, float]] = {}
-_BIGRAM_MODELS: Dict[Language, Dict[str, float]] = {}
-_TRIGRAM_MODELS: Dict[Language, Dict[str, float]] = {}
-_QUADRIGRAM_MODELS: Dict[Language, Dict[str, float]] = {}
-_FIVEGRAM_MODELS: Dict[Language, Dict[str, float]] = {}
+_UNIGRAM_MODELS: Dict[Language, np.ndarray] = {}
+_BIGRAM_MODELS: Dict[Language, np.ndarray] = {}
+_TRIGRAM_MODELS: Dict[Language, np.ndarray] = {}
+_QUADRIGRAM_MODELS: Dict[Language, np.ndarray] = {}
+_FIVEGRAM_MODELS: Dict[Language, np.ndarray] = {}
+_CACHE: Dict[Language, Dict[str, np.float16]] = {}
 
 
 @dataclass
@@ -48,11 +50,12 @@ class LanguageDetector:
     _minimum_relative_distance: float
     _languages_with_unique_characters: FrozenSet[Language]
     _one_language_alphabets: Dict[_Alphabet, Language]
-    _unigram_language_models: Dict[Language, Dict[str, float]]
-    _bigram_language_models: Dict[Language, Dict[str, float]]
-    _trigram_language_models: Dict[Language, Dict[str, float]]
-    _quadrigram_language_models: Dict[Language, Dict[str, float]]
-    _fivegram_language_models: Dict[Language, Dict[str, float]]
+    _unigram_language_models: Dict[Language, np.ndarray]
+    _bigram_language_models: Dict[Language, np.ndarray]
+    _trigram_language_models: Dict[Language, np.ndarray]
+    _quadrigram_language_models: Dict[Language, np.ndarray]
+    _fivegram_language_models: Dict[Language, np.ndarray]
+    _cache: Dict[Language, Dict[str, np.float16]]
 
     def __repr__(self):
         languages = sorted([language.name for language in self._languages])
@@ -91,6 +94,7 @@ class LanguageDetector:
             _TRIGRAM_MODELS,
             _QUADRIGRAM_MODELS,
             _FIVEGRAM_MODELS,
+            _CACHE,
         )
 
         if is_every_language_model_preloaded:
@@ -404,7 +408,7 @@ class LanguageDetector:
 
     def _look_up_language_models(
         self, text: str, ngram_length: int, filtered_languages: FrozenSet[Language]
-    ) -> Dict[Language, float]:
+    ) -> Dict[Language, np.float16]:
         test_data_model = _TestDataLanguageModel.from_text(text, ngram_length)
         probabilities = self._compute_language_probabilities(
             test_data_model, filtered_languages
@@ -413,7 +417,7 @@ class LanguageDetector:
 
     def _compute_language_probabilities(
         self, model: _TestDataLanguageModel, filtered_languages: FrozenSet[Language]
-    ) -> Dict[Language, float]:
+    ) -> Dict[Language, np.float16]:
         probabilities = {}
         for language in filtered_languages:
             result = self._compute_sum_of_ngram_probabilities(language, model.ngrams)
@@ -423,8 +427,8 @@ class LanguageDetector:
 
     def _compute_sum_of_ngram_probabilities(
         self, language: Language, ngrams: FrozenSet[str]
-    ) -> float:
-        result = 0.0
+    ) -> np.float16:
+        result = np.float16(0)
         for ngram in ngrams:
             for elem in _range_of_lower_order_ngrams(ngram):
                 probability = self._look_up_ngram_probability(language, elem)
@@ -433,7 +437,13 @@ class LanguageDetector:
                     break
         return result
 
-    def _look_up_ngram_probability(self, language: Language, ngram: str) -> float:
+    def _look_up_ngram_probability(self, language: Language, ngram: str) -> np.float16:
+        if language not in self._cache:
+            self._cache[language] = {}
+
+        if ngram in self._cache[language]:
+            return self._cache[language][ngram]
+
         ngram_length = len(ngram)
         if ngram_length == 5:
             language_models = self._fivegram_language_models
@@ -453,10 +463,18 @@ class LanguageDetector:
         if language not in language_models:
             models = self._load_language_models(language, ngram_length)
             if models is None:
-                return 0
+                return np.float16(0)
             language_models.update(models)
 
-        return language_models[language].get(ngram, 0.0)
+        try:
+            idx = np.searchsorted(language_models[language]["ngram"], ngram)
+            probability = language_models[language]["frequency"][idx]
+        except IndexError:
+            probability = np.float16(0)
+
+        self._cache[language][ngram] = probability
+
+        return probability
 
     def _count_unigrams(
         self,
@@ -473,29 +491,29 @@ class LanguageDetector:
 
     def _sum_up_probabilities(
         self,
-        probabilities: List[Dict[Language, float]],
+        probabilities: List[Dict[Language, np.float16]],
         unigram_counts: Optional[TypedCounter[Language]],
         filtered_languages: FrozenSet[Language],
     ) -> Dict[Language, float]:
         summed_up_probabilities = {}
         for language in filtered_languages:
-            result = 0.0
+            result = np.float16(0)
             for dct in probabilities:
                 if language in dct:
                     result += dct[language]
             if unigram_counts is not None and language in unigram_counts:
                 result /= unigram_counts[language]
             if result != 0:
-                summed_up_probabilities[language] = result
+                summed_up_probabilities[language] = float(result)
         return summed_up_probabilities
 
     def _load_language_models(
         self,
         language: Language,
         ngram_length: int,
-    ) -> Optional[Dict[Language, Dict[str, float]]]:
+    ) -> Optional[Dict[Language, np.ndarray]]:
         json_data = _load_json(language, ngram_length)
         if json_data is None:
             return None
-        loaded_models = _TrainingDataLanguageModel.from_json(json_data)
+        loaded_models = _TrainingDataLanguageModel.from_json(json_data, ngram_length)
         return {language: loaded_models}

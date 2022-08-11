@@ -27,7 +27,8 @@ packages = [
 ]
 
 [tool.poetry.dependencies]
-python = "^3.7.1"
+python = "^3.8"
+numpy = "^1.23.1"
 regex = ">=2021.11,<2023.0"
 fasttext = { version = "^0.9.2", optional = true }
 langdetect = { version = "^1.0.9", optional = true }

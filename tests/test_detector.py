@@ -13,6 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import numpy as np
 import pytest
 
 from math import isclose, log
@@ -22,6 +23,10 @@ from lingua.language import Language, _Alphabet
 from lingua._model import _TestDataLanguageModel
 
 
+def f(num):
+    return np.float16(num)
+
+
 # ##############################
 # LANGUAGE MODELS FOR ENGLISH
 # ##############################
@@ -29,61 +34,86 @@ from lingua._model import _TestDataLanguageModel
 
 @pytest.fixture
 def unigram_model_for_english():
-    return {
-        "a": log(0.01),
-        "l": log(0.02),
-        "t": log(0.03),
-        "e": log(0.04),
-        "r": log(0.05),
-        # unknown unigrams
-        "w": 0.0,
-    }
+    return np.sort(
+        np.array(
+            [
+                ("a", log(0.01)),
+                ("l", log(0.02)),
+                ("t", log(0.03)),
+                ("e", log(0.04)),
+                ("r", log(0.05)),
+                # unknown unigrams
+                ("w", 0.0),
+            ],
+            dtype=[("ngram", "U1"), ("frequency", "f2")],
+        )
+    )
 
 
 @pytest.fixture
 def bigram_model_for_english():
-    return {
-        "al": log(0.11),
-        "lt": log(0.12),
-        "te": log(0.13),
-        "er": log(0.14),
-        # unknown bigrams
-        "aq": 0.0,
-        "wx": 0.0,
-    }
+    return np.sort(
+        np.array(
+            [
+                ("al", log(0.11)),
+                ("lt", log(0.12)),
+                ("te", log(0.13)),
+                ("er", log(0.14)),
+                # unknown bigrams
+                ("aq", 0.0),
+                ("wx", 0.0),
+            ],
+            dtype=[("ngram", "U2"), ("frequency", "f2")],
+        )
+    )
 
 
 @pytest.fixture
 def trigram_model_for_english():
-    return {
-        "alt": log(0.19),
-        "lte": log(0.2),
-        "ter": log(0.21),
-        # unknown trigrams
-        "aqu": 0.0,
-        "tez": 0.0,
-        "wxy": 0.0,
-    }
+    return np.sort(
+        np.array(
+            [
+                ("alt", log(0.19)),
+                ("lte", log(0.2)),
+                ("ter", log(0.21)),
+                # unknown trigrams
+                ("aqu", 0.0),
+                ("tez", 0.0),
+                ("wxy", 0.0),
+            ],
+            dtype=[("ngram", "U3"), ("frequency", "f2")],
+        )
+    )
 
 
 @pytest.fixture
 def quadrigram_model_for_english():
-    return {
-        "alte": log(0.25),
-        "lter": log(0.26),
-        # unknown quadrigrams
-        "aqua": 0.0,
-        "wxyz": 0.0,
-    }
+    return np.sort(
+        np.array(
+            [
+                ("alte", log(0.25)),
+                ("lter", log(0.26)),
+                # unknown quadrigrams
+                ("aqua", 0.0),
+                ("wxyz", 0.0),
+            ],
+            dtype=[("ngram", "U4"), ("frequency", "f2")],
+        )
+    )
 
 
 @pytest.fixture
 def fivegram_model_for_english():
-    return {
-        "alter": log(0.29),
-        # unknown fivegrams
-        "aquas": 0.0,
-    }
+    return np.sort(
+        np.array(
+            [
+                ("alter", log(0.29)),
+                # unknown fivegrams
+                ("aquas", 0.0),
+            ],
+            dtype=[("ngram", "U5"), ("frequency", "f2")],
+        )
+    )
 
 
 # ##############################
@@ -93,53 +123,80 @@ def fivegram_model_for_english():
 
 @pytest.fixture
 def unigram_model_for_german():
-    return {
-        "a": log(0.06),
-        "l": log(0.07),
-        "t": log(0.08),
-        "e": log(0.09),
-        "r": log(0.1),
-        # unknown unigrams
-        "w": 0.0,
-    }
+    return np.sort(
+        np.array(
+            [
+                ("a", log(0.06)),
+                ("l", log(0.07)),
+                ("t", log(0.08)),
+                ("e", log(0.09)),
+                ("r", log(0.1)),
+                # unknown unigrams
+                ("w", 0.0),
+            ],
+            dtype=[("ngram", "U1"), ("frequency", "f2")],
+        )
+    )
 
 
 @pytest.fixture
 def bigram_model_for_german():
-    return {
-        "al": log(0.15),
-        "lt": log(0.16),
-        "te": log(0.17),
-        "er": log(0.18),
-        # unknown bigrams
-        "wx": 0.0,
-    }
+    return np.sort(
+        np.array(
+            [
+                ("al", log(0.15)),
+                ("lt", log(0.16)),
+                ("te", log(0.17)),
+                ("er", log(0.18)),
+                # unknown bigrams
+                ("wx", 0.0),
+            ],
+            dtype=[("ngram", "U2"), ("frequency", "f2")],
+        )
+    )
 
 
 @pytest.fixture
 def trigram_model_for_german():
-    return {
-        "alt": log(0.22),
-        "lte": log(0.23),
-        "ter": log(0.24),
-        # unknown trigrams
-        "wxy": 0.0,
-    }
+    return np.sort(
+        np.array(
+            [
+                ("alt", log(0.22)),
+                ("lte", log(0.23)),
+                ("ter", log(0.24)),
+                # unknown trigrams
+                ("wxy", 0.0),
+            ],
+            dtype=[("ngram", "U3"), ("frequency", "f2")],
+        )
+    )
 
 
 @pytest.fixture
 def quadrigram_model_for_german():
-    return {
-        "alte": log(0.27),
-        "lter": log(0.28),
-        # unknown quadrigrams
-        "wxyz": 0.0,
-    }
+    return np.sort(
+        np.array(
+            [
+                ("alte", log(0.27)),
+                ("lter", log(0.28)),
+                # unknown quadrigrams
+                ("wxyz", 0.0),
+            ],
+            dtype=[("ngram", "U4"), ("frequency", "f2")],
+        )
+    )
 
 
 @pytest.fixture
 def fivegram_model_for_german():
-    return {"alter": log(0.3)}
+    return np.sort(
+        np.array(
+            [
+                ("alter", log(0.3)),
+            ],
+            dtype=[("ngram", "U5"), ("frequency", "f2")],
+        )
+    )
 
 
 # ##############################
@@ -206,6 +263,7 @@ def detector_for_english_and_german(
         _trigram_language_models=trigram_models,
         _quadrigram_language_models=quadrigram_models,
         _fivegram_language_models=fivegram_models,
+        _cache={},
     )
 
 
@@ -231,6 +289,7 @@ def detector_for_all_languages():
         _trigram_language_models={},
         _quadrigram_language_models={},
         _fivegram_language_models={},
+        _cache={},
     )
 
 
@@ -813,16 +872,16 @@ def test_strings_without_letters_return_no_language(
 @pytest.mark.parametrize(
     "language,ngram,expected_probability",
     [
-        pytest.param(Language.ENGLISH, "a", log(0.01)),
-        pytest.param(Language.ENGLISH, "lt", log(0.12)),
-        pytest.param(Language.ENGLISH, "ter", log(0.21)),
-        pytest.param(Language.ENGLISH, "alte", log(0.25)),
-        pytest.param(Language.ENGLISH, "alter", log(0.29)),
-        pytest.param(Language.GERMAN, "t", log(0.08)),
-        pytest.param(Language.GERMAN, "er", log(0.18)),
-        pytest.param(Language.GERMAN, "alt", log(0.22)),
-        pytest.param(Language.GERMAN, "lter", log(0.28)),
-        pytest.param(Language.GERMAN, "alter", log(0.3)),
+        pytest.param(Language.ENGLISH, "a", f(log(0.01))),
+        pytest.param(Language.ENGLISH, "lt", f(log(0.12))),
+        pytest.param(Language.ENGLISH, "ter", f(log(0.21))),
+        pytest.param(Language.ENGLISH, "alte", f(log(0.25))),
+        pytest.param(Language.ENGLISH, "alter", f(log(0.29))),
+        pytest.param(Language.GERMAN, "t", f(log(0.08))),
+        pytest.param(Language.GERMAN, "er", f(log(0.18))),
+        pytest.param(Language.GERMAN, "alt", f(log(0.22))),
+        pytest.param(Language.GERMAN, "lter", f(log(0.28))),
+        pytest.param(Language.GERMAN, "alter", f(log(0.3))),
     ],
 )
 def test_ngram_probability_lookup(
@@ -839,17 +898,17 @@ def test_ngram_probability_lookup(
     [
         pytest.param(
             frozenset(["a", "l", "t", "e", "r"]),
-            log(0.01) + log(0.02) + log(0.03) + log(0.04) + log(0.05),
+            f(log(0.01)) + f(log(0.02)) + f(log(0.03)) + f(log(0.04)) + f(log(0.05)),
         ),
         pytest.param(
             # back off unknown Trigram("tez") to known Bigram("te")
             frozenset(["alt", "lte", "tez"]),
-            log(0.19) + log(0.2) + log(0.13),
+            f(log(0.19)) + f(log(0.2)) + f(log(0.13)),
         ),
         pytest.param(
             # back off unknown Fivegram("aquas") to known Unigram("a")
             frozenset(["aquas"]),
-            log(0.01),
+            f(log(0.01)),
         ),
     ],
 )
@@ -861,7 +920,7 @@ def test_summation_of_ngram_probabilities(
             Language.ENGLISH, ngrams
         )
     )
-    assert isclose(sum_of_probabilities, expected_sum_of_probabilities)
+    assert isclose(sum_of_probabilities, expected_sum_of_probabilities, rel_tol=0.001)
 
 
 @pytest.mark.parametrize(
@@ -870,30 +929,30 @@ def test_summation_of_ngram_probabilities(
         pytest.param(
             _TestDataLanguageModel(frozenset(["a", "l", "t", "e", "r"])),
             {
-                Language.ENGLISH: log(0.01)
-                + log(0.02)
-                + log(0.03)
-                + log(0.04)
-                + log(0.05),
-                Language.GERMAN: log(0.06)
-                + log(0.07)
-                + log(0.08)
-                + log(0.09)
-                + log(0.1),
+                Language.ENGLISH: f(log(0.01))
+                + f(log(0.02))
+                + f(log(0.03))
+                + f(log(0.04))
+                + f(log(0.05)),
+                Language.GERMAN: f(log(0.06))
+                + f(log(0.07))
+                + f(log(0.08))
+                + f(log(0.09))
+                + f(log(0.1)),
             },
         ),
         pytest.param(
             _TestDataLanguageModel(frozenset(["alt", "lte", "ter", "wxy"])),
             {
-                Language.ENGLISH: log(0.19) + log(0.2) + log(0.21),
-                Language.GERMAN: log(0.22) + log(0.23) + log(0.24),
+                Language.ENGLISH: f(log(0.19)) + f(log(0.2)) + f(log(0.21)),
+                Language.GERMAN: f(log(0.22)) + f(log(0.23)) + f(log(0.24)),
             },
         ),
         pytest.param(
             _TestDataLanguageModel(frozenset(["alte", "lter", "wxyz"])),
             {
-                Language.ENGLISH: log(0.25) + log(0.26),
-                Language.GERMAN: log(0.27) + log(0.28),
+                Language.ENGLISH: f(log(0.25)) + f(log(0.26)),
+                Language.GERMAN: f(log(0.27)) + f(log(0.28)),
             },
         ),
     ],
@@ -906,7 +965,7 @@ def test_computation_of_language_probabilities(
     )
     for language, probability in probabilities.items():
         expected_probability = expected_probabilities[language]
-        assert isclose(probability, expected_probability)
+        assert isclose(probability, expected_probability, rel_tol=0.001)
 
 
 def test_detect_language(detector_for_english_and_german):
@@ -962,11 +1021,11 @@ def test_compute_language_confidence_values(detector_for_english_and_german):
         0.3,
     ]
     total_probability_for_english = (
-        sum([log(probability) for probability in english_probabilities])
+        sum([f(log(probability)) for probability in english_probabilities])
         / unigram_count_for_both_languages
     )
     total_probability_for_german = (
-        sum([log(probability) for probability in german_probabilities])
+        sum([f(log(probability)) for probability in german_probabilities])
         / unigram_count_for_both_languages
     )
     expected_confidence_value_for_english = (
@@ -979,7 +1038,9 @@ def test_compute_language_confidence_values(detector_for_english_and_german):
     assert len(confidence_values) == 2
     assert confidence_values[0] == (Language.GERMAN, 1.0)
     assert confidence_values[1][0] == Language.ENGLISH
-    assert isclose(confidence_values[1][1], expected_confidence_value_for_english)
+    assert isclose(
+        confidence_values[1][1], expected_confidence_value_for_english, rel_tol=0.001
+    )
 
 
 def test_no_language_is_returned(detector_for_english_and_german):
