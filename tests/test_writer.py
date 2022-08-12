@@ -244,6 +244,164 @@ def test_test_data_files_writer(
     )
 
 
+def test_relative_input_file_path_raises_exception():
+    relative_input_file_path = Path("some/relative/path/file.txt")
+    expected_error_message = (
+        f"input file path '{relative_input_file_path}' is not absolute"
+    )
+
+    with pytest.raises(Exception) as exception_info1:
+        LanguageModelFilesWriter.create_and_write_language_model_files(
+            input_file_path=relative_input_file_path,
+            output_directory_path=Path("/some/output/directory"),
+            language=Language.ENGLISH,
+            char_class="\\p{L}",
+        )
+    assert exception_info1.value.args[0] == expected_error_message
+
+    with pytest.raises(Exception) as exception_info2:
+        TestDataFilesWriter.create_and_write_test_data_files(
+            input_file_path=relative_input_file_path,
+            output_directory_path=Path("/some/output/directory"),
+            char_class="\\p{L}",
+            maximum_lines=4,
+        )
+    assert exception_info2.value.args[0] == expected_error_message
+
+
+def test_non_existing_input_file_raises_exception():
+    non_existing_input_file_path = Path("/some/non-existing/path/file.txt")
+    expected_error_message = (
+        f"Input file '{non_existing_input_file_path}' does not exist"
+    )
+
+    with pytest.raises(Exception) as exception_info1:
+        LanguageModelFilesWriter.create_and_write_language_model_files(
+            input_file_path=non_existing_input_file_path,
+            output_directory_path=Path("/some/output/directory"),
+            language=Language.ENGLISH,
+            char_class="\\p{L}",
+        )
+    assert exception_info1.value.args[0] == expected_error_message
+
+    with pytest.raises(Exception) as exception_info2:
+        TestDataFilesWriter.create_and_write_test_data_files(
+            input_file_path=non_existing_input_file_path,
+            output_directory_path=Path("/some/output/directory"),
+            char_class="\\p{L}",
+            maximum_lines=4,
+        )
+    assert exception_info2.value.args[0] == expected_error_message
+
+
+def test_directory_as_input_file_raises_exception():
+    input_file = TemporaryDirectory()
+    input_file_path = Path(input_file.name)
+    expected_error_message = (
+        f"Input file path '{input_file_path}' does not represent a regular file"
+    )
+
+    with pytest.raises(Exception) as exception_info1:
+        LanguageModelFilesWriter.create_and_write_language_model_files(
+            input_file_path=input_file_path,
+            output_directory_path=Path("/some/output/directory"),
+            language=Language.ENGLISH,
+            char_class="\\p{L}",
+        )
+    assert exception_info1.value.args[0] == expected_error_message
+
+    with pytest.raises(Exception) as exception_info2:
+        TestDataFilesWriter.create_and_write_test_data_files(
+            input_file_path=input_file_path,
+            output_directory_path=Path("/some/output/directory"),
+            char_class="\\p{L}",
+            maximum_lines=4,
+        )
+    assert exception_info2.value.args[0] == expected_error_message
+
+
+def test_relative_output_directory_path_raises_exception():
+    input_file = create_temp_input_file("some content")
+    input_file_path = Path(input_file.name)
+
+    relative_output_directory_path = Path("some/relative/path")
+    expected_error_message = (
+        f"Output directory path '{relative_output_directory_path}' is not absolute"
+    )
+
+    with pytest.raises(Exception) as exception_info1:
+        LanguageModelFilesWriter.create_and_write_language_model_files(
+            input_file_path=input_file_path,
+            output_directory_path=relative_output_directory_path,
+            language=Language.ENGLISH,
+            char_class="\\p{L}",
+        )
+    assert exception_info1.value.args[0] == expected_error_message
+
+    with pytest.raises(Exception) as exception_info2:
+        TestDataFilesWriter.create_and_write_test_data_files(
+            input_file_path=input_file_path,
+            output_directory_path=relative_output_directory_path,
+            char_class="\\p{L}",
+            maximum_lines=4,
+        )
+    assert exception_info2.value.args[0] == expected_error_message
+
+
+def test_non_existing_output_directory_path_raises_exception():
+    input_file = create_temp_input_file("some content")
+    input_file_path = Path(input_file.name)
+
+    non_existing_output_directory_path = Path("/some/non-existing/directory")
+    expected_error_message = (
+        f"Output directory path '{non_existing_output_directory_path}' does not exist"
+    )
+
+    with pytest.raises(Exception) as exception_info1:
+        LanguageModelFilesWriter.create_and_write_language_model_files(
+            input_file_path=input_file_path,
+            output_directory_path=non_existing_output_directory_path,
+            language=Language.ENGLISH,
+            char_class="\\p{L}",
+        )
+    assert exception_info1.value.args[0] == expected_error_message
+
+    with pytest.raises(Exception) as exception_info2:
+        TestDataFilesWriter.create_and_write_test_data_files(
+            input_file_path=input_file_path,
+            output_directory_path=non_existing_output_directory_path,
+            char_class="\\p{L}",
+            maximum_lines=4,
+        )
+    assert exception_info2.value.args[0] == expected_error_message
+
+
+def test_file_as_output_directory_raises_exception():
+    input_file = create_temp_input_file("some content")
+    input_file_path = Path(input_file.name)
+    expected_error_message = (
+        f"Output directory path '{input_file_path}' does not represent a directory"
+    )
+
+    with pytest.raises(Exception) as exception_info1:
+        LanguageModelFilesWriter.create_and_write_language_model_files(
+            input_file_path=input_file_path,
+            output_directory_path=input_file_path,
+            language=Language.ENGLISH,
+            char_class="\\p{L}",
+        )
+    assert exception_info1.value.args[0] == expected_error_message
+
+    with pytest.raises(Exception) as exception_info2:
+        TestDataFilesWriter.create_and_write_test_data_files(
+            input_file_path=input_file_path,
+            output_directory_path=input_file_path,
+            char_class="\\p{L}",
+            maximum_lines=4,
+        )
+    assert exception_info2.value.args[0] == expected_error_message
+
+
 def check_zip_file_content(
     file_path: Path, expected_file_name: str, expected_file_content: str
 ):

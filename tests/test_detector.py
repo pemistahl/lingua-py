@@ -18,7 +18,15 @@ import pytest
 
 from math import isclose, log
 
-from lingua.detector import LanguageDetector
+from lingua.builder import LanguageDetectorBuilder
+from lingua.detector import (
+    LanguageDetector,
+    _UNIGRAM_MODELS,
+    _BIGRAM_MODELS,
+    _TRIGRAM_MODELS,
+    _QUADRIGRAM_MODELS,
+    _FIVEGRAM_MODELS,
+)
 from lingua.language import Language, _Alphabet
 from lingua._model import _TestDataLanguageModel
 
@@ -1041,7 +1049,7 @@ def test_compute_language_confidence_values(detector_for_english_and_german):
     assert confidence_values[0] == (Language.GERMAN, 1.0)
     assert confidence_values[1][0] == Language.ENGLISH
     assert isclose(
-        confidence_values[1][1], expected_confidence_value_for_english, rel_tol=0.001
+        confidence_values[1][1], expected_confidence_value_for_english, rel_tol=0.01
     )
 
 
@@ -1075,3 +1083,76 @@ def test_deterministic_language_detection(detector_for_all_languages, text, lang
         language = detector_for_all_languages.detect_language_of(text)
         detected_languages.add(language)
     assert len(detected_languages) == 1
+
+
+def test_low_accuracy_mode():
+    remove_language_models_from_detector()
+
+    assert_all_language_models_are_unloaded()
+
+    detector = (
+        LanguageDetectorBuilder.from_languages(Language.ENGLISH, Language.GERMAN)
+        .with_preloaded_language_models()
+        .with_low_accuracy_mode()
+        .build()
+    )
+
+    assert_only_trigram_language_models_are_loaded()
+
+    assert detector.detect_language_of("bed") == Language.ENGLISH
+    assert detector.detect_language_of("be") is None
+    assert detector.detect_language_of("b") is None
+    assert detector.detect_language_of("") is None
+
+    assert_only_trigram_language_models_are_loaded()
+
+
+def test_two_detectors_share_same_language_models():
+    remove_language_models_from_detector()
+
+    assert_all_language_models_are_unloaded()
+
+    first_detector = (
+        LanguageDetectorBuilder.from_languages(Language.ENGLISH, Language.GERMAN)
+        .with_preloaded_language_models()
+        .with_low_accuracy_mode()
+        .build()
+    )
+
+    second_detector = (
+        LanguageDetectorBuilder.from_languages(Language.SWEDISH, Language.ENGLISH)
+        .with_preloaded_language_models()
+        .with_low_accuracy_mode()
+        .build()
+    )
+
+    assert len(first_detector._trigram_language_models) == 3
+    assert len(second_detector._trigram_language_models) == 3
+    assert (
+        first_detector._trigram_language_models
+        is second_detector._trigram_language_models
+    )
+
+
+def assert_all_language_models_are_unloaded():
+    assert len(_UNIGRAM_MODELS) == 0
+    assert len(_BIGRAM_MODELS) == 0
+    assert len(_TRIGRAM_MODELS) == 0
+    assert len(_QUADRIGRAM_MODELS) == 0
+    assert len(_FIVEGRAM_MODELS) == 0
+
+
+def assert_only_trigram_language_models_are_loaded():
+    assert len(_UNIGRAM_MODELS) == 0
+    assert len(_BIGRAM_MODELS) == 0
+    assert len(_TRIGRAM_MODELS) > 0
+    assert len(_QUADRIGRAM_MODELS) == 0
+    assert len(_FIVEGRAM_MODELS) == 0
+
+
+def remove_language_models_from_detector():
+    _UNIGRAM_MODELS.clear()
+    _BIGRAM_MODELS.clear()
+    _TRIGRAM_MODELS.clear()
+    _QUADRIGRAM_MODELS.clear()
+    _FIVEGRAM_MODELS.clear()
