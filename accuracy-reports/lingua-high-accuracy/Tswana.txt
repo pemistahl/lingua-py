@@ -1,0 +1,16 @@
+##### Tswana #####
+
+>>> Accuracy on average: 82.63%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 62.90%
+Erroneously classified as Sotho: 16.20%, Tsonga: 2.50%, Shona: 2.00%, Swahili: 1.60%, English: 1.40%, Tagalog: 1.30%, Zulu: 1.30%, Xhosa: 1.20%, Latin: 1.10%, Basque: 0.90%, Ganda: 0.80%, Malay: 0.70%, Unknown: 0.60%, French: 0.50%, Italian: 0.50%, Maori: 0.50%, Romanian: 0.40%, Catalan: 0.30%, German: 0.30%, Somali: 0.30%, Yoruba: 0.30%, Bokmal: 0.20%, Czech: 0.20%, Finnish: 0.20%, Lithuanian: 0.20%, Slovene: 0.20%, Afrikaans: 0.10%, Bosnian: 0.10%, Croatian: 0.10%, Danish: 0.10%, Esperanto: 0.10%, Estonian: 0.10%, Icelandic: 0.10%, Indonesian: 0.10%, Irish: 0.10%, Polish: 0.10%, Portuguese: 0.10%, Swedish: 0.10%, Turkish: 0.10%, Welsh: 0.10%
+
+>> Detection of 1000 word pairs (average length: 15 chars)
+Accuracy: 87.20%
+Erroneously classified as Sotho: 9.10%, English: 0.80%, Shona: 0.50%, Xhosa: 0.40%, Basque: 0.30%, Tsonga: 0.30%, Ganda: 0.20%, Swahili: 0.20%, Unknown: 0.20%, Afrikaans: 0.10%, Bosnian: 0.10%, Czech: 0.10%, Indonesian: 0.10%, Portuguese: 0.10%, Tagalog: 0.10%, Yoruba: 0.10%, Zulu: 0.10%
+
+>> Detection of 1000 sentences (average length: 113 chars)
+Accuracy: 97.80%
+Erroneously classified as Sotho: 1.60%, English: 0.20%, Shona: 0.20%, Yoruba: 0.10%, Unknown: 0.10%
+

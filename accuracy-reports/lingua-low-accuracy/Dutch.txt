@@ -1,0 +1,16 @@
+##### Dutch #####
+
+>>> Accuracy on average: 63.20%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 34.50%
+Erroneously classified as Afrikaans: 10.50%, German: 5.20%, English: 3.00%, French: 2.60%, Tswana: 2.40%, Danish: 2.30%, Bokmal: 2.20%, Finnish: 2.20%, Estonian: 1.90%, Latin: 1.80%, Sotho: 1.70%, Welsh: 1.70%, Swahili: 1.60%, Lithuanian: 1.40%, Spanish: 1.40%, Catalan: 1.30%, Maori: 1.30%, Basque: 1.20%, Portuguese: 1.20%, Tsonga: 1.10%, Xhosa: 1.10%, Shona: 1.00%, Yoruba: 1.00%, Albanian: 0.90%, Italian: 0.90%, Nynorsk: 0.90%, Indonesian: 0.80%, Romanian: 0.80%, Somali: 0.80%, Tagalog: 0.80%, Latvian: 0.70%, Swedish: 0.70%, Turkish: 0.70%, Esperanto: 0.60%, Hungarian: 0.60%, Polish: 0.60%, Bosnian: 0.50%, Czech: 0.50%, Icelandic: 0.50%, Croatian: 0.40%, Ganda: 0.40%, Irish: 0.40%, Slovak: 0.40%, Zulu: 0.40%, Malay: 0.30%, Vietnamese: 0.30%, Azerbaijani: 0.20%, Slovene: 0.20%, Unknown: 0.10%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 61.10%
+Erroneously classified as Afrikaans: 12.30%, German: 4.50%, Latin: 2.70%, Yoruba: 1.20%, Bokmal: 1.10%, English: 1.10%, French: 1.10%, Esperanto: 0.90%, Finnish: 0.80%, Tswana: 0.80%, Italian: 0.70%, Spanish: 0.70%, Swedish: 0.70%, Welsh: 0.70%, Xhosa: 0.70%, Basque: 0.60%, Estonian: 0.60%, Ganda: 0.60%, Swahili: 0.60%, Tagalog: 0.60%, Albanian: 0.50%, Danish: 0.50%, Nynorsk: 0.50%, Romanian: 0.40%, Slovak: 0.40%, Icelandic: 0.30%, Malay: 0.30%, Tsonga: 0.30%, Turkish: 0.30%, Catalan: 0.20%, Croatian: 0.20%, Irish: 0.20%, Latvian: 0.20%, Maori: 0.20%, Shona: 0.20%, Sotho: 0.20%, Zulu: 0.20%, Unknown: 0.20%, Czech: 0.10%, Hungarian: 0.10%, Lithuanian: 0.10%, Polish: 0.10%, Portuguese: 0.10%, Slovene: 0.10%
+
+>> Detection of 1000 sentences (average length: 107 chars)
+Accuracy: 94.00%
+Erroneously classified as Afrikaans: 2.40%, Latin: 1.50%, French: 0.40%, Yoruba: 0.30%, English: 0.20%, German: 0.20%, Welsh: 0.20%, Estonian: 0.10%, Finnish: 0.10%, Italian: 0.10%, Shona: 0.10%, Sotho: 0.10%, Swahili: 0.10%, Swedish: 0.10%, Tswana: 0.10%
+

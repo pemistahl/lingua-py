@@ -201,8 +201,15 @@ class Statistic:
 
 def main():
     start = time.perf_counter()
-    lingua_detector = (
+    lingua_detector_with_high_accuracy = (
         LanguageDetectorBuilder.from_all_languages()
+        .with_preloaded_language_models()
+        .build()
+    )
+
+    lingua_detector_with_low_accuracy = (
+        LanguageDetectorBuilder.from_all_languages()
+        .with_low_accuracy_mode()
         .with_preloaded_language_models()
         .build()
     )
@@ -221,15 +228,23 @@ def main():
 
     test_data_directory = Path(__file__).parent / "../language-testdata"
     accuracy_reports_directory = Path(__file__).parent / "../accuracy-reports"
-    lingua_reports_directory = accuracy_reports_directory / "lingua"
+    lingua_high_accuracy_reports_directory = (
+        accuracy_reports_directory / "lingua-high-accuracy"
+    )
+    lingua_low_accuracy_reports_directory = (
+        accuracy_reports_directory / "lingua-low-accuracy"
+    )
     langdetect_reports_directory = accuracy_reports_directory / "langdetect"
     fasttext_reports_directory = accuracy_reports_directory / "fasttext"
     langid_reports_directory = accuracy_reports_directory / "langid"
     cld3_reports_directory = accuracy_reports_directory / "cld3"
     cld2_reports_directory = accuracy_reports_directory / "cld2"
 
-    if not lingua_reports_directory.is_dir():
-        os.makedirs(lingua_reports_directory)
+    if not lingua_high_accuracy_reports_directory.is_dir():
+        os.makedirs(lingua_high_accuracy_reports_directory)
+
+    if not lingua_low_accuracy_reports_directory.is_dir():
+        os.makedirs(lingua_low_accuracy_reports_directory)
 
     if not langdetect_reports_directory.is_dir():
         os.makedirs(langdetect_reports_directory)
@@ -275,10 +290,14 @@ def main():
                 "single-words-langdetect",
                 "word-pairs-langdetect",
                 "sentences-langdetect",
-                "average-lingua",
-                "single-words-lingua",
-                "word-pairs-lingua",
-                "sentences-lingua",
+                "average-lingua-low",
+                "single-words-lingua-low",
+                "word-pairs-lingua-low",
+                "sentences-lingua-low",
+                "average-lingua-high",
+                "single-words-lingua-high",
+                "word-pairs-lingua-high",
+                "sentences-lingua-high",
             ]
         )
 
@@ -295,7 +314,8 @@ def main():
             word_pairs = get_file_content(test_data_directory, "word-pairs", language)
             sentences = get_file_content(test_data_directory, "sentences", language)
 
-            lingua_statistics = DetectorStatistics.new()
+            lingua_high_accuracy_statistics = DetectorStatistics.new()
+            lingua_low_accuracy_statistics = DetectorStatistics.new()
             langdetect_statistics = DetectorStatistics.new()
             fasttext_statistics = DetectorStatistics.new()
             langid_statistics = DetectorStatistics.new()
@@ -303,8 +323,19 @@ def main():
             cld2_statistics = DetectorStatistics.new()
 
             for single_word in single_words:
-                lingua_language = lingua_detector.detect_language_of(single_word)
-                lingua_statistics.add_single_word_counts(lingua_language, single_word)
+                lingua_language_in_high_accuracy_mode = (
+                    lingua_detector_with_high_accuracy.detect_language_of(single_word)
+                )
+                lingua_high_accuracy_statistics.add_single_word_counts(
+                    lingua_language_in_high_accuracy_mode, single_word
+                )
+
+                lingua_language_in_low_accuracy_mode = (
+                    lingua_detector_with_low_accuracy.detect_language_of(single_word)
+                )
+                lingua_low_accuracy_statistics.add_single_word_counts(
+                    lingua_language_in_low_accuracy_mode, single_word
+                )
 
                 try:
                     langdetect_language = map_detector_to_lingua(
@@ -342,8 +373,19 @@ def main():
                 cld2_statistics.add_single_word_counts(cld2_language, single_word)
 
             for word_pair in word_pairs:
-                lingua_language = lingua_detector.detect_language_of(word_pair)
-                lingua_statistics.add_word_pair_counts(lingua_language, word_pair)
+                lingua_language_in_high_accuracy_mode = (
+                    lingua_detector_with_high_accuracy.detect_language_of(word_pair)
+                )
+                lingua_high_accuracy_statistics.add_word_pair_counts(
+                    lingua_language_in_high_accuracy_mode, word_pair
+                )
+
+                lingua_language_in_low_accuracy_mode = (
+                    lingua_detector_with_low_accuracy.detect_language_of(word_pair)
+                )
+                lingua_low_accuracy_statistics.add_word_pair_counts(
+                    lingua_language_in_low_accuracy_mode, word_pair
+                )
 
                 try:
                     langdetect_language = map_detector_to_lingua(
@@ -377,8 +419,19 @@ def main():
                 cld2_statistics.add_word_pair_counts(cld2_language, word_pair)
 
             for sentence in sentences:
-                lingua_language = lingua_detector.detect_language_of(sentence)
-                lingua_statistics.add_sentence_counts(lingua_language, sentence)
+                lingua_language_in_high_accuracy_mode = (
+                    lingua_detector_with_high_accuracy.detect_language_of(sentence)
+                )
+                lingua_high_accuracy_statistics.add_sentence_counts(
+                    lingua_language_in_high_accuracy_mode, sentence
+                )
+
+                lingua_language_in_low_accuracy_mode = (
+                    lingua_detector_with_low_accuracy.detect_language_of(sentence)
+                )
+                lingua_low_accuracy_statistics.add_sentence_counts(
+                    lingua_language_in_low_accuracy_mode, sentence
+                )
 
                 try:
                     langdetect_language = map_detector_to_lingua(
@@ -409,22 +462,31 @@ def main():
                     cld2_language = None
                 cld2_statistics.add_sentence_counts(cld2_language, sentence)
 
-            lingua_statistics.compute_accuracy_values()
+            lingua_high_accuracy_statistics.compute_accuracy_values()
+            lingua_low_accuracy_statistics.compute_accuracy_values()
             langdetect_statistics.compute_accuracy_values()
             fasttext_statistics.compute_accuracy_values()
             langid_statistics.compute_accuracy_values()
             cld3_statistics.compute_accuracy_values()
             cld2_statistics.compute_accuracy_values()
 
-            lingua_report = lingua_statistics.create_report_data(language)
+            lingua_high_accuracy_report = (
+                lingua_high_accuracy_statistics.create_report_data(language)
+            )
+            lingua_low_accuracy_report = (
+                lingua_low_accuracy_statistics.create_report_data(language)
+            )
             langdetect_report = langdetect_statistics.create_report_data(language)
             fasttext_report = fasttext_statistics.create_report_data(language)
             langid_report = langid_statistics.create_report_data(language)
             cld3_report = cld3_statistics.create_report_data(language)
             cld2_report = cld2_statistics.create_report_data(language)
 
-            lingua_aggregated_report_row = (
-                lingua_statistics.create_aggregated_report_row(language)
+            lingua_high_accuracy_aggregated_report_row = (
+                lingua_high_accuracy_statistics.create_aggregated_report_row(language)
+            )
+            lingua_low_accuracy_aggregated_report_row = (
+                lingua_low_accuracy_statistics.create_aggregated_report_row(language)
             )
             langdetect_aggregated_report_row = (
                 langdetect_statistics.create_aggregated_report_row(language)
@@ -448,12 +510,18 @@ def main():
                 f"{langid_aggregated_report_row},"
                 f"{fasttext_aggregated_report_row},"
                 f"{langdetect_aggregated_report_row},"
-                f"{lingua_aggregated_report_row}"
+                f"{lingua_low_accuracy_aggregated_report_row},"
+                f"{lingua_high_accuracy_aggregated_report_row}"
             )
             csv_writer.writerow(total_aggregated_report_row.split(","))
 
             report_file_name = f"{language.name.title()}.txt"
-            lingua_reports_file_path = lingua_reports_directory / report_file_name
+            lingua_high_accuracy_reports_file_path = (
+                lingua_high_accuracy_reports_directory / report_file_name
+            )
+            lingua_low_accuracy_reports_file_path = (
+                lingua_low_accuracy_reports_directory / report_file_name
+            )
             langdetect_reports_file_path = (
                 langdetect_reports_directory / report_file_name
             )
@@ -462,9 +530,17 @@ def main():
             cld3_reports_file_path = cld3_reports_directory / report_file_name
             cld2_reports_file_path = cld2_reports_directory / report_file_name
 
-            if lingua_report is not None:
-                with lingua_reports_file_path.open(mode="w") as lingua_reports_file:
-                    lingua_reports_file.write(lingua_report)
+            if lingua_high_accuracy_report is not None:
+                with lingua_high_accuracy_reports_file_path.open(
+                    mode="w"
+                ) as lingua_high_accuracy_reports_file:
+                    lingua_high_accuracy_reports_file.write(lingua_high_accuracy_report)
+
+            if lingua_low_accuracy_report is not None:
+                with lingua_low_accuracy_reports_file_path.open(
+                    mode="w"
+                ) as lingua_low_accuracy_reports_file:
+                    lingua_low_accuracy_reports_file.write(lingua_low_accuracy_report)
 
             if langdetect_report is not None:
                 with langdetect_reports_file_path.open(

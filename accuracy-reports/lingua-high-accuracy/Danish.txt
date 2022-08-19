@@ -1,0 +1,16 @@
+##### Danish #####
+
+>>> Accuracy on average: 80.87%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 61.40%
+Erroneously classified as Bokmal: 11.10%, Nynorsk: 4.20%, German: 3.00%, English: 2.60%, Swedish: 2.60%, French: 1.70%, Esperanto: 1.40%, Dutch: 1.30%, Latin: 1.30%, Unknown: 0.60%, Catalan: 0.50%, Indonesian: 0.50%, Italian: 0.50%, Estonian: 0.40%, Portuguese: 0.40%, Spanish: 0.40%, Swahili: 0.40%, Turkish: 0.40%, Xhosa: 0.40%, Afrikaans: 0.30%, Basque: 0.30%, Finnish: 0.30%, Hungarian: 0.30%, Romanian: 0.30%, Shona: 0.30%, Tswana: 0.30%, Welsh: 0.30%, Albanian: 0.20%, Bosnian: 0.20%, Croatian: 0.20%, Icelandic: 0.20%, Lithuanian: 0.20%, Sotho: 0.20%, Tsonga: 0.20%, Yoruba: 0.20%, Zulu: 0.20%, Azerbaijani: 0.10%, Latvian: 0.10%, Malay: 0.10%, Slovak: 0.10%, Slovene: 0.10%, Somali: 0.10%, Tagalog: 0.10%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 83.40%
+Erroneously classified as Bokmal: 6.50%, Nynorsk: 2.90%, Latin: 1.20%, Swedish: 1.20%, German: 0.90%, Afrikaans: 0.50%, English: 0.50%, Dutch: 0.40%, Esperanto: 0.40%, French: 0.30%, Basque: 0.20%, Shona: 0.20%, Swahili: 0.20%, Tswana: 0.20%, Unknown: 0.20%, Catalan: 0.10%, Italian: 0.10%, Malay: 0.10%, Slovak: 0.10%, Sotho: 0.10%, Tagalog: 0.10%, Welsh: 0.10%, Zulu: 0.10%
+
+>> Detection of 1000 sentences (average length: 112 chars)
+Accuracy: 97.80%
+Erroneously classified as Nynorsk: 1.10%, Bokmal: 0.90%, Afrikaans: 0.10%, Unknown: 0.10%
+

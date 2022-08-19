@@ -1,0 +1,16 @@
+##### Xhosa #####
+
+>>> Accuracy on average: 81.23%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 62.20%
+Erroneously classified as Zulu: 22.10%, Tsonga: 3.30%, English: 1.70%, Sotho: 1.40%, Swahili: 1.20%, Ganda: 1.00%, Shona: 0.80%, Latin: 0.70%, Tswana: 0.70%, Yoruba: 0.70%, Unknown: 0.70%, Afrikaans: 0.50%, French: 0.40%, Malay: 0.40%, Esperanto: 0.30%, Italian: 0.30%, Tagalog: 0.30%, Dutch: 0.20%, Finnish: 0.20%, Latvian: 0.20%, Turkish: 0.20%, Basque: 0.10%, Bokmal: 0.10%, Croatian: 0.10%, Portuguese: 0.10%, Swedish: 0.10%
+
+>> Detection of 1000 word pairs (average length: 18 chars)
+Accuracy: 83.80%
+Erroneously classified as Zulu: 12.30%, Swahili: 1.00%, Tsonga: 0.60%, English: 0.40%, French: 0.20%, Latin: 0.20%, Portuguese: 0.20%, Tswana: 0.20%, Yoruba: 0.20%, Unknown: 0.20%, Basque: 0.10%, Dutch: 0.10%, Esperanto: 0.10%, Estonian: 0.10%, Indonesian: 0.10%, Sotho: 0.10%, Tagalog: 0.10%
+
+>> Detection of 1000 sentences (average length: 127 chars)
+Accuracy: 97.70%
+Erroneously classified as Zulu: 2.20%, Portuguese: 0.10%
+

@@ -1,0 +1,16 @@
+##### Vietnamese #####
+
+>>> Accuracy on average: 90.51%
+
+>> Detection of 879 single words (average length: 4 chars)
+Accuracy: 77.36%
+Erroneously classified as Romanian: 1.93%, Irish: 1.82%, Tagalog: 1.59%, Yoruba: 1.48%, Swahili: 1.25%, Latin: 1.02%, Sotho: 0.91%, Afrikaans: 0.68%, Portuguese: 0.68%, Somali: 0.68%, Turkish: 0.68%, English: 0.57%, German: 0.57%, Maori: 0.57%, Tsonga: 0.57%, Tswana: 0.57%, French: 0.46%, Lithuanian: 0.46%, Malay: 0.46%, Spanish: 0.46%, Zulu: 0.46%, Unknown: 0.46%, Basque: 0.34%, Catalan: 0.34%, Estonian: 0.34%, Hungarian: 0.34%, Polish: 0.34%, Shona: 0.34%, Czech: 0.23%, Dutch: 0.23%, Esperanto: 0.23%, Icelandic: 0.23%, Italian: 0.23%, Nynorsk: 0.23%, Swedish: 0.23%, Welsh: 0.23%, Bosnian: 0.11%, Ganda: 0.11%, Latvian: 0.11%, Xhosa: 0.11%
+
+>> Detection of 957 word pairs (average length: 12 chars)
+Accuracy: 94.78%
+Erroneously classified as Swahili: 0.73%, English: 0.52%, Tsonga: 0.52%, Portuguese: 0.42%, Tswana: 0.42%, Afrikaans: 0.31%, Shona: 0.31%, Sotho: 0.31%, Tagalog: 0.31%, French: 0.21%, Malay: 0.21%, Dutch: 0.10%, Icelandic: 0.10%, Italian: 0.10%, Latin: 0.10%, Maori: 0.10%, Somali: 0.10%, Swedish: 0.10%, Zulu: 0.10%, Unknown: 0.10%
+
+>> Detection of 1000 sentences (average length: 120 chars)
+Accuracy: 99.40%
+Erroneously classified as Shona: 0.20%, Yoruba: 0.20%, Tagalog: 0.10%, Tswana: 0.10%
+
