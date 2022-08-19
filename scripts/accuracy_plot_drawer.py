@@ -39,17 +39,34 @@ class AccuracyPlotDrawer:
     _plot_titles = ("Single Word", "Word Pair", "Sentence", "Average")
     _plot_title_suffix = "Detection Performance"
     _column_prefixes = ("single-words", "word-pairs", "sentences", "average")
-    _column_suffixes = ("cld2", "cld3", "langid", "fasttext", "langdetect", "lingua")
+    _column_suffixes = (
+        "cld2",
+        "cld3",
+        "langid",
+        "fasttext",
+        "langdetect",
+        "lingua-low",
+        "lingua-high",
+    )
     _legend_labels = (
         "CLD 2",
         "CLD 3",
         "langid 1.1.6",
         "fastText 0.9.2",
         "langdetect 1.0.9",
-        "Lingua 1.0.0",
+        "Lingua 1.1.0\nlow accuracy mode",
+        "Lingua 1.1.0\nhigh accuracy mode",
     )
-    _hatches = ("/", "x", "+", ".", "*", "O")
-    _palette = ("#347deb", "#b259ff", "#ff6347", "#ff8800", "#ffc400", "#41c46b")
+    _hatches = ("-", "/", "x", "+", ".", "*", "O")
+    _palette = (
+        "#39d7e6",
+        "#347deb",
+        "#b259ff",
+        "#ff6347",
+        "#ff8800",
+        "#ffc400",
+        "#41c46b",
+    )
     _ticks = np.arange(0, 101, 10)
     _legend_handles = [
         Patch(facecolor=color, edgecolor="black", label=label, hatch=hatch)
@@ -91,7 +108,7 @@ class AccuracyPlotDrawer:
         row_filter = self._dataframe[self._hue].isin(columns)
         data = self._dataframe[row_filter]
 
-        plt.figure(figsize=(16, 125))
+        plt.figure(figsize=(16, 150))
         plt.title(
             title + "\n", fontsize=self._title_fontsize, fontweight=self._fontweight
         )
@@ -128,7 +145,7 @@ class AccuracyPlotDrawer:
         row_filter = self._dataframe[self._hue].isin(columns)
         data = self._dataframe[row_filter]
 
-        plt.figure(figsize=(24, 12))
+        plt.figure(figsize=(36, 12))
         plt.title(title, fontsize=self._title_fontsize, fontweight=self._fontweight)
         plt.xticks(fontsize=self._ticks_fontsize)
         plt.yticks(fontsize=self._ticks_fontsize, ticks=self._ticks)
