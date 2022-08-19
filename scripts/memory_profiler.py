@@ -20,14 +20,22 @@ import sys
 from lingua import LanguageDetectorBuilder, Language
 
 
-def report_memory_usage_of_language_models():
+def report_memory_usage_of_low_accuracy_mode():
+    LanguageDetectorBuilder.from_all_languages().with_low_accuracy_mode().with_preloaded_language_models().build()
+    process = psutil.Process(os.getpid())
+    process_size = process.memory_info().rss
+    print(
+        f"Entire Python process in low accuracy mode: {process_size / 1000000:.2f} MB"
+    )
+
+
+def report_memory_usage_of_high_accuracy_mode():
     unigrams_size = 0
     bigrams_size = 0
     trigrams_size = 0
     quadrigrams_size = 0
     fivegrams_size = 0
 
-    print("Measuring memory usage of language models...")
     detector = (
         LanguageDetectorBuilder.from_all_languages()
         .with_preloaded_language_models()
@@ -57,14 +65,16 @@ def report_memory_usage_of_language_models():
     process = psutil.Process(os.getpid())
     process_size = process.memory_info().rss
 
+    print(
+        f"Entire Python process in high accuracy mode: {process_size / 1000000:.2f} MB"
+    )
     print(f"Unigrams: {unigrams_size / 1000000:.2f} MB")
     print(f"Bigrams: {bigrams_size / 1000000:.2f} MB")
     print(f"Trigrams: {trigrams_size / 1000000:.2f} MB")
     print(f"Quadrigrams: {quadrigrams_size / 1000000:.2f} MB")
     print(f"Fivegrams: {fivegrams_size / 1000000:.2f} MB")
-    print(f"Entire Python process: {process_size / 1000000:.2f} MB")
 
 
 if __name__ == "__main__":
-    report_memory_usage_of_language_models()
-    print()
+    report_memory_usage_of_low_accuracy_mode()
+    report_memory_usage_of_high_accuracy_mode()
