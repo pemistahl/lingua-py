@@ -2887,7 +2887,9 @@ services, for instance, it is rather beneficial to preload all language models
 into memory to avoid unexpected latency while waiting for the service response.
 If you want to enable the eager-loading mode, you can do it like this:
 
-    LanguageDetectorBuilder.from_all_languages().with_preloaded_language_models().build()
+```python
+LanguageDetectorBuilder.from_all_languages().with_preloaded_language_models().build()
+```
 
 Multiple instances of `LanguageDetector` share the same language models in
 memory which are accessed asynchronously by the instances.

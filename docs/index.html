@@ -157,24 +157,46 @@ extracted, respectively.</p>
 <em>Lingua</em>, <em>fastText</em>, <em>langdetect</em>, <em>langid</em>, <em>CLD 2</em> and <em>CLD 3</em> running over the data
 of <em>Lingua's</em> supported 75 languages. Languages that are not supported by the other
 detectors are simply ignored for them during the detection process.</p>
-<p>The box plots below illustrate the distributions of the accuracy values for
-each classifier. The boxes themselves represent the areas which the middle
-50 % of data lie within. Within the colored boxes, the horizontal lines mark
-the median of the distributions. All these plots demonstrate that <em>Lingua</em>
-clearly outperforms its contenders. Bar plots for each language can be found
-in the file
-<a href="https://github.com/pemistahl/lingua-py/blob/main/ACCURACY_PLOTS.md">ACCURACY_PLOTS.md</a>.
-Detailed statistics including mean, median and standard deviation values for
-each language and classifier are available in the file
-<a href="https://github.com/pemistahl/lingua-py/blob/main/ACCURACY_TABLE.md">ACCURACY_TABLE.md</a>.</p>
+<p>Each of the following sections contains two plots. The bar plot shows the detailed accuracy
+results for each supported language. The box plot illustrates the distributions of the
+accuracy values for each classifier. The boxes themselves represent the areas which the
+middle 50 % of data lie within. Within the colored boxes, the horizontal lines mark the
+median of the distributions.</p>
 <h3 id="41-single-word-detection">4.1 Single word detection</h3>
+<p><br/></p>
 <p><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/plots/boxplot-single-words.png" alt="Single Word Detection Performance" /></p>
+<p><br/></p>
+<details>
+<summary>Bar plot</summary>
+<img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/plots/barplot-single-words.png" alt="Single Word Detection Performance" />
+</details>
+<p><br/><br/></p>
 <h3 id="42-word-pair-detection">4.2 Word pair detection</h3>
+<p><br/></p>
 <p><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/plots/boxplot-word-pairs.png" alt="Word Pair Detection Performance" /></p>
+<p><br/></p>
+<details>
+<summary>Bar plot</summary>
+<img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/plots/barplot-word-pairs.png" alt="Word Pair Detection Performance" />
+</details>
+<p><br/><br/></p>
 <h3 id="43-sentence-detection">4.3 Sentence detection</h3>
+<p><br/></p>
 <p><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/plots/boxplot-sentences.png" alt="Sentence Detection Performance" /></p>
+<p><br/></p>
+<details>
+<summary>Bar plot</summary>
+<img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/plots/barplot-sentences.png" alt="Sentence Detection Performance" />
+</details>
+<p><br/><br/></p>
 <h3 id="44-average-detection">4.4 Average detection</h3>
+<p><br/></p>
 <p><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/plots/boxplot-average.png" alt="Average Detection Performance" /></p>
+<p><br/></p>
+<details>
+<summary>Bar plot</summary>
+<img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/plots/barplot-average.png" alt="Average Detection Performance" />
+</details>
 <h2 id="5-why-is-it-better-than-other-libraries">5. Why is it better than other libraries?</h2>
 <p>Every language detector uses a probabilistic
 <a href="https://en.wikipedia.org/wiki/N-gram">n-gram</a> model trained on the character
@@ -276,16 +298,34 @@ If you want to enable the eager-loading mode, you can do it like this:</p>
 </code></pre>
 <p>Multiple instances of <code>LanguageDetector</code> share the same language models in
 memory which are accessed asynchronously by the instances.</p>
-<h2 id="75-methods-to-build-the-languagedetector">7.5 Methods to build the LanguageDetector</h2>
+<h2 id="75-low-accuracy-mode-versus-high-accuracy-mode">7.5 Low accuracy mode versus high accuracy mode</h2>
+<p><em>Lingua's</em> high detection accuracy comes at the cost of being noticeably slower
+than other language detectors. The large language models also consume significant
+amounts of memory. These requirements might not be feasible for systems running low
+on resources. If you want to classify mostly long texts or need to save resources,
+you can enable a <em>low accuracy mode</em> that loads only a small subset of the language
+models into memory:</p>
+<pre><code class="language-python">LanguageDetectorBuilder.from_all_languages().with_low_accuracy_mode().build()
+</code></pre>
+<p>The downside of this approach is that detection accuracy for short texts consisting
+of less than 120 characters will drop significantly. However, detection accuracy for
+texts which are longer than 120 characters will remain mostly unaffected.</p>
+<p>In high accuracy mode (the default), the language detector consumes approximately
+800 MB of memory if all language models are loaded. In low accuracy mode, memory
+consumption is reduced to approximately 60 MB.</p>
+<p>An alternative for a smaller memory footprint and faster performance is to reduce the set
+of languages when building the language detector. In most cases, it is not advisable to
+build the detector from all supported languages. When you have knowledge about
+the texts you want to classify you can almost always rule out certain languages as impossible
+or unlikely to occur.</p>
+<h2 id="76-methods-to-build-the-languagedetector">7.6 Methods to build the LanguageDetector</h2>
 <p>There might be classification tasks where you know beforehand that your
 language data is definitely not written in Latin, for instance. The detection
 accuracy can become better in such cases if you exclude certain languages from
 the decision process or just explicitly include relevant languages:</p>
 <pre><code class="language-python">from lingua import LanguageDetectorBuilder, Language, IsoCode639_1, IsoCode639_3
 
-# Including all languages available in the library
-# consumes approximately 3GB of memory and might
-# lead to slow runtime performance.
+# Include all languages available in the library.
 LanguageDetectorBuilder.from_all_languages()
 
 # Include only languages that are not yet extinct (= currently excludes Latin).
@@ -367,7 +407,8 @@ LanguageDetectorBuilder.from_iso_codes_639_3(IsoCode639_3.ENG, IsoCode639_3.DEU)
 </ul>
 </li>
 <li><a href="#74-eager-loading-versus-lazy-loading">7.4 Eager loading versus lazy loading</a></li>
-<li><a href="#75-methods-to-build-the-languagedetector">7.5 Methods to build the LanguageDetector</a></li>
+<li><a href="#75-low-accuracy-mode-versus-high-accuracy-mode">7.5 Low accuracy mode versus high accuracy mode</a></li>
+<li><a href="#76-methods-to-build-the-languagedetector">7.6 Methods to build the LanguageDetector</a></li>
 </ul>
 </div>
 <ul id="index">

@@ -131,6 +131,22 @@ with the languages passed to this method.</p></div>
 <dd>
 <div class="desc"><p>Create and return the configured LanguageDetector instance.</p></div>
 </dd>
+<dt id="lingua.builder.LanguageDetectorBuilder.with_low_accuracy_mode"><code class="name flex">
+<span>def <span class="ident">with_low_accuracy_mode</span></span>(<span>self) ‑> <a title="lingua.builder.LanguageDetectorBuilder" href="#lingua.builder.LanguageDetectorBuilder">LanguageDetectorBuilder</a></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Disables the high accuracy mode in order to save memory
+and increase performance.</p>
+<p>By default, Lingua's high detection accuracy comes at the cost
+of loading large language models into memory which might not be
+feasible for systems running low on resources.</p>
+<p>This method disables the high accuracy mode so that only a small
+subset of language models is loaded into memory. The downside of
+this approach is that detection accuracy for short texts consisting
+of less than 120 characters will drop significantly. However,
+detection accuracy for texts which are longer than 120 characters
+will remain mostly unaffected.</p></div>
+</dd>
 <dt id="lingua.builder.LanguageDetectorBuilder.with_minimum_relative_distance"><code class="name flex">
 <span>def <span class="ident">with_minimum_relative_distance</span></span>(<span>self, distance: float) ‑> <a title="lingua.builder.LanguageDetectorBuilder" href="#lingua.builder.LanguageDetectorBuilder">LanguageDetectorBuilder</a></span>
 </code></dt>
@@ -207,6 +223,7 @@ method allows to switch between these two loading modes.</p></div>
 <li><code><a title="lingua.builder.LanguageDetectorBuilder.from_iso_codes_639_1" href="#lingua.builder.LanguageDetectorBuilder.from_iso_codes_639_1">from_iso_codes_639_1</a></code></li>
 <li><code><a title="lingua.builder.LanguageDetectorBuilder.from_iso_codes_639_3" href="#lingua.builder.LanguageDetectorBuilder.from_iso_codes_639_3">from_iso_codes_639_3</a></code></li>
 <li><code><a title="lingua.builder.LanguageDetectorBuilder.from_languages" href="#lingua.builder.LanguageDetectorBuilder.from_languages">from_languages</a></code></li>
+<li><code><a title="lingua.builder.LanguageDetectorBuilder.with_low_accuracy_mode" href="#lingua.builder.LanguageDetectorBuilder.with_low_accuracy_mode">with_low_accuracy_mode</a></code></li>
 <li><code><a title="lingua.builder.LanguageDetectorBuilder.with_minimum_relative_distance" href="#lingua.builder.LanguageDetectorBuilder.with_minimum_relative_distance">with_minimum_relative_distance</a></code></li>
 <li><code><a title="lingua.builder.LanguageDetectorBuilder.with_preloaded_language_models" href="#lingua.builder.LanguageDetectorBuilder.with_preloaded_language_models">with_preloaded_language_models</a></code></li>
 </ul>

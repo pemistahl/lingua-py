@@ -158,32 +158,69 @@ Given the generated test data, I have compared the detection results of
 of *Lingua's* supported 75 languages. Languages that are not supported by the other
 detectors are simply ignored for them during the detection process.
 
-The box plots below illustrate the distributions of the accuracy values for
-each classifier. The boxes themselves represent the areas which the middle
-50 % of data lie within. Within the colored boxes, the horizontal lines mark
-the median of the distributions. All these plots demonstrate that *Lingua*
-clearly outperforms its contenders. Bar plots for each language can be found
-in the file
-[ACCURACY_PLOTS.md](https://github.com/pemistahl/lingua-py/blob/main/ACCURACY_PLOTS.md).
-Detailed statistics including mean, median and standard deviation values for
-each language and classifier are available in the file
-[ACCURACY_TABLE.md](https://github.com/pemistahl/lingua-py/blob/main/ACCURACY_TABLE.md).
+Each of the following sections contains two plots. The bar plot shows the detailed accuracy
+results for each supported language. The box plot illustrates the distributions of the
+accuracy values for each classifier. The boxes themselves represent the areas which the
+middle 50 % of data lie within. Within the colored boxes, the horizontal lines mark the
+median of the distributions.
 
 ### 4.1 Single word detection
 
+<br/>
+
 <img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/plots/boxplot-single-words.png" alt="Single Word Detection Performance" />
+
+<br/>
+
+<details>
+    <summary>Bar plot</summary>
+    <img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/plots/barplot-single-words.png" alt="Single Word Detection Performance" />
+</details>
+
+<br/><br/>
 
 ### 4.2 Word pair detection
 
+<br/>
+
 <img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/plots/boxplot-word-pairs.png" alt="Word Pair Detection Performance" />
+
+<br/>
+
+<details>
+    <summary>Bar plot</summary>
+    <img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/plots/barplot-word-pairs.png" alt="Word Pair Detection Performance" />
+</details>
+
+<br/><br/>
 
 ### 4.3 Sentence detection
 
+<br/>
+
 <img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/plots/boxplot-sentences.png" alt="Sentence Detection Performance" />
+
+<br/>
+
+<details>
+    <summary>Bar plot</summary>
+    <img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/plots/barplot-sentences.png" alt="Sentence Detection Performance" />
+</details>
+
+<br/><br/>
 
 ### 4.4 Average detection
 
+<br/>
+
 <img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/plots/boxplot-average.png" alt="Average Detection Performance" />
+
+<br/>
+
+<details>
+    <summary>Bar plot</summary>
+    <img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/plots/barplot-average.png" alt="Average Detection Performance" />
+</details>
 
 ## 5. Why is it better than other libraries?
 
@@ -316,7 +353,34 @@ LanguageDetectorBuilder.from_all_languages().with_preloaded_language_models().bu
 Multiple instances of `LanguageDetector` share the same language models in
 memory which are accessed asynchronously by the instances.
 
-## 7.5 Methods to build the LanguageDetector
+## 7.5 Low accuracy mode versus high accuracy mode
+
+*Lingua's* high detection accuracy comes at the cost of being noticeably slower
+than other language detectors. The large language models also consume significant
+amounts of memory. These requirements might not be feasible for systems running low
+on resources. If you want to classify mostly long texts or need to save resources,
+you can enable a *low accuracy mode* that loads only a small subset of the language
+models into memory:
+
+```python
+LanguageDetectorBuilder.from_all_languages().with_low_accuracy_mode().build()
+```
+
+The downside of this approach is that detection accuracy for short texts consisting
+of less than 120 characters will drop significantly. However, detection accuracy for
+texts which are longer than 120 characters will remain mostly unaffected.
+
+In high accuracy mode (the default), the language detector consumes approximately
+800 MB of memory if all language models are loaded. In low accuracy mode, memory
+consumption is reduced to approximately 60 MB.
+
+An alternative for a smaller memory footprint and faster performance is to reduce the set
+of languages when building the language detector. In most cases, it is not advisable to
+build the detector from all supported languages. When you have knowledge about
+the texts you want to classify you can almost always rule out certain languages as impossible
+or unlikely to occur.
+
+## 7.6 Methods to build the LanguageDetector
 
 There might be classification tasks where you know beforehand that your
 language data is definitely not written in Latin, for instance. The detection
@@ -326,9 +390,7 @@ the decision process or just explicitly include relevant languages:
 ```python
 from lingua import LanguageDetectorBuilder, Language, IsoCode639_1, IsoCode639_3
 
-# Including all languages available in the library
-# consumes approximately 3GB of memory and might
-# lead to slow runtime performance.
+# Include all languages available in the library.
 LanguageDetectorBuilder.from_all_languages()
 
 # Include only languages that are not yet extinct (= currently excludes Latin).
