@@ -43,7 +43,7 @@ this library's fields of application.
 [wikipedia isocodes list]: https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
 [language url]: https://github.com/pemistahl/lingua-py/blob/main/lingua/language.py#L126
 [alphabet url]: https://github.com/pemistahl/lingua-py/blob/main/lingua/language.py#L49
-[chars to languages mapping url]: https://github.com/pemistahl/lingua-py/blob/main/lingua/_constant.py#L35
+[chars to languages mapping url]: https://github.com/pemistahl/lingua-py/blob/main/lingua/_constant.py#L33
 [language model files writer url]: https://github.com/pemistahl/lingua-py/blob/main/lingua/writer.py#L27
 [test data files writer url]: https://github.com/pemistahl/lingua-py/blob/main/lingua/writer.py#L147
 [language models directory url]: https://github.com/pemistahl/lingua-py/tree/main/lingua/language-models
