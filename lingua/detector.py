@@ -471,17 +471,23 @@ class LanguageDetector:
         else:
             raise ValueError(f"unsupported ngram length detected: {ngram_length}")
 
+        probability = np.float16(0)
+
         if language not in language_models:
             models = self._load_language_models(language, ngram_length)
             if models is None:
-                return np.float16(0)
+                self._cache[language][ngram] = probability
+                return probability
             language_models.update(models)
 
+        idx = np.searchsorted(language_models[language]["ngram"], ngram)
+
         try:
-            idx = np.searchsorted(language_models[language]["ngram"], ngram)
-            probability = language_models[language]["frequency"][idx]
+            found_ngram = language_models[language]["ngram"][idx]
+            if found_ngram == ngram:
+                probability = language_models[language]["frequency"][idx]
         except IndexError:
-            probability = np.float16(0)
+            pass
 
         self._cache[language][ngram] = probability
 
