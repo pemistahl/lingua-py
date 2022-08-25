@@ -892,6 +892,9 @@ def test_strings_without_letters_return_no_language(
         pytest.param(Language.GERMAN, "alt", f(log(0.22))),
         pytest.param(Language.GERMAN, "lter", f(log(0.28))),
         pytest.param(Language.GERMAN, "alter", f(log(0.3))),
+        # unknown ngrams
+        pytest.param(Language.GERMAN, "xyz", f(0)),
+        pytest.param(Language.ENGLISH, "ab", f(0)),
     ],
 )
 def test_ngram_probability_lookup(
