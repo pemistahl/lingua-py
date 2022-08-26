@@ -1,3 +1,10 @@
+## Lingua 1.1.1 (released on 26 Aug 2022)
+
+### Bug Fixes
+
+- For certain ngrams, wrong probabilities were returned. This has been fixed.
+  Big thanks to @3a77 for reporting this bug. (#62)
+
 ## Lingua 1.1.0 (released on 22 Aug 2022)
 
 ### Features

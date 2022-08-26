@@ -153,3 +153,4 @@ ehthumbs.db
 
 scripts/test.py
 scripts/fasttext_model.bin
+ACCURACY_TABLE.md
