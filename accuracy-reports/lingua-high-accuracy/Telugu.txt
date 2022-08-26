@@ -12,5 +12,5 @@ Erroneously classified as
 
 >> Detection of 1000 sentences (average length: 94 chars)
 Accuracy: 99.80%
-Erroneously classified as Esperanto: 0.10%, Georgian: 0.10%
+Erroneously classified as Esperanto: 0.10%, Slovene: 0.10%
 

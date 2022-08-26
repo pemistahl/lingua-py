@@ -482,12 +482,10 @@ class LanguageDetector:
 
         idx = np.searchsorted(language_models[language]["ngram"], ngram)
 
-        try:
+        if idx < language_models[language]["ngram"].size:
             found_ngram = language_models[language]["ngram"][idx]
             if found_ngram == ngram:
                 probability = language_models[language]["frequency"][idx]
-        except IndexError:
-            pass
 
         self._cache[language][ngram] = probability
 

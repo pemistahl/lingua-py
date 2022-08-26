@@ -12,5 +12,5 @@ Erroneously classified as
 
 >> Detection of 1000 sentences (average length: 92 chars)
 Accuracy: 99.60%
-Erroneously classified as Tagalog: 0.20%, Latin: 0.10%, Romanian: 0.10%
+Erroneously classified as English: 0.20%, Latin: 0.10%, Portuguese: 0.10%
 

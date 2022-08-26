@@ -112,9 +112,7 @@ class AccuracyTableWriter:
                     accuracy_str = "-"
 
                 color = self._get_square_color(accuracy_value)
-                self._table += (
-                    f'\t\t<td><img src="images/{color}.png"> {accuracy_str}</td>\n'
-                )
+                self._table += f'\t\t<td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/{color}.png"> {accuracy_str}</td>\n'
 
             self._table += "\t</tr>\n"
 
@@ -124,7 +122,7 @@ class AccuracyTableWriter:
         for column in self._columns:
             accuracy_value = mean.loc[[column]][0]
             color = self._get_square_color(accuracy_value)
-            self._table += f'\t\t<td><img src="images/{color}.png"> <strong>{accuracy_value}</strong></td>\n'
+            self._table += f'\t\t<td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/{color}.png"> <strong>{accuracy_value}</strong></td>\n'
 
         self._table += "\t</tr>\n"
         self._table += '\t<tr>\n\t\t<td colspan="28"></td>\n\t</tr>\n'
