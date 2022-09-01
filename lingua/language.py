@@ -327,7 +327,7 @@ class Language(Enum):
         frozenset([_Alphabet.CYRILLIC]),
         "ҐґЄєЇї",
     )
-    URDU = (70, IsoCode639_1.UR, IsoCode639_3.UKR, frozenset([_Alphabet.ARABIC]))
+    URDU = (70, IsoCode639_1.UR, IsoCode639_3.URD, frozenset([_Alphabet.ARABIC]))
     VIETNAMESE = (
         71,
         IsoCode639_1.VI,
