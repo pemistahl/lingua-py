@@ -15,7 +15,7 @@
 
 import regex
 
-from enum import Enum, auto
+from enum import Enum
 from functools import total_ordering
 from typing import Dict, FrozenSet, List, Optional, Pattern
 
@@ -26,84 +26,36 @@ def _pattern(char_class: str) -> Pattern[str]:
     return regex.compile(r"^\p{{Is{}}}+$".format(char_class))
 
 
-_ARABIC_PATTERN: Pattern = _pattern("Arabic")
-_ARMENIAN_PATTERN: Pattern = _pattern("Armenian")
-_BENGALI_PATTERN: Pattern = _pattern("Bengali")
-_CYRILLIC_PATTERN: Pattern = _pattern("Cyrillic")
-_DEVANAGARI_PATTERN: Pattern = _pattern("Devanagari")
-_GEORGIAN_PATTERN: Pattern = _pattern("Georgian")
-_GREEK_PATTERN: Pattern = _pattern("Greek")
-_GUJARATI_PATTERN: Pattern = _pattern("Gujarati")
-_GURMUKHI_PATTERN: Pattern = _pattern("Gurmukhi")
-_HAN_PATTERN: Pattern = _pattern("Han")
-_HANGUL_PATTERN: Pattern = _pattern("Hangul")
-_HEBREW_PATTERN: Pattern = _pattern("Hebrew")
-_HIRAGANA_PATTERN: Pattern = _pattern("Hiragana")
-_KATAKANA_PATTERN: Pattern = _pattern("Katakana")
-_LATIN_PATTERN: Pattern = _pattern("Latin")
-_TAMIL_PATTERN: Pattern = _pattern("Tamil")
-_TELUGU_PATTERN: Pattern = _pattern("Telugu")
-_THAI_PATTERN: Pattern = _pattern("Thai")
-
-
 class _Alphabet(Enum):
-    ARABIC = auto()
-    ARMENIAN = auto()
-    BENGALI = auto()
-    CYRILLIC = auto()
-    DEVANAGARI = auto()
-    GEORGIAN = auto()
-    GREEK = auto()
-    GUJARATI = auto()
-    GURMUKHI = auto()
-    HAN = auto()
-    HANGUL = auto()
-    HEBREW = auto()
-    HIRAGANA = auto()
-    KATAKANA = auto()
-    LATIN = auto()
-    TAMIL = auto()
-    TELUGU = auto()
-    THAI = auto()
+    ARABIC = (1, _pattern("Arabic"))
+    ARMENIAN = (2, _pattern("Armenian"))
+    BENGALI = (3, _pattern("Bengali"))
+    CYRILLIC = (4, _pattern("Cyrillic"))
+    DEVANAGARI = (5, _pattern("Devanagari"))
+    GEORGIAN = (6, _pattern("Georgian"))
+    GREEK = (7, _pattern("Greek"))
+    GUJARATI = (8, _pattern("Gujarati"))
+    GURMUKHI = (9, _pattern("Gurmukhi"))
+    HAN = (10, _pattern("Han"))
+    HANGUL = (11, _pattern("Hangul"))
+    HEBREW = (12, _pattern("Hebrew"))
+    HIRAGANA = (13, _pattern("Hiragana"))
+    KATAKANA = (14, _pattern("Katakana"))
+    LATIN = (15, _pattern("Latin"))
+    TAMIL = (16, _pattern("Tamil"))
+    TELUGU = (17, _pattern("Telugu"))
+    THAI = (18, _pattern("Thai"))
+
+    def __new__(cls, *args, **kwargs):
+        obj = object.__new__(cls)
+        obj._value_ = args[0]
+        return obj
+
+    def __init__(self, _: int, pattern: Pattern[str]):
+        self._pattern = pattern
 
     def matches(self, text: str) -> bool:
-        if self == _Alphabet.ARABIC:
-            return _ARABIC_PATTERN.match(text) is not None
-        if self == _Alphabet.ARMENIAN:
-            return _ARMENIAN_PATTERN.match(text) is not None
-        if self == _Alphabet.BENGALI:
-            return _BENGALI_PATTERN.match(text) is not None
-        if self == _Alphabet.CYRILLIC:
-            return _CYRILLIC_PATTERN.match(text) is not None
-        if self == _Alphabet.DEVANAGARI:
-            return _DEVANAGARI_PATTERN.match(text) is not None
-        if self == _Alphabet.GEORGIAN:
-            return _GEORGIAN_PATTERN.match(text) is not None
-        if self == _Alphabet.GREEK:
-            return _GREEK_PATTERN.match(text) is not None
-        if self == _Alphabet.GUJARATI:
-            return _GUJARATI_PATTERN.match(text) is not None
-        if self == _Alphabet.GURMUKHI:
-            return _GURMUKHI_PATTERN.match(text) is not None
-        if self == _Alphabet.HAN:
-            return _HAN_PATTERN.match(text) is not None
-        if self == _Alphabet.HANGUL:
-            return _HANGUL_PATTERN.match(text) is not None
-        if self == _Alphabet.HEBREW:
-            return _HEBREW_PATTERN.match(text) is not None
-        if self == _Alphabet.HIRAGANA:
-            return _HIRAGANA_PATTERN.match(text) is not None
-        if self == _Alphabet.KATAKANA:
-            return _KATAKANA_PATTERN.match(text) is not None
-        if self == _Alphabet.LATIN:
-            return _LATIN_PATTERN.match(text) is not None
-        if self == _Alphabet.TAMIL:
-            return _TAMIL_PATTERN.match(text) is not None
-        if self == _Alphabet.TELUGU:
-            return _TELUGU_PATTERN.match(text) is not None
-        if self == _Alphabet.THAI:
-            return _THAI_PATTERN.match(text) is not None
-        return False
+        return self._pattern.match(text) is not None
 
     @classmethod
     def all_supporting_single_language(cls) -> Dict["_Alphabet", "Language"]:
