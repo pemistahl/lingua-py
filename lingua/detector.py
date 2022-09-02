@@ -39,7 +39,7 @@ _BIGRAM_MODELS: Dict[Language, np.ndarray] = {}
 _TRIGRAM_MODELS: Dict[Language, np.ndarray] = {}
 _QUADRIGRAM_MODELS: Dict[Language, np.ndarray] = {}
 _FIVEGRAM_MODELS: Dict[Language, np.ndarray] = {}
-_CACHE: Dict[Language, Dict[str, np.float16]] = {}
+_CACHE: Dict[Language, Dict[str, float]] = {}
 _HIGH_ACCURACY_MODE_MAX_TEXT_LENGTH = 120
 
 
@@ -57,7 +57,7 @@ class LanguageDetector:
     _trigram_language_models: Dict[Language, np.ndarray]
     _quadrigram_language_models: Dict[Language, np.ndarray]
     _fivegram_language_models: Dict[Language, np.ndarray]
-    _cache: Dict[Language, Dict[str, np.float16]]
+    _cache: Dict[Language, Dict[str, float]]
 
     def __repr__(self):
         languages = sorted([language.name for language in self._languages])
@@ -419,7 +419,7 @@ class LanguageDetector:
 
     def _look_up_language_models(
         self, text: str, ngram_length: int, filtered_languages: FrozenSet[Language]
-    ) -> Dict[Language, np.float16]:
+    ) -> Dict[Language, float]:
         test_data_model = _TestDataLanguageModel.from_text(text, ngram_length)
         probabilities = self._compute_language_probabilities(
             test_data_model, filtered_languages
@@ -428,7 +428,7 @@ class LanguageDetector:
 
     def _compute_language_probabilities(
         self, model: _TestDataLanguageModel, filtered_languages: FrozenSet[Language]
-    ) -> Dict[Language, np.float16]:
+    ) -> Dict[Language, float]:
         probabilities = {}
         for language in filtered_languages:
             result = self._compute_sum_of_ngram_probabilities(language, model.ngrams)
@@ -438,17 +438,17 @@ class LanguageDetector:
 
     def _compute_sum_of_ngram_probabilities(
         self, language: Language, ngrams: FrozenSet[str]
-    ) -> np.float16:
-        result = np.float16(0)
+    ) -> float:
+        result = 0.0
         for ngram in ngrams:
             for elem in _range_of_lower_order_ngrams(ngram):
                 probability = self._look_up_ngram_probability(language, elem)
-                if probability < 0:
+                if probability < 0.0:
                     result += probability
                     break
         return result
 
-    def _look_up_ngram_probability(self, language: Language, ngram: str) -> np.float16:
+    def _look_up_ngram_probability(self, language: Language, ngram: str) -> float:
         if language not in self._cache:
             self._cache[language] = {}
 
@@ -471,7 +471,7 @@ class LanguageDetector:
         else:
             raise ValueError(f"unsupported ngram length detected: {ngram_length}")
 
-        probability = np.float16(0)
+        probability = 0.0
 
         if language not in language_models:
             models = self._load_language_models(language, ngram_length)
@@ -482,10 +482,12 @@ class LanguageDetector:
 
         idx = np.searchsorted(language_models[language]["ngram"], ngram)
 
-        if idx < language_models[language]["ngram"].size:
+        try:
             found_ngram = language_models[language]["ngram"][idx]
             if found_ngram == ngram:
                 probability = language_models[language]["frequency"][idx]
+        except IndexError:
+            pass
 
         self._cache[language][ngram] = probability
 
@@ -506,20 +508,20 @@ class LanguageDetector:
 
     def _sum_up_probabilities(
         self,
-        probabilities: List[Dict[Language, np.float16]],
+        probabilities: List[Dict[Language, float]],
         unigram_counts: Optional[TypedCounter[Language]],
         filtered_languages: FrozenSet[Language],
     ) -> Dict[Language, float]:
         summed_up_probabilities = {}
         for language in filtered_languages:
-            result = np.float16(0)
+            result = 0.0
             for dct in probabilities:
                 if language in dct:
                     result += dct[language]
             if unigram_counts is not None and language in unigram_counts:
                 result /= unigram_counts[language]
             if result != 0:
-                summed_up_probabilities[language] = float(result)
+                summed_up_probabilities[language] = result
         return summed_up_probabilities
 
     def _load_language_models(
