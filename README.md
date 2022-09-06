@@ -8,7 +8,7 @@
 [![docs](https://img.shields.io/badge/docs-API-yellowgreen)](https://pemistahl.github.io/lingua-py)
 
 ![supported Python versions](https://img.shields.io/badge/Python-%3E%3D%203.8-blue)
-[![pypi](https://img.shields.io/badge/PYPI-v1.1.1-blue)](https://pypi.org/project/lingua-language-detector)
+[![pypi](https://img.shields.io/badge/PYPI-v1.1.2-blue)](https://pypi.org/project/lingua-language-detector)
 [![license](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 ## 1. What does this library do?

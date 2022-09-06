@@ -1,3 +1,19 @@
+## Lingua 1.1.2 (released on 06 Sep 2022)
+
+### Improvements
+
+- The language models are now stored on disk as serialized NumPy arrays instead
+  of JSON. This reduces the preloading time of the language models significantly.
+- A bottleneck in the language detection code has been removed, making language
+  detection 40 % faster, approximately.
+
+### Bug Fixes
+
+- The `py.typed` file that actives static type checking was missing.
+  Big thanks to @Vasniktel for reporting this problem. (#63)
+- The ISO 639-3 code for Urdu was wrong. Big thanks to @pluiez for reporting
+  this bug. (#64)
+
 ## Lingua 1.1.1 (released on 26 Aug 2022)
 
 ### Bug Fixes
