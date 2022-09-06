@@ -13,43 +13,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import json
 import math
 import numpy as np
 import regex
 
-from collections import defaultdict, Counter, OrderedDict
+from collections import Counter
 from dataclasses import dataclass
 from fractions import Fraction
-from typing import Counter as TypedCounter, Dict, List, FrozenSet, Optional, Any
+from pathlib import Path
+from typing import Counter as TypedCounter, Dict, List, FrozenSet, Optional
 
 from ._constant import LETTER
 from .language import Language
-
-
-class _LinguaJSONEncoder(json.JSONEncoder):
-    def default(self, obj: Any) -> Any:
-        if isinstance(obj, _JSONLanguageModel):
-            return {"language": obj.language.name, "ngrams": obj.ngrams}
-        return json.JSONEncoder.default(self, obj)
-
-
-class _LinguaJSONDecoder(json.JSONDecoder):
-    def __init__(self, *args, **kwargs):
-        json.JSONDecoder.__init__(self, object_hook=self.object_hook, *args, **kwargs)
-
-    def object_hook(self, obj: Any) -> Any:
-        if isinstance(obj, dict) and "language" in obj and "ngrams" in obj:
-            language = Language[obj["language"]]
-            ngrams = self.object_hook(obj["ngrams"])
-            return _JSONLanguageModel(language, ngrams)
-        return obj
-
-
-@dataclass
-class _JSONLanguageModel:
-    language: Language
-    ngrams: Dict[str, str]
+from ._ngram import _get_ngram_name_by_length
 
 
 @dataclass
@@ -80,38 +56,31 @@ class _TrainingDataLanguageModel:
         )
 
     @classmethod
-    def from_json(cls, serialized_json: str, ngram_length: int) -> np.ndarray:
-        json_language_model: _JSONLanguageModel = json.loads(
-            serialized_json, cls=_LinguaJSONDecoder
-        )
-        frequencies = []
+    def from_numpy_binary_file(
+        cls, language: Language, ngram_length: int
+    ) -> Optional[np.ndarray]:
+        ngram_name = _get_ngram_name_by_length(ngram_length)
+        iso_code = language.iso_code_639_1.name.lower()
+        relative_file_path = f"./language-models/{iso_code}/{ngram_name}s.npz"
+        absolute_file_path = Path(__file__).parent / relative_file_path
+        try:
+            with np.load(absolute_file_path) as data:
+                return data["arr"]
+        except OSError:
+            return None
 
-        for fraction, ngrams in json_language_model.ngrams.items():
-            numerator, denominator = fraction.split("/")
-            frequency = math.log(int(numerator) / int(denominator))
-            for ngram in ngrams.split(" "):
+    def to_numpy_binary_file(self, file_path: Path, ngram_length: int):
+        frequencies = []
+        if self.relative_frequencies is not None:
+            for ngram, fraction in self.relative_frequencies.items():
+                frequency = math.log(fraction.numerator / fraction.denominator)
                 frequencies.append((ngram, frequency))
 
         dtype = [("ngram", f"U{ngram_length}"), ("frequency", "f2")]
         arr = np.array(frequencies, dtype=dtype)
         arr.sort()
-        return arr
 
-    def to_json(self) -> str:
-        fractions_to_ngrams = defaultdict(list)
-        if self.relative_frequencies is not None:
-            for ngram, fraction in self.relative_frequencies.items():
-                fractions_to_ngrams[fraction].append(ngram)
-
-        fractions_to_joined_ngrams = OrderedDict()
-        for fraction, ngrams in fractions_to_ngrams.items():
-            fraction_str = f"{fraction.numerator}/{fraction.denominator}"
-            fractions_to_joined_ngrams[fraction_str] = " ".join(
-                sorted(map(lambda n: n, ngrams))
-            )
-
-        model = _JSONLanguageModel(self.language, fractions_to_joined_ngrams)
-        return regex.sub(r"([:,])\s*", r"\1", json.dumps(model, cls=_LinguaJSONEncoder))
+        np.savez_compressed(file_path, arr=arr)
 
     @classmethod
     def compute_absolute_frequencies(

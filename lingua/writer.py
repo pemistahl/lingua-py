@@ -15,7 +15,6 @@
 
 from pathlib import Path
 from typing import Dict, List, Optional
-from zipfile import ZipFile
 
 import regex
 
@@ -94,19 +93,19 @@ class LanguageModelFilesWriter:
         )
 
         cls._write_compressed_language_model(
-            unigram_model, output_directory_path, "unigrams.json"
+            unigram_model, 1, output_directory_path, "unigrams.npz"
         )
         cls._write_compressed_language_model(
-            bigram_model, output_directory_path, "bigrams.json"
+            bigram_model, 2, output_directory_path, "bigrams.npz"
         )
         cls._write_compressed_language_model(
-            trigram_model, output_directory_path, "trigrams.json"
+            trigram_model, 3, output_directory_path, "trigrams.npz"
         )
         cls._write_compressed_language_model(
-            quadrigram_model, output_directory_path, "quadrigrams.json"
+            quadrigram_model, 4, output_directory_path, "quadrigrams.npz"
         )
         cls._write_compressed_language_model(
-            fivegram_model, output_directory_path, "fivegrams.json"
+            fivegram_model, 5, output_directory_path, "fivegrams.npz"
         )
 
     @classmethod
@@ -134,14 +133,12 @@ class LanguageModelFilesWriter:
     def _write_compressed_language_model(
         cls,
         model: _TrainingDataLanguageModel,
+        ngram_length: int,
         output_directory_path: Path,
         file_name: str,
     ):
-        zip_file_name = f"{file_name}.zip"
-        zip_file_path = output_directory_path / zip_file_name
-
-        with ZipFile(zip_file_path, mode="w") as zip_file:
-            zip_file.writestr(file_name, model.to_json())
+        file_path = output_directory_path / file_name
+        model.to_numpy_binary_file(file_path, ngram_length)
 
 
 class TestDataFilesWriter:

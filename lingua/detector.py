@@ -29,7 +29,6 @@ from ._constant import (
     NUMBERS,
     PUNCTUATION,
 )
-from ._json import _load_json
 from .language import Language, _Alphabet
 from ._model import _TrainingDataLanguageModel, _TestDataLanguageModel
 from ._ngram import _range_of_lower_order_ngrams
@@ -529,8 +528,9 @@ class LanguageDetector:
         language: Language,
         ngram_length: int,
     ) -> Optional[Dict[Language, np.ndarray]]:
-        json_data = _load_json(language, ngram_length)
-        if json_data is None:
+        loaded_model = _TrainingDataLanguageModel.from_numpy_binary_file(
+            language, ngram_length
+        )
+        if loaded_model is None:
             return None
-        loaded_models = _TrainingDataLanguageModel.from_json(json_data, ngram_length)
-        return {language: loaded_models}
+        return {language: loaded_model}
