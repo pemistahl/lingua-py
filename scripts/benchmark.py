@@ -16,14 +16,27 @@
 import timeit
 
 
-def benchmark_preloading_all_language_models():
+def benchmark_preloading_all_language_models_in_low_accuracy_mode():
+    setup = "from lingua import LanguageDetectorBuilder"
+    stmt = """LanguageDetectorBuilder\
+        .from_all_languages()\
+        .with_low_accuracy_mode()\
+        .with_preloaded_language_models()\
+        .build()"""
+
+    print("Measuring time to preload all language models in low accuracy mode...")
+    result = timeit.timeit(setup=setup, stmt=stmt, number=1)
+    print(f"Time: {result:.2f} seconds")
+
+
+def benchmark_preloading_all_language_models_in_high_accuracy_mode():
     setup = "from lingua import LanguageDetectorBuilder"
     stmt = """LanguageDetectorBuilder\
         .from_all_languages()\
         .with_preloaded_language_models()\
         .build()"""
 
-    print("Measuring time to preload all language models...")
+    print("Measuring time to preload all language models in high accuracy mode...")
     result = timeit.timeit(setup=setup, stmt=stmt, number=1)
     print(f"Time: {result:.2f} seconds")
 
@@ -55,7 +68,9 @@ def benchmark_language_detection():
 
 
 if __name__ == "__main__":
-    benchmark_preloading_all_language_models()
+    benchmark_preloading_all_language_models_in_low_accuracy_mode()
+    print()
+    benchmark_preloading_all_language_models_in_high_accuracy_mode()
     print()
     benchmark_language_detection()
     print()
