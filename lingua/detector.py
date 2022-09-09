@@ -254,11 +254,9 @@ class LanguageDetector:
         if len(summed_up_probabilities) == 0:
             return []
 
-        highest_probability = sorted(summed_up_probabilities.values())[-1]
-
         return sorted(
             [
-                (language, highest_probability / probability)
+                (language, probability)
                 for language, probability in summed_up_probabilities.items()
             ],
             key=operator.itemgetter(1, 0),
