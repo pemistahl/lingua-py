@@ -46,7 +46,7 @@ pytest = "^7.1"
 black = "^22.8"
 coverage = "^6.4"
 psutil = "^5.9.2"
-scalene = "^1.5.10"
+scalene = "^1.5.11"
 
 [tool.poetry.extras]
 fasttext = ["fasttext"]
