@@ -37,7 +37,7 @@ gcld3 = { version = "^3.0.13", optional = true }
 pycld2 = { version = "^0.41", optional = true }
 pandas = { version = "^1.4.3", optional = true }
 matplotlib = { version = "^3.5.3", optional = true }
-seaborn = { version = "^0.11.2", optional = true }
+seaborn = { version = ">=0.11.2,<0.13.0", optional = true }
 pdoc3 = { version = "^0.10.0", optional = true }
 
 [tool.poetry.dev-dependencies]
