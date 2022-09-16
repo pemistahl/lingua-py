@@ -413,7 +413,15 @@ LanguageDetectorBuilder.from_iso_codes_639_3(IsoCode639_3.ENG, IsoCode639_3.DEU)
 ```
 """
 
-__all__ = ('LanguageDetectorBuilder', 'LanguageDetector', 'IsoCode639_1', 'IsoCode639_3', 'Language', 'LanguageModelFilesWriter', 'TestDataFilesWriter')
+__all__ = (
+    "LanguageDetectorBuilder",
+    "LanguageDetector",
+    "IsoCode639_1",
+    "IsoCode639_3",
+    "Language",
+    "LanguageModelFilesWriter",
+    "TestDataFilesWriter",
+)
 
 from .builder import LanguageDetectorBuilder
 from .detector import LanguageDetector
