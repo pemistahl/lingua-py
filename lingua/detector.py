@@ -38,7 +38,7 @@ _BIGRAM_MODELS: Dict[Language, np.ndarray] = {}
 _TRIGRAM_MODELS: Dict[Language, np.ndarray] = {}
 _QUADRIGRAM_MODELS: Dict[Language, np.ndarray] = {}
 _FIVEGRAM_MODELS: Dict[Language, np.ndarray] = {}
-_CACHE: Dict[Language, Dict[str, float]] = {}
+_CACHE: Dict[Language, Dict[str, Optional[float]]] = {}
 _HIGH_ACCURACY_MODE_MAX_TEXT_LENGTH = 120
 
 
@@ -56,7 +56,7 @@ class LanguageDetector:
     _trigram_language_models: Dict[Language, np.ndarray]
     _quadrigram_language_models: Dict[Language, np.ndarray]
     _fivegram_language_models: Dict[Language, np.ndarray]
-    _cache: Dict[Language, Dict[str, float]]
+    _cache: Dict[Language, Dict[str, Optional[float]]]
 
     def __repr__(self):
         languages = sorted([language.name for language in self._languages])
@@ -273,12 +273,9 @@ class LanguageDetector:
         return normalized_whitespace
 
     def _split_text_into_words(self, text: str) -> List[str]:
-        normalized_text_builder = []
-        for char in text:
-            normalized_text_builder.append(char)
-            if self._is_logogram(char):
-                normalized_text_builder.append(" ")
-        normalized_text = "".join(normalized_text_builder)
+        normalized_text = "".join(
+            (char + " " if self._is_logogram(char) else char for char in text)
+        )
         if " " in normalized_text:
             return [char for char in normalized_text.split(" ") if len(char) > 0]
         return [normalized_text]
@@ -442,12 +439,14 @@ class LanguageDetector:
         for ngram in ngrams:
             for elem in _range_of_lower_order_ngrams(ngram):
                 probability = self._look_up_ngram_probability(language, elem)
-                if probability < 0.0:
+                if probability is not None:
                     result += probability
                     break
         return result
 
-    def _look_up_ngram_probability(self, language: Language, ngram: str) -> float:
+    def _look_up_ngram_probability(
+        self, language: Language, ngram: str
+    ) -> Optional[float]:
         if language not in self._cache:
             self._cache[language] = {}
 
@@ -470,7 +469,7 @@ class LanguageDetector:
         else:
             raise ValueError(f"unsupported ngram length detected: {ngram_length}")
 
-        probability = 0.0
+        probability = None
 
         if language not in language_models:
             models = self._load_language_models(language, ngram_length)
@@ -499,7 +498,7 @@ class LanguageDetector:
         unigram_counts: TypedCounter[Language] = Counter()
         for language in filtered_languages:
             for unigram in unigram_model.ngrams:
-                if self._look_up_ngram_probability(language, unigram) < 0:
+                if self._look_up_ngram_probability(language, unigram) is not None:
                     unigram_counts[language] += 1
         return unigram_counts
 

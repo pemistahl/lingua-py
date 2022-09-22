@@ -318,7 +318,7 @@ to the most likely one? These questions can be answered as well:
 ENGLISH: 1.00
 FRENCH: 0.79
 GERMAN: 0.75
-SPANISH: 0.70
+SPANISH: 0.72
 
 ```
 
