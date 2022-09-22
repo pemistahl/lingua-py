@@ -479,12 +479,10 @@ class LanguageDetector:
                 return probability
             language_models.update(models)
 
-        idx = np.searchsorted(language_models[language]["ngram"], ngram)
+        mask = np.isin(language_models[language]["ngram"], ngram)
 
         try:
-            found_ngram = language_models[language]["ngram"][idx]
-            if found_ngram == ngram:
-                probability = language_models[language]["frequency"][idx]
+            probability = language_models[language]["frequency"][mask][0]
         except IndexError:
             pass
 
