@@ -62,7 +62,7 @@ jobs:
         run: poetry env use ${{ env.PYTHON_VERSION }}
 
       - name: Install project dependencies
-        run: poetry install
+        run: poetry install --only main,dev
 
       - name: Check static types
         run: poetry run mypy
