@@ -714,6 +714,7 @@ def test_language_detection_with_rules(
                 Language.AZERBAIJANI,
                 Language.BASQUE,
                 Language.CATALAN,
+                Language.GERMAN,
                 Language.FRENCH,
                 Language.PORTUGUESE,
                 Language.TURKISH,
@@ -737,6 +738,7 @@ def test_language_detection_with_rules(
             [
                 Language.CATALAN,
                 Language.CZECH,
+                Language.GERMAN,
                 Language.ICELANDIC,
                 Language.IRISH,
                 Language.HUNGARIAN,
@@ -752,6 +754,7 @@ def test_language_detection_with_rules(
             [
                 Language.CATALAN,
                 Language.CZECH,
+                Language.GERMAN,
                 Language.ICELANDIC,
                 Language.IRISH,
                 Language.HUNGARIAN,
@@ -767,6 +770,7 @@ def test_language_detection_with_rules(
             [
                 Language.CATALAN,
                 Language.CZECH,
+                Language.GERMAN,
                 Language.ICELANDIC,
                 Language.IRISH,
                 Language.HUNGARIAN,
@@ -781,6 +785,7 @@ def test_language_detection_with_rules(
             "contradicció",
             [
                 Language.CATALAN,
+                Language.GERMAN,
                 Language.HUNGARIAN,
                 Language.ICELANDIC,
                 Language.IRISH,
@@ -798,6 +803,7 @@ def test_language_detection_with_rules(
                 Language.CATALAN,
                 Language.CZECH,
                 Language.FRENCH,
+                Language.GERMAN,
                 Language.HUNGARIAN,
                 Language.ICELANDIC,
                 Language.IRISH,

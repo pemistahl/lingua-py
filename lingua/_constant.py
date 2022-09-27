@@ -155,6 +155,7 @@ CHARS_TO_LANGUAGES_MAPPING: Dict[str, FrozenSet[Language]] = {
             Language.BASQUE,
             Language.CATALAN,
             Language.FRENCH,
+            Language.GERMAN,
             Language.PORTUGUESE,
             Language.TURKISH,
         ]
@@ -174,6 +175,7 @@ CHARS_TO_LANGUAGES_MAPPING: Dict[str, FrozenSet[Language]] = {
     "Óó": frozenset(
         [
             Language.CATALAN,
+            Language.GERMAN,
             Language.HUNGARIAN,
             Language.ICELANDIC,
             Language.IRISH,
@@ -189,6 +191,7 @@ CHARS_TO_LANGUAGES_MAPPING: Dict[str, FrozenSet[Language]] = {
         [
             Language.CATALAN,
             Language.CZECH,
+            Language.GERMAN,
             Language.ICELANDIC,
             Language.IRISH,
             Language.HUNGARIAN,
@@ -204,6 +207,7 @@ CHARS_TO_LANGUAGES_MAPPING: Dict[str, FrozenSet[Language]] = {
             Language.CATALAN,
             Language.CZECH,
             Language.FRENCH,
+            Language.GERMAN,
             Language.HUNGARIAN,
             Language.ICELANDIC,
             Language.IRISH,
