@@ -124,7 +124,7 @@ python-versions = ">=3.6"
 [[package]]
 name = "fasttext"
 version = "0.9.2"
-description = ""
+description = "fasttext Python bindings"
 category = "dev"
 optional = false
 python-versions = "*"
@@ -509,7 +509,7 @@ jupyter = ["ipywidgets (>=7.5.1,<8.0.0)"]
 
 [[package]]
 name = "scalene"
-version = "1.5.11"
+version = "1.5.13"
 description = "Scalene: A high-resolution, low-overhead CPU, GPU, and memory profiler for Python"
 category = "dev"
 optional = false
@@ -538,7 +538,7 @@ stats = ["scipy (>=1.3)", "statsmodels (>=0.10)"]
 
 [[package]]
 name = "setuptools"
-version = "65.3.0"
+version = "65.4.0"
 description = "Easily download, build, install, upgrade, and uninstall Python packages"
 category = "dev"
 optional = false
@@ -605,7 +605,7 @@ test = ["pytest (>=3.0.0)", "pytest-cov"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "4520a784f68cfbc5823197d329299e3030c84a39c2d740de1569c2164f349588"
+content-hash = "3581fc013bd5de3e111e30b25400f5d7dae593435ea492f8dab8ba9e05379e6c"
 
 [metadata.files]
 astunparse = [
@@ -1300,26 +1300,26 @@ rich = [
     {file = "rich-12.5.1.tar.gz", hash = "sha256:63a5c5ce3673d3d5fbbf23cd87e11ab84b6b451436f1b7f19ec54b6bc36ed7ca"},
 ]
 scalene = [
-    {file = "scalene-1.5.11-cp310-cp310-macosx_10_15_universal2.whl", hash = "sha256:a2394add7c69f61d5477e510be8f3d19d78dc2d8965014dc0a8bf46e8c48d8c9"},
-    {file = "scalene-1.5.11-cp310-cp310-manylinux_2_24_x86_64.whl", hash = "sha256:73ee04f29e7d28f1dd7d45fc9cd7726c3ab97463df87d9ca63db92ec6ff3a872"},
-    {file = "scalene-1.5.11-cp310-cp310-win_amd64.whl", hash = "sha256:a25c72c236a0259d8a9a11401d9aac8c32087a47e86b02f4c9b22959b5c41a4c"},
-    {file = "scalene-1.5.11-cp37-cp37m-macosx_10_15_universal2.whl", hash = "sha256:c8d3b0ee28296b6f9fac681f8ef6d41900ba73cc4feedd687bdc3cc0629d439e"},
-    {file = "scalene-1.5.11-cp37-cp37m-manylinux_2_24_x86_64.whl", hash = "sha256:19dd784018ab908641ca3337b99b2d8fa30eb7d6a014cfe0c61cbb7b1c06578a"},
-    {file = "scalene-1.5.11-cp38-cp38-macosx_10_15_universal2.whl", hash = "sha256:d6a6c45ad6c349a3562e5a1a193c3e2f2334a14b2fd678a8e396fca1d50a8b84"},
-    {file = "scalene-1.5.11-cp38-cp38-manylinux_2_24_x86_64.whl", hash = "sha256:6898dedf1bf148e4bbd2a55f77638cfaab5ccb78bb535ea4684c8e87ac636acf"},
-    {file = "scalene-1.5.11-cp38-cp38-win_amd64.whl", hash = "sha256:159f11d9df7cdd404917bd689683c4f8a0a130d13d60e77516539d9a376ee190"},
-    {file = "scalene-1.5.11-cp39-cp39-macosx_10_15_universal2.whl", hash = "sha256:ba2ddf66b019298ff26d58b41b2fe97c578a246c8f84b48fa061e9b83336cd3e"},
-    {file = "scalene-1.5.11-cp39-cp39-manylinux_2_24_x86_64.whl", hash = "sha256:8eda1bd65c5a3b55d7f628b72c1eb3e7bee77ad08c30b6f8f1dee43dff138b50"},
-    {file = "scalene-1.5.11-cp39-cp39-win_amd64.whl", hash = "sha256:9405a2024ab761e4da45183b5ce4abab4ea1476bdd206be3738b0a3aa2d9c900"},
-    {file = "scalene-1.5.11.tar.gz", hash = "sha256:f6fe39ad420180d986d6f1f0f3f671e9ebe2bf61205740cd842c35a344ef1d78"},
+    {file = "scalene-1.5.13-cp310-cp310-macosx_10_15_universal2.whl", hash = "sha256:e69f7ee1749423f4dcfc8414219d10676f26691a28a90b7fbebd31141e20ed3a"},
+    {file = "scalene-1.5.13-cp310-cp310-manylinux_2_24_x86_64.whl", hash = "sha256:2118b41159d7306d410bb1ed73c80bffe4b718bcc4bf4a723e2cf0badb31bf6a"},
+    {file = "scalene-1.5.13-cp310-cp310-win_amd64.whl", hash = "sha256:321a94aff17523702157f9632d115fed62215ed64c607c528b97bab063f63b2f"},
+    {file = "scalene-1.5.13-cp37-cp37m-macosx_10_15_universal2.whl", hash = "sha256:25938a6c7e8fa14898e69354515fb41e072aa06d83be4060e2dbd0192d87c2af"},
+    {file = "scalene-1.5.13-cp37-cp37m-manylinux_2_24_x86_64.whl", hash = "sha256:e3dad1b5ce6d1329c9e2b595d55d50540ae8f1e8670e47509db593d1cb1b1809"},
+    {file = "scalene-1.5.13-cp38-cp38-macosx_10_15_universal2.whl", hash = "sha256:8959143c587807f2a341876efb40b770b95e3df94d5470ea0f2c5615a7ff186d"},
+    {file = "scalene-1.5.13-cp38-cp38-manylinux_2_24_x86_64.whl", hash = "sha256:37a340c73d93b08c502ad3e553f434fd91bb4913955979b9386935ded137782b"},
+    {file = "scalene-1.5.13-cp38-cp38-win_amd64.whl", hash = "sha256:8c51819f858f852106ad3b5da17d08575344dd45fa35a4311342dc6bcfb202ca"},
+    {file = "scalene-1.5.13-cp39-cp39-macosx_10_15_universal2.whl", hash = "sha256:b99252336e6351c24b5410145f4729b3f9012d9833160f1ac5221ee19f6d2eff"},
+    {file = "scalene-1.5.13-cp39-cp39-manylinux_2_24_x86_64.whl", hash = "sha256:fd4ec03141df635b6cc5cca9f801015e2fe6c71530727024febe28d4c749f502"},
+    {file = "scalene-1.5.13-cp39-cp39-win_amd64.whl", hash = "sha256:0ff439b5fdd696303c4d1e7293d5689c9e579da4aa48940149db3f979578fdba"},
+    {file = "scalene-1.5.13.tar.gz", hash = "sha256:0077d517249cfa6ad0953d85c9656bdaca57b863159bbb78969987d9bdbb539c"},
 ]
 seaborn = [
     {file = "seaborn-0.12.0-py3-none-any.whl", hash = "sha256:cbeff3deef7c2515aa0af99b2c7e02dc5bf8b42c936a74d8e4b416905b549db0"},
     {file = "seaborn-0.12.0.tar.gz", hash = "sha256:893f17292d8baca616c1578ddb58eb25c72d622f54fc5ee329c8207dc9b57b23"},
 ]
 setuptools = [
-    {file = "setuptools-65.3.0-py3-none-any.whl", hash = "sha256:2e24e0bec025f035a2e72cdd1961119f557d78ad331bb00ff82efb2ab8da8e82"},
-    {file = "setuptools-65.3.0.tar.gz", hash = "sha256:7732871f4f7fa58fb6bdcaeadb0161b2bd046c85905dbaa066bdcbcc81953b57"},
+    {file = "setuptools-65.4.0-py3-none-any.whl", hash = "sha256:c2d2709550f15aab6c9110196ea312f468f41cd546bceb24127a1be6fdcaeeb1"},
+    {file = "setuptools-65.4.0.tar.gz", hash = "sha256:a8f6e213b4b0661f590ccf40de95d28a177cd747d098624ad3f69c40287297e9"},
 ]
 setuptools-scm = [
     {file = "setuptools_scm-7.0.5-py3-none-any.whl", hash = "sha256:7930f720905e03ccd1e1d821db521bff7ec2ac9cf0ceb6552dd73d24a45d3b02"},

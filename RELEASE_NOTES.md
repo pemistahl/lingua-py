@@ -1,3 +1,14 @@
+## Lingua 1.1.3 (released on 29 Sep 2022)
+
+### Improvements
+
+- An `__all__` variable has been added indicating which types are exported
+  by the library. This helps with type checking programs using Lingua. Big
+  thanks to @bscan for the pull request. (#76)
+- The rule-based language filter has been improved for German texts. (#71)
+- A further bottleneck in the code has been removed, making language detection
+  30 % faster compared to version 1.1.2, approximately.
+
 ## Lingua 1.1.2 (released on 06 Sep 2022)
 
 ### Improvements
