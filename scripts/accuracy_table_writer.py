@@ -28,6 +28,7 @@ class AccuracyTableWriter:
         "average-langid",
         "average-cld3",
         "average-cld2",
+        "average-simplemma",
         "single-words-lingua-high",
         "single-words-lingua-low",
         "single-words-langdetect",
@@ -35,6 +36,7 @@ class AccuracyTableWriter:
         "single-words-langid",
         "single-words-cld3",
         "single-words-cld2",
+        "single-words-simplemma",
         "word-pairs-lingua-high",
         "word-pairs-lingua-low",
         "word-pairs-langdetect",
@@ -42,6 +44,7 @@ class AccuracyTableWriter:
         "word-pairs-langid",
         "word-pairs-cld3",
         "word-pairs-cld2",
+        "word-pairs-simplemma",
         "sentences-lingua-high",
         "sentences-lingua-low",
         "sentences-langdetect",
@@ -49,14 +52,15 @@ class AccuracyTableWriter:
         "sentences-langid",
         "sentences-cld3",
         "sentences-cld2",
+        "sentences-simplemma",
     )
     _table = """<table>
     <tr>
         <th>Language</th>
-        <th colspan="7">Average</th>
-        <th colspan="7">Single Words</th>
-        <th colspan="7">Word Pairs</th>
-        <th colspan="7">Sentences</th>
+        <th colspan="8">Average</th>
+        <th colspan="8">Single Words</th>
+        <th colspan="8">Word Pairs</th>
+        <th colspan="8">Sentences</th>
     </tr>
     <tr>
         <th></th>
@@ -67,6 +71,7 @@ class AccuracyTableWriter:
         <th>Langid</th>
         <th>&nbsp;&nbsp;CLD3&nbsp;&nbsp;</th>
         <th>&nbsp;&nbsp;CLD2&nbsp;&nbsp;</th>
+        <th>Simplemma</th>
         <th>Lingua<br>(high accuracy mode)</th>
         <th>Lingua<br>(low accuracy mode)</th>
         <th>Langdetect</th>
@@ -74,6 +79,7 @@ class AccuracyTableWriter:
         <th>Langid</th>
         <th>&nbsp;&nbsp;CLD3&nbsp;&nbsp;</th>
         <th>&nbsp;&nbsp;CLD2&nbsp;&nbsp;</th>
+        <th>Simplemma</th>
         <th>Lingua<br>(high accuracy mode)</th>
         <th>Lingua<br>(low accuracy mode)</th>
         <th>Langdetect</th>
@@ -81,6 +87,7 @@ class AccuracyTableWriter:
         <th>Langid</th>
         <th>&nbsp;&nbsp;CLD3&nbsp;&nbsp;</th>
         <th>&nbsp;&nbsp;CLD2&nbsp;&nbsp;</th>
+        <th>Simplemma</th>
         <th>Lingua<br>(high accuracy mode)</th>
         <th>Lingua<br>(low accuracy mode)</th>
         <th>Langdetect</th>
@@ -88,6 +95,7 @@ class AccuracyTableWriter:
         <th>Langid</th>
         <th>&nbsp;&nbsp;CLD3&nbsp;&nbsp;</th>
         <th>&nbsp;&nbsp;CLD2&nbsp;&nbsp;</th>
+        <th>Simplemma</th>
     </tr>
     """
 
@@ -116,7 +124,7 @@ class AccuracyTableWriter:
 
             self._table += "\t</tr>\n"
 
-        self._table += '\t<tr>\n\t\t<td colspan="20"></td>\n\t</tr>\n'
+        self._table += '\t<tr>\n\t\t<td colspan="32"></td>\n\t</tr>\n'
         self._table += "\t<tr>\n\t\t<td><strong>Mean</strong></td>\n"
 
         for column in self._columns:
@@ -125,7 +133,7 @@ class AccuracyTableWriter:
             self._table += f'\t\t<td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/{color}.png"> <strong>{accuracy_value}</strong></td>\n'
 
         self._table += "\t</tr>\n"
-        self._table += '\t<tr>\n\t\t<td colspan="28"></td>\n\t</tr>\n'
+        self._table += '\t<tr>\n\t\t<td colspan="32"></td>\n\t</tr>\n'
         self._table += "\t<tr>\n\t\t<td>Median</td>\n"
 
         for column in self._columns:

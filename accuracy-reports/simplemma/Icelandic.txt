@@ -1,0 +1,16 @@
+##### Icelandic #####
+
+>>> Accuracy on average: 67.27%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 49.80%
+Erroneously classified as Unknown: 46.00%, German: 2.20%, English: 0.40%, Turkish: 0.30%, Irish: 0.20%, Nynorsk: 0.20%, Polish: 0.20%, Slovene: 0.20%, Swedish: 0.20%, French: 0.10%, Portuguese: 0.10%, Welsh: 0.10%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 60.50%
+Erroneously classified as Unknown: 38.30%, German: 0.40%, Finnish: 0.20%, Nynorsk: 0.20%, Swedish: 0.20%, Bokmal: 0.10%, Estonian: 0.10%
+
+>> Detection of 1000 sentences (average length: 108 chars)
+Accuracy: 91.50%
+Erroneously classified as Unknown: 8.20%, English: 0.20%, Bokmal: 0.10%
+

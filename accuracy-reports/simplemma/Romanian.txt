@@ -1,0 +1,16 @@
+##### Romanian #####
+
+>>> Accuracy on average: 60.97%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 44.20%
+Erroneously classified as Unknown: 53.00%, Latin: 0.70%, German: 0.60%, English: 0.30%, Danish: 0.10%, Dutch: 0.10%, Estonian: 0.10%, French: 0.10%, Irish: 0.10%, Italian: 0.10%, Lithuanian: 0.10%, Polish: 0.10%, Spanish: 0.10%, Swahili: 0.10%, Tagalog: 0.10%, Turkish: 0.10%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 52.70%
+Erroneously classified as Unknown: 43.60%, English: 0.80%, Latin: 0.70%, Spanish: 0.50%, German: 0.40%, Italian: 0.40%, Finnish: 0.30%, Bokmal: 0.10%, Estonian: 0.10%, Polish: 0.10%, Portuguese: 0.10%, Slovene: 0.10%, Swedish: 0.10%
+
+>> Detection of 1000 sentences (average length: 118 chars)
+Accuracy: 86.00%
+Erroneously classified as Unknown: 13.60%, Catalan: 0.10%, Italian: 0.10%, Portuguese: 0.10%, Spanish: 0.10%
+

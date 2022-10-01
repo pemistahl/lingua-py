@@ -1,0 +1,16 @@
+##### Bokmal #####
+
+>>> Accuracy on average: 46.63%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 15.30%
+Erroneously classified as Unknown: 78.20%, German: 3.10%, Nynorsk: 1.70%, Danish: 0.70%, English: 0.50%, Swedish: 0.40%, Welsh: 0.10%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 38.80%
+Erroneously classified as Unknown: 55.00%, German: 1.90%, Nynorsk: 1.60%, Danish: 1.40%, Swedish: 0.80%, Estonian: 0.20%, Finnish: 0.20%, English: 0.10%
+
+>> Detection of 1000 sentences (average length: 98 chars)
+Accuracy: 85.80%
+Erroneously classified as Unknown: 8.40%, Nynorsk: 4.00%, Danish: 1.20%, German: 0.30%, English: 0.10%, Icelandic: 0.10%, Swedish: 0.10%
+

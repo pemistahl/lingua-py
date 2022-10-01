@@ -40,6 +40,7 @@ class AccuracyPlotDrawer:
     _plot_title_suffix = "Detection Performance"
     _column_prefixes = ("single-words", "word-pairs", "sentences", "average")
     _column_suffixes = (
+        "simplemma",
         "cld2",
         "cld3",
         "langid",
@@ -49,6 +50,7 @@ class AccuracyPlotDrawer:
         "lingua-high",
     )
     _legend_labels = (
+        "Simplemma 0.8.2",
         "CLD 2",
         "CLD 3",
         "langid 1.1.6",
@@ -57,9 +59,10 @@ class AccuracyPlotDrawer:
         "Lingua 1.1.3\nlow accuracy mode",
         "Lingua 1.1.3\nhigh accuracy mode",
     )
-    _hatches = ("-", "/", "x", "+", ".", "*", "O")
+    _hatches = ("|", "-", "/", "x", "+", ".", "*", "O")
     _palette = (
         "#39d7e6",
+        "#6bbcff",
         "#347deb",
         "#b259ff",
         "#ff6347",
@@ -108,7 +111,7 @@ class AccuracyPlotDrawer:
         row_filter = self._dataframe[self._hue].isin(columns)
         data = self._dataframe[row_filter]
 
-        plt.figure(figsize=(16, 150))
+        plt.figure(figsize=(16, 180))
         plt.title(
             title + "\n", fontsize=self._title_fontsize, fontweight=self._fontweight
         )
@@ -145,7 +148,7 @@ class AccuracyPlotDrawer:
         row_filter = self._dataframe[self._hue].isin(columns)
         data = self._dataframe[row_filter]
 
-        plt.figure(figsize=(36, 12))
+        plt.figure(figsize=(40, 12))
         plt.title(title, fontsize=self._title_fontsize, fontweight=self._fontweight)
         plt.xticks(fontsize=self._ticks_fontsize)
         plt.yticks(fontsize=self._ticks_fontsize, ticks=self._ticks)

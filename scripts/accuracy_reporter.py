@@ -28,6 +28,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Counter as TypedCounter, Dict, List, Optional, Tuple
 
+from simplemma.langdetect import lang_detector as simplemma_detector
 from lingua import IsoCode639_1, Language, LanguageDetectorBuilder
 
 
@@ -226,6 +227,55 @@ def main():
 
     cld3_detector = gcld3.NNetLanguageIdentifier(min_num_bytes=0, max_num_bytes=512)
 
+    simplemma_iso_codes = tuple(
+        [
+            language.iso_code_639_1.name.lower()
+            for language in [
+                Language.BULGARIAN,
+                Language.CATALAN,
+                Language.CZECH,
+                Language.WELSH,
+                Language.DANISH,
+                Language.GERMAN,
+                Language.GREEK,
+                Language.ENGLISH,
+                Language.SPANISH,
+                Language.ESTONIAN,
+                Language.PERSIAN,
+                Language.FINNISH,
+                Language.FRENCH,
+                Language.IRISH,
+                Language.HINDI,
+                Language.HUNGARIAN,
+                Language.ARMENIAN,
+                Language.INDONESIAN,
+                Language.ICELANDIC,
+                Language.ITALIAN,
+                Language.GEORGIAN,
+                Language.LATIN,
+                Language.LITHUANIAN,
+                Language.LATVIAN,
+                Language.MACEDONIAN,
+                Language.MALAY,
+                Language.BOKMAL,
+                Language.NYNORSK,
+                Language.DUTCH,
+                Language.POLISH,
+                Language.PORTUGUESE,
+                Language.ROMANIAN,
+                Language.RUSSIAN,
+                Language.SLOVAK,
+                Language.SLOVENE,
+                Language.ALBANIAN,
+                Language.SWEDISH,
+                Language.SWAHILI,
+                Language.TAGALOG,
+                Language.TURKISH,
+                Language.UKRAINIAN,
+            ]
+        ]
+    )
+
     test_data_directory = Path(__file__).parent / "../language-testdata"
     accuracy_reports_directory = Path(__file__).parent / "../accuracy-reports"
     lingua_high_accuracy_reports_directory = (
@@ -239,6 +289,7 @@ def main():
     langid_reports_directory = accuracy_reports_directory / "langid"
     cld3_reports_directory = accuracy_reports_directory / "cld3"
     cld2_reports_directory = accuracy_reports_directory / "cld2"
+    simplemma_reports_directory = accuracy_reports_directory / "simplemma"
 
     if not lingua_high_accuracy_reports_directory.is_dir():
         os.makedirs(lingua_high_accuracy_reports_directory)
@@ -261,6 +312,9 @@ def main():
     if not cld2_reports_directory.is_dir():
         os.makedirs(cld2_reports_directory)
 
+    if not simplemma_reports_directory.is_dir():
+        os.makedirs(simplemma_reports_directory)
+
     aggregated_report_file = (
         accuracy_reports_directory / "aggregated-accuracy-values.csv"
     )
@@ -270,6 +324,10 @@ def main():
         csv_writer.writerow(
             [
                 "language",
+                "average-simplemma",
+                "single-words-simplemma",
+                "word-pairs-simplemma",
+                "sentences-simplemma",
                 "average-cld2",
                 "single-words-cld2",
                 "word-pairs-cld2",
@@ -321,6 +379,7 @@ def main():
             langid_statistics = DetectorStatistics.new()
             cld3_statistics = DetectorStatistics.new()
             cld2_statistics = DetectorStatistics.new()
+            simplemma_statistics = DetectorStatistics.new()
 
             for single_word in single_words:
                 lingua_language_in_high_accuracy_mode = (
@@ -372,6 +431,13 @@ def main():
                     cld2_language = None
                 cld2_statistics.add_single_word_counts(cld2_language, single_word)
 
+                simplemma_language = map_detector_to_lingua(
+                    simplemma_detector(single_word, simplemma_iso_codes)[0][0]
+                )
+                simplemma_statistics.add_single_word_counts(
+                    simplemma_language, single_word
+                )
+
             for word_pair in word_pairs:
                 lingua_language_in_high_accuracy_mode = (
                     lingua_detector_with_high_accuracy.detect_language_of(word_pair)
@@ -418,6 +484,11 @@ def main():
                     cld2_language = None
                 cld2_statistics.add_word_pair_counts(cld2_language, word_pair)
 
+                simplemma_language = map_detector_to_lingua(
+                    simplemma_detector(word_pair, simplemma_iso_codes)[0][0]
+                )
+                simplemma_statistics.add_word_pair_counts(simplemma_language, word_pair)
+
             for sentence in sentences:
                 lingua_language_in_high_accuracy_mode = (
                     lingua_detector_with_high_accuracy.detect_language_of(sentence)
@@ -462,6 +533,11 @@ def main():
                     cld2_language = None
                 cld2_statistics.add_sentence_counts(cld2_language, sentence)
 
+                simplemma_language = map_detector_to_lingua(
+                    simplemma_detector(sentence, simplemma_iso_codes)[0][0]
+                )
+                simplemma_statistics.add_sentence_counts(simplemma_language, sentence)
+
             lingua_high_accuracy_statistics.compute_accuracy_values()
             lingua_low_accuracy_statistics.compute_accuracy_values()
             langdetect_statistics.compute_accuracy_values()
@@ -469,6 +545,7 @@ def main():
             langid_statistics.compute_accuracy_values()
             cld3_statistics.compute_accuracy_values()
             cld2_statistics.compute_accuracy_values()
+            simplemma_statistics.compute_accuracy_values()
 
             lingua_high_accuracy_report = (
                 lingua_high_accuracy_statistics.create_report_data(language)
@@ -481,6 +558,7 @@ def main():
             langid_report = langid_statistics.create_report_data(language)
             cld3_report = cld3_statistics.create_report_data(language)
             cld2_report = cld2_statistics.create_report_data(language)
+            simplemma_report = simplemma_statistics.create_report_data(language)
 
             lingua_high_accuracy_aggregated_report_row = (
                 lingua_high_accuracy_statistics.create_aggregated_report_row(language)
@@ -503,8 +581,12 @@ def main():
             cld2_aggregated_report_row = cld2_statistics.create_aggregated_report_row(
                 language
             )
+            simplemma_aggregated_report_row = (
+                simplemma_statistics.create_aggregated_report_row(language)
+            )
             total_aggregated_report_row = (
                 f"{language.name.title()},"
+                f"{simplemma_aggregated_report_row},"
                 f"{cld2_aggregated_report_row},"
                 f"{cld3_aggregated_report_row},"
                 f"{langid_aggregated_report_row},"
@@ -529,6 +611,7 @@ def main():
             langid_reports_file_path = langid_reports_directory / report_file_name
             cld3_reports_file_path = cld3_reports_directory / report_file_name
             cld2_reports_file_path = cld2_reports_directory / report_file_name
+            simplemma_reports_file_path = simplemma_reports_directory / report_file_name
 
             if lingua_high_accuracy_report is not None:
                 with lingua_high_accuracy_reports_file_path.open(
@@ -563,6 +646,12 @@ def main():
             if cld2_report is not None:
                 with cld2_reports_file_path.open(mode="w") as cld2_reports_file:
                     cld2_reports_file.write(cld2_report)
+
+            if simplemma_report is not None:
+                with simplemma_reports_file_path.open(
+                    mode="w"
+                ) as simplemma_reports_file:
+                    simplemma_reports_file.write(simplemma_report)
 
             print("Done\n")
 
