@@ -99,7 +99,7 @@ classifiers = [
 
 [tool.poetry.dependencies]
 python = "^3.8"
-numpy = "^1.23.3"
+numpy = "^1.23.4"
 regex = "^2022.9.13"
 
 [tool.poetry.group.dev.dependencies]
