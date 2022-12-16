@@ -99,8 +99,8 @@ classifiers = [
 
 [tool.poetry.dependencies]
 python = "^3.8"
-numpy = "^1.23.4"
-regex = "^2022.9.13"
+numpy = "^1.23.5"
+regex = "^2022.10.31"
 
 [tool.poetry.group.dev.dependencies]
 mypy = "^0.971"
