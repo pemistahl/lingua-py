@@ -23,7 +23,6 @@ from fractions import Fraction
 from pathlib import Path
 from typing import Counter as TypedCounter, Dict, List, FrozenSet, Optional
 
-from ._constant import LETTER
 from .language import Language
 from ._ngram import _get_ngram_name_by_length
 
@@ -122,14 +121,14 @@ class _TestDataLanguageModel:
     ngrams: FrozenSet[str]
 
     @classmethod
-    def from_text(cls, text: str, ngram_length: int) -> "_TestDataLanguageModel":
+    def from_text(cls, words: List[str], ngram_length: int) -> "_TestDataLanguageModel":
         if ngram_length not in range(1, 6):
             raise ValueError(f"ngram length {ngram_length} is not in range 1..6")
         ngrams = set()
-        text_length = len(text)
-        if text_length >= ngram_length:
-            for i in range(0, text_length - ngram_length + 1):
-                substr = text[i : i + ngram_length]
-                if LETTER.fullmatch(substr) is not None:
+        for word in words:
+            chars_count = len(word)
+            if chars_count >= ngram_length:
+                for i in range(0, chars_count - ngram_length + 1):
+                    substr = word[i : i + ngram_length]
                     ngrams.add(substr)
         return _TestDataLanguageModel(frozenset(ngrams))

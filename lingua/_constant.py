@@ -20,15 +20,10 @@ from typing import Dict, FrozenSet
 from .language import Language
 
 JAPANESE_CHARACTER_SET: Pattern = regex.compile(r"^[\p{Hiragana}\p{Katakana}\p{Han}]+$")
-LETTER: Pattern = regex.compile(r"^\p{L}+$")
 MULTIPLE_WHITESPACE: Pattern = regex.compile(r"\s+")
-NO_LETTER: Pattern = regex.compile(r"^[^\p{L}]+$")
 NUMBERS: Pattern = regex.compile(r"\p{N}")
 PUNCTUATION: Pattern = regex.compile(r"\p{P}")
-
-LANGUAGES_SUPPORTING_LOGOGRAMS: FrozenSet[Language] = frozenset(
-    [Language.CHINESE, Language.JAPANESE, Language.KOREAN]
-)
+LETTERS: Pattern = regex.compile(r"\p{Han}|\p{Hangul}|\p{Hiragana}|\p{Katakana}|\p{L}+")
 
 CHARS_TO_LANGUAGES_MAPPING: Dict[str, FrozenSet[Language]] = {
     "Ãã": frozenset([Language.PORTUGUESE, Language.VIETNAMESE]),

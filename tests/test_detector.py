@@ -26,6 +26,7 @@ from lingua.detector import (
     _TRIGRAM_MODELS,
     _QUADRIGRAM_MODELS,
     _FIVEGRAM_MODELS,
+    _split_text_into_words,
 )
 from lingua.language import Language, _Alphabet
 from lingua._model import _TestDataLanguageModel
@@ -303,21 +304,6 @@ def detector_for_all_languages():
     )
 
 
-def test_text_is_cleaned_up_properly(detector_for_all_languages):
-    text = """Weltweit    gibt es ungefähr 6.000 Sprachen,
-    wobei laut Schätzungen zufolge ungefähr 90  Prozent davon
-    am Ende dieses Jahrhunderts verdrängt sein werden."""
-
-    expected_cleaned_text = (
-        "weltweit gibt es ungefähr sprachen wobei laut schätzungen zufolge ungefähr "
-        "prozent davon am ende dieses jahrhunderts verdrängt sein werden"
-    )
-
-    assert (
-        detector_for_all_languages._clean_up_input_text(text) == expected_cleaned_text
-    )
-
-
 @pytest.mark.parametrize(
     "text,expected_words",
     [
@@ -342,12 +328,14 @@ def test_text_is_cleaned_up_properly(detector_for_all_languages):
                 "sentence",
             ],
         ),
+        pytest.param(
+            "Weltweit    gibt es ungefähr 6.000 Sprachen.",
+            ["weltweit", "gibt", "es", "ungefähr", "sprachen"],
+        ),
     ],
 )
-def test_text_is_split_into_words_correctly(
-    detector_for_all_languages, text, expected_words
-):
-    assert detector_for_all_languages._split_text_into_words(text) == expected_words
+def test_text_is_split_into_words_correctly(text, expected_words):
+    assert _split_text_into_words(text) == expected_words
 
 
 @pytest.mark.parametrize(

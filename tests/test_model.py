@@ -19,6 +19,7 @@ import pytest
 from fractions import Fraction
 from typing import Dict, FrozenSet
 
+from lingua.detector import _split_text_into_words
 from lingua.language import Language
 from lingua._model import _TrainingDataLanguageModel, _TestDataLanguageModel
 
@@ -914,5 +915,5 @@ def test_training_data_model_creation(
     ],
 )
 def test_test_data_model_creation(ngram_length, expected_ngrams):
-    model = _TestDataLanguageModel.from_text(TEXT.lower(), ngram_length)
+    model = _TestDataLanguageModel.from_text(_split_text_into_words(TEXT), ngram_length)
     assert model.ngrams == expected_ngrams
