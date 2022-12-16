@@ -17,7 +17,14 @@ import numpy as np
 
 from collections import Counter
 from dataclasses import dataclass
-from typing import Counter as TypedCounter, Dict, FrozenSet, Optional, Tuple, List
+from typing import (
+    Counter as TypedCounter,
+    Dict,
+    FrozenSet,
+    NamedTuple,
+    Optional,
+    List,
+)
 
 from ._constant import (
     CHARS_TO_LANGUAGES_MAPPING,
@@ -71,8 +78,8 @@ def _sum_up_probabilities(
     return summed_up_probabilities
 
 
-def _sort_confidence_values(values: List[Tuple[Language, float]]):
-    values.sort(key=lambda tup: (-tup[1], tup[0]))
+def _sort_confidence_values(values: List["ConfidenceValue"]):
+    values.sort(key=lambda confidence: (-confidence.value, confidence.language))
 
 
 def _collect_languages_with_unique_characters(
@@ -91,6 +98,13 @@ def _collect_one_language_alphabets(
         for alphabet, language in _Alphabet.all_supporting_single_language().items()
         if language in languages
     }
+
+
+class ConfidenceValue(NamedTuple):
+    """This class describes a language's confidence value"""
+
+    language: Language
+    value: float
 
 
 @dataclass
@@ -202,7 +216,7 @@ class LanguageDetector:
         if len(confidence_values) == 1:
             return most_likely_language
 
-        second_most_likely_language_probability = confidence_values[1][1]
+        second_most_likely_language_probability = confidence_values[1].value
 
         if most_likely_language_probability == second_most_likely_language_probability:
             return None
@@ -214,9 +228,7 @@ class LanguageDetector:
 
         return most_likely_language
 
-    def compute_language_confidence_values(
-        self, text: str
-    ) -> List[Tuple[Language, float]]:
+    def compute_language_confidence_values(self, text: str) -> List[ConfidenceValue]:
         """Compute confidence values for each language supported
         by this detector for the given text.
 
@@ -248,7 +260,7 @@ class LanguageDetector:
             A list of 2-element tuples. Each tuple contains a language
             and the associated confidence value.
         """
-        values = [(language, 0.0) for language in self._languages]
+        values = [ConfidenceValue(language, 0.0) for language in self._languages]
 
         words = _split_text_into_words(text)
         if len(words) == 0:
@@ -259,8 +271,8 @@ class LanguageDetector:
 
         if language_detected_by_rules is not None:
             for i in range(len(values)):
-                if values[i][0] == language_detected_by_rules:
-                    values[i] = (language_detected_by_rules, 1.0)
+                if values[i].language == language_detected_by_rules:
+                    values[i] = ConfidenceValue(language_detected_by_rules, 1.0)
                     break
             _sort_confidence_values(values)
             return values
@@ -270,8 +282,8 @@ class LanguageDetector:
         if len(filtered_languages) == 1:
             language_detected_by_filter = next(iter(filtered_languages))
             for i in range(len(values)):
-                if values[i][0] == language_detected_by_filter:
-                    values[i] = (language_detected_by_filter, 1.0)
+                if values[i].language == language_detected_by_filter:
+                    values[i] = ConfidenceValue(language_detected_by_filter, 1.0)
                     break
             _sort_confidence_values(values)
             return values
@@ -320,8 +332,8 @@ class LanguageDetector:
                 0.98 * (probability - lowest_probability) / denominator + 0.01
             )
             for i in range(len(values)):
-                if values[i][0] == language:
-                    values[i] = (language, normalized_probability)
+                if values[i].language == language:
+                    values[i] = ConfidenceValue(language, normalized_probability)
                     break
 
         _sort_confidence_values(values)
@@ -349,8 +361,8 @@ class LanguageDetector:
         """
         confidence_values = self.compute_language_confidence_values(text)
         for value in confidence_values:
-            if value[0] == language:
-                return value[1]
+            if value.language == language:
+                return value.value
         return 0.0
 
     def _detect_language_with_rules(self, words: List[str]) -> Optional[Language]:
