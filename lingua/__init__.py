@@ -288,7 +288,7 @@ each possible language have to satisfy. It can be stated in the following way:
 >>> from lingua import Language, LanguageDetectorBuilder
 >>> languages = [Language.ENGLISH, Language.FRENCH, Language.GERMAN, Language.SPANISH]
 >>> detector = LanguageDetectorBuilder.from_languages(*languages)\
-.with_minimum_relative_distance(0.25)\
+.with_minimum_relative_distance(0.7)\
 .build()
 >>> print(detector.detect_language_of("languages are awesome"))
 None
@@ -315,28 +315,45 @@ to the most likely one? These questions can be answered as well:
 >>> confidence_values = detector.compute_language_confidence_values("languages are awesome")
 >>> for language, value in confidence_values:
 ...     print(f"{language.name}: {value:.2f}")
-ENGLISH: 1.00
-FRENCH: 0.79
-GERMAN: 0.75
-SPANISH: 0.72
+ENGLISH: 0.99
+FRENCH: 0.32
+GERMAN: 0.15
+SPANISH: 0.01
 
 ```
 
-In the example above, a list of all possible languages is returned, sorted by
+In the example above, a list is returned containing those languages which the
+calling instance of LanguageDetector has been built from, sorted by
 their confidence value in descending order. The values that the detector
 computes are part of a **relative** confidence metric, not of an absolute one.
-Each value is a number between 0.0 and 1.0. The most likely language is always
-returned with value 1.0. All other languages get values assigned which are
-lower than 1.0, denoting how less likely those languages are in comparison to
+Each value is a number between 0.0 and 1.0.
+
+If the language is unambiguously identified by the rule engine, the value 1.0
+will always be returned for this language. The other languages will receive a
+value of 0.0. If the statistics engine is additionally needed, the most likely
+language will be returned with value 0.99 and the least likely language will
+be returned with value 0.01. All other languages get values assigned between
+0.01 and 0.99, denoting how less likely those languages are in comparison to
 the most likely language.
 
-The list returned by this method does not necessarily contain all languages
-which this LanguageDetector instance was built from. If the rule-based engine
-decides that a specific language is truly impossible, then it will not be part
-of the returned list. Likewise, if no ngram probabilities can be found within
-the detector's languages for the given input text, the returned list will be
-empty. The confidence value for each language not being part of the returned
-list is assumed to be 0.0.
+There is also a method for returning the confidence value for one specific
+language only:
+
+```python
+>>> from lingua import Language, LanguageDetectorBuilder
+>>> languages = [Language.ENGLISH, Language.FRENCH, Language.GERMAN, Language.SPANISH]
+>>> detector = LanguageDetectorBuilder.from_languages(*languages).build()
+>>> confidence_value = detector.compute_language_confidence("languages are awesome", Language.FRENCH)
+>>> print(f"{confidence_value:.2f}")
+0.32
+
+```
+
+The value that this method computes is a number between 0.0 and 1.0. If the
+language is unambiguously identified by the rule engine, the value 1.0 will
+always be returned. If the given language is not supported by this detector
+instance, the value 0.0 will always be returned. Otherwise, a value between
+0.01 and 0.99 will be returned.
 
 ## 7.4 Eager loading versus lazy loading
 

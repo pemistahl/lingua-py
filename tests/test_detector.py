@@ -26,6 +26,8 @@ from lingua.detector import (
     _TRIGRAM_MODELS,
     _QUADRIGRAM_MODELS,
     _FIVEGRAM_MODELS,
+    _collect_languages_with_unique_characters,
+    _collect_one_language_alphabets,
     _split_text_into_words,
 )
 from lingua.language import Language, _Alphabet
@@ -262,12 +264,15 @@ def fivegram_models(fivegram_model_for_english, fivegram_model_for_german):
 def detector_for_english_and_german(
     unigram_models, bigram_models, trigram_models, quadrigram_models, fivegram_models
 ):
+    languages = frozenset([Language.ENGLISH, Language.GERMAN])
     return LanguageDetector(
-        _languages=frozenset([Language.ENGLISH, Language.GERMAN]),
+        _languages=languages,
         _minimum_relative_distance=0.0,
         _is_low_accuracy_mode_enabled=False,
-        _languages_with_unique_characters=frozenset(),
-        _one_language_alphabets={},
+        _languages_with_unique_characters=_collect_languages_with_unique_characters(
+            languages
+        ),
+        _one_language_alphabets=_collect_one_language_alphabets(languages),
         _unigram_language_models=unigram_models,
         _bigram_language_models=bigram_models,
         _trigram_language_models=trigram_models,
@@ -981,84 +986,57 @@ def test_detect_language(detector_for_english_and_german):
     )
 
 
-def test_compute_language_confidence_values(detector_for_english_and_german):
-    unigram_count_for_both_languages = 5
-    english_probabilities = [
-        # unigrams
-        0.01,
-        0.02,
-        0.03,
-        0.04,
-        0.05,
-        # bigrams
-        0.11,
-        0.12,
-        0.13,
-        0.14,
-        # trigrams
-        0.19,
-        0.2,
-        0.21,
-        # quadrigrams
-        0.25,
-        0.26,
-        # fivegrams
-        0.29,
-    ]
-    german_probabilities = [
-        # unigrams
-        0.06,
-        0.07,
-        0.08,
-        0.09,
-        0.1,
-        # bigrams
-        0.15,
-        0.16,
-        0.17,
-        0.18,
-        # trigrams
-        0.22,
-        0.23,
-        0.24,
-        # quadrigrams
-        0.27,
-        0.28,
-        # fivegrams
-        0.3,
-    ]
-    total_probability_for_english = (
-        sum([f(log(probability)) for probability in english_probabilities])
-        / unigram_count_for_both_languages
-    )
-    total_probability_for_german = (
-        sum([f(log(probability)) for probability in german_probabilities])
-        / unigram_count_for_both_languages
-    )
-    expected_confidence_value_for_english = (
-        total_probability_for_german / total_probability_for_english
-    )
-    confidence_values = (
-        detector_for_english_and_german.compute_language_confidence_values("Alter")
-    )
-
-    assert len(confidence_values) == 2
-    assert confidence_values[0] == (Language.GERMAN, 1.0)
-    assert confidence_values[1][0] == Language.ENGLISH
-    assert isclose(
-        confidence_values[1][1], expected_confidence_value_for_english, rel_tol=0.01
-    )
-
-
 def test_no_language_is_returned(detector_for_english_and_german):
     assert detector_for_english_and_german.detect_language_of("проарплап") is None
 
 
-def test_no_confidence_values_are_returned(detector_for_english_and_german):
-    assert (
-        detector_for_english_and_german.compute_language_confidence_values("проарплап")
-        == []
+@pytest.mark.parametrize(
+    "text,expected_confidence_values",
+    [
+        pytest.param("groß", [(Language.GERMAN, 1.0), (Language.ENGLISH, 0.0)]),
+        pytest.param("Alter", [(Language.GERMAN, 0.99), (Language.ENGLISH, 0.01)]),
+        pytest.param("проарплап", [(Language.ENGLISH, 0.0), (Language.GERMAN, 0.0)]),
+    ],
+)
+def test_compute_language_confidence_values(
+    detector_for_english_and_german, text, expected_confidence_values
+):
+    confidence_values = (
+        detector_for_english_and_german.compute_language_confidence_values(text)
     )
+    assert confidence_values == expected_confidence_values
+
+
+@pytest.mark.parametrize(
+    "text,expected_confidence_for_german,expected_confidence_for_english",
+    [
+        pytest.param("groß", 1.0, 0.0),
+        pytest.param("Alter", 0.99, 0.01),
+        pytest.param("проарплап", 0.0, 0.0),
+    ],
+)
+def test_compute_language_confidence(
+    detector_for_english_and_german,
+    text,
+    expected_confidence_for_german,
+    expected_confidence_for_english,
+):
+    confidence_for_german = detector_for_english_and_german.compute_language_confidence(
+        text, Language.GERMAN
+    )
+    assert confidence_for_german == expected_confidence_for_german
+
+    confidence_for_english = (
+        detector_for_english_and_german.compute_language_confidence(
+            text, Language.ENGLISH
+        )
+    )
+    assert confidence_for_english == expected_confidence_for_english
+
+    confidence_for_french = detector_for_english_and_german.compute_language_confidence(
+        text, Language.FRENCH
+    )
+    assert confidence_for_french == 0.0
 
 
 @pytest.mark.parametrize(

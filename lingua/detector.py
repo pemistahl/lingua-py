@@ -14,7 +14,6 @@
 # limitations under the License.
 
 import numpy as np
-import operator
 
 from collections import Counter
 from dataclasses import dataclass
@@ -72,6 +71,28 @@ def _sum_up_probabilities(
     return summed_up_probabilities
 
 
+def _sort_confidence_values(values: List[Tuple[Language, float]]):
+    values.sort(key=lambda tup: (-tup[1], tup[0]))
+
+
+def _collect_languages_with_unique_characters(
+    languages: FrozenSet[Language],
+) -> FrozenSet[Language]:
+    return frozenset(
+        {language for language in languages if language._unique_characters is not None}
+    )
+
+
+def _collect_one_language_alphabets(
+    languages: FrozenSet[Language],
+) -> Dict[_Alphabet, Language]:
+    return {
+        alphabet: language
+        for alphabet, language in _Alphabet.all_supporting_single_language().items()
+        if language in languages
+    }
+
+
 @dataclass
 class LanguageDetector:
     """This class detects the language of text."""
@@ -104,18 +125,10 @@ class LanguageDetector:
         is_every_language_model_preloaded: bool,
         is_low_accuracy_mode_enabled: bool,
     ) -> "LanguageDetector":
-        languages_with_unique_characters = frozenset(
-            {
-                language
-                for language in languages
-                if language._unique_characters is not None
-            }
+        languages_with_unique_characters = _collect_languages_with_unique_characters(
+            languages
         )
-        one_language_alphabets = {
-            alphabet: language
-            for alphabet, language in _Alphabet.all_supporting_single_language().items()
-            if language in languages
-        }
+        one_language_alphabets = _collect_one_language_alphabets(languages)
         detector = LanguageDetector(
             languages,
             minimum_relative_distance,
@@ -204,28 +217,29 @@ class LanguageDetector:
     def compute_language_confidence_values(
         self, text: str
     ) -> List[Tuple[Language, float]]:
-        """Compute confidence values for each language considered
-        possible for the given text.
+        """Compute confidence values for each language supported
+        by this detector for the given text.
 
-        A list of all possible languages is returned, sorted by
-        their confidence value in descending order. The values
-        that this method computes are part of a relative
-        confidence metric, not of an absolute one. Each value
-        is a number between 0.0 and 1.0. The most likely language
-        is always returned with value 1.0. All other languages get
-        values assigned which are lower than 1.0, denoting how less
-        likely those languages are in comparison to the most likely
-        language.
+        The confidence values denote how likely it is that the
+        given text has been written in any of the languages
+        supported by this detector.
 
-        The list returned by this method does not necessarily
-        contain all languages which this LanguageDetector instance
-        was built from. If the rule-based engine decides that a
-        specific language is truly impossible, then it will not be
-        part of the returned list. Likewise, if no ngram probabilities
-        can be found within the detector's languages for the given
-        text, the returned list will be empty. The confidence value for
-        each language not being part of the returned list is assumed to
-        be 0.0.
+        A list is returned containing those languages which the
+        calling instance of LanguageDetector has been built from.
+        The entries are sorted by their confidence value in
+        descending order. The values that this method computes
+        are part of a relative confidence metric, not of an
+        absolute one. Each value is a number between 0.0 and 1.0.
+
+        If the language is unambiguously identified by the rule
+        engine, the value 1.0 will always be returned for this
+        language. The other languages will receive a value of 0.0.
+        If the statistics engine is additionally needed, the most
+        likely language will be returned with value 0.99 and the
+        least likely language will be returned with value 0.01.
+        All other languages get values assigned between 0.01 and
+        0.99, denoting how less likely those languages are in
+        comparison to the most likely language.
 
         Args:
             text (str): The text for which to compute confidence values.
@@ -234,25 +248,39 @@ class LanguageDetector:
             A list of 2-element tuples. Each tuple contains a language
             and the associated confidence value.
         """
+        values = [(language, 0.0) for language in self._languages]
+
         words = _split_text_into_words(text)
         if len(words) == 0:
-            return []
+            _sort_confidence_values(values)
+            return values
 
         language_detected_by_rules = self._detect_language_with_rules(words)
 
         if language_detected_by_rules is not None:
-            return [(language_detected_by_rules, 1.0)]
+            for i in range(len(values)):
+                if values[i][0] == language_detected_by_rules:
+                    values[i] = (language_detected_by_rules, 1.0)
+                    break
+            _sort_confidence_values(values)
+            return values
 
         filtered_languages = self._filter_languages_by_rules(words)
 
         if len(filtered_languages) == 1:
-            filtered_language = next(iter(filtered_languages))
-            return [(filtered_language, 1.0)]
+            language_detected_by_filter = next(iter(filtered_languages))
+            for i in range(len(values)):
+                if values[i][0] == language_detected_by_filter:
+                    values[i] = (language_detected_by_filter, 1.0)
+                    break
+            _sort_confidence_values(values)
+            return values
 
         character_count = sum(len(word) for word in words)
 
         if self._is_low_accuracy_mode_enabled and character_count < 3:
-            return []
+            _sort_confidence_values(values)
+            return values
 
         ngram_length_range = (
             range(3, 4)
@@ -278,18 +306,52 @@ class LanguageDetector:
         )
 
         if len(summed_up_probabilities) == 0:
-            return []
+            _sort_confidence_values(values)
+            return values
 
-        highest_probability = sorted(summed_up_probabilities.values())[-1]
+        sorted_probabilities = sorted(summed_up_probabilities.values())
+        lowest_probability = sorted_probabilities[0]
+        highest_probability = sorted_probabilities[-1]
+        denominator = highest_probability - lowest_probability
 
-        return sorted(
-            [
-                (language, highest_probability / probability)
-                for language, probability in summed_up_probabilities.items()
-            ],
-            key=operator.itemgetter(1, 0),
-            reverse=True,
-        )
+        for language, probability in summed_up_probabilities.items():
+            # Apply min-max normalization
+            normalized_probability = (
+                0.98 * (probability - lowest_probability) / denominator + 0.01
+            )
+            for i in range(len(values)):
+                if values[i][0] == language:
+                    values[i] = (language, normalized_probability)
+                    break
+
+        _sort_confidence_values(values)
+        return values
+
+    def compute_language_confidence(self, text: str, language: Language) -> float:
+        """Compute the confidence value for the given language and input text.
+
+        The confidence value denotes how likely it is that the given text
+        has been written in the given language. The value that this method
+        computes is a number between 0.0 and 1.0. If the language is
+        unambiguously identified by the rule engine, the value 1.0 will
+        always be returned. If the given language is not supported by this
+        detector instance, the value 0.0 will always be returned. Otherwise,
+        a value between 0.01 and 0.99 will be returned.
+
+        Args:
+            text (str): The text for which to compute the confidence value.
+
+            language (Language):
+                The language for which to compute the confidence value.
+
+        Returns:
+            A float value between 0.0 and 1.0.
+        """
+        confidence_values = self.compute_language_confidence_values(text)
+        for value in confidence_values:
+            if value[0] == language:
+                return value[1]
+        return 0.0
 
     def _detect_language_with_rules(self, words: List[str]) -> Optional[Language]:
         total_language_counts: TypedCounter[Optional[Language]] = Counter()
