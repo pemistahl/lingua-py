@@ -30,6 +30,8 @@ from ._constant import (
     CHARS_TO_LANGUAGES_MAPPING,
     JAPANESE_CHARACTER_SET,
     LETTERS,
+    TOKENS_WITHOUT_WHITESPACE,
+    TOKENS_WITH_OPTIONAL_WHITESPACE,
 )
 from .language import Language, _Alphabet
 from ._model import _TrainingDataLanguageModel, _TestDataLanguageModel
@@ -79,7 +81,7 @@ def _sum_up_probabilities(
 
 
 def _sort_confidence_values(values: List["ConfidenceValue"]):
-    values.sort(key=lambda confidence: (-confidence.value, confidence.language))
+    values.sort(key=lambda tup: (-tup[1], tup[0]))
 
 
 def _collect_languages_with_unique_characters(
@@ -100,11 +102,46 @@ def _collect_one_language_alphabets(
     }
 
 
+def _merge_adjacent_results(
+    results: List["DetectionResult"], mergeable_result_indices: List[int]
+):
+    mergeable_result_indices.sort(reverse=True)
+
+    for i in mergeable_result_indices:
+        if i == 0:
+            results[i + 1] = DetectionResult(
+                start_index=results[i].start_index,
+                end_index=results[i + 1].end_index,
+                word_count=results[i + 1].word_count,
+                language=results[i + 1].language,
+            )
+        else:
+            results[i - 1] = DetectionResult(
+                start_index=results[i - 1].start_index,
+                end_index=results[i].end_index,
+                word_count=results[i - 1].word_count,
+                language=results[i - 1].language,
+            )
+
+        del results[i]
+
+
 class ConfidenceValue(NamedTuple):
-    """This class describes a language's confidence value"""
+    """This class describes a language's confidence value."""
 
     language: Language
     value: float
+
+
+class DetectionResult(NamedTuple):
+    """This class describes a contiguous single-language
+    text section within a possibly mixed-language text.
+    """
+
+    start_index: int
+    end_index: int
+    word_count: int
+    language: Language
 
 
 @dataclass
@@ -227,6 +264,101 @@ class LanguageDetector:
             return None
 
         return most_likely_language
+
+    def detect_multiple_languages_of(self, text: str) -> List[DetectionResult]:
+        if len(text) == 0:
+            return []
+
+        tokens_without_whitespace = TOKENS_WITHOUT_WHITESPACE.findall(text)
+        if len(tokens_without_whitespace) == 0:
+            return []
+
+        results = []
+        language_counts = Counter[Language]()
+
+        language = self.detect_language_of(text)
+        if language is not None:
+            language_counts[language] += 1
+
+        for word in tokens_without_whitespace:
+            if len(word) < 5:
+                continue
+            language = self.detect_language_of(word)
+            if language is not None:
+                language_counts[language] += 1
+
+        languages = frozenset(language_counts.keys())
+
+        if len(languages) == 1:
+            result = DetectionResult(
+                start_index=0,
+                end_index=len(text),
+                word_count=len(tokens_without_whitespace),
+                language=next(iter(languages)),
+            )
+            results.append(result)
+        else:
+            previous_detector_languages = self._languages.copy()
+            self._languages = languages
+
+            current_start_index = 0
+            current_end_index = 0
+            word_count = 0
+            current_language = None
+            token_matches = list(TOKENS_WITH_OPTIONAL_WHITESPACE.finditer(text))
+            last_index = len(token_matches) - 1
+
+            for i, token_match in enumerate(token_matches):
+                word = token_match.group(0)
+                language = self.detect_language_of(word)
+
+                if i == 0:
+                    current_language = language
+
+                if language != current_language and current_language is not None:
+                    result = DetectionResult(
+                        start_index=current_start_index,
+                        end_index=current_end_index,
+                        word_count=word_count,
+                        language=current_language,
+                    )
+                    results.append(result)
+                    current_start_index = current_end_index
+                    current_language = language
+                    word_count = 0
+
+                current_end_index = token_match.end()
+                word_count += 1
+
+                if i == last_index and current_language is not None:
+                    result = DetectionResult(
+                        start_index=current_start_index,
+                        end_index=current_end_index,
+                        word_count=word_count,
+                        language=current_language,
+                    )
+                    results.append(result)
+
+            if len(results) > 1:
+                mergeable_result_indices = []
+
+                for i, result in enumerate(results):
+                    if result.word_count == 1:
+                        mergeable_result_indices.append(i)
+
+                _merge_adjacent_results(results, mergeable_result_indices)
+
+                mergeable_result_indices.clear()
+
+                for i in range(len(results) - 1):
+                    if results[i].language == results[i + 1].language:
+                        mergeable_result_indices.append(i + 1)
+
+                _merge_adjacent_results(results, mergeable_result_indices)
+
+            self._languages = previous_detector_languages
+
+        return results
 
     def compute_language_confidence_values(self, text: str) -> List[ConfidenceValue]:
         """Compute confidence values for each language supported

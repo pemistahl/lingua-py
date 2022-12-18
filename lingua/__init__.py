@@ -432,6 +432,7 @@ LanguageDetectorBuilder.from_iso_codes_639_3(IsoCode639_3.ENG, IsoCode639_3.DEU)
 
 __all__ = (
     "ConfidenceValue",
+    "DetectionResult",
     "LanguageDetectorBuilder",
     "LanguageDetector",
     "IsoCode639_1",
@@ -442,7 +443,7 @@ __all__ = (
 )
 
 from .builder import LanguageDetectorBuilder
-from .detector import ConfidenceValue, LanguageDetector
+from .detector import ConfidenceValue, DetectionResult, LanguageDetector
 from .isocode import IsoCode639_1, IsoCode639_3
 from .language import Language
 from .writer import LanguageModelFilesWriter, TestDataFilesWriter

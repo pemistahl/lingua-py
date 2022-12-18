@@ -282,31 +282,11 @@ def detector_for_english_and_german(
     )
 
 
-@pytest.fixture
-def detector_for_all_languages():
-    languages = Language.all()
-    languages_with_unique_characters = frozenset(
-        {language for language in languages if language._unique_characters is not None}
-    )
-    one_language_alphabets = {
-        alphabet: language
-        for alphabet, language in _Alphabet.all_supporting_single_language().items()
-        if language in languages
-    }
-
-    return LanguageDetector(
-        _languages=languages,
-        _minimum_relative_distance=0.0,
-        _is_low_accuracy_mode_enabled=False,
-        _languages_with_unique_characters=languages_with_unique_characters,
-        _one_language_alphabets=one_language_alphabets,
-        _unigram_language_models={},
-        _bigram_language_models={},
-        _trigram_language_models={},
-        _quadrigram_language_models={},
-        _fivegram_language_models={},
-        _cache={},
-    )
+detector_for_all_languages = (
+    LanguageDetectorBuilder.from_all_languages()
+    .with_preloaded_language_models()
+    .build()
+)
 
 
 @pytest.mark.parametrize(
@@ -461,9 +441,7 @@ def test_text_is_split_into_words_correctly(text, expected_words):
         pytest.param("ในทางหลวงหมายเลข", Language.THAI),
     ],
 )
-def test_language_detection_with_rules(
-    detector_for_all_languages, word, expected_language
-):
+def test_language_detection_with_rules(word, expected_language):
     detected_language = detector_for_all_languages._detect_language_with_rules([word])
     assert detected_language == expected_language
 
@@ -864,17 +842,13 @@ def test_language_detection_with_rules(
         ),
     ],
 )
-def test_language_filtering_with_rules(
-    detector_for_all_languages, word, expected_languages
-):
+def test_language_filtering_with_rules(word, expected_languages):
     filtered_languages = detector_for_all_languages._filter_languages_by_rules([word])
     assert filtered_languages == frozenset(expected_languages)
 
 
 @pytest.mark.parametrize("invalid_str", ["", " \n  \t;", "3<856%)§"])
-def test_strings_without_letters_return_no_language(
-    detector_for_all_languages, invalid_str
-):
+def test_strings_without_letters_return_no_language(invalid_str):
     assert detector_for_all_languages.detect_language_of(invalid_str) is None
 
 
@@ -1039,6 +1013,84 @@ def test_compute_language_confidence(
     assert confidence_for_french == 0.0
 
 
+def test_detect_multiple_languages_for_empty_string():
+    assert detector_for_all_languages.detect_multiple_languages_of("") == []
+
+
+def test_detect_multiple_languages_english():
+    sentence = "I'm really not sure whether multi-language detection is a good idea."
+
+    results = detector_for_all_languages.detect_multiple_languages_of(sentence)
+    assert len(results) == 1
+
+    result = results[0]
+    substring = sentence[result.start_index : result.end_index]
+    assert substring == sentence
+    assert result.language == Language.ENGLISH
+
+
+def test_detect_multiple_languages_english_and_german():
+    sentence = (
+        "  He   turned around and asked: "
+        + '"Entschuldigen Sie, sprechen Sie Deutsch?"'
+    )
+    results = detector_for_all_languages.detect_multiple_languages_of(sentence)
+    assert len(results) == 2
+
+    first_result = results[0]
+    first_substring = sentence[first_result.start_index : first_result.end_index]
+    assert first_substring == "  He   turned around and asked: "
+    assert first_result.language == Language.ENGLISH
+
+    second_result = results[1]
+    second_substring = sentence[second_result.start_index : second_result.end_index]
+    assert second_substring == '"Entschuldigen Sie, sprechen Sie Deutsch?"'
+    assert second_result.language == Language.GERMAN
+
+
+def test_detect_multiple_languages_chinese_english():
+    sentence = "上海大学是一个好大学. It is such a great university."
+
+    results = detector_for_all_languages.detect_multiple_languages_of(sentence)
+    assert len(results) == 2
+
+    first_result = results[0]
+    first_substring = sentence[first_result.start_index : first_result.end_index]
+    assert first_substring == "上海大学是一个好大学. "
+    assert first_result.language == Language.CHINESE
+
+    second_result = results[1]
+    second_substring = sentence[second_result.start_index : second_result.end_index]
+    assert second_substring == "It is such a great university."
+    assert second_result.language == Language.ENGLISH
+
+
+def test_detect_multiple_languages_french_german_english():
+    sentence = (
+        "Parlez-vous français? "
+        + "Ich spreche Französisch nur ein bisschen. "
+        + "A little bit is better than nothing."
+    )
+
+    results = detector_for_all_languages.detect_multiple_languages_of(sentence)
+    assert len(results) == 3
+
+    first_result = results[0]
+    first_substring = sentence[first_result.start_index : first_result.end_index]
+    assert first_substring == "Parlez-vous français? "
+    assert first_result.language == Language.FRENCH
+
+    second_result = results[1]
+    second_substring = sentence[second_result.start_index : second_result.end_index]
+    assert second_substring == "Ich spreche Französisch nur ein bisschen. "
+    assert second_result.language == Language.GERMAN
+
+    third_result = results[2]
+    third_substring = sentence[third_result.start_index : third_result.end_index]
+    assert third_substring == "A little bit is better than nothing."
+    assert third_result.language == Language.ENGLISH
+
+
 @pytest.mark.parametrize(
     "text,languages",
     [
@@ -1052,7 +1104,7 @@ def test_compute_language_confidence(
         ),
     ],
 )
-def test_deterministic_language_detection(detector_for_all_languages, text, languages):
+def test_deterministic_language_detection(text, languages):
     detected_languages = set()
     for i in range(0, 50):
         language = detector_for_all_languages.detect_language_of(text)

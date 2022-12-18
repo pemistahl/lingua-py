@@ -24,6 +24,12 @@ MULTIPLE_WHITESPACE: Pattern = regex.compile(r"\s+")
 NUMBERS: Pattern = regex.compile(r"\p{N}")
 PUNCTUATION: Pattern = regex.compile(r"\p{P}")
 LETTERS: Pattern = regex.compile(r"\p{Han}|\p{Hangul}|\p{Hiragana}|\p{Katakana}|\p{L}+")
+TOKENS_WITH_OPTIONAL_WHITESPACE = regex.compile(
+    r"\s*(?:\p{Han}|\p{Hangul}|\p{Hiragana}|\p{Katakana}|[\p{L}'-]+)[\p{N}\p{P}]*\s*"
+)
+TOKENS_WITHOUT_WHITESPACE = regex.compile(
+    r"\p{Han}|\p{Hangul}|\p{Hiragana}|\p{Katakana}|\p{L}+"
+)
 
 CHARS_TO_LANGUAGES_MAPPING: Dict[str, FrozenSet[Language]] = {
     "Ãã": frozenset([Language.PORTUGUESE, Language.VIETNAMESE]),
