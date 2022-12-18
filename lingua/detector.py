@@ -274,7 +274,7 @@ class LanguageDetector:
             return []
 
         results = []
-        language_counts = Counter[Language]()
+        language_counts: TypedCounter[Language] = Counter()
 
         language = self.detect_language_of(text)
         if language is not None:
