@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="pdoc 12.2.0"/>
+    <meta name="generator" content="pdoc 12.3.0"/>
     <title>lingua API documentation</title>
 
     <style>/*! * Bootstrap Reboot v5.0.0 (https://getbootstrap.com/) * Copyright 2011-2021 The Bootstrap Authors * Copyright 2011-2021 Twitter, Inc. * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE) * Forked from Normalize.css, licensed MIT (https://github.com/necolas/normalize.css/blob/master/LICENSE.md) */*,::after,::before{box-sizing:border-box}@media (prefers-reduced-motion:no-preference){:root{scroll-behavior:smooth}}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";font-size:1rem;font-weight:400;line-height:1.5;color:#212529;background-color:#fff;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}hr{margin:1rem 0;color:inherit;background-color:currentColor;border:0;opacity:.25}hr:not([size]){height:1px}h1,h2,h3,h4,h5,h6{margin-top:0;margin-bottom:.5rem;font-weight:500;line-height:1.2}h1{font-size:calc(1.375rem + 1.5vw)}@media (min-width:1200px){h1{font-size:2.5rem}}h2{font-size:calc(1.325rem + .9vw)}@media (min-width:1200px){h2{font-size:2rem}}h3{font-size:calc(1.3rem + .6vw)}@media (min-width:1200px){h3{font-size:1.75rem}}h4{font-size:calc(1.275rem + .3vw)}@media (min-width:1200px){h4{font-size:1.5rem}}h5{font-size:1.25rem}h6{font-size:1rem}p{margin-top:0;margin-bottom:1rem}abbr[data-bs-original-title],abbr[title]{-webkit-text-decoration:underline dotted;text-decoration:underline dotted;cursor:help;-webkit-text-decoration-skip-ink:none;text-decoration-skip-ink:none}address{margin-bottom:1rem;font-style:normal;line-height:inherit}ol,ul{padding-left:2rem}dl,ol,ul{margin-top:0;margin-bottom:1rem}ol ol,ol ul,ul ol,ul ul{margin-bottom:0}dt{font-weight:700}dd{margin-bottom:.5rem;margin-left:0}blockquote{margin:0 0 1rem}b,strong{font-weight:bolder}small{font-size:.875em}mark{padding:.2em;background-color:#fcf8e3}sub,sup{position:relative;font-size:.75em;line-height:0;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}a{color:#0d6efd;text-decoration:underline}a:hover{color:#0a58ca}a:not([href]):not([class]),a:not([href]):not([class]):hover{color:inherit;text-decoration:none}code,kbd,pre,samp{font-family:SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:1em;direction:ltr;unicode-bidi:bidi-override}pre{display:block;margin-top:0;margin-bottom:1rem;overflow:auto;font-size:.875em}pre code{font-size:inherit;color:inherit;word-break:normal}code{font-size:.875em;color:#d63384;word-wrap:break-word}a>code{color:inherit}kbd{padding:.2rem .4rem;font-size:.875em;color:#fff;background-color:#212529;border-radius:.2rem}kbd kbd{padding:0;font-size:1em;font-weight:700}figure{margin:0 0 1rem}img,svg{vertical-align:middle}table{caption-side:bottom;border-collapse:collapse}caption{padding-top:.5rem;padding-bottom:.5rem;color:#6c757d;text-align:left}th{text-align:inherit;text-align:-webkit-match-parent}tbody,td,tfoot,th,thead,tr{border-color:inherit;border-style:solid;border-width:0}label{display:inline-block}button{border-radius:0}button:focus:not(:focus-visible){outline:0}button,input,optgroup,select,textarea{margin:0;font-family:inherit;font-size:inherit;line-height:inherit}button,select{text-transform:none}[role=button]{cursor:pointer}select{word-wrap:normal}select:disabled{opacity:1}[list]::-webkit-calendar-picker-indicator{display:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]:not(:disabled),[type=reset]:not(:disabled),[type=submit]:not(:disabled),button:not(:disabled){cursor:pointer}::-moz-focus-inner{padding:0;border-style:none}textarea{resize:vertical}fieldset{min-width:0;padding:0;margin:0;border:0}legend{float:left;width:100%;padding:0;margin-bottom:.5rem;font-size:calc(1.275rem + .3vw);line-height:inherit}@media (min-width:1200px){legend{font-size:1.5rem}}legend+*{clear:left}::-webkit-datetime-edit-day-field,::-webkit-datetime-edit-fields-wrapper,::-webkit-datetime-edit-hour-field,::-webkit-datetime-edit-minute,::-webkit-datetime-edit-month-field,::-webkit-datetime-edit-text,::-webkit-datetime-edit-year-field{padding:0}::-webkit-inner-spin-button{height:auto}[type=search]{outline-offset:-2px;-webkit-appearance:textfield}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-color-swatch-wrapper{padding:0}::file-selector-button{font:inherit}::-webkit-file-upload-button{font:inherit;-webkit-appearance:button}output{display:inline-block}iframe{border:0}summary{display:list-item;cursor:pointer}progress{vertical-align:baseline}[hidden]{display:none!important}</style>
@@ -31,13 +31,50 @@
   <li><a href="#7-how-to-use">7. How to use?</a></li>
   <li><a href="#74-eager-loading-versus-lazy-loading">7.4 Eager loading versus lazy loading</a></li>
   <li><a href="#75-low-accuracy-mode-versus-high-accuracy-mode">7.5 Low accuracy mode versus high accuracy mode</a></li>
-  <li><a href="#76-methods-to-build-the-languagedetector">7.6 Methods to build the LanguageDetector</a></li>
+  <li><a href="#76-detection-of-multiple-languages-in-mixed-language-texts">7.6 Detection of multiple languages in mixed-language texts</a></li>
+  <li><a href="#77-methods-to-build-the-languagedetector">7.7 Methods to build the LanguageDetector</a></li>
 </ul>
 
 
 
         <h2>API Documentation</h2>
             <ul class="memberlist">
+            <li>
+                    <a class="class" href="#ConfidenceValue">ConfidenceValue</a>
+                            <ul class="memberlist">
+                        <li>
+                                <a class="function" href="#ConfidenceValue.__init__">ConfidenceValue</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#ConfidenceValue.language">language</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#ConfidenceValue.value">value</a>
+                        </li>
+                </ul>
+
+            </li>
+            <li>
+                    <a class="class" href="#DetectionResult">DetectionResult</a>
+                            <ul class="memberlist">
+                        <li>
+                                <a class="function" href="#DetectionResult.__init__">DetectionResult</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#DetectionResult.start_index">start_index</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#DetectionResult.end_index">end_index</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#DetectionResult.word_count">word_count</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#DetectionResult.language">language</a>
+                        </li>
+                </ul>
+
+            </li>
             <li>
                     <a class="class" href="#LanguageDetectorBuilder">LanguageDetectorBuilder</a>
                             <ul class="memberlist">
@@ -99,7 +136,13 @@
                                 <a class="function" href="#LanguageDetector.detect_language_of">detect_language_of</a>
                         </li>
                         <li>
+                                <a class="function" href="#LanguageDetector.detect_multiple_languages_of">detect_multiple_languages_of</a>
+                        </li>
+                        <li>
                                 <a class="function" href="#LanguageDetector.compute_language_confidence_values">compute_language_confidence_values</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#LanguageDetector.compute_language_confidence">compute_language_confidence</a>
                         </li>
                 </ul>
 
@@ -107,18 +150,693 @@
             <li>
                     <a class="class" href="#IsoCode639_1">IsoCode639_1</a>
                             <ul class="memberlist">
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.AF">AF</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.AR">AR</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.AZ">AZ</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.BE">BE</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.BG">BG</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.BN">BN</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.BS">BS</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.CA">CA</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.CS">CS</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.CY">CY</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.DA">DA</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.DE">DE</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.EL">EL</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.EN">EN</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.EO">EO</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.ES">ES</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.ET">ET</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.EU">EU</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.FA">FA</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.FI">FI</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.FR">FR</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.GA">GA</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.GU">GU</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.HE">HE</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.HI">HI</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.HR">HR</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.HU">HU</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.HY">HY</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.ID">ID</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.IS">IS</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.IT">IT</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.JA">JA</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.KA">KA</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.KK">KK</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.KO">KO</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.LA">LA</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.LG">LG</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.LT">LT</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.LV">LV</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.MI">MI</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.MK">MK</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.MN">MN</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.MR">MR</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.MS">MS</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.NB">NB</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.NL">NL</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.NN">NN</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.PA">PA</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.PL">PL</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.PT">PT</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.RO">RO</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.RU">RU</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.SK">SK</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.SL">SL</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.SN">SN</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.SO">SO</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.SQ">SQ</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.SR">SR</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.ST">ST</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.SV">SV</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.SW">SW</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.TA">TA</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.TE">TE</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.TH">TH</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.TL">TL</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.TN">TN</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.TR">TR</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.TS">TS</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.UK">UK</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.UR">UR</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.VI">VI</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.XH">XH</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.YO">YO</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.ZH">ZH</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_1.ZU">ZU</a>
+                        </li>
                 </ul>
 
             </li>
             <li>
                     <a class="class" href="#IsoCode639_3">IsoCode639_3</a>
                             <ul class="memberlist">
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.AFR">AFR</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.ARA">ARA</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.AZE">AZE</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.BEL">BEL</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.BEN">BEN</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.BOS">BOS</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.BUL">BUL</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.CAT">CAT</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.CES">CES</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.CYM">CYM</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.DAN">DAN</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.DEU">DEU</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.ELL">ELL</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.ENG">ENG</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.EPO">EPO</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.EST">EST</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.EUS">EUS</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.FAS">FAS</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.FIN">FIN</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.FRA">FRA</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.GLE">GLE</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.GUJ">GUJ</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.HEB">HEB</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.HIN">HIN</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.HRV">HRV</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.HUN">HUN</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.HYE">HYE</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.IND">IND</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.ISL">ISL</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.ITA">ITA</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.JPN">JPN</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.KAT">KAT</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.KAZ">KAZ</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.KOR">KOR</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.LAT">LAT</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.LAV">LAV</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.LIT">LIT</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.LUG">LUG</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.MAR">MAR</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.MKD">MKD</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.MON">MON</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.MRI">MRI</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.MSA">MSA</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.NLD">NLD</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.NNO">NNO</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.NOB">NOB</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.PAN">PAN</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.POL">POL</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.POR">POR</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.RON">RON</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.RUS">RUS</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.SLK">SLK</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.SLV">SLV</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.SNA">SNA</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.SOM">SOM</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.SOT">SOT</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.SPA">SPA</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.SQI">SQI</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.SRP">SRP</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.SWA">SWA</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.SWE">SWE</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.TAM">TAM</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.TEL">TEL</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.TGL">TGL</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.THA">THA</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.TSN">TSN</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.TSO">TSO</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.TUR">TUR</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.UKR">UKR</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.URD">URD</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.VIE">VIE</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.XHO">XHO</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.YOR">YOR</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.ZHO">ZHO</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#IsoCode639_3.ZUL">ZUL</a>
+                        </li>
                 </ul>
 
             </li>
             <li>
                     <a class="class" href="#Language">Language</a>
                             <ul class="memberlist">
+                        <li>
+                                <a class="variable" href="#Language.AFRIKAANS">AFRIKAANS</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.ALBANIAN">ALBANIAN</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.ARABIC">ARABIC</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.ARMENIAN">ARMENIAN</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.AZERBAIJANI">AZERBAIJANI</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.BASQUE">BASQUE</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.BELARUSIAN">BELARUSIAN</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.BENGALI">BENGALI</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.BOKMAL">BOKMAL</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.BOSNIAN">BOSNIAN</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.BULGARIAN">BULGARIAN</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.CATALAN">CATALAN</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.CHINESE">CHINESE</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.CROATIAN">CROATIAN</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.CZECH">CZECH</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.DANISH">DANISH</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.DUTCH">DUTCH</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.ENGLISH">ENGLISH</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.ESPERANTO">ESPERANTO</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.ESTONIAN">ESTONIAN</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.FINNISH">FINNISH</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.FRENCH">FRENCH</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.GANDA">GANDA</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.GEORGIAN">GEORGIAN</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.GERMAN">GERMAN</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.GREEK">GREEK</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.GUJARATI">GUJARATI</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.HEBREW">HEBREW</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.HINDI">HINDI</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.HUNGARIAN">HUNGARIAN</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.ICELANDIC">ICELANDIC</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.INDONESIAN">INDONESIAN</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.IRISH">IRISH</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.ITALIAN">ITALIAN</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.JAPANESE">JAPANESE</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.KAZAKH">KAZAKH</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.KOREAN">KOREAN</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.LATIN">LATIN</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.LATVIAN">LATVIAN</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.LITHUANIAN">LITHUANIAN</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.MACEDONIAN">MACEDONIAN</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.MALAY">MALAY</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.MAORI">MAORI</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.MARATHI">MARATHI</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.MONGOLIAN">MONGOLIAN</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.NYNORSK">NYNORSK</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.PERSIAN">PERSIAN</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.POLISH">POLISH</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.PORTUGUESE">PORTUGUESE</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.PUNJABI">PUNJABI</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.ROMANIAN">ROMANIAN</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.RUSSIAN">RUSSIAN</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.SERBIAN">SERBIAN</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.SHONA">SHONA</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.SLOVAK">SLOVAK</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.SLOVENE">SLOVENE</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.SOMALI">SOMALI</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.SOTHO">SOTHO</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.SPANISH">SPANISH</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.SWAHILI">SWAHILI</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.SWEDISH">SWEDISH</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.TAGALOG">TAGALOG</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.TAMIL">TAMIL</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.TELUGU">TELUGU</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.THAI">THAI</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.TSONGA">TSONGA</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.TSWANA">TSWANA</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.TURKISH">TURKISH</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.UKRAINIAN">UKRAINIAN</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.URDU">URDU</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.VIETNAMESE">VIETNAMESE</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.WELSH">WELSH</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.XHOSA">XHOSA</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.YORUBA">YORUBA</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Language.ZULU">ZULU</a>
+                        </li>
                         <li>
                                 <a class="function" href="#Language.all">all</a>
                         </li>
@@ -446,10 +1164,10 @@ and can be installed with:</p>
 
 <div class="pdoc-code codehilite">
 <pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">lingua</span> <span class="kn">import</span> <span class="n">Language</span><span class="p">,</span> <span class="n">LanguageDetectorBuilder</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">languages</span> <span class="o">=</span> <span class="p">[</span><span class="n">Language</span><span class="o">.</span><span class="n">ENGLISH</span><span class="p">,</span> <span class="n">Language</span><span class="o">.</span><span class="n">FRENCH</span><span class="p">,</span> <span class="n">Language</span><span class="o">.</span><span class="n">GERMAN</span><span class="p">,</span> <span class="n">Language</span><span class="o">.</span><span class="n">SPANISH</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">languages</span> <span class="o">=</span> <span class="p">[</span><span class="n"><a href="#Language.ENGLISH">Language.ENGLISH</a></span><span class="p">,</span> <span class="n"><a href="#Language.FRENCH">Language.FRENCH</a></span><span class="p">,</span> <span class="n"><a href="#Language.GERMAN">Language.GERMAN</a></span><span class="p">,</span> <span class="n"><a href="#Language.SPANISH">Language.SPANISH</a></span><span class="p">]</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">detector</span> <span class="o">=</span> <span class="n"><a href="#LanguageDetectorBuilder.from_languages">LanguageDetectorBuilder.from_languages</a></span><span class="p">(</span><span class="o">*</span><span class="n">languages</span><span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">detector</span><span class="o">.</span><span class="n">detect_language_of</span><span class="p">(</span><span class="s2">&quot;languages are awesome&quot;</span><span class="p">)</span>
-<span class="n">Language</span><span class="o">.</span><span class="n">ENGLISH</span>
+<span class="n"><a href="#Language.ENGLISH">Language.ENGLISH</a></span>
 </code></pre>
 </div>
 
@@ -465,8 +1183,8 @@ each possible language have to satisfy. It can be stated in the following way:</
 
 <div class="pdoc-code codehilite">
 <pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">lingua</span> <span class="kn">import</span> <span class="n">Language</span><span class="p">,</span> <span class="n">LanguageDetectorBuilder</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">languages</span> <span class="o">=</span> <span class="p">[</span><span class="n">Language</span><span class="o">.</span><span class="n">ENGLISH</span><span class="p">,</span> <span class="n">Language</span><span class="o">.</span><span class="n">FRENCH</span><span class="p">,</span> <span class="n">Language</span><span class="o">.</span><span class="n">GERMAN</span><span class="p">,</span> <span class="n">Language</span><span class="o">.</span><span class="n">SPANISH</span><span class="p">]</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">detector</span> <span class="o">=</span> <span class="n"><a href="#LanguageDetectorBuilder.from_languages">LanguageDetectorBuilder.from_languages</a></span><span class="p">(</span><span class="o">*</span><span class="n">languages</span><span class="p">)</span><span class="o">.</span><span class="n">with_minimum_relative_distance</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">languages</span> <span class="o">=</span> <span class="p">[</span><span class="n"><a href="#Language.ENGLISH">Language.ENGLISH</a></span><span class="p">,</span> <span class="n"><a href="#Language.FRENCH">Language.FRENCH</a></span><span class="p">,</span> <span class="n"><a href="#Language.GERMAN">Language.GERMAN</a></span><span class="p">,</span> <span class="n"><a href="#Language.SPANISH">Language.SPANISH</a></span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">detector</span> <span class="o">=</span> <span class="n"><a href="#LanguageDetectorBuilder.from_languages">LanguageDetectorBuilder.from_languages</a></span><span class="p">(</span><span class="o">*</span><span class="n">languages</span><span class="p">)</span><span class="o">.</span><span class="n">with_minimum_relative_distance</span><span class="p">(</span><span class="mf">0.7</span><span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">detector</span><span class="o">.</span><span class="n">detect_language_of</span><span class="p">(</span><span class="s2">&quot;languages are awesome&quot;</span><span class="p">))</span>
 <span class="kc">None</span>
 </code></pre>
@@ -487,33 +1205,50 @@ to the most likely one? These questions can be answered as well:</p>
 
 <div class="pdoc-code codehilite">
 <pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">lingua</span> <span class="kn">import</span> <span class="n">Language</span><span class="p">,</span> <span class="n">LanguageDetectorBuilder</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">languages</span> <span class="o">=</span> <span class="p">[</span><span class="n">Language</span><span class="o">.</span><span class="n">ENGLISH</span><span class="p">,</span> <span class="n">Language</span><span class="o">.</span><span class="n">FRENCH</span><span class="p">,</span> <span class="n">Language</span><span class="o">.</span><span class="n">GERMAN</span><span class="p">,</span> <span class="n">Language</span><span class="o">.</span><span class="n">SPANISH</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">languages</span> <span class="o">=</span> <span class="p">[</span><span class="n"><a href="#Language.ENGLISH">Language.ENGLISH</a></span><span class="p">,</span> <span class="n"><a href="#Language.FRENCH">Language.FRENCH</a></span><span class="p">,</span> <span class="n"><a href="#Language.GERMAN">Language.GERMAN</a></span><span class="p">,</span> <span class="n"><a href="#Language.SPANISH">Language.SPANISH</a></span><span class="p">]</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">detector</span> <span class="o">=</span> <span class="n"><a href="#LanguageDetectorBuilder.from_languages">LanguageDetectorBuilder.from_languages</a></span><span class="p">(</span><span class="o">*</span><span class="n">languages</span><span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">confidence_values</span> <span class="o">=</span> <span class="n">detector</span><span class="o">.</span><span class="n">compute_language_confidence_values</span><span class="p">(</span><span class="s2">&quot;languages are awesome&quot;</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">language</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">confidence_values</span><span class="p">:</span>
 <span class="o">...</span>     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">language</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">value</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="n">ENGLISH</span><span class="p">:</span> <span class="mf">1.00</span>
-<span class="n">FRENCH</span><span class="p">:</span> <span class="mf">0.79</span>
-<span class="n">GERMAN</span><span class="p">:</span> <span class="mf">0.75</span>
-<span class="n">SPANISH</span><span class="p">:</span> <span class="mf">0.72</span>
+<span class="n">ENGLISH</span><span class="p">:</span> <span class="mf">0.99</span>
+<span class="n">FRENCH</span><span class="p">:</span> <span class="mf">0.32</span>
+<span class="n">GERMAN</span><span class="p">:</span> <span class="mf">0.15</span>
+<span class="n">SPANISH</span><span class="p">:</span> <span class="mf">0.01</span>
 </code></pre>
 </div>
 
-<p>In the example above, a list of all possible languages is returned, sorted by
+<p>In the example above, a list is returned containing those languages which the
+calling instance of LanguageDetector has been built from, sorted by
 their confidence value in descending order. The values that the detector
 computes are part of a <strong>relative</strong> confidence metric, not of an absolute one.
-Each value is a number between 0.0 and 1.0. The most likely language is always
-returned with value 1.0. All other languages get values assigned which are
-lower than 1.0, denoting how less likely those languages are in comparison to
+Each value is a number between 0.0 and 1.0.</p>
+
+<p>If the language is unambiguously identified by the rule engine, the value 1.0
+will always be returned for this language. The other languages will receive a
+value of 0.0. If the statistics engine is additionally needed, the most likely
+language will be returned with value 0.99 and the least likely language will
+be returned with value 0.01. All other languages get values assigned between
+0.01 and 0.99, denoting how less likely those languages are in comparison to
 the most likely language.</p>
 
-<p>The list returned by this method does not necessarily contain all languages
-which this LanguageDetector instance was built from. If the rule-based engine
-decides that a specific language is truly impossible, then it will not be part
-of the returned list. Likewise, if no ngram probabilities can be found within
-the detector's languages for the given input text, the returned list will be
-empty. The confidence value for each language not being part of the returned
-list is assumed to be 0.0.</p>
+<p>There is also a method for returning the confidence value for one specific
+language only:</p>
+
+<div class="pdoc-code codehilite">
+<pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">lingua</span> <span class="kn">import</span> <span class="n">Language</span><span class="p">,</span> <span class="n">LanguageDetectorBuilder</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">languages</span> <span class="o">=</span> <span class="p">[</span><span class="n"><a href="#Language.ENGLISH">Language.ENGLISH</a></span><span class="p">,</span> <span class="n"><a href="#Language.FRENCH">Language.FRENCH</a></span><span class="p">,</span> <span class="n"><a href="#Language.GERMAN">Language.GERMAN</a></span><span class="p">,</span> <span class="n"><a href="#Language.SPANISH">Language.SPANISH</a></span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">detector</span> <span class="o">=</span> <span class="n"><a href="#LanguageDetectorBuilder.from_languages">LanguageDetectorBuilder.from_languages</a></span><span class="p">(</span><span class="o">*</span><span class="n">languages</span><span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">confidence_value</span> <span class="o">=</span> <span class="n">detector</span><span class="o">.</span><span class="n">compute_language_confidence</span><span class="p">(</span><span class="s2">&quot;languages are awesome&quot;</span><span class="p">,</span> <span class="n"><a href="#Language.FRENCH">Language.FRENCH</a></span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">confidence_value</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="mf">0.32</span>
+</code></pre>
+</div>
+
+<p>The value that this method computes is a number between 0.0 and 1.0. If the
+language is unambiguously identified by the rule engine, the value 1.0 will
+always be returned. If the given language is not supported by this detector
+instance, the value 0.0 will always be returned. Otherwise, a value between
+0.01 and 0.99 will be returned.</p>
 
 <h2 id="74-eager-loading-versus-lazy-loading">7.4 Eager loading versus lazy loading</h2>
 
@@ -559,7 +1294,38 @@ build the detector from all supported languages. When you have knowledge about
 the texts you want to classify you can almost always rule out certain languages as impossible
 or unlikely to occur.</p>
 
-<h2 id="76-methods-to-build-the-languagedetector">7.6 Methods to build the LanguageDetector</h2>
+<h2 id="76-detection-of-multiple-languages-in-mixed-language-texts">7.6 Detection of multiple languages in mixed-language texts</h2>
+
+<p>In contrast to most other language detectors, <em>Lingua</em> is able to detect multiple
+languages in mixed-language texts. This feature can yield quite reasonable results but
+it is still in an experimental state and therefore the detection result is highly
+dependent on the input text. It works best in high-accuracy mode with multiple long
+words for each language. The shorter the phrases and their words are, the less
+accurate are the results. Reducing the set of languages when building the language
+detector can also improve accuracy for this task if the languages occurring in the
+text are equal to the languages supported by the respective language detector instance.</p>
+
+<div class="pdoc-code codehilite">
+<pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">lingua</span> <span class="kn">import</span> <span class="n">Language</span><span class="p">,</span> <span class="n">LanguageDetectorBuilder</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">languages</span> <span class="o">=</span> <span class="p">[</span><span class="n"><a href="#Language.ENGLISH">Language.ENGLISH</a></span><span class="p">,</span> <span class="n"><a href="#Language.FRENCH">Language.FRENCH</a></span><span class="p">,</span> <span class="n"><a href="#Language.GERMAN">Language.GERMAN</a></span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">detector</span> <span class="o">=</span> <span class="n"><a href="#LanguageDetectorBuilder.from_languages">LanguageDetectorBuilder.from_languages</a></span><span class="p">(</span><span class="o">*</span><span class="n">languages</span><span class="p">)</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;Parlez-vous français? &quot;</span> <span class="o">+</span> \
+<span class="o">...</span>            <span class="s2">&quot;Ich spreche Französisch nur ein bisschen. &quot;</span> <span class="o">+</span> \
+<span class="o">...</span>            <span class="s2">&quot;A little bit is better than nothing.&quot;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">detector</span><span class="o">.</span><span class="n">detect_multiple_languages_of</span><span class="p">(</span><span class="n">sentence</span><span class="p">):</span>
+<span class="o">...</span>     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">language</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: &#39;</span><span class="si">{</span><span class="n">sentence</span><span class="p">[</span><span class="n">result</span><span class="o">.</span><span class="n">start_index</span><span class="p">:</span><span class="n">result</span><span class="o">.</span><span class="n">end_index</span><span class="p">]</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+<span class="n">FRENCH</span><span class="p">:</span> <span class="s1">&#39;Parlez-vous français? &#39;</span>
+<span class="n">GERMAN</span><span class="p">:</span> <span class="s1">&#39;Ich spreche Französisch nur ein bisschen. &#39;</span>
+<span class="n">ENGLISH</span><span class="p">:</span> <span class="s1">&#39;A little bit is better than nothing.&#39;</span>
+</code></pre>
+</div>
+
+<p>In the example above, a list of
+<a href="https://github.com/pemistahl/lingua-py/blob/main/lingua/detector.py#L144"><code>DetectionResult</code></a>
+is returned. Each entry in the list describes a contiguous single-language text section,
+providing start and end indices of the respective substring.</p>
+
+<h2 id="77-methods-to-build-the-languagedetector">7.7 Methods to build the LanguageDetector</h2>
 
 <p>There might be classification tasks where you know beforehand that your
 language data is definitely not written in Latin, for instance. The detection
@@ -579,16 +1345,16 @@ the decision process or just explicitly include relevant languages:</p>
 <span class="n"><a href="#LanguageDetectorBuilder.from_all_languages_with_cyrillic_script">LanguageDetectorBuilder.from_all_languages_with_cyrillic_script</a></span><span class="p">()</span>
 
 <span class="c1"># Exclude only the Spanish language from the decision algorithm.</span>
-<span class="n"><a href="#LanguageDetectorBuilder.from_all_languages_without">LanguageDetectorBuilder.from_all_languages_without</a></span><span class="p">(</span><span class="n">Language</span><span class="o">.</span><span class="n">SPANISH</span><span class="p">)</span>
+<span class="n"><a href="#LanguageDetectorBuilder.from_all_languages_without">LanguageDetectorBuilder.from_all_languages_without</a></span><span class="p">(</span><span class="n"><a href="#Language.SPANISH">Language.SPANISH</a></span><span class="p">)</span>
 
 <span class="c1"># Only decide between English and German.</span>
-<span class="n"><a href="#LanguageDetectorBuilder.from_languages">LanguageDetectorBuilder.from_languages</a></span><span class="p">(</span><span class="n">Language</span><span class="o">.</span><span class="n">ENGLISH</span><span class="p">,</span> <span class="n">Language</span><span class="o">.</span><span class="n">GERMAN</span><span class="p">)</span>
+<span class="n"><a href="#LanguageDetectorBuilder.from_languages">LanguageDetectorBuilder.from_languages</a></span><span class="p">(</span><span class="n"><a href="#Language.ENGLISH">Language.ENGLISH</a></span><span class="p">,</span> <span class="n"><a href="#Language.GERMAN">Language.GERMAN</a></span><span class="p">)</span>
 
 <span class="c1"># Select languages by ISO 639-1 code.</span>
-<span class="n"><a href="#LanguageDetectorBuilder.from_iso_codes_639_1">LanguageDetectorBuilder.from_iso_codes_639_1</a></span><span class="p">(</span><span class="n">IsoCode639_1</span><span class="o">.</span><span class="n">EN</span><span class="p">,</span> <span class="n">IsoCode639_1</span><span class="o">.</span><span class="n">DE</span><span class="p">)</span>
+<span class="n"><a href="#LanguageDetectorBuilder.from_iso_codes_639_1">LanguageDetectorBuilder.from_iso_codes_639_1</a></span><span class="p">(</span><span class="n"><a href="#IsoCode639_1.EN">IsoCode639_1.EN</a></span><span class="p">,</span> <span class="n"><a href="#IsoCode639_1.DE">IsoCode639_1.DE</a></span><span class="p">)</span>
 
 <span class="c1"># Select languages by ISO 639-3 code.</span>
-<span class="n"><a href="#LanguageDetectorBuilder.from_iso_codes_639_3">LanguageDetectorBuilder.from_iso_codes_639_3</a></span><span class="p">(</span><span class="n">IsoCode639_3</span><span class="o">.</span><span class="n">ENG</span><span class="p">,</span> <span class="n">IsoCode639_3</span><span class="o">.</span><span class="n">DEU</span><span class="p">)</span>
+<span class="n"><a href="#LanguageDetectorBuilder.from_iso_codes_639_3">LanguageDetectorBuilder.from_iso_codes_639_3</a></span><span class="p">(</span><span class="n"><a href="#IsoCode639_3.ENG">IsoCode639_3.ENG</a></span><span class="p">,</span> <span class="n"><a href="#IsoCode639_3.DEU">IsoCode639_3.DEU</a></span><span class="p">)</span>
 </code></pre>
 </div>
 </div>
@@ -597,6 +1363,186 @@ the decision process or just explicitly include relevant languages:</p>
                 
                 
             </section>
+                <section id="ConfidenceValue">
+                    <div class="attr class">
+            
+    <span class="def">class</span>
+    <span class="name">ConfidenceValue</span><wbr>(<span class="base">typing.NamedTuple</span>):
+
+        
+    </div>
+    <a class="headerlink" href="#ConfidenceValue"></a>
+    
+            <div class="docstring"><p>This class describes a language's confidence value.</p>
+
+<p>Attributes:
+    language (Language):
+        The language associated with this confidence value.</p>
+
+<pre><code>value (float):
+    The language's confidence value which lies between 0.0 and 1.0.
+</code></pre>
+</div>
+
+
+                            <div id="ConfidenceValue.__init__" class="classattr">
+                                <div class="attr function">
+            
+        <span class="name">ConfidenceValue</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">language</span><span class="p">:</span> <span class="n"><a href="#Language">lingua.Language</a></span>, </span><span class="param"><span class="n">value</span><span class="p">:</span> <span class="nb">float</span></span>)</span>
+
+        
+    </div>
+    <a class="headerlink" href="#ConfidenceValue.__init__"></a>
+    
+            <div class="docstring"><p>Create new instance of ConfidenceValue(language, value)</p>
+</div>
+
+
+                            </div>
+                            <div id="ConfidenceValue.language" class="classattr">
+                                <div class="attr variable">
+            <span class="name">language</span><span class="annotation">: <a href="#Language">lingua.Language</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#ConfidenceValue.language"></a>
+    
+            <div class="docstring"><p>Alias for field number 0</p>
+</div>
+
+
+                            </div>
+                            <div id="ConfidenceValue.value" class="classattr">
+                                <div class="attr variable">
+            <span class="name">value</span><span class="annotation">: float</span>
+
+        
+    </div>
+    <a class="headerlink" href="#ConfidenceValue.value"></a>
+    
+            <div class="docstring"><p>Alias for field number 1</p>
+</div>
+
+
+                            </div>
+                            <div class="inherited">
+                                <h5>Inherited Members</h5>
+                                <dl>
+                                    <div><dt>builtins.tuple</dt>
+                                <dd id="ConfidenceValue.index" class="function">index</dd>
+                <dd id="ConfidenceValue.count" class="function">count</dd>
+
+            </div>
+                                </dl>
+                            </div>
+                </section>
+                <section id="DetectionResult">
+                    <div class="attr class">
+            
+    <span class="def">class</span>
+    <span class="name">DetectionResult</span><wbr>(<span class="base">typing.NamedTuple</span>):
+
+        
+    </div>
+    <a class="headerlink" href="#DetectionResult"></a>
+    
+            <div class="docstring"><p>This class describes a contiguous single-language
+text section within a possibly mixed-language text.</p>
+
+<p>Attributes:
+    start_index (int):
+        The start index of the identified single-language substring.</p>
+
+<pre><code>end_index (int):
+    The end index of the identified single-language substring.
+
+word_count (int):
+    The number of words being part of the identified
+    single-language substring.
+
+language (Language):
+    The detected language of the identified single-language substring.
+</code></pre>
+</div>
+
+
+                            <div id="DetectionResult.__init__" class="classattr">
+                                <div class="attr function">
+            
+        <span class="name">DetectionResult</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="n">start_index</span><span class="p">:</span> <span class="nb">int</span>,</span><span class="param">	<span class="n">end_index</span><span class="p">:</span> <span class="nb">int</span>,</span><span class="param">	<span class="n">word_count</span><span class="p">:</span> <span class="nb">int</span>,</span><span class="param">	<span class="n">language</span><span class="p">:</span> <span class="n"><a href="#Language">lingua.Language</a></span></span>)</span>
+
+        
+    </div>
+    <a class="headerlink" href="#DetectionResult.__init__"></a>
+    
+            <div class="docstring"><p>Create new instance of DetectionResult(start_index, end_index, word_count, language)</p>
+</div>
+
+
+                            </div>
+                            <div id="DetectionResult.start_index" class="classattr">
+                                <div class="attr variable">
+            <span class="name">start_index</span><span class="annotation">: int</span>
+
+        
+    </div>
+    <a class="headerlink" href="#DetectionResult.start_index"></a>
+    
+            <div class="docstring"><p>Alias for field number 0</p>
+</div>
+
+
+                            </div>
+                            <div id="DetectionResult.end_index" class="classattr">
+                                <div class="attr variable">
+            <span class="name">end_index</span><span class="annotation">: int</span>
+
+        
+    </div>
+    <a class="headerlink" href="#DetectionResult.end_index"></a>
+    
+            <div class="docstring"><p>Alias for field number 1</p>
+</div>
+
+
+                            </div>
+                            <div id="DetectionResult.word_count" class="classattr">
+                                <div class="attr variable">
+            <span class="name">word_count</span><span class="annotation">: int</span>
+
+        
+    </div>
+    <a class="headerlink" href="#DetectionResult.word_count"></a>
+    
+            <div class="docstring"><p>Alias for field number 2</p>
+</div>
+
+
+                            </div>
+                            <div id="DetectionResult.language" class="classattr">
+                                <div class="attr variable">
+            <span class="name">language</span><span class="annotation">: <a href="#Language">lingua.Language</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#DetectionResult.language"></a>
+    
+            <div class="docstring"><p>Alias for field number 3</p>
+</div>
+
+
+                            </div>
+                            <div class="inherited">
+                                <h5>Inherited Members</h5>
+                                <dl>
+                                    <div><dt>builtins.tuple</dt>
+                                <dd id="DetectionResult.index" class="function">index</dd>
+                <dd id="DetectionResult.count" class="function">count</dd>
+
+            </div>
+                                </dl>
+                            </div>
+                </section>
                 <section id="LanguageDetectorBuilder">
                     <div class="attr class">
             
@@ -941,12 +1887,47 @@ will remain mostly unaffected.</p>
     
             <div class="docstring"><p>Detect the language of text.</p>
 
+<p>Args:</p>
+
+<pre><code>text (str): The text whose language should be identified.
+</code></pre>
+
+<p>Returns:</p>
+
+<pre><code>The identified language. If the language cannot be
+reliably detected, None is returned.
+</code></pre>
+</div>
+
+
+                            </div>
+                            <div id="LanguageDetector.detect_multiple_languages_of" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">detect_multiple_languages_of</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">text</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">) -> <span class="n">List</span><span class="p">[</span><span class="n"><a href="#DetectionResult">lingua.DetectionResult</a></span><span class="p">]</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#LanguageDetector.detect_multiple_languages_of"></a>
+    
+            <div class="docstring"><p>Attempt to detect multiple languages in mixed-language text.</p>
+
+<p>This feature is experimental and under continuous development.</p>
+
+<p>A list of DetectionResult is returned containing an entry for each
+contiguous single-language text section as identified by the library.
+Each entry consists of the identified language, a start index and an
+end index. The indices denote the substring that has been identified
+as a contiguous single-language text section.</p>
+
 <p>Args:
     text (str): The text whose language should be identified.</p>
 
 <p>Returns:
-    The identified language. If the language cannot be
-    reliably detected, None is returned.</p>
+    A list of detection results. Each result contains the
+    identified language, the start index and end index of
+    the identified single-language substring.</p>
 </div>
 
 
@@ -955,34 +1936,35 @@ will remain mostly unaffected.</p>
                                 <div class="attr function">
             
         <span class="def">def</span>
-        <span class="name">compute_language_confidence_values</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">text</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">) -> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n"><a href="#Language">lingua.Language</a></span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span>:</span></span>
+        <span class="name">compute_language_confidence_values</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">text</span><span class="p">:</span> <span class="nb">str</span></span><span class="return-annotation">) -> <span class="n">List</span><span class="p">[</span><span class="n"><a href="#ConfidenceValue">lingua.ConfidenceValue</a></span><span class="p">]</span>:</span></span>
 
         
     </div>
     <a class="headerlink" href="#LanguageDetector.compute_language_confidence_values"></a>
     
-            <div class="docstring"><p>Compute confidence values for each language considered
-possible for the given text.</p>
+            <div class="docstring"><p>Compute confidence values for each language supported
+by this detector for the given text.</p>
 
-<p>A list of all possible languages is returned, sorted by
-their confidence value in descending order. The values
-that this method computes are part of a relative
-confidence metric, not of an absolute one. Each value
-is a number between 0.0 and 1.0. The most likely language
-is always returned with value 1.0. All other languages get
-values assigned which are lower than 1.0, denoting how less
-likely those languages are in comparison to the most likely
-language.</p>
+<p>The confidence values denote how likely it is that the
+given text has been written in any of the languages
+supported by this detector.</p>
 
-<p>The list returned by this method does not necessarily
-contain all languages which this LanguageDetector instance
-was built from. If the rule-based engine decides that a
-specific language is truly impossible, then it will not be
-part of the returned list. Likewise, if no ngram probabilities
-can be found within the detector's languages for the given
-text, the returned list will be empty. The confidence value for
-each language not being part of the returned list is assumed to
-be 0.0.</p>
+<p>A list is returned containing those languages which the
+calling instance of LanguageDetector has been built from.
+The entries are sorted by their confidence value in
+descending order. The values that this method computes
+are part of a relative confidence metric, not of an
+absolute one. Each value is a number between 0.0 and 1.0.</p>
+
+<p>If the language is unambiguously identified by the rule
+engine, the value 1.0 will always be returned for this
+language. The other languages will receive a value of 0.0.
+If the statistics engine is additionally needed, the most
+likely language will be returned with value 0.99 and the
+least likely language will be returned with value 0.01.
+All other languages get values assigned between 0.01 and
+0.99, denoting how less likely those languages are in
+comparison to the most likely language.</p>
 
 <p>Args:
     text (str): The text for which to compute confidence values.</p>
@@ -990,6 +1972,39 @@ be 0.0.</p>
 <p>Returns:
     A list of 2-element tuples. Each tuple contains a language
     and the associated confidence value.</p>
+</div>
+
+
+                            </div>
+                            <div id="LanguageDetector.compute_language_confidence" class="classattr">
+                                <div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">compute_language_confidence</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span>, </span><span class="param"><span class="n">text</span><span class="p">:</span> <span class="nb">str</span>, </span><span class="param"><span class="n">language</span><span class="p">:</span> <span class="n"><a href="#Language">lingua.Language</a></span></span><span class="return-annotation">) -> <span class="nb">float</span>:</span></span>
+
+        
+    </div>
+    <a class="headerlink" href="#LanguageDetector.compute_language_confidence"></a>
+    
+            <div class="docstring"><p>Compute the confidence value for the given language and input text.</p>
+
+<p>The confidence value denotes how likely it is that the given text
+has been written in the given language. The value that this method
+computes is a number between 0.0 and 1.0. If the language is
+unambiguously identified by the rule engine, the value 1.0 will
+always be returned. If the given language is not supported by this
+detector instance, the value 0.0 will always be returned. Otherwise,
+a value between 0.01 and 0.99 will be returned.</p>
+
+<p>Args:
+    text (str): The text for which to compute the confidence value.</p>
+
+<pre><code>language (Language):
+    The language for which to compute the confidence value.
+</code></pre>
+
+<p>Returns:
+    A float value between 0.0 and 1.0.</p>
 </div>
 
 
@@ -1012,6 +2027,831 @@ supported languages.</p>
 </div>
 
 
+                            <div id="IsoCode639_1.AF" class="classattr">
+                                <div class="attr variable">
+            <span class="name">AF</span><span class="default_value"> = <a href="#IsoCode639_1.AF">IsoCode639_1.AF</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.AF"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.AR" class="classattr">
+                                <div class="attr variable">
+            <span class="name">AR</span><span class="default_value"> = <a href="#IsoCode639_1.AR">IsoCode639_1.AR</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.AR"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.AZ" class="classattr">
+                                <div class="attr variable">
+            <span class="name">AZ</span><span class="default_value"> = <a href="#IsoCode639_1.AZ">IsoCode639_1.AZ</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.AZ"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.BE" class="classattr">
+                                <div class="attr variable">
+            <span class="name">BE</span><span class="default_value"> = <a href="#IsoCode639_1.BE">IsoCode639_1.BE</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.BE"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.BG" class="classattr">
+                                <div class="attr variable">
+            <span class="name">BG</span><span class="default_value"> = <a href="#IsoCode639_1.BG">IsoCode639_1.BG</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.BG"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.BN" class="classattr">
+                                <div class="attr variable">
+            <span class="name">BN</span><span class="default_value"> = <a href="#IsoCode639_1.BN">IsoCode639_1.BN</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.BN"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.BS" class="classattr">
+                                <div class="attr variable">
+            <span class="name">BS</span><span class="default_value"> = <a href="#IsoCode639_1.BS">IsoCode639_1.BS</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.BS"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.CA" class="classattr">
+                                <div class="attr variable">
+            <span class="name">CA</span><span class="default_value"> = <a href="#IsoCode639_1.CA">IsoCode639_1.CA</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.CA"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.CS" class="classattr">
+                                <div class="attr variable">
+            <span class="name">CS</span><span class="default_value"> = <a href="#IsoCode639_1.CS">IsoCode639_1.CS</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.CS"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.CY" class="classattr">
+                                <div class="attr variable">
+            <span class="name">CY</span><span class="default_value"> = <a href="#IsoCode639_1.CY">IsoCode639_1.CY</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.CY"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.DA" class="classattr">
+                                <div class="attr variable">
+            <span class="name">DA</span><span class="default_value"> = <a href="#IsoCode639_1.DA">IsoCode639_1.DA</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.DA"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.DE" class="classattr">
+                                <div class="attr variable">
+            <span class="name">DE</span><span class="default_value"> = <a href="#IsoCode639_1.DE">IsoCode639_1.DE</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.DE"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.EL" class="classattr">
+                                <div class="attr variable">
+            <span class="name">EL</span><span class="default_value"> = <a href="#IsoCode639_1.EL">IsoCode639_1.EL</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.EL"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.EN" class="classattr">
+                                <div class="attr variable">
+            <span class="name">EN</span><span class="default_value"> = <a href="#IsoCode639_1.EN">IsoCode639_1.EN</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.EN"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.EO" class="classattr">
+                                <div class="attr variable">
+            <span class="name">EO</span><span class="default_value"> = <a href="#IsoCode639_1.EO">IsoCode639_1.EO</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.EO"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.ES" class="classattr">
+                                <div class="attr variable">
+            <span class="name">ES</span><span class="default_value"> = <a href="#IsoCode639_1.ES">IsoCode639_1.ES</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.ES"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.ET" class="classattr">
+                                <div class="attr variable">
+            <span class="name">ET</span><span class="default_value"> = <a href="#IsoCode639_1.ET">IsoCode639_1.ET</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.ET"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.EU" class="classattr">
+                                <div class="attr variable">
+            <span class="name">EU</span><span class="default_value"> = <a href="#IsoCode639_1.EU">IsoCode639_1.EU</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.EU"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.FA" class="classattr">
+                                <div class="attr variable">
+            <span class="name">FA</span><span class="default_value"> = <a href="#IsoCode639_1.FA">IsoCode639_1.FA</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.FA"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.FI" class="classattr">
+                                <div class="attr variable">
+            <span class="name">FI</span><span class="default_value"> = <a href="#IsoCode639_1.FI">IsoCode639_1.FI</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.FI"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.FR" class="classattr">
+                                <div class="attr variable">
+            <span class="name">FR</span><span class="default_value"> = <a href="#IsoCode639_1.FR">IsoCode639_1.FR</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.FR"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.GA" class="classattr">
+                                <div class="attr variable">
+            <span class="name">GA</span><span class="default_value"> = <a href="#IsoCode639_1.GA">IsoCode639_1.GA</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.GA"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.GU" class="classattr">
+                                <div class="attr variable">
+            <span class="name">GU</span><span class="default_value"> = <a href="#IsoCode639_1.GU">IsoCode639_1.GU</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.GU"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.HE" class="classattr">
+                                <div class="attr variable">
+            <span class="name">HE</span><span class="default_value"> = <a href="#IsoCode639_1.HE">IsoCode639_1.HE</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.HE"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.HI" class="classattr">
+                                <div class="attr variable">
+            <span class="name">HI</span><span class="default_value"> = <a href="#IsoCode639_1.HI">IsoCode639_1.HI</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.HI"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.HR" class="classattr">
+                                <div class="attr variable">
+            <span class="name">HR</span><span class="default_value"> = <a href="#IsoCode639_1.HR">IsoCode639_1.HR</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.HR"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.HU" class="classattr">
+                                <div class="attr variable">
+            <span class="name">HU</span><span class="default_value"> = <a href="#IsoCode639_1.HU">IsoCode639_1.HU</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.HU"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.HY" class="classattr">
+                                <div class="attr variable">
+            <span class="name">HY</span><span class="default_value"> = <a href="#IsoCode639_1.HY">IsoCode639_1.HY</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.HY"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.ID" class="classattr">
+                                <div class="attr variable">
+            <span class="name">ID</span><span class="default_value"> = <a href="#IsoCode639_1.ID">IsoCode639_1.ID</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.ID"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.IS" class="classattr">
+                                <div class="attr variable">
+            <span class="name">IS</span><span class="default_value"> = <a href="#IsoCode639_1.IS">IsoCode639_1.IS</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.IS"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.IT" class="classattr">
+                                <div class="attr variable">
+            <span class="name">IT</span><span class="default_value"> = <a href="#IsoCode639_1.IT">IsoCode639_1.IT</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.IT"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.JA" class="classattr">
+                                <div class="attr variable">
+            <span class="name">JA</span><span class="default_value"> = <a href="#IsoCode639_1.JA">IsoCode639_1.JA</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.JA"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.KA" class="classattr">
+                                <div class="attr variable">
+            <span class="name">KA</span><span class="default_value"> = <a href="#IsoCode639_1.KA">IsoCode639_1.KA</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.KA"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.KK" class="classattr">
+                                <div class="attr variable">
+            <span class="name">KK</span><span class="default_value"> = <a href="#IsoCode639_1.KK">IsoCode639_1.KK</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.KK"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.KO" class="classattr">
+                                <div class="attr variable">
+            <span class="name">KO</span><span class="default_value"> = <a href="#IsoCode639_1.KO">IsoCode639_1.KO</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.KO"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.LA" class="classattr">
+                                <div class="attr variable">
+            <span class="name">LA</span><span class="default_value"> = <a href="#IsoCode639_1.LA">IsoCode639_1.LA</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.LA"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.LG" class="classattr">
+                                <div class="attr variable">
+            <span class="name">LG</span><span class="default_value"> = <a href="#IsoCode639_1.LG">IsoCode639_1.LG</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.LG"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.LT" class="classattr">
+                                <div class="attr variable">
+            <span class="name">LT</span><span class="default_value"> = <a href="#IsoCode639_1.LT">IsoCode639_1.LT</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.LT"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.LV" class="classattr">
+                                <div class="attr variable">
+            <span class="name">LV</span><span class="default_value"> = <a href="#IsoCode639_1.LV">IsoCode639_1.LV</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.LV"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.MI" class="classattr">
+                                <div class="attr variable">
+            <span class="name">MI</span><span class="default_value"> = <a href="#IsoCode639_1.MI">IsoCode639_1.MI</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.MI"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.MK" class="classattr">
+                                <div class="attr variable">
+            <span class="name">MK</span><span class="default_value"> = <a href="#IsoCode639_1.MK">IsoCode639_1.MK</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.MK"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.MN" class="classattr">
+                                <div class="attr variable">
+            <span class="name">MN</span><span class="default_value"> = <a href="#IsoCode639_1.MN">IsoCode639_1.MN</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.MN"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.MR" class="classattr">
+                                <div class="attr variable">
+            <span class="name">MR</span><span class="default_value"> = <a href="#IsoCode639_1.MR">IsoCode639_1.MR</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.MR"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.MS" class="classattr">
+                                <div class="attr variable">
+            <span class="name">MS</span><span class="default_value"> = <a href="#IsoCode639_1.MS">IsoCode639_1.MS</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.MS"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.NB" class="classattr">
+                                <div class="attr variable">
+            <span class="name">NB</span><span class="default_value"> = <a href="#IsoCode639_1.NB">IsoCode639_1.NB</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.NB"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.NL" class="classattr">
+                                <div class="attr variable">
+            <span class="name">NL</span><span class="default_value"> = <a href="#IsoCode639_1.NL">IsoCode639_1.NL</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.NL"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.NN" class="classattr">
+                                <div class="attr variable">
+            <span class="name">NN</span><span class="default_value"> = <a href="#IsoCode639_1.NN">IsoCode639_1.NN</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.NN"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.PA" class="classattr">
+                                <div class="attr variable">
+            <span class="name">PA</span><span class="default_value"> = <a href="#IsoCode639_1.PA">IsoCode639_1.PA</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.PA"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.PL" class="classattr">
+                                <div class="attr variable">
+            <span class="name">PL</span><span class="default_value"> = <a href="#IsoCode639_1.PL">IsoCode639_1.PL</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.PL"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.PT" class="classattr">
+                                <div class="attr variable">
+            <span class="name">PT</span><span class="default_value"> = <a href="#IsoCode639_1.PT">IsoCode639_1.PT</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.PT"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.RO" class="classattr">
+                                <div class="attr variable">
+            <span class="name">RO</span><span class="default_value"> = <a href="#IsoCode639_1.RO">IsoCode639_1.RO</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.RO"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.RU" class="classattr">
+                                <div class="attr variable">
+            <span class="name">RU</span><span class="default_value"> = <a href="#IsoCode639_1.RU">IsoCode639_1.RU</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.RU"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.SK" class="classattr">
+                                <div class="attr variable">
+            <span class="name">SK</span><span class="default_value"> = <a href="#IsoCode639_1.SK">IsoCode639_1.SK</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.SK"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.SL" class="classattr">
+                                <div class="attr variable">
+            <span class="name">SL</span><span class="default_value"> = <a href="#IsoCode639_1.SL">IsoCode639_1.SL</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.SL"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.SN" class="classattr">
+                                <div class="attr variable">
+            <span class="name">SN</span><span class="default_value"> = <a href="#IsoCode639_1.SN">IsoCode639_1.SN</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.SN"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.SO" class="classattr">
+                                <div class="attr variable">
+            <span class="name">SO</span><span class="default_value"> = <a href="#IsoCode639_1.SO">IsoCode639_1.SO</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.SO"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.SQ" class="classattr">
+                                <div class="attr variable">
+            <span class="name">SQ</span><span class="default_value"> = <a href="#IsoCode639_1.SQ">IsoCode639_1.SQ</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.SQ"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.SR" class="classattr">
+                                <div class="attr variable">
+            <span class="name">SR</span><span class="default_value"> = <a href="#IsoCode639_1.SR">IsoCode639_1.SR</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.SR"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.ST" class="classattr">
+                                <div class="attr variable">
+            <span class="name">ST</span><span class="default_value"> = <a href="#IsoCode639_1.ST">IsoCode639_1.ST</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.ST"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.SV" class="classattr">
+                                <div class="attr variable">
+            <span class="name">SV</span><span class="default_value"> = <a href="#IsoCode639_1.SV">IsoCode639_1.SV</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.SV"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.SW" class="classattr">
+                                <div class="attr variable">
+            <span class="name">SW</span><span class="default_value"> = <a href="#IsoCode639_1.SW">IsoCode639_1.SW</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.SW"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.TA" class="classattr">
+                                <div class="attr variable">
+            <span class="name">TA</span><span class="default_value"> = <a href="#IsoCode639_1.TA">IsoCode639_1.TA</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.TA"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.TE" class="classattr">
+                                <div class="attr variable">
+            <span class="name">TE</span><span class="default_value"> = <a href="#IsoCode639_1.TE">IsoCode639_1.TE</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.TE"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.TH" class="classattr">
+                                <div class="attr variable">
+            <span class="name">TH</span><span class="default_value"> = <a href="#IsoCode639_1.TH">IsoCode639_1.TH</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.TH"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.TL" class="classattr">
+                                <div class="attr variable">
+            <span class="name">TL</span><span class="default_value"> = <a href="#IsoCode639_1.TL">IsoCode639_1.TL</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.TL"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.TN" class="classattr">
+                                <div class="attr variable">
+            <span class="name">TN</span><span class="default_value"> = <a href="#IsoCode639_1.TN">IsoCode639_1.TN</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.TN"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.TR" class="classattr">
+                                <div class="attr variable">
+            <span class="name">TR</span><span class="default_value"> = <a href="#IsoCode639_1.TR">IsoCode639_1.TR</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.TR"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.TS" class="classattr">
+                                <div class="attr variable">
+            <span class="name">TS</span><span class="default_value"> = <a href="#IsoCode639_1.TS">IsoCode639_1.TS</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.TS"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.UK" class="classattr">
+                                <div class="attr variable">
+            <span class="name">UK</span><span class="default_value"> = <a href="#IsoCode639_1.UK">IsoCode639_1.UK</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.UK"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.UR" class="classattr">
+                                <div class="attr variable">
+            <span class="name">UR</span><span class="default_value"> = <a href="#IsoCode639_1.UR">IsoCode639_1.UR</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.UR"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.VI" class="classattr">
+                                <div class="attr variable">
+            <span class="name">VI</span><span class="default_value"> = <a href="#IsoCode639_1.VI">IsoCode639_1.VI</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.VI"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.XH" class="classattr">
+                                <div class="attr variable">
+            <span class="name">XH</span><span class="default_value"> = <a href="#IsoCode639_1.XH">IsoCode639_1.XH</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.XH"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.YO" class="classattr">
+                                <div class="attr variable">
+            <span class="name">YO</span><span class="default_value"> = <a href="#IsoCode639_1.YO">IsoCode639_1.YO</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.YO"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.ZH" class="classattr">
+                                <div class="attr variable">
+            <span class="name">ZH</span><span class="default_value"> = <a href="#IsoCode639_1.ZH">IsoCode639_1.ZH</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.ZH"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_1.ZU" class="classattr">
+                                <div class="attr variable">
+            <span class="name">ZU</span><span class="default_value"> = <a href="#IsoCode639_1.ZU">IsoCode639_1.ZU</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_1.ZU"></a>
+    
+    
+
+                            </div>
                             <div class="inherited">
                                 <h5>Inherited Members</h5>
                                 <dl>
@@ -1040,6 +2880,831 @@ supported languages.</p>
 </div>
 
 
+                            <div id="IsoCode639_3.AFR" class="classattr">
+                                <div class="attr variable">
+            <span class="name">AFR</span><span class="default_value"> = <a href="#IsoCode639_3.AFR">IsoCode639_3.AFR</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.AFR"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.ARA" class="classattr">
+                                <div class="attr variable">
+            <span class="name">ARA</span><span class="default_value"> = <a href="#IsoCode639_3.ARA">IsoCode639_3.ARA</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.ARA"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.AZE" class="classattr">
+                                <div class="attr variable">
+            <span class="name">AZE</span><span class="default_value"> = <a href="#IsoCode639_3.AZE">IsoCode639_3.AZE</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.AZE"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.BEL" class="classattr">
+                                <div class="attr variable">
+            <span class="name">BEL</span><span class="default_value"> = <a href="#IsoCode639_3.BEL">IsoCode639_3.BEL</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.BEL"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.BEN" class="classattr">
+                                <div class="attr variable">
+            <span class="name">BEN</span><span class="default_value"> = <a href="#IsoCode639_3.BEN">IsoCode639_3.BEN</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.BEN"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.BOS" class="classattr">
+                                <div class="attr variable">
+            <span class="name">BOS</span><span class="default_value"> = <a href="#IsoCode639_3.BOS">IsoCode639_3.BOS</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.BOS"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.BUL" class="classattr">
+                                <div class="attr variable">
+            <span class="name">BUL</span><span class="default_value"> = <a href="#IsoCode639_3.BUL">IsoCode639_3.BUL</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.BUL"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.CAT" class="classattr">
+                                <div class="attr variable">
+            <span class="name">CAT</span><span class="default_value"> = <a href="#IsoCode639_3.CAT">IsoCode639_3.CAT</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.CAT"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.CES" class="classattr">
+                                <div class="attr variable">
+            <span class="name">CES</span><span class="default_value"> = <a href="#IsoCode639_3.CES">IsoCode639_3.CES</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.CES"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.CYM" class="classattr">
+                                <div class="attr variable">
+            <span class="name">CYM</span><span class="default_value"> = <a href="#IsoCode639_3.CYM">IsoCode639_3.CYM</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.CYM"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.DAN" class="classattr">
+                                <div class="attr variable">
+            <span class="name">DAN</span><span class="default_value"> = <a href="#IsoCode639_3.DAN">IsoCode639_3.DAN</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.DAN"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.DEU" class="classattr">
+                                <div class="attr variable">
+            <span class="name">DEU</span><span class="default_value"> = <a href="#IsoCode639_3.DEU">IsoCode639_3.DEU</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.DEU"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.ELL" class="classattr">
+                                <div class="attr variable">
+            <span class="name">ELL</span><span class="default_value"> = <a href="#IsoCode639_3.ELL">IsoCode639_3.ELL</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.ELL"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.ENG" class="classattr">
+                                <div class="attr variable">
+            <span class="name">ENG</span><span class="default_value"> = <a href="#IsoCode639_3.ENG">IsoCode639_3.ENG</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.ENG"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.EPO" class="classattr">
+                                <div class="attr variable">
+            <span class="name">EPO</span><span class="default_value"> = <a href="#IsoCode639_3.EPO">IsoCode639_3.EPO</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.EPO"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.EST" class="classattr">
+                                <div class="attr variable">
+            <span class="name">EST</span><span class="default_value"> = <a href="#IsoCode639_3.EST">IsoCode639_3.EST</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.EST"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.EUS" class="classattr">
+                                <div class="attr variable">
+            <span class="name">EUS</span><span class="default_value"> = <a href="#IsoCode639_3.EUS">IsoCode639_3.EUS</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.EUS"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.FAS" class="classattr">
+                                <div class="attr variable">
+            <span class="name">FAS</span><span class="default_value"> = <a href="#IsoCode639_3.FAS">IsoCode639_3.FAS</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.FAS"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.FIN" class="classattr">
+                                <div class="attr variable">
+            <span class="name">FIN</span><span class="default_value"> = <a href="#IsoCode639_3.FIN">IsoCode639_3.FIN</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.FIN"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.FRA" class="classattr">
+                                <div class="attr variable">
+            <span class="name">FRA</span><span class="default_value"> = <a href="#IsoCode639_3.FRA">IsoCode639_3.FRA</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.FRA"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.GLE" class="classattr">
+                                <div class="attr variable">
+            <span class="name">GLE</span><span class="default_value"> = <a href="#IsoCode639_3.GLE">IsoCode639_3.GLE</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.GLE"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.GUJ" class="classattr">
+                                <div class="attr variable">
+            <span class="name">GUJ</span><span class="default_value"> = <a href="#IsoCode639_3.GUJ">IsoCode639_3.GUJ</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.GUJ"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.HEB" class="classattr">
+                                <div class="attr variable">
+            <span class="name">HEB</span><span class="default_value"> = <a href="#IsoCode639_3.HEB">IsoCode639_3.HEB</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.HEB"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.HIN" class="classattr">
+                                <div class="attr variable">
+            <span class="name">HIN</span><span class="default_value"> = <a href="#IsoCode639_3.HIN">IsoCode639_3.HIN</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.HIN"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.HRV" class="classattr">
+                                <div class="attr variable">
+            <span class="name">HRV</span><span class="default_value"> = <a href="#IsoCode639_3.HRV">IsoCode639_3.HRV</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.HRV"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.HUN" class="classattr">
+                                <div class="attr variable">
+            <span class="name">HUN</span><span class="default_value"> = <a href="#IsoCode639_3.HUN">IsoCode639_3.HUN</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.HUN"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.HYE" class="classattr">
+                                <div class="attr variable">
+            <span class="name">HYE</span><span class="default_value"> = <a href="#IsoCode639_3.HYE">IsoCode639_3.HYE</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.HYE"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.IND" class="classattr">
+                                <div class="attr variable">
+            <span class="name">IND</span><span class="default_value"> = <a href="#IsoCode639_3.IND">IsoCode639_3.IND</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.IND"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.ISL" class="classattr">
+                                <div class="attr variable">
+            <span class="name">ISL</span><span class="default_value"> = <a href="#IsoCode639_3.ISL">IsoCode639_3.ISL</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.ISL"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.ITA" class="classattr">
+                                <div class="attr variable">
+            <span class="name">ITA</span><span class="default_value"> = <a href="#IsoCode639_3.ITA">IsoCode639_3.ITA</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.ITA"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.JPN" class="classattr">
+                                <div class="attr variable">
+            <span class="name">JPN</span><span class="default_value"> = <a href="#IsoCode639_3.JPN">IsoCode639_3.JPN</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.JPN"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.KAT" class="classattr">
+                                <div class="attr variable">
+            <span class="name">KAT</span><span class="default_value"> = <a href="#IsoCode639_3.KAT">IsoCode639_3.KAT</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.KAT"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.KAZ" class="classattr">
+                                <div class="attr variable">
+            <span class="name">KAZ</span><span class="default_value"> = <a href="#IsoCode639_3.KAZ">IsoCode639_3.KAZ</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.KAZ"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.KOR" class="classattr">
+                                <div class="attr variable">
+            <span class="name">KOR</span><span class="default_value"> = <a href="#IsoCode639_3.KOR">IsoCode639_3.KOR</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.KOR"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.LAT" class="classattr">
+                                <div class="attr variable">
+            <span class="name">LAT</span><span class="default_value"> = <a href="#IsoCode639_3.LAT">IsoCode639_3.LAT</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.LAT"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.LAV" class="classattr">
+                                <div class="attr variable">
+            <span class="name">LAV</span><span class="default_value"> = <a href="#IsoCode639_3.LAV">IsoCode639_3.LAV</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.LAV"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.LIT" class="classattr">
+                                <div class="attr variable">
+            <span class="name">LIT</span><span class="default_value"> = <a href="#IsoCode639_3.LIT">IsoCode639_3.LIT</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.LIT"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.LUG" class="classattr">
+                                <div class="attr variable">
+            <span class="name">LUG</span><span class="default_value"> = <a href="#IsoCode639_3.LUG">IsoCode639_3.LUG</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.LUG"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.MAR" class="classattr">
+                                <div class="attr variable">
+            <span class="name">MAR</span><span class="default_value"> = <a href="#IsoCode639_3.MAR">IsoCode639_3.MAR</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.MAR"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.MKD" class="classattr">
+                                <div class="attr variable">
+            <span class="name">MKD</span><span class="default_value"> = <a href="#IsoCode639_3.MKD">IsoCode639_3.MKD</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.MKD"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.MON" class="classattr">
+                                <div class="attr variable">
+            <span class="name">MON</span><span class="default_value"> = <a href="#IsoCode639_3.MON">IsoCode639_3.MON</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.MON"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.MRI" class="classattr">
+                                <div class="attr variable">
+            <span class="name">MRI</span><span class="default_value"> = <a href="#IsoCode639_3.MRI">IsoCode639_3.MRI</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.MRI"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.MSA" class="classattr">
+                                <div class="attr variable">
+            <span class="name">MSA</span><span class="default_value"> = <a href="#IsoCode639_3.MSA">IsoCode639_3.MSA</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.MSA"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.NLD" class="classattr">
+                                <div class="attr variable">
+            <span class="name">NLD</span><span class="default_value"> = <a href="#IsoCode639_3.NLD">IsoCode639_3.NLD</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.NLD"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.NNO" class="classattr">
+                                <div class="attr variable">
+            <span class="name">NNO</span><span class="default_value"> = <a href="#IsoCode639_3.NNO">IsoCode639_3.NNO</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.NNO"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.NOB" class="classattr">
+                                <div class="attr variable">
+            <span class="name">NOB</span><span class="default_value"> = <a href="#IsoCode639_3.NOB">IsoCode639_3.NOB</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.NOB"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.PAN" class="classattr">
+                                <div class="attr variable">
+            <span class="name">PAN</span><span class="default_value"> = <a href="#IsoCode639_3.PAN">IsoCode639_3.PAN</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.PAN"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.POL" class="classattr">
+                                <div class="attr variable">
+            <span class="name">POL</span><span class="default_value"> = <a href="#IsoCode639_3.POL">IsoCode639_3.POL</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.POL"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.POR" class="classattr">
+                                <div class="attr variable">
+            <span class="name">POR</span><span class="default_value"> = <a href="#IsoCode639_3.POR">IsoCode639_3.POR</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.POR"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.RON" class="classattr">
+                                <div class="attr variable">
+            <span class="name">RON</span><span class="default_value"> = <a href="#IsoCode639_3.RON">IsoCode639_3.RON</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.RON"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.RUS" class="classattr">
+                                <div class="attr variable">
+            <span class="name">RUS</span><span class="default_value"> = <a href="#IsoCode639_3.RUS">IsoCode639_3.RUS</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.RUS"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.SLK" class="classattr">
+                                <div class="attr variable">
+            <span class="name">SLK</span><span class="default_value"> = <a href="#IsoCode639_3.SLK">IsoCode639_3.SLK</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.SLK"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.SLV" class="classattr">
+                                <div class="attr variable">
+            <span class="name">SLV</span><span class="default_value"> = <a href="#IsoCode639_3.SLV">IsoCode639_3.SLV</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.SLV"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.SNA" class="classattr">
+                                <div class="attr variable">
+            <span class="name">SNA</span><span class="default_value"> = <a href="#IsoCode639_3.SNA">IsoCode639_3.SNA</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.SNA"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.SOM" class="classattr">
+                                <div class="attr variable">
+            <span class="name">SOM</span><span class="default_value"> = <a href="#IsoCode639_3.SOM">IsoCode639_3.SOM</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.SOM"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.SOT" class="classattr">
+                                <div class="attr variable">
+            <span class="name">SOT</span><span class="default_value"> = <a href="#IsoCode639_3.SOT">IsoCode639_3.SOT</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.SOT"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.SPA" class="classattr">
+                                <div class="attr variable">
+            <span class="name">SPA</span><span class="default_value"> = <a href="#IsoCode639_3.SPA">IsoCode639_3.SPA</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.SPA"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.SQI" class="classattr">
+                                <div class="attr variable">
+            <span class="name">SQI</span><span class="default_value"> = <a href="#IsoCode639_3.SQI">IsoCode639_3.SQI</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.SQI"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.SRP" class="classattr">
+                                <div class="attr variable">
+            <span class="name">SRP</span><span class="default_value"> = <a href="#IsoCode639_3.SRP">IsoCode639_3.SRP</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.SRP"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.SWA" class="classattr">
+                                <div class="attr variable">
+            <span class="name">SWA</span><span class="default_value"> = <a href="#IsoCode639_3.SWA">IsoCode639_3.SWA</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.SWA"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.SWE" class="classattr">
+                                <div class="attr variable">
+            <span class="name">SWE</span><span class="default_value"> = <a href="#IsoCode639_3.SWE">IsoCode639_3.SWE</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.SWE"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.TAM" class="classattr">
+                                <div class="attr variable">
+            <span class="name">TAM</span><span class="default_value"> = <a href="#IsoCode639_3.TAM">IsoCode639_3.TAM</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.TAM"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.TEL" class="classattr">
+                                <div class="attr variable">
+            <span class="name">TEL</span><span class="default_value"> = <a href="#IsoCode639_3.TEL">IsoCode639_3.TEL</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.TEL"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.TGL" class="classattr">
+                                <div class="attr variable">
+            <span class="name">TGL</span><span class="default_value"> = <a href="#IsoCode639_3.TGL">IsoCode639_3.TGL</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.TGL"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.THA" class="classattr">
+                                <div class="attr variable">
+            <span class="name">THA</span><span class="default_value"> = <a href="#IsoCode639_3.THA">IsoCode639_3.THA</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.THA"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.TSN" class="classattr">
+                                <div class="attr variable">
+            <span class="name">TSN</span><span class="default_value"> = <a href="#IsoCode639_3.TSN">IsoCode639_3.TSN</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.TSN"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.TSO" class="classattr">
+                                <div class="attr variable">
+            <span class="name">TSO</span><span class="default_value"> = <a href="#IsoCode639_3.TSO">IsoCode639_3.TSO</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.TSO"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.TUR" class="classattr">
+                                <div class="attr variable">
+            <span class="name">TUR</span><span class="default_value"> = <a href="#IsoCode639_3.TUR">IsoCode639_3.TUR</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.TUR"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.UKR" class="classattr">
+                                <div class="attr variable">
+            <span class="name">UKR</span><span class="default_value"> = <a href="#IsoCode639_3.UKR">IsoCode639_3.UKR</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.UKR"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.URD" class="classattr">
+                                <div class="attr variable">
+            <span class="name">URD</span><span class="default_value"> = <a href="#IsoCode639_3.URD">IsoCode639_3.URD</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.URD"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.VIE" class="classattr">
+                                <div class="attr variable">
+            <span class="name">VIE</span><span class="default_value"> = <a href="#IsoCode639_3.VIE">IsoCode639_3.VIE</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.VIE"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.XHO" class="classattr">
+                                <div class="attr variable">
+            <span class="name">XHO</span><span class="default_value"> = <a href="#IsoCode639_3.XHO">IsoCode639_3.XHO</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.XHO"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.YOR" class="classattr">
+                                <div class="attr variable">
+            <span class="name">YOR</span><span class="default_value"> = <a href="#IsoCode639_3.YOR">IsoCode639_3.YOR</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.YOR"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.ZHO" class="classattr">
+                                <div class="attr variable">
+            <span class="name">ZHO</span><span class="default_value"> = <a href="#IsoCode639_3.ZHO">IsoCode639_3.ZHO</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.ZHO"></a>
+    
+    
+
+                            </div>
+                            <div id="IsoCode639_3.ZUL" class="classattr">
+                                <div class="attr variable">
+            <span class="name">ZUL</span><span class="default_value"> = <a href="#IsoCode639_3.ZUL">IsoCode639_3.ZUL</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#IsoCode639_3.ZUL"></a>
+    
+    
+
+                            </div>
                             <div class="inherited">
                                 <h5>Inherited Members</h5>
                                 <dl>
@@ -1067,6 +3732,831 @@ detected by <em>Lingua</em>.</p>
 </div>
 
 
+                            <div id="Language.AFRIKAANS" class="classattr">
+                                <div class="attr variable">
+            <span class="name">AFRIKAANS</span><span class="default_value"> = <a href="#Language.AFRIKAANS">Language.AFRIKAANS</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.AFRIKAANS"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.ALBANIAN" class="classattr">
+                                <div class="attr variable">
+            <span class="name">ALBANIAN</span><span class="default_value"> = <a href="#Language.ALBANIAN">Language.ALBANIAN</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.ALBANIAN"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.ARABIC" class="classattr">
+                                <div class="attr variable">
+            <span class="name">ARABIC</span><span class="default_value"> = <a href="#Language.ARABIC">Language.ARABIC</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.ARABIC"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.ARMENIAN" class="classattr">
+                                <div class="attr variable">
+            <span class="name">ARMENIAN</span><span class="default_value"> = <a href="#Language.ARMENIAN">Language.ARMENIAN</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.ARMENIAN"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.AZERBAIJANI" class="classattr">
+                                <div class="attr variable">
+            <span class="name">AZERBAIJANI</span><span class="default_value"> = <a href="#Language.AZERBAIJANI">Language.AZERBAIJANI</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.AZERBAIJANI"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.BASQUE" class="classattr">
+                                <div class="attr variable">
+            <span class="name">BASQUE</span><span class="default_value"> = <a href="#Language.BASQUE">Language.BASQUE</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.BASQUE"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.BELARUSIAN" class="classattr">
+                                <div class="attr variable">
+            <span class="name">BELARUSIAN</span><span class="default_value"> = <a href="#Language.BELARUSIAN">Language.BELARUSIAN</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.BELARUSIAN"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.BENGALI" class="classattr">
+                                <div class="attr variable">
+            <span class="name">BENGALI</span><span class="default_value"> = <a href="#Language.BENGALI">Language.BENGALI</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.BENGALI"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.BOKMAL" class="classattr">
+                                <div class="attr variable">
+            <span class="name">BOKMAL</span><span class="default_value"> = <a href="#Language.BOKMAL">Language.BOKMAL</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.BOKMAL"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.BOSNIAN" class="classattr">
+                                <div class="attr variable">
+            <span class="name">BOSNIAN</span><span class="default_value"> = <a href="#Language.BOSNIAN">Language.BOSNIAN</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.BOSNIAN"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.BULGARIAN" class="classattr">
+                                <div class="attr variable">
+            <span class="name">BULGARIAN</span><span class="default_value"> = <a href="#Language.BULGARIAN">Language.BULGARIAN</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.BULGARIAN"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.CATALAN" class="classattr">
+                                <div class="attr variable">
+            <span class="name">CATALAN</span><span class="default_value"> = <a href="#Language.CATALAN">Language.CATALAN</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.CATALAN"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.CHINESE" class="classattr">
+                                <div class="attr variable">
+            <span class="name">CHINESE</span><span class="default_value"> = <a href="#Language.CHINESE">Language.CHINESE</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.CHINESE"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.CROATIAN" class="classattr">
+                                <div class="attr variable">
+            <span class="name">CROATIAN</span><span class="default_value"> = <a href="#Language.CROATIAN">Language.CROATIAN</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.CROATIAN"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.CZECH" class="classattr">
+                                <div class="attr variable">
+            <span class="name">CZECH</span><span class="default_value"> = <a href="#Language.CZECH">Language.CZECH</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.CZECH"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.DANISH" class="classattr">
+                                <div class="attr variable">
+            <span class="name">DANISH</span><span class="default_value"> = <a href="#Language.DANISH">Language.DANISH</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.DANISH"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.DUTCH" class="classattr">
+                                <div class="attr variable">
+            <span class="name">DUTCH</span><span class="default_value"> = <a href="#Language.DUTCH">Language.DUTCH</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.DUTCH"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.ENGLISH" class="classattr">
+                                <div class="attr variable">
+            <span class="name">ENGLISH</span><span class="default_value"> = <a href="#Language.ENGLISH">Language.ENGLISH</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.ENGLISH"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.ESPERANTO" class="classattr">
+                                <div class="attr variable">
+            <span class="name">ESPERANTO</span><span class="default_value"> = <a href="#Language.ESPERANTO">Language.ESPERANTO</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.ESPERANTO"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.ESTONIAN" class="classattr">
+                                <div class="attr variable">
+            <span class="name">ESTONIAN</span><span class="default_value"> = <a href="#Language.ESTONIAN">Language.ESTONIAN</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.ESTONIAN"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.FINNISH" class="classattr">
+                                <div class="attr variable">
+            <span class="name">FINNISH</span><span class="default_value"> = <a href="#Language.FINNISH">Language.FINNISH</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.FINNISH"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.FRENCH" class="classattr">
+                                <div class="attr variable">
+            <span class="name">FRENCH</span><span class="default_value"> = <a href="#Language.FRENCH">Language.FRENCH</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.FRENCH"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.GANDA" class="classattr">
+                                <div class="attr variable">
+            <span class="name">GANDA</span><span class="default_value"> = <a href="#Language.GANDA">Language.GANDA</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.GANDA"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.GEORGIAN" class="classattr">
+                                <div class="attr variable">
+            <span class="name">GEORGIAN</span><span class="default_value"> = <a href="#Language.GEORGIAN">Language.GEORGIAN</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.GEORGIAN"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.GERMAN" class="classattr">
+                                <div class="attr variable">
+            <span class="name">GERMAN</span><span class="default_value"> = <a href="#Language.GERMAN">Language.GERMAN</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.GERMAN"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.GREEK" class="classattr">
+                                <div class="attr variable">
+            <span class="name">GREEK</span><span class="default_value"> = <a href="#Language.GREEK">Language.GREEK</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.GREEK"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.GUJARATI" class="classattr">
+                                <div class="attr variable">
+            <span class="name">GUJARATI</span><span class="default_value"> = <a href="#Language.GUJARATI">Language.GUJARATI</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.GUJARATI"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.HEBREW" class="classattr">
+                                <div class="attr variable">
+            <span class="name">HEBREW</span><span class="default_value"> = <a href="#Language.HEBREW">Language.HEBREW</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.HEBREW"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.HINDI" class="classattr">
+                                <div class="attr variable">
+            <span class="name">HINDI</span><span class="default_value"> = <a href="#Language.HINDI">Language.HINDI</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.HINDI"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.HUNGARIAN" class="classattr">
+                                <div class="attr variable">
+            <span class="name">HUNGARIAN</span><span class="default_value"> = <a href="#Language.HUNGARIAN">Language.HUNGARIAN</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.HUNGARIAN"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.ICELANDIC" class="classattr">
+                                <div class="attr variable">
+            <span class="name">ICELANDIC</span><span class="default_value"> = <a href="#Language.ICELANDIC">Language.ICELANDIC</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.ICELANDIC"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.INDONESIAN" class="classattr">
+                                <div class="attr variable">
+            <span class="name">INDONESIAN</span><span class="default_value"> = <a href="#Language.INDONESIAN">Language.INDONESIAN</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.INDONESIAN"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.IRISH" class="classattr">
+                                <div class="attr variable">
+            <span class="name">IRISH</span><span class="default_value"> = <a href="#Language.IRISH">Language.IRISH</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.IRISH"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.ITALIAN" class="classattr">
+                                <div class="attr variable">
+            <span class="name">ITALIAN</span><span class="default_value"> = <a href="#Language.ITALIAN">Language.ITALIAN</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.ITALIAN"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.JAPANESE" class="classattr">
+                                <div class="attr variable">
+            <span class="name">JAPANESE</span><span class="default_value"> = <a href="#Language.JAPANESE">Language.JAPANESE</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.JAPANESE"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.KAZAKH" class="classattr">
+                                <div class="attr variable">
+            <span class="name">KAZAKH</span><span class="default_value"> = <a href="#Language.KAZAKH">Language.KAZAKH</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.KAZAKH"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.KOREAN" class="classattr">
+                                <div class="attr variable">
+            <span class="name">KOREAN</span><span class="default_value"> = <a href="#Language.KOREAN">Language.KOREAN</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.KOREAN"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.LATIN" class="classattr">
+                                <div class="attr variable">
+            <span class="name">LATIN</span><span class="default_value"> = <a href="#Language.LATIN">Language.LATIN</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.LATIN"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.LATVIAN" class="classattr">
+                                <div class="attr variable">
+            <span class="name">LATVIAN</span><span class="default_value"> = <a href="#Language.LATVIAN">Language.LATVIAN</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.LATVIAN"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.LITHUANIAN" class="classattr">
+                                <div class="attr variable">
+            <span class="name">LITHUANIAN</span><span class="default_value"> = <a href="#Language.LITHUANIAN">Language.LITHUANIAN</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.LITHUANIAN"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.MACEDONIAN" class="classattr">
+                                <div class="attr variable">
+            <span class="name">MACEDONIAN</span><span class="default_value"> = <a href="#Language.MACEDONIAN">Language.MACEDONIAN</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.MACEDONIAN"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.MALAY" class="classattr">
+                                <div class="attr variable">
+            <span class="name">MALAY</span><span class="default_value"> = <a href="#Language.MALAY">Language.MALAY</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.MALAY"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.MAORI" class="classattr">
+                                <div class="attr variable">
+            <span class="name">MAORI</span><span class="default_value"> = <a href="#Language.MAORI">Language.MAORI</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.MAORI"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.MARATHI" class="classattr">
+                                <div class="attr variable">
+            <span class="name">MARATHI</span><span class="default_value"> = <a href="#Language.MARATHI">Language.MARATHI</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.MARATHI"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.MONGOLIAN" class="classattr">
+                                <div class="attr variable">
+            <span class="name">MONGOLIAN</span><span class="default_value"> = <a href="#Language.MONGOLIAN">Language.MONGOLIAN</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.MONGOLIAN"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.NYNORSK" class="classattr">
+                                <div class="attr variable">
+            <span class="name">NYNORSK</span><span class="default_value"> = <a href="#Language.NYNORSK">Language.NYNORSK</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.NYNORSK"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.PERSIAN" class="classattr">
+                                <div class="attr variable">
+            <span class="name">PERSIAN</span><span class="default_value"> = <a href="#Language.PERSIAN">Language.PERSIAN</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.PERSIAN"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.POLISH" class="classattr">
+                                <div class="attr variable">
+            <span class="name">POLISH</span><span class="default_value"> = <a href="#Language.POLISH">Language.POLISH</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.POLISH"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.PORTUGUESE" class="classattr">
+                                <div class="attr variable">
+            <span class="name">PORTUGUESE</span><span class="default_value"> = <a href="#Language.PORTUGUESE">Language.PORTUGUESE</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.PORTUGUESE"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.PUNJABI" class="classattr">
+                                <div class="attr variable">
+            <span class="name">PUNJABI</span><span class="default_value"> = <a href="#Language.PUNJABI">Language.PUNJABI</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.PUNJABI"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.ROMANIAN" class="classattr">
+                                <div class="attr variable">
+            <span class="name">ROMANIAN</span><span class="default_value"> = <a href="#Language.ROMANIAN">Language.ROMANIAN</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.ROMANIAN"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.RUSSIAN" class="classattr">
+                                <div class="attr variable">
+            <span class="name">RUSSIAN</span><span class="default_value"> = <a href="#Language.RUSSIAN">Language.RUSSIAN</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.RUSSIAN"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.SERBIAN" class="classattr">
+                                <div class="attr variable">
+            <span class="name">SERBIAN</span><span class="default_value"> = <a href="#Language.SERBIAN">Language.SERBIAN</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.SERBIAN"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.SHONA" class="classattr">
+                                <div class="attr variable">
+            <span class="name">SHONA</span><span class="default_value"> = <a href="#Language.SHONA">Language.SHONA</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.SHONA"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.SLOVAK" class="classattr">
+                                <div class="attr variable">
+            <span class="name">SLOVAK</span><span class="default_value"> = <a href="#Language.SLOVAK">Language.SLOVAK</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.SLOVAK"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.SLOVENE" class="classattr">
+                                <div class="attr variable">
+            <span class="name">SLOVENE</span><span class="default_value"> = <a href="#Language.SLOVENE">Language.SLOVENE</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.SLOVENE"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.SOMALI" class="classattr">
+                                <div class="attr variable">
+            <span class="name">SOMALI</span><span class="default_value"> = <a href="#Language.SOMALI">Language.SOMALI</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.SOMALI"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.SOTHO" class="classattr">
+                                <div class="attr variable">
+            <span class="name">SOTHO</span><span class="default_value"> = <a href="#Language.SOTHO">Language.SOTHO</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.SOTHO"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.SPANISH" class="classattr">
+                                <div class="attr variable">
+            <span class="name">SPANISH</span><span class="default_value"> = <a href="#Language.SPANISH">Language.SPANISH</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.SPANISH"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.SWAHILI" class="classattr">
+                                <div class="attr variable">
+            <span class="name">SWAHILI</span><span class="default_value"> = <a href="#Language.SWAHILI">Language.SWAHILI</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.SWAHILI"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.SWEDISH" class="classattr">
+                                <div class="attr variable">
+            <span class="name">SWEDISH</span><span class="default_value"> = <a href="#Language.SWEDISH">Language.SWEDISH</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.SWEDISH"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.TAGALOG" class="classattr">
+                                <div class="attr variable">
+            <span class="name">TAGALOG</span><span class="default_value"> = <a href="#Language.TAGALOG">Language.TAGALOG</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.TAGALOG"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.TAMIL" class="classattr">
+                                <div class="attr variable">
+            <span class="name">TAMIL</span><span class="default_value"> = <a href="#Language.TAMIL">Language.TAMIL</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.TAMIL"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.TELUGU" class="classattr">
+                                <div class="attr variable">
+            <span class="name">TELUGU</span><span class="default_value"> = <a href="#Language.TELUGU">Language.TELUGU</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.TELUGU"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.THAI" class="classattr">
+                                <div class="attr variable">
+            <span class="name">THAI</span><span class="default_value"> = <a href="#Language.THAI">Language.THAI</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.THAI"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.TSONGA" class="classattr">
+                                <div class="attr variable">
+            <span class="name">TSONGA</span><span class="default_value"> = <a href="#Language.TSONGA">Language.TSONGA</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.TSONGA"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.TSWANA" class="classattr">
+                                <div class="attr variable">
+            <span class="name">TSWANA</span><span class="default_value"> = <a href="#Language.TSWANA">Language.TSWANA</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.TSWANA"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.TURKISH" class="classattr">
+                                <div class="attr variable">
+            <span class="name">TURKISH</span><span class="default_value"> = <a href="#Language.TURKISH">Language.TURKISH</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.TURKISH"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.UKRAINIAN" class="classattr">
+                                <div class="attr variable">
+            <span class="name">UKRAINIAN</span><span class="default_value"> = <a href="#Language.UKRAINIAN">Language.UKRAINIAN</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.UKRAINIAN"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.URDU" class="classattr">
+                                <div class="attr variable">
+            <span class="name">URDU</span><span class="default_value"> = <a href="#Language.URDU">Language.URDU</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.URDU"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.VIETNAMESE" class="classattr">
+                                <div class="attr variable">
+            <span class="name">VIETNAMESE</span><span class="default_value"> = <a href="#Language.VIETNAMESE">Language.VIETNAMESE</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.VIETNAMESE"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.WELSH" class="classattr">
+                                <div class="attr variable">
+            <span class="name">WELSH</span><span class="default_value"> = <a href="#Language.WELSH">Language.WELSH</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.WELSH"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.XHOSA" class="classattr">
+                                <div class="attr variable">
+            <span class="name">XHOSA</span><span class="default_value"> = <a href="#Language.XHOSA">Language.XHOSA</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.XHOSA"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.YORUBA" class="classattr">
+                                <div class="attr variable">
+            <span class="name">YORUBA</span><span class="default_value"> = <a href="#Language.YORUBA">Language.YORUBA</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.YORUBA"></a>
+    
+    
+
+                            </div>
+                            <div id="Language.ZULU" class="classattr">
+                                <div class="attr variable">
+            <span class="name">ZULU</span><span class="default_value"> = <a href="#Language.ZULU">Language.ZULU</a></span>
+
+        
+    </div>
+    <a class="headerlink" href="#Language.ZULU"></a>
+    
+    
+
+                            </div>
                             <div id="Language.all" class="classattr">
                                 <div class="attr function">
                     <div class="decorator">@classmethod</div>
