@@ -127,7 +127,15 @@ def _merge_adjacent_results(
 
 
 class ConfidenceValue(NamedTuple):
-    """This class describes a language's confidence value."""
+    """This class describes a language's confidence value.
+
+    Attributes:
+        language (Language):
+            The language associated with this confidence value.
+
+        value (float):
+            The language's confidence value which lies between 0.0 and 1.0.
+    """
 
     language: Language
     value: float
@@ -136,6 +144,20 @@ class ConfidenceValue(NamedTuple):
 class DetectionResult(NamedTuple):
     """This class describes a contiguous single-language
     text section within a possibly mixed-language text.
+
+    Attributes:
+        start_index (int):
+            The start index of the identified single-language substring.
+
+        end_index (int):
+            The end index of the identified single-language substring.
+
+        word_count (int):
+            The number of words being part of the identified
+            single-language substring.
+
+        language (Language):
+            The detected language of the identified single-language substring.
     """
 
     start_index: int
@@ -266,6 +288,24 @@ class LanguageDetector:
         return most_likely_language
 
     def detect_multiple_languages_of(self, text: str) -> List[DetectionResult]:
+        """Attempt to detect multiple languages in mixed-language text.
+
+        This feature is experimental and under continuous development.
+
+        A list of DetectionResult is returned containing an entry for each
+        contiguous single-language text section as identified by the library.
+        Each entry consists of the identified language, a start index and an
+        end index. The indices denote the substring that has been identified
+        as a contiguous single-language text section.
+
+        Args:
+            text (str): The text whose language should be identified.
+
+        Returns:
+            A list of detection results. Each result contains the
+            identified language, the start index and end index of
+            the identified single-language substring.
+        """
         if len(text) == 0:
             return []
 

@@ -1,20 +1,22 @@
-<img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/logo.png" alt="Lingua Logo" />
+<div align="center">
 
-<br>
+![lingua](https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/logo.png)
 
 [![build](https://github.com/pemistahl/lingua-py/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/pemistahl/lingua-py/actions/workflows/build.yml)
 [![codecov](https://codecov.io/gh/pemistahl/lingua-py/branch/main/graph/badge.svg)](https://codecov.io/gh/pemistahl/lingua-py)
 [![supported languages](https://img.shields.io/badge/supported%20languages-75-green.svg)](#supported-languages)
 [![docs](https://img.shields.io/badge/docs-API-yellowgreen)](https://pemistahl.github.io/lingua-py)
-
 ![supported Python versions](https://img.shields.io/badge/Python-%3E%3D%203.8-blue)
-[![pypi](https://img.shields.io/badge/PYPI-v1.1.3-blue)](https://pypi.org/project/lingua-language-detector)
+[![pypi](https://img.shields.io/badge/PYPI-v1.2.0-blue)](https://pypi.org/project/lingua-language-detector)
 [![license](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
+</div>
+
+<br>
 
 ## 1. What does this library do?
 
-Its task is simple: It tells you which language some provided textual data is
-written in. This is very useful as a preprocessing step for linguistic data
+Its task is simple: It tells you which language some text is written in.
+This is very useful as a preprocessing step for linguistic data
 in natural language processing applications such as text classification and
 spell checking. Other use cases, for instance, might include routing e-mails
 to the right geographically located customer service department, based on the
@@ -3147,7 +3149,7 @@ each possible language have to satisfy. It can be stated in the following way:
 >>> from lingua import Language, LanguageDetectorBuilder
 >>> languages = [Language.ENGLISH, Language.FRENCH, Language.GERMAN, Language.SPANISH]
 >>> detector = LanguageDetectorBuilder.from_languages(*languages)\
-.with_minimum_relative_distance(0.25)\
+.with_minimum_relative_distance(0.7)\
 .build()
 >>> print(detector.detect_language_of("languages are awesome"))
 None
@@ -3173,29 +3175,45 @@ to the most likely one? These questions can be answered as well:
 >>> confidence_values = detector.compute_language_confidence_values("languages are awesome")
 >>> for language, value in confidence_values:
 ...     print(f"{language.name}: {value:.2f}")
-ENGLISH: 1.00
-FRENCH: 0.79
-GERMAN: 0.75
-SPANISH: 0.70
+ENGLISH: 0.99
+FRENCH: 0.32
+GERMAN: 0.15
+SPANISH: 0.01
 ```
 
-In the example above, a list of all possible languages is returned, sorted by
+In the example above, a list is returned containing those languages which the
+calling instance of LanguageDetector has been built from, sorted by
 their confidence value in descending order. The values that the detector
 computes are part of a **relative** confidence metric, not of an absolute one.
-Each value is a number between 0.0 and 1.0. The most likely language is always
-returned with value 1.0. All other languages get values assigned which are
-lower than 1.0, denoting how less likely those languages are in comparison to
+Each value is a number between 0.0 and 1.0.
+
+If the language is unambiguously identified by the rule engine, the value 1.0
+will always be returned for this language. The other languages will receive a
+value of 0.0. If the statistics engine is additionally needed, the most likely
+language will be returned with value 0.99 and the least likely language will
+be returned with value 0.01. All other languages get values assigned between
+0.01 and 0.99, denoting how less likely those languages are in comparison to
 the most likely language.
 
-The list returned by this method does not necessarily contain all languages
-which this LanguageDetector instance was built from. If the rule-based engine
-decides that a specific language is truly impossible, then it will not be part
-of the returned list. Likewise, if no ngram probabilities can be found within
-the detector's languages for the given input text, the returned list will be
-empty. The confidence value for each language not being part of the returned
-list is assumed to be 0.0.
+There is also a method for returning the confidence value for one specific
+language only:
 
-## 9.4 Eager loading versus lazy loading
+```python
+>>> from lingua import Language, LanguageDetectorBuilder
+>>> languages = [Language.ENGLISH, Language.FRENCH, Language.GERMAN, Language.SPANISH]
+>>> detector = LanguageDetectorBuilder.from_languages(*languages).build()
+>>> confidence_value = detector.compute_language_confidence("languages are awesome", Language.FRENCH)
+>>> print(f"{confidence_value:.2f}")
+0.32
+```
+
+The value that this method computes is a number between 0.0 and 1.0. If the
+language is unambiguously identified by the rule engine, the value 1.0 will
+always be returned. If the given language is not supported by this detector
+instance, the value 0.0 will always be returned. Otherwise, a value between
+0.01 and 0.99 will be returned.
+
+### 9.4 Eager loading versus lazy loading
 
 By default, *Lingua* uses lazy-loading to load only those language models on
 demand which are considered relevant by the rule-based filter engine. For web
@@ -3210,7 +3228,7 @@ LanguageDetectorBuilder.from_all_languages().with_preloaded_language_models().bu
 Multiple instances of `LanguageDetector` share the same language models in
 memory which are accessed asynchronously by the instances.
 
-## 9.5 Low accuracy mode versus high accuracy mode
+### 9.5 Low accuracy mode versus high accuracy mode
 
 *Lingua's* high detection accuracy comes at the cost of being noticeably slower
 than other language detectors. The large language models also consume significant
@@ -3237,7 +3255,37 @@ build the detector from all supported languages. When you have knowledge about
 the texts you want to classify you can almost always rule out certain languages as impossible
 or unlikely to occur.
 
-## 9.6 Methods to build the LanguageDetector
+### 9.6 Detection of multiple languages in mixed-language texts
+
+In contrast to most other language detectors, *Lingua* is able to detect multiple languages
+in mixed-language texts. This feature can yield quite reasonable results but it is still
+in an experimental state and therefore the detection result is highly dependent on the input
+text. It works best in high-accuracy mode with multiple long words for each language.
+The shorter the phrases and their words are, the less accurate are the results. Reducing the
+set of languages when building the language detector can also improve accuracy for this task
+if the languages occurring in the text are equal to the languages supported by the respective
+language detector instance.
+
+```python
+>>> from lingua import Language, LanguageDetectorBuilder
+>>> languages = [Language.ENGLISH, Language.FRENCH, Language.GERMAN]
+>>> detector = LanguageDetectorBuilder.from_languages(*languages).build()
+>>> sentence = "Parlez-vous français? " + \
+...            "Ich spreche Französisch nur ein bisschen. " + \
+...            "A little bit is better than nothing."
+>>> for result in detector.detect_multiple_languages_of(sentence):
+...     print(f"{result.language.name}: '{sentence[result.start_index:result.end_index]}'")
+FRENCH: 'Parlez-vous français? '
+GERMAN: 'Ich spreche Französisch nur ein bisschen. '
+ENGLISH: 'A little bit is better than nothing.'
+```
+
+In the example above, a list of
+[`DetectionResult`](https://github.com/pemistahl/lingua-py/blob/main/lingua/detector.py#L144)
+is returned. Each entry in the list describes a contiguous single-language text section,
+providing start and end indices of the respective substring.
+
+### 9.7 Methods to build the LanguageDetector
 
 There might be classification tasks where you know beforehand that your
 language data is definitely not written in Latin, for instance. The detection
@@ -3269,11 +3317,11 @@ LanguageDetectorBuilder.from_iso_codes_639_1(IsoCode639_1.EN, IsoCode639_1.DE)
 LanguageDetectorBuilder.from_iso_codes_639_3(IsoCode639_3.ENG, IsoCode639_3.DEU)
 ```
 
-## 11. What's next for version 1.2.0?
+## 10. What's next for version 1.3.0?
 
-Take a look at the [planned issues](https://github.com/pemistahl/lingua-py/milestone/1).
+Take a look at the [planned issues](https://github.com/pemistahl/lingua-py/milestone/3).
 
-## 12. Contributions
+## 11. Contributions
 
 Any contributions to *Lingua* are very much appreciated. Please read the instructions
 in [`CONTRIBUTING.md`](https://github.com/pemistahl/lingua-py/blob/main/CONTRIBUTING.md)

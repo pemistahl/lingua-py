@@ -1,3 +1,24 @@
+## Lingua 1.2.0 (released on 19 Dec 2022)
+
+### Features
+
+- The new method `LanguageDetector.detect_multiple_languages_of()` has been
+  introduced. It allows to detect multiple languages in mixed-language text. (#4)
+
+- The new methd `LanguageDetector.compute_language_confidence()` has been
+  introduced. It allows to retrieve the confidence value for one specific
+  language only, given the input text. (#86)
+
+### Improvements
+
+- The computation of the confidence values has been revised and the min-max
+  normalization algorithm is now applied to the values, making them better
+  comparable by behaving more like real probabilities. (#78)
+
+### Miscellaneous
+
+- The library now has a fresh and colorful new logo. Why? Well, why not? (-:
+
 ## Lingua 1.1.3 (released on 29 Sep 2022)
 
 ### Improvements

@@ -397,7 +397,38 @@ build the detector from all supported languages. When you have knowledge about
 the texts you want to classify you can almost always rule out certain languages as impossible
 or unlikely to occur.
 
-## 7.6 Methods to build the LanguageDetector
+## 7.6 Detection of multiple languages in mixed-language texts
+
+In contrast to most other language detectors, *Lingua* is able to detect multiple
+languages in mixed-language texts. This feature can yield quite reasonable results but
+it is still in an experimental state and therefore the detection result is highly
+dependent on the input text. It works best in high-accuracy mode with multiple long
+words for each language. The shorter the phrases and their words are, the less
+accurate are the results. Reducing the set of languages when building the language
+detector can also improve accuracy for this task if the languages occurring in the
+text are equal to the languages supported by the respective language detector instance.
+
+```python
+>>> from lingua import Language, LanguageDetectorBuilder
+>>> languages = [Language.ENGLISH, Language.FRENCH, Language.GERMAN]
+>>> detector = LanguageDetectorBuilder.from_languages(*languages).build()
+>>> sentence = "Parlez-vous français? " + \\
+...            "Ich spreche Französisch nur ein bisschen. " + \\
+...            "A little bit is better than nothing."
+>>> for result in detector.detect_multiple_languages_of(sentence):
+...     print(f"{result.language.name}: '{sentence[result.start_index:result.end_index]}'")
+FRENCH: 'Parlez-vous français? '
+GERMAN: 'Ich spreche Französisch nur ein bisschen. '
+ENGLISH: 'A little bit is better than nothing.'
+
+```
+
+In the example above, a list of
+[`DetectionResult`](https://github.com/pemistahl/lingua-py/blob/main/lingua/detector.py#L144)
+is returned. Each entry in the list describes a contiguous single-language text section,
+providing start and end indices of the respective substring.
+
+## 7.7 Methods to build the LanguageDetector
 
 There might be classification tasks where you know beforehand that your
 language data is definitely not written in Latin, for instance. The detection
