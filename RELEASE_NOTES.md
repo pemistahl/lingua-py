@@ -1,3 +1,11 @@
+## Lingua 1.2.1 (released on 27 Dec 2022)
+
+### Bug Fixes
+
+- Under certain circumstances, calling the method
+  `LanguageDetector.detect_multiple_languages_of()` raised an `IndexError`.
+  This has been fixed. Thanks to @Saninsusanin for reporting this bug. (#98)
+
 ## Lingua 1.2.0 (released on 19 Dec 2022)
 
 ### Features
@@ -5,7 +13,7 @@
 - The new method `LanguageDetector.detect_multiple_languages_of()` has been
   introduced. It allows to detect multiple languages in mixed-language text. (#4)
 
-- The new methd `LanguageDetector.compute_language_confidence()` has been
+- The new method `LanguageDetector.compute_language_confidence()` has been
   introduced. It allows to retrieve the confidence value for one specific
   language only, given the input text. (#86)
 
