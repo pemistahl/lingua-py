@@ -125,6 +125,9 @@ def _merge_adjacent_results(
 
         del results[i]
 
+        if len(results) == 1:
+            break
+
 
 class ConfidenceValue(NamedTuple):
     """This class describes a language's confidence value.
@@ -388,13 +391,14 @@ class LanguageDetector:
 
                 _merge_adjacent_results(results, mergeable_result_indices)
 
-                mergeable_result_indices.clear()
+                if len(results) > 1:
+                    mergeable_result_indices.clear()
 
-                for i in range(len(results) - 1):
-                    if results[i].language == results[i + 1].language:
-                        mergeable_result_indices.append(i + 1)
+                    for i in range(len(results) - 1):
+                        if results[i].language == results[i + 1].language:
+                            mergeable_result_indices.append(i + 1)
 
-                _merge_adjacent_results(results, mergeable_result_indices)
+                    _merge_adjacent_results(results, mergeable_result_indices)
 
             self._languages = previous_detector_languages
 

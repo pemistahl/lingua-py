@@ -30,7 +30,7 @@ from lingua.detector import (
     _collect_one_language_alphabets,
     _split_text_into_words,
 )
-from lingua.language import Language, _Alphabet
+from lingua.language import Language
 from lingua._model import _TestDataLanguageModel
 
 
