@@ -50,6 +50,10 @@ def _split_text_into_words(text: str) -> List[str]:
     return LETTERS.findall(text.lower())
 
 
+def _softmax(x: np.ndarray) -> np.ndarray:
+    return np.exp(x) / np.sum(np.exp(x))
+
+
 def _load_language_models(
     language: Language,
     ngram_length: int,
@@ -497,19 +501,14 @@ class LanguageDetector:
             _sort_confidence_values(values)
             return values
 
-        sorted_probabilities = sorted(summed_up_probabilities.values())
-        lowest_probability = sorted_probabilities[0]
-        highest_probability = sorted_probabilities[-1]
-        denominator = highest_probability - lowest_probability
+        lang, prob = zip(*summed_up_probabilities.items())
+        prob = np.round(_softmax(np.array(prob)), 2)
+        summed_up_probabilities = dict(zip(lang, prob))
 
         for language, probability in summed_up_probabilities.items():
-            # Apply min-max normalization
-            normalized_probability = (
-                0.98 * (probability - lowest_probability) / denominator + 0.01
-            )
             for i in range(len(values)):
                 if values[i].language == language:
-                    values[i] = ConfidenceValue(language, normalized_probability)
+                    values[i] = ConfidenceValue(language, probability)
                     break
 
         _sort_confidence_values(values)
