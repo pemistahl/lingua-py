@@ -288,7 +288,7 @@ each possible language have to satisfy. It can be stated in the following way:
 >>> from lingua import Language, LanguageDetectorBuilder
 >>> languages = [Language.ENGLISH, Language.FRENCH, Language.GERMAN, Language.SPANISH]
 >>> detector = LanguageDetectorBuilder.from_languages(*languages)\
-.with_minimum_relative_distance(0.7)\
+.with_minimum_relative_distance(0.9)\
 .build()
 >>> print(detector.detect_language_of("languages are awesome"))
 None
@@ -315,9 +315,9 @@ to the most likely one? These questions can be answered as well:
 >>> confidence_values = detector.compute_language_confidence_values("languages are awesome")
 >>> for language, value in confidence_values:
 ...     print(f"{language.name}: {value:.2f}")
-ENGLISH: 0.99
-FRENCH: 0.32
-GERMAN: 0.15
+ENGLISH: 0.93
+FRENCH: 0.04
+GERMAN: 0.02
 SPANISH: 0.01
 
 ```
@@ -345,7 +345,7 @@ language only:
 >>> detector = LanguageDetectorBuilder.from_languages(*languages).build()
 >>> confidence_value = detector.compute_language_confidence("languages are awesome", Language.FRENCH)
 >>> print(f"{confidence_value:.2f}")
-0.32
+0.04
 
 ```
 

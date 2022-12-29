@@ -17,6 +17,7 @@ import numpy as np
 
 from collections import Counter
 from dataclasses import dataclass
+from math import exp
 from typing import (
     Counter as TypedCounter,
     Dict,
@@ -50,10 +51,6 @@ def _split_text_into_words(text: str) -> List[str]:
     return LETTERS.findall(text.lower())
 
 
-def _softmax(x: np.ndarray) -> np.ndarray:
-    return np.exp(x) / np.sum(np.exp(x))
-
-
 def _load_language_models(
     language: Language,
     ngram_length: int,
@@ -80,7 +77,7 @@ def _sum_up_probabilities(
         if unigram_counts is not None and language in unigram_counts:
             result /= unigram_counts[language]
         if result != 0:
-            summed_up_probabilities[language] = result
+            summed_up_probabilities[language] = exp(result)
     return summed_up_probabilities
 
 
@@ -501,14 +498,14 @@ class LanguageDetector:
             _sort_confidence_values(values)
             return values
 
-        lang, prob = zip(*summed_up_probabilities.items())
-        prob = np.round(_softmax(np.array(prob)), 2)
-        summed_up_probabilities = dict(zip(lang, prob))
+        denominator = sum(summed_up_probabilities.values())
 
         for language, probability in summed_up_probabilities.items():
             for i in range(len(values)):
                 if values[i].language == language:
-                    values[i] = ConfidenceValue(language, probability)
+                    # apply softmax function
+                    normalized_probability = probability / denominator
+                    values[i] = ConfidenceValue(language, normalized_probability)
                     break
 
         _sort_confidence_values(values)
