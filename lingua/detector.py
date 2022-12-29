@@ -17,6 +17,7 @@ import numpy as np
 
 from collections import Counter
 from dataclasses import dataclass
+from math import exp
 from typing import (
     Counter as TypedCounter,
     Dict,
@@ -76,7 +77,7 @@ def _sum_up_probabilities(
         if unigram_counts is not None and language in unigram_counts:
             result /= unigram_counts[language]
         if result != 0:
-            summed_up_probabilities[language] = result
+            summed_up_probabilities[language] = exp(result)
     return summed_up_probabilities
 
 
@@ -497,18 +498,13 @@ class LanguageDetector:
             _sort_confidence_values(values)
             return values
 
-        sorted_probabilities = sorted(summed_up_probabilities.values())
-        lowest_probability = sorted_probabilities[0]
-        highest_probability = sorted_probabilities[-1]
-        denominator = highest_probability - lowest_probability
+        denominator = sum(summed_up_probabilities.values())
 
         for language, probability in summed_up_probabilities.items():
-            # Apply min-max normalization
-            normalized_probability = (
-                0.98 * (probability - lowest_probability) / denominator + 0.01
-            )
             for i in range(len(values)):
                 if values[i].language == language:
+                    # apply softmax function
+                    normalized_probability = probability / denominator
                     values[i] = ConfidenceValue(language, normalized_probability)
                     break
 

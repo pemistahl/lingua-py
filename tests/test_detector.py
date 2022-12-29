@@ -20,6 +20,7 @@ from math import isclose, log
 
 from lingua.builder import LanguageDetectorBuilder
 from lingua.detector import (
+    ConfidenceValue,
     LanguageDetector,
     _UNIGRAM_MODELS,
     _BIGRAM_MODELS,
@@ -967,9 +968,27 @@ def test_no_language_is_returned(detector_for_english_and_german):
 @pytest.mark.parametrize(
     "text,expected_confidence_values",
     [
-        pytest.param("groß", [(Language.GERMAN, 1.0), (Language.ENGLISH, 0.0)]),
-        pytest.param("Alter", [(Language.GERMAN, 0.99), (Language.ENGLISH, 0.01)]),
-        pytest.param("проарплап", [(Language.ENGLISH, 0.0), (Language.GERMAN, 0.0)]),
+        pytest.param(
+            "groß",
+            [
+                ConfidenceValue(Language.GERMAN, 1.0),
+                ConfidenceValue(Language.ENGLISH, 0.0),
+            ],
+        ),
+        pytest.param(
+            "Alter",
+            [
+                ConfidenceValue(Language.GERMAN, 0.81),
+                ConfidenceValue(Language.ENGLISH, 0.19),
+            ],
+        ),
+        pytest.param(
+            "проарплап",
+            [
+                ConfidenceValue(Language.ENGLISH, 0.0),
+                ConfidenceValue(Language.GERMAN, 0.0),
+            ],
+        ),
     ],
 )
 def test_compute_language_confidence_values(
@@ -978,14 +997,23 @@ def test_compute_language_confidence_values(
     confidence_values = (
         detector_for_english_and_german.compute_language_confidence_values(text)
     )
-    assert confidence_values == expected_confidence_values
+    assert len(confidence_values) == 2
+
+    first, second = confidence_values
+    expected_first, expected_second = expected_confidence_values
+
+    assert first.language == expected_first.language
+    assert round(first.value, 2) == expected_first.value
+
+    assert second.language == expected_second.language
+    assert round(second.value, 2) == expected_second.value
 
 
 @pytest.mark.parametrize(
     "text,expected_confidence_for_german,expected_confidence_for_english",
     [
         pytest.param("groß", 1.0, 0.0),
-        pytest.param("Alter", 0.99, 0.01),
+        pytest.param("Alter", 0.81, 0.19),
         pytest.param("проарплап", 0.0, 0.0),
     ],
 )
@@ -998,14 +1026,14 @@ def test_compute_language_confidence(
     confidence_for_german = detector_for_english_and_german.compute_language_confidence(
         text, Language.GERMAN
     )
-    assert confidence_for_german == expected_confidence_for_german
+    assert round(confidence_for_german, 2) == expected_confidence_for_german
 
     confidence_for_english = (
         detector_for_english_and_german.compute_language_confidence(
             text, Language.ENGLISH
         )
     )
-    assert confidence_for_english == expected_confidence_for_english
+    assert round(confidence_for_english, 2) == expected_confidence_for_english
 
     confidence_for_french = detector_for_english_and_german.compute_language_confidence(
         text, Language.FRENCH
