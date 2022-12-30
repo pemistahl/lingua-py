@@ -1,3 +1,12 @@
+## Lingua 1.3.0 (released on 30 Dec 2022)
+
+### Improvements
+
+- The min-max normalization method for the confidence values has been
+  replaced with applying the softmax function. This gives more realistic
+  probabilities. Big thanks to @Alex-Kopylov for proposing and implementing
+  this change. (#99)
+
 ## Lingua 1.2.1 (released on 27 Dec 2022)
 
 ### Bug Fixes

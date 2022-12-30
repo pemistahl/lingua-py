@@ -56,8 +56,8 @@ class AccuracyPlotDrawer:
         "langid 1.1.6",
         "fastText 0.9.2",
         "langdetect 1.0.9",
-        "Lingua 1.2.0\nlow accuracy mode",
-        "Lingua 1.2.0\nhigh accuracy mode",
+        "Lingua 1.3.0\nlow accuracy mode",
+        "Lingua 1.3.0\nhigh accuracy mode",
     )
     _hatches = ("|", "-", "/", "x", "+", ".", "*", "O")
     _palette = (

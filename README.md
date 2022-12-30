@@ -7,7 +7,7 @@
 [![supported languages](https://img.shields.io/badge/supported%20languages-75-green.svg)](#3-which-languages-are-supported)
 [![docs](https://img.shields.io/badge/docs-API-yellowgreen)](https://pemistahl.github.io/lingua-py)
 ![supported Python versions](https://img.shields.io/badge/Python-%3E%3D%203.8-blue)
-[![pypi](https://img.shields.io/badge/PYPI-v1.2.1-blue)](https://pypi.org/project/lingua-language-detector)
+[![pypi](https://img.shields.io/badge/PYPI-v1.3.0-blue)](https://pypi.org/project/lingua-language-detector)
 [![license](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 </div>
 
@@ -3149,7 +3149,7 @@ each possible language have to satisfy. It can be stated in the following way:
 >>> from lingua import Language, LanguageDetectorBuilder
 >>> languages = [Language.ENGLISH, Language.FRENCH, Language.GERMAN, Language.SPANISH]
 >>> detector = LanguageDetectorBuilder.from_languages(*languages)\
-.with_minimum_relative_distance(0.7)\
+.with_minimum_relative_distance(0.9)\
 .build()
 >>> print(detector.detect_language_of("languages are awesome"))
 None
@@ -3175,25 +3175,19 @@ to the most likely one? These questions can be answered as well:
 >>> confidence_values = detector.compute_language_confidence_values("languages are awesome")
 >>> for language, value in confidence_values:
 ...     print(f"{language.name}: {value:.2f}")
-ENGLISH: 0.99
-FRENCH: 0.32
-GERMAN: 0.15
+ENGLISH: 0.93
+FRENCH: 0.04
+GERMAN: 0.02
 SPANISH: 0.01
 ```
 
 In the example above, a list is returned containing those languages which the
 calling instance of LanguageDetector has been built from, sorted by
-their confidence value in descending order. The values that the detector
-computes are part of a **relative** confidence metric, not of an absolute one.
-Each value is a number between 0.0 and 1.0.
-
+their confidence value in descending order. Each value is a probability between
+0.0 and 1.0. The probabilities of all languages will sum to 1.0.
 If the language is unambiguously identified by the rule engine, the value 1.0
 will always be returned for this language. The other languages will receive a
-value of 0.0. If the statistics engine is additionally needed, the most likely
-language will be returned with value 0.99 and the least likely language will
-be returned with value 0.01. All other languages get values assigned between
-0.01 and 0.99, denoting how less likely those languages are in comparison to
-the most likely language.
+value of 0.0.
 
 There is also a method for returning the confidence value for one specific
 language only:
@@ -3204,14 +3198,13 @@ language only:
 >>> detector = LanguageDetectorBuilder.from_languages(*languages).build()
 >>> confidence_value = detector.compute_language_confidence("languages are awesome", Language.FRENCH)
 >>> print(f"{confidence_value:.2f}")
-0.32
+0.04
 ```
 
 The value that this method computes is a number between 0.0 and 1.0. If the
 language is unambiguously identified by the rule engine, the value 1.0 will
 always be returned. If the given language is not supported by this detector
-instance, the value 0.0 will always be returned. Otherwise, a value between
-0.01 and 0.99 will be returned.
+instance, the value 0.0 will always be returned.
 
 ### 9.4 Eager loading versus lazy loading
 
@@ -3281,7 +3274,7 @@ ENGLISH: 'A little bit is better than nothing.'
 ```
 
 In the example above, a list of
-[`DetectionResult`](https://github.com/pemistahl/lingua-py/blob/main/lingua/detector.py#L144)
+[`DetectionResult`](https://github.com/pemistahl/lingua-py/blob/main/lingua/detector.py#L148)
 is returned. Each entry in the list describes a contiguous single-language text section,
 providing start and end indices of the respective substring.
 
@@ -3317,9 +3310,9 @@ LanguageDetectorBuilder.from_iso_codes_639_1(IsoCode639_1.EN, IsoCode639_1.DE)
 LanguageDetectorBuilder.from_iso_codes_639_3(IsoCode639_3.ENG, IsoCode639_3.DEU)
 ```
 
-## 10. What's next for version 1.3.0?
+## 10. What's next for version 1.4.0?
 
-Take a look at the [planned issues](https://github.com/pemistahl/lingua-py/milestone/3).
+Take a look at the [planned issues](https://github.com/pemistahl/lingua-py/milestone/4).
 
 ## 11. Contributions
 

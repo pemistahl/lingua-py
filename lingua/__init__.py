@@ -324,17 +324,11 @@ SPANISH: 0.01
 
 In the example above, a list is returned containing those languages which the
 calling instance of LanguageDetector has been built from, sorted by
-their confidence value in descending order. The values that the detector
-computes are part of a **relative** confidence metric, not of an absolute one.
-Each value is a number between 0.0 and 1.0.
-
+their confidence value in descending order. Each value is a probability between
+0.0 and 1.0. The probabilities of all languages will sum to 1.0.
 If the language is unambiguously identified by the rule engine, the value 1.0
 will always be returned for this language. The other languages will receive a
-value of 0.0. If the statistics engine is additionally needed, the most likely
-language will be returned with value 0.99 and the least likely language will
-be returned with value 0.01. All other languages get values assigned between
-0.01 and 0.99, denoting how less likely those languages are in comparison to
-the most likely language.
+value of 0.0.
 
 There is also a method for returning the confidence value for one specific
 language only:
@@ -352,10 +346,9 @@ language only:
 The value that this method computes is a number between 0.0 and 1.0. If the
 language is unambiguously identified by the rule engine, the value 1.0 will
 always be returned. If the given language is not supported by this detector
-instance, the value 0.0 will always be returned. Otherwise, a value between
-0.01 and 0.99 will be returned.
+instance, the value 0.0 will always be returned.
 
-## 7.4 Eager loading versus lazy loading
+### 7.4 Eager loading versus lazy loading
 
 By default, *Lingua* uses lazy-loading to load only those language models on
 demand which are considered relevant by the rule-based filter engine. For web
@@ -370,7 +363,7 @@ LanguageDetectorBuilder.from_all_languages().with_preloaded_language_models().bu
 Multiple instances of `LanguageDetector` share the same language models in
 memory which are accessed asynchronously by the instances.
 
-## 7.5 Low accuracy mode versus high accuracy mode
+### 7.5 Low accuracy mode versus high accuracy mode
 
 *Lingua's* high detection accuracy comes at the cost of being noticeably slower
 than other language detectors. The large language models also consume significant
@@ -397,7 +390,7 @@ build the detector from all supported languages. When you have knowledge about
 the texts you want to classify you can almost always rule out certain languages as impossible
 or unlikely to occur.
 
-## 7.6 Detection of multiple languages in mixed-language texts
+### 7.6 Detection of multiple languages in mixed-language texts
 
 In contrast to most other language detectors, *Lingua* is able to detect multiple
 languages in mixed-language texts. This feature can yield quite reasonable results but
@@ -428,7 +421,7 @@ In the example above, a list of
 is returned. Each entry in the list describes a contiguous single-language text section,
 providing start and end indices of the respective substring.
 
-## 7.7 Methods to build the LanguageDetector
+### 7.7 Methods to build the LanguageDetector
 
 There might be classification tasks where you know beforehand that your
 language data is definitely not written in Latin, for instance. The detection

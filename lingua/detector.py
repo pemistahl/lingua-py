@@ -416,19 +416,11 @@ class LanguageDetector:
         A list is returned containing those languages which the
         calling instance of LanguageDetector has been built from.
         The entries are sorted by their confidence value in
-        descending order. The values that this method computes
-        are part of a relative confidence metric, not of an
-        absolute one. Each value is a number between 0.0 and 1.0.
-
-        If the language is unambiguously identified by the rule
-        engine, the value 1.0 will always be returned for this
-        language. The other languages will receive a value of 0.0.
-        If the statistics engine is additionally needed, the most
-        likely language will be returned with value 0.99 and the
-        least likely language will be returned with value 0.01.
-        All other languages get values assigned between 0.01 and
-        0.99, denoting how less likely those languages are in
-        comparison to the most likely language.
+        descending order. Each value is a probability between
+        0.0 and 1.0. The probabilities of all languages will sum to 1.0.
+        If the language is unambiguously identified by the rule engine,
+        the value 1.0 will always be returned for this language. The
+        other languages will receive a value of 0.0.
 
         Args:
             text (str): The text for which to compute confidence values.
@@ -519,8 +511,7 @@ class LanguageDetector:
         computes is a number between 0.0 and 1.0. If the language is
         unambiguously identified by the rule engine, the value 1.0 will
         always be returned. If the given language is not supported by this
-        detector instance, the value 0.0 will always be returned. Otherwise,
-        a value between 0.01 and 0.99 will be returned.
+        detector instance, the value 0.0 will always be returned.
 
         Args:
             text (str): The text for which to compute the confidence value.
