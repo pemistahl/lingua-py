@@ -17,7 +17,7 @@ import numpy as np
 
 from collections import Counter
 from dataclasses import dataclass
-from math import exp
+from decimal import Decimal
 from typing import (
     Counter as TypedCounter,
     Dict,
@@ -67,7 +67,7 @@ def _sum_up_probabilities(
     probabilities: List[Dict[Language, float]],
     unigram_counts: Optional[TypedCounter[Language]],
     filtered_languages: FrozenSet[Language],
-) -> Dict[Language, float]:
+) -> Dict[Language, Decimal]:
     summed_up_probabilities = {}
     for language in filtered_languages:
         result = 0.0
@@ -77,7 +77,8 @@ def _sum_up_probabilities(
         if unigram_counts is not None and language in unigram_counts:
             result /= unigram_counts[language]
         if result != 0:
-            summed_up_probabilities[language] = exp(result)
+            # Use Decimal instead of float to prevent numerical underflow
+            summed_up_probabilities[language] = Decimal(result).exp()
     return summed_up_probabilities
 
 
@@ -497,7 +498,7 @@ class LanguageDetector:
                 if values[i].language == language:
                     # apply softmax function
                     normalized_probability = probability / denominator
-                    values[i] = ConfidenceValue(language, normalized_probability)
+                    values[i] = ConfidenceValue(language, float(normalized_probability))
                     break
 
         _sort_confidence_values(values)
