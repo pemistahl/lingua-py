@@ -1,3 +1,11 @@
+## Lingua 1.3.1 (released on 04 Jan 2023)
+
+### Bug Fixes
+
+- For long input texts, an error occurred whiled computing the confidence values
+  due to numerical underflow when converting probabilities. This has been fixed.
+  Thanks to @jordimas for reporting this bug. (#102)
+
 ## Lingua 1.3.0 (released on 30 Dec 2022)
 
 ### Improvements
