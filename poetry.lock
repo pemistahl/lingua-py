@@ -617,7 +617,6 @@ packaging = ">=20.0"
 pillow = ">=6.2.0"
 pyparsing = ">=2.2.1"
 python-dateutil = ">=2.7"
-setuptools_scm = ">=7"
 
 [[package]]
 name = "mypy"
@@ -822,6 +821,20 @@ category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
+    {file = "Pillow-9.4.0-1-cp310-cp310-macosx_10_10_x86_64.whl", hash = "sha256:1b4b4e9dda4f4e4c4e6896f93e84a8f0bcca3b059de9ddf67dac3c334b1195e1"},
+    {file = "Pillow-9.4.0-1-cp311-cp311-macosx_10_10_x86_64.whl", hash = "sha256:fb5c1ad6bad98c57482236a21bf985ab0ef42bd51f7ad4e4538e89a997624e12"},
+    {file = "Pillow-9.4.0-1-cp37-cp37m-macosx_10_10_x86_64.whl", hash = "sha256:f0caf4a5dcf610d96c3bd32932bfac8aee61c96e60481c2a0ea58da435e25acd"},
+    {file = "Pillow-9.4.0-1-cp38-cp38-macosx_10_10_x86_64.whl", hash = "sha256:3f4cc516e0b264c8d4ccd6b6cbc69a07c6d582d8337df79be1e15a5056b258c9"},
+    {file = "Pillow-9.4.0-1-cp39-cp39-macosx_10_10_x86_64.whl", hash = "sha256:b8c2f6eb0df979ee99433d8b3f6d193d9590f735cf12274c108bd954e30ca858"},
+    {file = "Pillow-9.4.0-1-pp38-pypy38_pp73-macosx_10_10_x86_64.whl", hash = "sha256:b70756ec9417c34e097f987b4d8c510975216ad26ba6e57ccb53bc758f490dab"},
+    {file = "Pillow-9.4.0-1-pp39-pypy39_pp73-macosx_10_10_x86_64.whl", hash = "sha256:43521ce2c4b865d385e78579a082b6ad1166ebed2b1a2293c3be1d68dd7ca3b9"},
+    {file = "Pillow-9.4.0-2-cp310-cp310-macosx_10_10_x86_64.whl", hash = "sha256:9d9a62576b68cd90f7075876f4e8444487db5eeea0e4df3ba298ee38a8d067b0"},
+    {file = "Pillow-9.4.0-2-cp311-cp311-macosx_10_10_x86_64.whl", hash = "sha256:87708d78a14d56a990fbf4f9cb350b7d89ee8988705e58e39bdf4d82c149210f"},
+    {file = "Pillow-9.4.0-2-cp37-cp37m-macosx_10_10_x86_64.whl", hash = "sha256:8a2b5874d17e72dfb80d917213abd55d7e1ed2479f38f001f264f7ce7bae757c"},
+    {file = "Pillow-9.4.0-2-cp38-cp38-macosx_10_10_x86_64.whl", hash = "sha256:83125753a60cfc8c412de5896d10a0a405e0bd88d0470ad82e0869ddf0cb3848"},
+    {file = "Pillow-9.4.0-2-cp39-cp39-macosx_10_10_x86_64.whl", hash = "sha256:9e5f94742033898bfe84c93c831a6f552bb629448d4072dd312306bab3bd96f1"},
+    {file = "Pillow-9.4.0-2-pp38-pypy38_pp73-macosx_10_10_x86_64.whl", hash = "sha256:013016af6b3a12a2f40b704677f8b51f72cb007dac785a9933d5c86a72a7fe33"},
+    {file = "Pillow-9.4.0-2-pp39-pypy39_pp73-macosx_10_10_x86_64.whl", hash = "sha256:99d92d148dd03fd19d16175b6d355cc1b01faf80dae93c6c3eb4163709edc0a9"},
     {file = "Pillow-9.4.0-cp310-cp310-macosx_10_10_x86_64.whl", hash = "sha256:2968c58feca624bb6c8502f9564dd187d0e1389964898f5e9e1fbc8533169157"},
     {file = "Pillow-9.4.0-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:c5c1362c14aee73f50143d74389b2c158707b4abce2cb055b7ad37ce60738d47"},
     {file = "Pillow-9.4.0-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:bd752c5ff1b4a870b7661234694f24b1d2b9076b8bf337321a814c612665f343"},
@@ -1189,27 +1202,27 @@ jupyter = ["ipywidgets (>=7.5.1,<8.0.0)"]
 
 [[package]]
 name = "scalene"
-version = "1.5.18"
+version = "1.5.19"
 description = "Scalene: A high-resolution, low-overhead CPU, GPU, and memory profiler for Python"
 category = "dev"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "scalene-1.5.18-cp310-cp310-macosx_11_7_universal2.whl", hash = "sha256:4d5f02cd0b0433064df1cfe28f977a54b01a14b58e7452fcdbcb004420e2c54f"},
-    {file = "scalene-1.5.18-cp310-cp310-manylinux_2_24_x86_64.whl", hash = "sha256:59f5c082c007ee3531a132a589ec0752d34e7b94196d7fcba2fef2b8d5e64526"},
-    {file = "scalene-1.5.18-cp310-cp310-win_amd64.whl", hash = "sha256:c8741ac44dd2c5f4866a16cc14dda124561b011e352e721101e5e7c89ccedb04"},
-    {file = "scalene-1.5.18-cp311-cp311-macosx_10_9_universal2.whl", hash = "sha256:98dfe24a46919ca7dd000d0e18b3a0387438f9bf10e25ee01f1213edf637ff92"},
-    {file = "scalene-1.5.18-cp311-cp311-manylinux_2_24_x86_64.whl", hash = "sha256:29eb3014480f0265f7e85a77584508f217bebd9af385b1c6ac6f6d8423d8ecd6"},
-    {file = "scalene-1.5.18-cp311-cp311-win_amd64.whl", hash = "sha256:9e5189d316b12d16047aafc9344f74604789adfd28faf6a6ee06cca13d038fc3"},
-    {file = "scalene-1.5.18-cp37-cp37m-macosx_10_15_universal2.whl", hash = "sha256:f35c4d268a5b3e7da3753fdbb73157acbf2345f9cccf3e3cfa3fb534c3dae967"},
-    {file = "scalene-1.5.18-cp37-cp37m-manylinux_2_24_x86_64.whl", hash = "sha256:812863ff4e5836f62daecdcbf3035882d7a49a5cba59255fb033f4824c2a1355"},
-    {file = "scalene-1.5.18-cp38-cp38-macosx_10_15_universal2.whl", hash = "sha256:d2880c4b5fb48458ed453fc9214631878340522e9c43728ef6e1991820460b28"},
-    {file = "scalene-1.5.18-cp38-cp38-manylinux_2_24_x86_64.whl", hash = "sha256:30d88bfa834e5499f06cde0d585ae8e25d3347d19725c1250fa18da9b856809c"},
-    {file = "scalene-1.5.18-cp38-cp38-win_amd64.whl", hash = "sha256:6ad4dd0ceeabafb3ac3a4f847d44be36526c95a9127a68a6fca7d12a35acebe5"},
-    {file = "scalene-1.5.18-cp39-cp39-macosx_11_7_universal2.whl", hash = "sha256:bbd35a7dda111ab04acbae1e8b9ef6cf6bfc8b44a6f0b876f868247c35a3d585"},
-    {file = "scalene-1.5.18-cp39-cp39-manylinux_2_24_x86_64.whl", hash = "sha256:c281ec563d0c6eb3d276c3fca71c0872d627a10ccb906c179f28b7f1b2ba75da"},
-    {file = "scalene-1.5.18-cp39-cp39-win_amd64.whl", hash = "sha256:5b95095e8854c0fbde5fb51774041518cea83bffda0a69884a457b964542a29d"},
-    {file = "scalene-1.5.18.tar.gz", hash = "sha256:3d1768aed169254a865a7b5c04ed2f679b41665f00017330403c937714f42da3"},
+    {file = "scalene-1.5.19-cp310-cp310-macosx_11_7_universal2.whl", hash = "sha256:78480f92f5098fffdcba4e4cd540fdb6b7a95ff933ee93e1056b0aa2ab746643"},
+    {file = "scalene-1.5.19-cp310-cp310-manylinux_2_24_x86_64.whl", hash = "sha256:1da57151f00c70446309c9b52843ce7b437bbf32d336a7c309d4fe0b8deda2a2"},
+    {file = "scalene-1.5.19-cp310-cp310-win_amd64.whl", hash = "sha256:cdb9be734cfb6b42eef1105fee1876a5c465eb72e109c0d0ceea6e6bdbce21c6"},
+    {file = "scalene-1.5.19-cp311-cp311-macosx_10_9_universal2.whl", hash = "sha256:dd2b29bd13eaafdd98090108357680c1a6fa88067b4e71313252aa065bbe6ec1"},
+    {file = "scalene-1.5.19-cp311-cp311-manylinux_2_24_x86_64.whl", hash = "sha256:2dac52555518c7159d2fd9c8c7c31ffa8b6a74f21d1b40a9d315a77f4a7f97ed"},
+    {file = "scalene-1.5.19-cp311-cp311-win_amd64.whl", hash = "sha256:eeef31408df35972e54a39ae2d2f1aeab111f2d53d0a78061e45dcf024c6e01d"},
+    {file = "scalene-1.5.19-cp37-cp37m-macosx_10_15_universal2.whl", hash = "sha256:58fb40d031081a55e813f292b2d85b64d7558a372832d8e456f7fe2113adf182"},
+    {file = "scalene-1.5.19-cp37-cp37m-manylinux_2_24_x86_64.whl", hash = "sha256:50084cd5c2c4732f845011a7a5407c567df52160b5604a8b4b01ee8b0afee985"},
+    {file = "scalene-1.5.19-cp38-cp38-macosx_10_15_universal2.whl", hash = "sha256:0997b1f1ec90e079a73349d702b18df60e6b24c31c255d3e8d6ec6a8b03493c8"},
+    {file = "scalene-1.5.19-cp38-cp38-manylinux_2_24_x86_64.whl", hash = "sha256:f67f39321548c06de440319bdd70c41c14b6c50d4748226a101402995677cade"},
+    {file = "scalene-1.5.19-cp38-cp38-win_amd64.whl", hash = "sha256:7a1d452ad4d32cf8adb8b86cae4e5b9c7bff866fff1c43618f9ad114b9ecac32"},
+    {file = "scalene-1.5.19-cp39-cp39-macosx_11_7_universal2.whl", hash = "sha256:6c08f3bc0b6355db3c34f0e9aea1b291e64675bb832e19758ee751918787cac0"},
+    {file = "scalene-1.5.19-cp39-cp39-manylinux_2_24_x86_64.whl", hash = "sha256:d8bc53334b13e486ed6ba03fe4b7595ad4038d05537793eed9999952ba1b34c6"},
+    {file = "scalene-1.5.19-cp39-cp39-win_amd64.whl", hash = "sha256:d1fd5d83f3c022ddc46049f29823351b8dbdb8590f5803358fa6034784601f24"},
+    {file = "scalene-1.5.19.tar.gz", hash = "sha256:59c5eaaa64f4990444f9606e841b268d49f55dcd7467162e48f9658150a9cd1e"},
 ]
 
 [package.dependencies]
@@ -1257,28 +1270,6 @@ files = [
 docs = ["furo", "jaraco.packaging (>=9)", "jaraco.tidelift (>=1.4)", "pygments-github-lexers (==0.0.5)", "rst.linker (>=1.9)", "sphinx (>=3.5)", "sphinx-favicon", "sphinx-hoverxref (<2)", "sphinx-inline-tabs", "sphinx-notfound-page (==0.8.3)", "sphinx-reredirects", "sphinxcontrib-towncrier"]
 testing = ["build[virtualenv]", "filelock (>=3.4.0)", "flake8 (<5)", "flake8-2020", "ini2toml[lite] (>=0.9)", "jaraco.envs (>=2.2)", "jaraco.path (>=3.2.0)", "pip (>=19.1)", "pip-run (>=8.8)", "pytest (>=6)", "pytest-black (>=0.3.7)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=1.3)", "pytest-flake8", "pytest-mypy (>=0.9.1)", "pytest-perf", "pytest-timeout", "pytest-xdist", "tomli-w (>=1.0.0)", "virtualenv (>=13.0.0)", "wheel"]
 testing-integration = ["build[virtualenv]", "filelock (>=3.4.0)", "jaraco.envs (>=2.2)", "jaraco.path (>=3.2.0)", "pytest", "pytest-enabler", "pytest-xdist", "tomli", "virtualenv (>=13.0.0)", "wheel"]
-
-[[package]]
-name = "setuptools-scm"
-version = "7.1.0"
-description = "the blessed package to manage your versions by scm tags"
-category = "dev"
-optional = false
-python-versions = ">=3.7"
-files = [
-    {file = "setuptools_scm-7.1.0-py3-none-any.whl", hash = "sha256:73988b6d848709e2af142aa48c986ea29592bbcfca5375678064708205253d8e"},
-    {file = "setuptools_scm-7.1.0.tar.gz", hash = "sha256:6c508345a771aad7d56ebff0e70628bf2b0ec7573762be9960214730de278f27"},
-]
-
-[package.dependencies]
-packaging = ">=20.0"
-setuptools = "*"
-tomli = {version = ">=1.0.0", markers = "python_version < \"3.11\""}
-typing-extensions = "*"
-
-[package.extras]
-test = ["pytest (>=6.2)", "virtualenv (>20)"]
-toml = ["setuptools (>=42)"]
 
 [[package]]
 name = "simplemma"
