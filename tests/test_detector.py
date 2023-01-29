@@ -881,40 +881,42 @@ def test_ngram_probability_lookup(
 
 
 @pytest.mark.parametrize(
-    "ngrams, expected_sum_of_probabilities",
+    "ngram_model, expected_sum_of_probabilities",
     [
         pytest.param(
-            frozenset(["a", "l", "t", "e", "r"]),
+            _TestDataLanguageModel([["a"], ["l"], ["t"], ["e"], ["r"]]),
             f(log(0.01)) + f(log(0.02)) + f(log(0.03)) + f(log(0.04)) + f(log(0.05)),
         ),
         pytest.param(
             # back off unknown Trigram("tez") to known Bigram("te")
-            frozenset(["alt", "lte", "tez"]),
+            _TestDataLanguageModel(
+                [["alt", "al", "a"], ["lte", "lt", "l"], ["tez", "te", "t"]]
+            ),
             f(log(0.19)) + f(log(0.2)) + f(log(0.13)),
         ),
         pytest.param(
             # back off unknown Fivegram("aquas") to known Unigram("a")
-            frozenset(["aquas"]),
+            _TestDataLanguageModel([["aquas", "aqua", "aqu", "aq", "a"]]),
             f(log(0.01)),
         ),
     ],
 )
 def test_summation_of_ngram_probabilities(
-    detector_for_english_and_german, ngrams, expected_sum_of_probabilities
+    detector_for_english_and_german, ngram_model, expected_sum_of_probabilities
 ):
     sum_of_probabilities = (
         detector_for_english_and_german._compute_sum_of_ngram_probabilities(
-            Language.ENGLISH, ngrams
+            Language.ENGLISH, ngram_model
         )
     )
     assert isclose(sum_of_probabilities, expected_sum_of_probabilities, rel_tol=0.001)
 
 
 @pytest.mark.parametrize(
-    "test_data_model,expected_probabilities",
+    "ngram_model,expected_probabilities",
     [
         pytest.param(
-            _TestDataLanguageModel(frozenset(["a", "l", "t", "e", "r"])),
+            _TestDataLanguageModel([["a"], ["l"], ["t"], ["e"], ["r"]]),
             {
                 Language.ENGLISH: f(log(0.01))
                 + f(log(0.02))
@@ -929,14 +931,27 @@ def test_summation_of_ngram_probabilities(
             },
         ),
         pytest.param(
-            _TestDataLanguageModel(frozenset(["alt", "lte", "ter", "wxy"])),
+            _TestDataLanguageModel(
+                [
+                    ["alt", "al", "a"],
+                    ["lte", "lt", "l"],
+                    ["ter", "te", "t"],
+                    ["wxy", "wx", "w"],
+                ]
+            ),
             {
                 Language.ENGLISH: f(log(0.19)) + f(log(0.2)) + f(log(0.21)),
                 Language.GERMAN: f(log(0.22)) + f(log(0.23)) + f(log(0.24)),
             },
         ),
         pytest.param(
-            _TestDataLanguageModel(frozenset(["alte", "lter", "wxyz"])),
+            _TestDataLanguageModel(
+                [
+                    ["alte", "alt", "al", "a"],
+                    ["lter", "lte", "lt", "l"],
+                    ["wxyz", "wxy", "wx", "w"],
+                ]
+            ),
             {
                 Language.ENGLISH: f(log(0.25)) + f(log(0.26)),
                 Language.GERMAN: f(log(0.27)) + f(log(0.28)),
@@ -945,10 +960,10 @@ def test_summation_of_ngram_probabilities(
     ],
 )
 def test_computation_of_language_probabilities(
-    detector_for_english_and_german, test_data_model, expected_probabilities
+    detector_for_english_and_german, ngram_model, expected_probabilities
 ):
     probabilities = detector_for_english_and_german._compute_language_probabilities(
-        test_data_model, frozenset([Language.ENGLISH, Language.GERMAN])
+        ngram_model, frozenset([Language.ENGLISH, Language.GERMAN])
     )
     for language, probability in probabilities.items():
         expected_probability = expected_probabilities[language]

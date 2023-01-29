@@ -21,10 +21,10 @@ from collections import Counter
 from dataclasses import dataclass
 from fractions import Fraction
 from pathlib import Path
-from typing import Counter as TypedCounter, Dict, List, FrozenSet, Optional
+from typing import Counter as TypedCounter, Dict, List, Optional
 
 from .language import Language
-from ._ngram import _get_ngram_name_by_length
+from ._ngram import _get_ngram_name_by_length, _NgramRange
 
 
 @dataclass
@@ -118,7 +118,7 @@ class _TrainingDataLanguageModel:
 
 @dataclass
 class _TestDataLanguageModel:
-    ngrams: FrozenSet[str]
+    ngrams: List[List[str]]
 
     @classmethod
     def from_text(cls, words: List[str], ngram_length: int) -> "_TestDataLanguageModel":
@@ -131,4 +131,6 @@ class _TestDataLanguageModel:
                 for i in range(0, chars_count - ngram_length + 1):
                     substr = word[i : i + ngram_length]
                     ngrams.add(substr)
-        return _TestDataLanguageModel(frozenset(ngrams))
+
+        lower_order_ngrams = [list(_NgramRange(ngram)) for ngram in ngrams]
+        return _TestDataLanguageModel(lower_order_ngrams)

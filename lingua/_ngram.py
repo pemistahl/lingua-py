@@ -45,7 +45,3 @@ def _get_ngram_name_by_length(ngram_length: int) -> str:
         return "fivegram"
     else:
         raise ValueError(f"ngram length {ngram_length} is not in range 1..6")
-
-
-def _range_of_lower_order_ngrams(ngram: str) -> "_NgramRange":
-    return _NgramRange(ngram)

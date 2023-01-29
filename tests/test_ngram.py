@@ -14,12 +14,12 @@
 # limitations under the License.
 
 import pytest
-from lingua._ngram import _range_of_lower_order_ngrams
+from lingua._ngram import _NgramRange
 
 
 def test_ngram_iterator():
     ngram = "äbcde"
-    ngram_range = _range_of_lower_order_ngrams(ngram)
+    ngram_range = _NgramRange(ngram)
 
     assert next(ngram_range) == "äbcde"
     assert next(ngram_range) == "äbcd"

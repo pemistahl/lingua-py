@@ -18,6 +18,7 @@ import numpy as np
 from collections import Counter
 from dataclasses import dataclass
 from decimal import Decimal
+from math import exp
 from typing import (
     Counter as TypedCounter,
     Dict,
@@ -36,7 +37,6 @@ from ._constant import (
 )
 from .language import Language, _Alphabet
 from ._model import _TrainingDataLanguageModel, _TestDataLanguageModel
-from ._ngram import _range_of_lower_order_ngrams
 
 _UNIGRAM_MODELS: Dict[Language, np.ndarray] = {}
 _BIGRAM_MODELS: Dict[Language, np.ndarray] = {}
@@ -78,8 +78,15 @@ def _sum_up_probabilities(
             result /= unigram_counts[language]
         if result != 0:
             # Use Decimal instead of float to prevent numerical underflow
-            summed_up_probabilities[language] = Decimal(result).exp()
+            summed_up_probabilities[language] = _compute_exponent(result)
     return summed_up_probabilities
+
+
+def _compute_exponent(value: float) -> Decimal:
+    exponent = exp(value)
+    if exponent > 0:
+        return Decimal(exponent)
+    return Decimal(value).exp()
 
 
 def _sort_confidence_values(values: List["ConfidenceValue"]):
@@ -475,11 +482,15 @@ class LanguageDetector:
 
         for ngram_length in ngram_length_range:
             if character_count >= ngram_length:
-                if ngram_length == 1:
-                    unigram_counts = self._count_unigrams(words, filtered_languages)
+                ngram_model = _TestDataLanguageModel.from_text(words, ngram_length)
 
-                probabilities = self._look_up_language_models(
-                    words, ngram_length, filtered_languages
+                if ngram_length == 1:
+                    unigram_counts = self._count_unigrams(
+                        ngram_model, filtered_languages
+                    )
+
+                probabilities = self._compute_language_probabilities(
+                    ngram_model, filtered_languages
                 )
                 all_probabilities.append(probabilities)
 
@@ -653,35 +664,25 @@ class LanguageDetector:
 
         return frozenset(filtered_languages)
 
-    def _look_up_language_models(
-        self,
-        words: List[str],
-        ngram_length: int,
-        filtered_languages: FrozenSet[Language],
-    ) -> Dict[Language, float]:
-        test_data_model = _TestDataLanguageModel.from_text(words, ngram_length)
-        probabilities = self._compute_language_probabilities(
-            test_data_model, filtered_languages
-        )
-        return probabilities
-
     def _compute_language_probabilities(
-        self, model: _TestDataLanguageModel, filtered_languages: FrozenSet[Language]
+        self,
+        ngram_model: _TestDataLanguageModel,
+        filtered_languages: FrozenSet[Language],
     ) -> Dict[Language, float]:
         probabilities = {}
         for language in filtered_languages:
-            result = self._compute_sum_of_ngram_probabilities(language, model.ngrams)
+            result = self._compute_sum_of_ngram_probabilities(language, ngram_model)
             if result < 0:
                 probabilities[language] = result
         return probabilities
 
     def _compute_sum_of_ngram_probabilities(
-        self, language: Language, ngrams: FrozenSet[str]
+        self, language: Language, ngram_model: _TestDataLanguageModel
     ) -> float:
         result = 0.0
-        for ngram in ngrams:
-            for elem in _range_of_lower_order_ngrams(ngram):
-                probability = self._look_up_ngram_probability(language, elem)
+        for ngrams in ngram_model.ngrams:
+            for ngram in ngrams:
+                probability = self._look_up_ngram_probability(language, ngram)
                 if probability is not None:
                     result += probability
                     break
@@ -734,13 +735,12 @@ class LanguageDetector:
 
     def _count_unigrams(
         self,
-        words: List[str],
+        unigram_model: _TestDataLanguageModel,
         filtered_languages: FrozenSet[Language],
     ) -> TypedCounter[Language]:
-        unigram_model = _TestDataLanguageModel.from_text(words, ngram_length=1)
         unigram_counts: TypedCounter[Language] = Counter()
         for language in filtered_languages:
-            for unigram in unigram_model.ngrams:
-                if self._look_up_ngram_probability(language, unigram) is not None:
+            for unigrams in unigram_model.ngrams:
+                if self._look_up_ngram_probability(language, unigrams[0]) is not None:
                     unigram_counts[language] += 1
         return unigram_counts
