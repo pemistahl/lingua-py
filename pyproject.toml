@@ -15,7 +15,7 @@
 
 [tool.poetry]
 name = "lingua-language-detector"
-version = "1.3.1"
+version = "1.3.2"
 description = "An accurate natural language detection library, suitable for long and short text alike"
 authors = ["Peter M. Stahl <pemistahl@gmail.com>"]
 license = "Apache-2.0"
@@ -99,18 +99,18 @@ classifiers = [
 
 [tool.poetry.dependencies]
 python = "^3.8"
-numpy = "^1.24.0"
+numpy = "^1.24.1"
 regex = "^2022.10.31"
 
 [tool.poetry.group.dev.dependencies]
 mypy = "^0.991"
-pytest = "^7.2.0"
+pytest = "^7.2.1"
 black = "^22.12.0"
-coverage = "^7.0"
+coverage = "^7.1.0"
 
 [tool.poetry.group.misc.dependencies]
-scalene = "^1.5.11"
-pdoc = "^12.3.0"
+scalene = "^1.5.19"
+pdoc = "^12.3.1"
 
 [tool.poetry.group.script.dependencies]
 # https://github.com/facebookresearch/fastText/pull/1292
@@ -119,11 +119,11 @@ langdetect = "^1.0.9"
 langid = "^1.1.6"
 gcld3 = "^3.0.13"
 pycld2 = "^0.41"
-pandas = "^1.5.0"
-simplemma = "^0.8.2"
-matplotlib = "^3.6.0"
-seaborn = "^0.12.0"
-psutil = "^5.9.2"
+pandas = "^1.5.3"
+simplemma = "^0.9.1"
+matplotlib = "^3.6.3"
+seaborn = "^0.12.2"
+psutil = "^5.9.4"
 
 [tool.mypy]
 files = ["lingua", "scripts", "tests"]
