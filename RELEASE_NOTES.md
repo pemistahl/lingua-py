@@ -1,3 +1,11 @@
+## Lingua 1.3.2 (released on 29 Jan 2023)
+
+### Improvements
+
+- After applying some internal optimizations, language detection is now
+  faster, at least between 20% and 30%, approximately. For long input texts,
+  the speed improvement is greater than for short input texts.
+
 ## Lingua 1.3.1 (released on 04 Jan 2023)
 
 ### Bug Fixes
