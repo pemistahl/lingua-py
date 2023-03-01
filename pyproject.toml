@@ -110,7 +110,7 @@ coverage = "^7.1.0"
 
 [tool.poetry.group.misc.dependencies]
 scalene = "^1.5.19"
-pdoc = "^12.3.1"
+pdoc = ">=12.3.1,<14.0.0"
 
 [tool.poetry.group.script.dependencies]
 # https://github.com/facebookresearch/fastText/pull/1292
