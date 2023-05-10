@@ -15,7 +15,7 @@
 
 [tool.poetry]
 name = "lingua-language-detector"
-version = "1.3.2"
+version = "1.3.3"
 description = "An accurate natural language detection library, suitable for long and short text alike"
 authors = ["Peter M. Stahl <pemistahl@gmail.com>"]
 license = "Apache-2.0"
@@ -100,7 +100,7 @@ classifiers = [
 [tool.poetry.dependencies]
 python = "^3.8"
 numpy = "^1.24.1"
-regex = "^2022.10.31"
+regex = "^2023.5.5"
 
 [tool.poetry.group.dev.dependencies]
 mypy = "^0.991"
