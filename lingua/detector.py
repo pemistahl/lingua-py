@@ -243,7 +243,12 @@ class LanguageDetector:
                 self._trigram_language_models.update(trigram_model)
 
         if not self._is_low_accuracy_mode_enabled:
-            (unigram_models, bigram_models, quadrigram_models, fivegram_models,) = [
+            (
+                unigram_models,
+                bigram_models,
+                quadrigram_models,
+                fivegram_models,
+            ) = [
                 [
                     _load_language_models(language, ngram_length)
                     for language in self._languages
