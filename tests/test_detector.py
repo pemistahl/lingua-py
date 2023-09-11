@@ -1125,52 +1125,71 @@ def test_detect_multiple_languages_for_empty_string():
     assert detector_for_all_languages.detect_multiple_languages_of("") == []
 
 
-def test_detect_multiple_languages_english():
-    sentence = "I'm really not sure whether multi-language detection is a good idea."
-
+@pytest.mark.parametrize(
+    "sentence,expected_language",
+    [
+        pytest.param(
+            "I'm really not sure whether multi-language detection is a good idea.",
+            Language.ENGLISH,
+        ),
+        pytest.param("V төзімділік спорт", Language.KAZAKH),
+    ],
+)
+def test_detect_multiple_languages_with_one_language(sentence, expected_language):
     results = detector_for_all_languages.detect_multiple_languages_of(sentence)
     assert len(results) == 1
 
     result = results[0]
     substring = sentence[result.start_index : result.end_index]
     assert substring == sentence
-    assert result.language == Language.ENGLISH
+    assert result.language == expected_language
 
 
-def test_detect_multiple_languages_english_and_german():
-    sentence = (
-        "  He   turned around and asked: "
-        + '"Entschuldigen Sie, sprechen Sie Deutsch?"'
-    )
+@pytest.mark.parametrize(
+    "sentence,expected_first_substring,expected_first_language,expected_second_substring,expected_second_language",
+    [
+        pytest.param(
+            '  He   turned around and asked: "Entschuldigen Sie, sprechen Sie Deutsch?"',
+            "  He   turned around and asked: ",
+            Language.ENGLISH,
+            '"Entschuldigen Sie, sprechen Sie Deutsch?"',
+            Language.GERMAN,
+        ),
+        pytest.param(
+            "上海大学是一个好大学. It is such a great university.",
+            "上海大学是一个好大学. ",
+            Language.CHINESE,
+            "It is such a great university.",
+            Language.ENGLISH,
+        ),
+        pytest.param(
+            "English German French - Английский язык",
+            "English German French - ",
+            Language.ENGLISH,
+            "Английский язык",
+            Language.RUSSIAN,
+        ),
+    ],
+)
+def test_detect_multiple_languages_with_two_languages(
+    sentence,
+    expected_first_substring,
+    expected_first_language,
+    expected_second_substring,
+    expected_second_language,
+):
     results = detector_for_all_languages.detect_multiple_languages_of(sentence)
     assert len(results) == 2
 
     first_result = results[0]
     first_substring = sentence[first_result.start_index : first_result.end_index]
-    assert first_substring == "  He   turned around and asked: "
-    assert first_result.language == Language.ENGLISH
+    assert first_substring == expected_first_substring
+    assert first_result.language == expected_first_language
 
     second_result = results[1]
     second_substring = sentence[second_result.start_index : second_result.end_index]
-    assert second_substring == '"Entschuldigen Sie, sprechen Sie Deutsch?"'
-    assert second_result.language == Language.GERMAN
-
-
-def test_detect_multiple_languages_chinese_english():
-    sentence = "上海大学是一个好大学. It is such a great university."
-
-    results = detector_for_all_languages.detect_multiple_languages_of(sentence)
-    assert len(results) == 2
-
-    first_result = results[0]
-    first_substring = sentence[first_result.start_index : first_result.end_index]
-    assert first_substring == "上海大学是一个好大学. "
-    assert first_result.language == Language.CHINESE
-
-    second_result = results[1]
-    second_substring = sentence[second_result.start_index : second_result.end_index]
-    assert second_substring == "It is such a great university."
-    assert second_result.language == Language.ENGLISH
+    assert second_substring == expected_second_substring
+    assert second_result.language == expected_second_language
 
 
 def test_detect_multiple_languages_french_german_english():

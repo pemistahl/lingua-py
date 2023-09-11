@@ -369,10 +369,14 @@ class LanguageDetector:
                 word = token_match.group(0)
                 language = self.detect_language_of(word)
 
-                if i == 0:
+                if i == 0 or (current_language is None and language is not None):
                     current_language = language
 
-                if language != current_language and current_language is not None:
+                if (
+                    language != current_language
+                    and language is not None
+                    and current_language is not None
+                ):
                     result = DetectionResult(
                         start_index=current_start_index,
                         end_index=current_end_index,
