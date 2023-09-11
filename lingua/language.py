@@ -250,7 +250,6 @@ class Language(Enum):
         IsoCode639_1.MN,
         IsoCode639_3.MON,
         frozenset([_Alphabet.CYRILLIC]),
-        "ӨөҮү",
     )
     NYNORSK = (46, IsoCode639_1.NN, IsoCode639_3.NNO, frozenset([_Alphabet.LATIN]))
     PERSIAN = (47, IsoCode639_1.FA, IsoCode639_3.FAS, frozenset([_Alphabet.ARABIC]))

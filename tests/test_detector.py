@@ -299,7 +299,6 @@ detector_for_english_and_german = (
     .build()
 )
 
-
 detector_for_all_languages = (
     LanguageDetectorBuilder.from_all_languages()
     .with_preloaded_language_models()
@@ -378,8 +377,6 @@ def test_text_is_split_into_words_correctly(text, expected_words):
         pytest.param("ќерка", Language.MACEDONIAN),
         pytest.param("џамиите", Language.MACEDONIAN),
         pytest.param("मिळते", Language.MARATHI),
-        pytest.param("үндсэн", Language.MONGOLIAN),
-        pytest.param("дөхөж", Language.MONGOLIAN),
         pytest.param("zmieniły", Language.POLISH),
         pytest.param("państwowych", Language.POLISH),
         pytest.param("mniejszości", Language.POLISH),
@@ -519,6 +516,16 @@ def test_language_detection_with_rules(word, expected_language):
         pytest.param(
             "павінен", [Language.BELARUSIAN, Language.KAZAKH, Language.UKRAINIAN]
         ),
+        pytest.param(
+            "үндсэн",
+            [
+                Language.BELARUSIAN,
+                Language.KAZAKH,
+                Language.MONGOLIAN,
+                Language.RUSSIAN,
+            ],
+        ),
+        pytest.param("дөхөж", [Language.KAZAKH, Language.MONGOLIAN]),
         pytest.param("затоплување", [Language.MACEDONIAN, Language.SERBIAN]),
         pytest.param("ректасцензија", [Language.MACEDONIAN, Language.SERBIAN]),
         pytest.param("набљудувач", [Language.MACEDONIAN, Language.SERBIAN]),
@@ -1193,23 +1200,63 @@ def test_detect_multiple_languages_french_german_english():
 
 
 @pytest.mark.parametrize(
-    "text,languages",
+    "builder_languages,text,expected_language",
     [
         pytest.param(
-            "ام وی با نیکی میناج تیزر داشت؟؟؟؟؟؟ i vote for bts ( _ ) as the _ via ( _ )",
-            [Language.ENGLISH, Language.URDU],
+            [Language.ENGLISH, Language.KAZAKH], "нормаланбайды", Language.KAZAKH
         ),
         pytest.param(
-            "Az elmúlt hétvégén 12-re emelkedett az elhunyt koronavírus-fertőzöttek száma Szlovákiában. Mindegyik szociális otthon dolgozóját letesztelik, Matovič szerint az ingázóknak még várniuk kellene a teszteléssel",
-            [Language.HUNGARIAN, Language.SLOVAK],
+            [Language.ENGLISH, Language.KAZAKH], "нормаланбайды I", Language.KAZAKH
+        ),
+        pytest.param(
+            [Language.KAZAKH, Language.MONGOLIAN],
+            "Балаларды жүзуге үй-рету бассейнінің үй-жайы",
+            Language.KAZAKH,
+        ),
+        pytest.param(
+            [Language.ENGLISH, Language.RUSSIAN],
+            "III не нормируется I, II",
+            Language.RUSSIAN,
         ),
     ],
 )
-def test_deterministic_language_detection(text, languages):
+def test_specific_language_detection_problems(
+    builder_languages, text, expected_language
+):
+    detector = (
+        LanguageDetectorBuilder.from_languages(*builder_languages)
+        .with_preloaded_language_models()
+        .build()
+    )
+    language = detector.detect_language_of(text)
+    assert language == expected_language
+
+
+@pytest.mark.parametrize(
+    "builder_languages,text",
+    [
+        pytest.param(
+            [Language.ENGLISH, Language.URDU],
+            "ام وی با نیکی میناج تیزر داشت؟؟؟؟؟؟ i vote for bts ( _ ) as the _ via ( _ )",
+        ),
+        pytest.param(
+            [Language.HUNGARIAN, Language.SLOVAK],
+            "Az elmúlt hétvégén 12-re emelkedett az elhunyt koronavírus-fertőzöttek száma Szlovákiában. Mindegyik szociális otthon dolgozóját letesztelik, Matovič szerint az ingázóknak még várniuk kellene a teszteléssel",
+        ),
+    ],
+)
+def test_deterministic_language_detection(builder_languages, text):
     detected_languages = set()
+    detector = (
+        LanguageDetectorBuilder.from_languages(*builder_languages)
+        .with_preloaded_language_models()
+        .build()
+    )
+
     for i in range(0, 50):
-        language = detector_for_all_languages.detect_language_of(text)
+        language = detector.detect_language_of(text)
         detected_languages.add(language)
+
     assert len(detected_languages) == 1
 
 

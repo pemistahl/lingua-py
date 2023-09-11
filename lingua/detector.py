@@ -628,14 +628,16 @@ class LanguageDetector:
     def _filter_languages_by_rules(self, words: List[str]) -> FrozenSet[Language]:
         detected_alphabets: TypedCounter[_Alphabet] = Counter()
         half_word_count = len(words) * 0.5
+
         for word in words:
             for alphabet in _Alphabet:
                 if alphabet.matches(word):
-                    detected_alphabets[alphabet] += 1
+                    detected_alphabets[alphabet] += len(word)
                     break
 
         if len(detected_alphabets) == 0:
             return self._languages
+
         if len(detected_alphabets) > 1:
             distinct_alphabets = {count for count in detected_alphabets.values()}
             if len(distinct_alphabets) == 1:

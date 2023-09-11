@@ -45,6 +45,7 @@ CHARS_TO_LANGUAGES_MAPPING: Dict[str, FrozenSet[Language]] = {
     "ÐðÞþ": frozenset([Language.ICELANDIC, Language.TURKISH]),
     "Ûû": frozenset([Language.FRENCH, Language.HUNGARIAN]),
     "Ōō": frozenset([Language.MAORI, Language.YORUBA]),
+    "ӨөҮү": frozenset([Language.KAZAKH, Language.MONGOLIAN]),
     "ĀāĒēĪī": frozenset([Language.LATVIAN, Language.MAORI, Language.YORUBA]),
     "Şş": frozenset([Language.AZERBAIJANI, Language.ROMANIAN, Language.TURKISH]),
     "Ďď": frozenset([Language.CZECH, Language.ROMANIAN, Language.SLOVAK]),
