@@ -1146,7 +1146,15 @@ def test_detect_multiple_languages_with_one_language(sentence, expected_language
 
 
 @pytest.mark.parametrize(
-    "sentence,expected_first_substring,expected_first_language,expected_second_substring,expected_second_language",
+    ",".join(
+        [
+            "sentence",
+            "expected_first_substring",
+            "expected_first_language",
+            "expected_second_substring",
+            "expected_second_language",
+        ]
+    ),
     [
         pytest.param(
             '  He   turned around and asked: "Entschuldigen Sie, sprechen Sie Deutsch?"',
@@ -1192,30 +1200,65 @@ def test_detect_multiple_languages_with_two_languages(
     assert second_result.language == expected_second_language
 
 
-def test_detect_multiple_languages_french_german_english():
-    sentence = (
-        "Parlez-vous français? "
-        + "Ich spreche Französisch nur ein bisschen. "
-        + "A little bit is better than nothing."
-    )
-
+@pytest.mark.parametrize(
+    ",".join(
+        [
+            "sentence",
+            "expected_first_substring",
+            "expected_first_language",
+            "expected_second_substring",
+            "expected_second_language",
+            "expected_third_substring",
+            "expected_third_language",
+        ]
+    ),
+    [
+        pytest.param(
+            "Parlez-vous français? Ich spreche Französisch nur ein bisschen. A little bit is better than nothing.",
+            "Parlez-vous français? ",
+            Language.FRENCH,
+            "Ich spreche Französisch nur ein bisschen. ",
+            Language.GERMAN,
+            "A little bit is better than nothing.",
+            Language.ENGLISH,
+        ),
+        pytest.param(
+            "Płaszczowo-rurowe wymienniki ciepła Uszczelkowe der blaue himmel über berlin 中文 the quick brown fox jumps over the lazy dog",
+            "Płaszczowo-rurowe wymienniki ciepła Uszczelkowe ",
+            Language.POLISH,
+            "der blaue himmel über berlin 中文 ",
+            Language.GERMAN,
+            "the quick brown fox jumps over the lazy dog",
+            Language.ENGLISH,
+        ),
+    ],
+)
+def test_detect_multiple_languages_with_three_languages(
+    sentence,
+    expected_first_substring,
+    expected_first_language,
+    expected_second_substring,
+    expected_second_language,
+    expected_third_substring,
+    expected_third_language,
+):
     results = detector_for_all_languages.detect_multiple_languages_of(sentence)
     assert len(results) == 3
 
     first_result = results[0]
     first_substring = sentence[first_result.start_index : first_result.end_index]
-    assert first_substring == "Parlez-vous français? "
-    assert first_result.language == Language.FRENCH
+    assert first_substring == expected_first_substring
+    assert first_result.language == expected_first_language
 
     second_result = results[1]
     second_substring = sentence[second_result.start_index : second_result.end_index]
-    assert second_substring == "Ich spreche Französisch nur ein bisschen. "
-    assert second_result.language == Language.GERMAN
+    assert second_substring == expected_second_substring
+    assert second_result.language == expected_second_language
 
     third_result = results[2]
     third_substring = sentence[third_result.start_index : third_result.end_index]
-    assert third_substring == "A little bit is better than nothing."
-    assert third_result.language == Language.ENGLISH
+    assert third_substring == expected_third_substring
+    assert third_result.language == expected_third_language
 
 
 @pytest.mark.parametrize(
