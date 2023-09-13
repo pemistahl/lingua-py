@@ -121,14 +121,14 @@ def _merge_adjacent_results(
             results[i + 1] = DetectionResult(
                 start_index=results[i].start_index,
                 end_index=results[i + 1].end_index,
-                word_count=results[i + 1].word_count,
+                word_count=results[i].word_count + results[i + 1].word_count,
                 language=results[i + 1].language,
             )
         else:
             results[i - 1] = DetectionResult(
                 start_index=results[i - 1].start_index,
                 end_index=results[i].end_index,
-                word_count=results[i - 1].word_count,
+                word_count=results[i - 1].word_count + results[i].word_count,
                 language=results[i - 1].language,
             )
 

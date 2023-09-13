@@ -1126,22 +1126,26 @@ def test_detect_multiple_languages_for_empty_string():
 
 
 @pytest.mark.parametrize(
-    "sentence,expected_language",
+    "sentence,expected_word_count,expected_language",
     [
         pytest.param(
             "I'm really not sure whether multi-language detection is a good idea.",
+            11,
             Language.ENGLISH,
         ),
-        pytest.param("V төзімділік спорт", Language.KAZAKH),
+        pytest.param("V төзімділік спорт", 3, Language.KAZAKH),
     ],
 )
-def test_detect_multiple_languages_with_one_language(sentence, expected_language):
+def test_detect_multiple_languages_with_one_language(
+    sentence, expected_word_count, expected_language
+):
     results = detector_for_all_languages.detect_multiple_languages_of(sentence)
     assert len(results) == 1
 
     result = results[0]
     substring = sentence[result.start_index : result.end_index]
     assert substring == sentence
+    assert result.word_count == expected_word_count
     assert result.language == expected_language
 
 
@@ -1150,8 +1154,10 @@ def test_detect_multiple_languages_with_one_language(sentence, expected_language
         [
             "sentence",
             "expected_first_substring",
+            "expected_first_word_count",
             "expected_first_language",
             "expected_second_substring",
+            "expected_second_word_count",
             "expected_second_language",
         ]
     ),
@@ -1159,22 +1165,28 @@ def test_detect_multiple_languages_with_one_language(sentence, expected_language
         pytest.param(
             '  He   turned around and asked: "Entschuldigen Sie, sprechen Sie Deutsch?"',
             "  He   turned around and asked: ",
+            5,
             Language.ENGLISH,
             '"Entschuldigen Sie, sprechen Sie Deutsch?"',
+            5,
             Language.GERMAN,
         ),
         pytest.param(
             "上海大学是一个好大学. It is such a great university.",
             "上海大学是一个好大学. ",
+            10,
             Language.CHINESE,
             "It is such a great university.",
+            6,
             Language.ENGLISH,
         ),
         pytest.param(
             "English German French - Английский язык",
             "English German French - ",
+            4,
             Language.ENGLISH,
             "Английский язык",
+            2,
             Language.RUSSIAN,
         ),
     ],
@@ -1182,8 +1194,10 @@ def test_detect_multiple_languages_with_one_language(sentence, expected_language
 def test_detect_multiple_languages_with_two_languages(
     sentence,
     expected_first_substring,
+    expected_first_word_count,
     expected_first_language,
     expected_second_substring,
+    expected_second_word_count,
     expected_second_language,
 ):
     results = detector_for_all_languages.detect_multiple_languages_of(sentence)
@@ -1192,11 +1206,13 @@ def test_detect_multiple_languages_with_two_languages(
     first_result = results[0]
     first_substring = sentence[first_result.start_index : first_result.end_index]
     assert first_substring == expected_first_substring
+    assert first_result.word_count == expected_first_word_count
     assert first_result.language == expected_first_language
 
     second_result = results[1]
     second_substring = sentence[second_result.start_index : second_result.end_index]
     assert second_substring == expected_second_substring
+    assert second_result.word_count == expected_second_word_count
     assert second_result.language == expected_second_language
 
 
@@ -1205,10 +1221,13 @@ def test_detect_multiple_languages_with_two_languages(
         [
             "sentence",
             "expected_first_substring",
+            "expected_first_word_count",
             "expected_first_language",
             "expected_second_substring",
+            "expected_second_word_count",
             "expected_second_language",
             "expected_third_substring",
+            "expected_third_word_count",
             "expected_third_language",
         ]
     ),
@@ -1216,19 +1235,25 @@ def test_detect_multiple_languages_with_two_languages(
         pytest.param(
             "Parlez-vous français? Ich spreche Französisch nur ein bisschen. A little bit is better than nothing.",
             "Parlez-vous français? ",
+            2,
             Language.FRENCH,
             "Ich spreche Französisch nur ein bisschen. ",
+            6,
             Language.GERMAN,
             "A little bit is better than nothing.",
+            7,
             Language.ENGLISH,
         ),
         pytest.param(
             "Płaszczowo-rurowe wymienniki ciepła Uszczelkowe der blaue himmel über berlin 中文 the quick brown fox jumps over the lazy dog",
             "Płaszczowo-rurowe wymienniki ciepła Uszczelkowe ",
+            4,
             Language.POLISH,
             "der blaue himmel über berlin 中文 ",
+            7,
             Language.GERMAN,
             "the quick brown fox jumps over the lazy dog",
+            9,
             Language.ENGLISH,
         ),
     ],
@@ -1236,10 +1261,13 @@ def test_detect_multiple_languages_with_two_languages(
 def test_detect_multiple_languages_with_three_languages(
     sentence,
     expected_first_substring,
+    expected_first_word_count,
     expected_first_language,
     expected_second_substring,
+    expected_second_word_count,
     expected_second_language,
     expected_third_substring,
+    expected_third_word_count,
     expected_third_language,
 ):
     results = detector_for_all_languages.detect_multiple_languages_of(sentence)
@@ -1248,16 +1276,19 @@ def test_detect_multiple_languages_with_three_languages(
     first_result = results[0]
     first_substring = sentence[first_result.start_index : first_result.end_index]
     assert first_substring == expected_first_substring
+    assert first_result.word_count == expected_first_word_count
     assert first_result.language == expected_first_language
 
     second_result = results[1]
     second_substring = sentence[second_result.start_index : second_result.end_index]
     assert second_substring == expected_second_substring
+    assert second_result.word_count == expected_second_word_count
     assert second_result.language == expected_second_language
 
     third_result = results[2]
     third_substring = sentence[third_result.start_index : third_result.end_index]
     assert third_substring == expected_third_substring
+    assert third_result.word_count == expected_third_word_count
     assert third_result.language == expected_third_language
 
 
