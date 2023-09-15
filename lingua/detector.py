@@ -235,7 +235,9 @@ class LanguageDetector:
 
     def _preload_language_models(self):
         trigram_models = [
-            _load_language_models(language, 3) for language in self._languages
+            _load_language_models(language, 3)
+            for language in self._languages
+            if language not in self._trigram_language_models
         ]
 
         for trigram_model in trigram_models:
@@ -243,17 +245,28 @@ class LanguageDetector:
                 self._trigram_language_models.update(trigram_model)
 
         if not self._is_low_accuracy_mode_enabled:
-            (
-                unigram_models,
-                bigram_models,
-                quadrigram_models,
-                fivegram_models,
-            ) = [
-                [
-                    _load_language_models(language, ngram_length)
-                    for language in self._languages
-                ]
-                for ngram_length in (1, 2, 4, 5)
+            unigram_models = [
+                _load_language_models(language, 1)
+                for language in self._languages
+                if language not in self._unigram_language_models
+            ]
+
+            bigram_models = [
+                _load_language_models(language, 2)
+                for language in self._languages
+                if language not in self._bigram_language_models
+            ]
+
+            quadrigram_models = [
+                _load_language_models(language, 4)
+                for language in self._languages
+                if language not in self._quadrigram_language_models
+            ]
+
+            fivegram_models = [
+                _load_language_models(language, 5)
+                for language in self._languages
+                if language not in self._fivegram_language_models
             ]
 
             for unigram_model in unigram_models:
@@ -271,6 +284,24 @@ class LanguageDetector:
             for fivegram_model in fivegram_models:
                 if fivegram_model is not None:
                     self._fivegram_language_models.update(fivegram_model)
+
+    def unload_language_models(self):
+        """Clear all language models loaded by this LanguageDetector instance.
+
+        This helps to free allocated memory previously consumed by the models.
+        """
+        for language in self._languages:
+            try:
+                self._trigram_language_models.pop(language)
+
+                if not self._is_low_accuracy_mode_enabled:
+                    self._unigram_language_models.pop(language)
+                    self._bigram_language_models.pop(language)
+                    self._quadrigram_language_models.pop(language)
+                    self._fivegram_language_models.pop(language)
+
+            except KeyError:
+                pass
 
     def detect_language_of(self, text: str) -> Optional[Language]:
         """Detect the language of text.
