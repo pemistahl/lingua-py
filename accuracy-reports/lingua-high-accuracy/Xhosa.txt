@@ -1,16 +1,16 @@
 ##### Xhosa #####
 
->>> Accuracy on average: 81.43%
+>>> Accuracy on average: 82.47%
 
 >> Detection of 1000 single words (average length: 9 chars)
-Accuracy: 62.60%
-Erroneously classified as Zulu: 21.40%, Tsonga: 3.00%, English: 1.90%, Swahili: 1.40%, Sotho: 1.30%, Tswana: 1.30%, Shona: 0.90%, Ganda: 0.80%, Latin: 0.80%, French: 0.60%, Afrikaans: 0.50%, Tagalog: 0.50%, Esperanto: 0.30%, Malay: 0.30%, Swedish: 0.30%, Dutch: 0.20%, Finnish: 0.20%, Italian: 0.20%, Yoruba: 0.20%, Unknown: 0.20%, Albanian: 0.10%, Basque: 0.10%, Bokmal: 0.10%, Croatian: 0.10%, Indonesian: 0.10%, Latvian: 0.10%, Portuguese: 0.10%, Slovene: 0.10%, Somali: 0.10%, Turkish: 0.10%, Welsh: 0.10%
+Accuracy: 63.90%
+Erroneously classified as Zulu: 20.80%, Tsonga: 3.10%, Sotho: 1.80%, English: 1.70%, Swahili: 1.40%, Tswana: 1.20%, Ganda: 0.80%, Shona: 0.80%, Latin: 0.60%, Tagalog: 0.50%, French: 0.40%, Afrikaans: 0.30%, Malay: 0.30%, Swedish: 0.30%, Dutch: 0.20%, Esperanto: 0.20%, Finnish: 0.20%, Indonesian: 0.20%, Italian: 0.20%, Yoruba: 0.20%, Basque: 0.10%, Bokmal: 0.10%, Bosnian: 0.10%, Croatian: 0.10%, German: 0.10%, Latvian: 0.10%, Portuguese: 0.10%, Somali: 0.10%, Turkish: 0.10%
 
 >> Detection of 1000 word pairs (average length: 18 chars)
-Accuracy: 84.00%
-Erroneously classified as Zulu: 12.60%, English: 0.40%, Latin: 0.40%, Swahili: 0.30%, Tsonga: 0.30%, Unknown: 0.30%, Basque: 0.20%, Dutch: 0.20%, French: 0.20%, Portuguese: 0.20%, Shona: 0.20%, Sotho: 0.20%, Esperanto: 0.10%, Swedish: 0.10%, Tagalog: 0.10%, Tswana: 0.10%, Yoruba: 0.10%
+Accuracy: 85.00%
+Erroneously classified as Zulu: 11.90%, Tsonga: 0.50%, English: 0.40%, Latin: 0.30%, Sotho: 0.30%, Swahili: 0.30%, Basque: 0.20%, French: 0.20%, Portuguese: 0.20%, Tswana: 0.20%, Dutch: 0.10%, Shona: 0.10%, Swedish: 0.10%, Tagalog: 0.10%, Yoruba: 0.10%
 
 >> Detection of 1000 sentences (average length: 127 chars)
-Accuracy: 97.70%
-Erroneously classified as Zulu: 2.20%, Portuguese: 0.10%
+Accuracy: 98.50%
+Erroneously classified as Zulu: 1.40%, Portuguese: 0.10%
 

@@ -1,16 +1,16 @@
 ##### Slovak #####
 
->>> Accuracy on average: 71.47%
+>>> Accuracy on average: 68.00%
 
 >> Detection of 1000 single words (average length: 8 chars)
-Accuracy: 54.10%
-Erroneously classified as Unknown: 43.80%, Czech: 0.40%, Polish: 0.40%, German: 0.30%, Slovene: 0.30%, English: 0.20%, Finnish: 0.20%, Latin: 0.20%, Lithuanian: 0.10%
+Accuracy: 45.20%
+Erroneously classified as Unknown: 51.50%, Polish: 1.10%, Finnish: 0.70%, Czech: 0.40%, English: 0.20%, Estonian: 0.20%, Latin: 0.20%, Slovene: 0.20%, Hungarian: 0.10%, Lithuanian: 0.10%, Turkish: 0.10%
 
 >> Detection of 1000 word pairs (average length: 16 chars)
-Accuracy: 67.80%
-Erroneously classified as Unknown: 31.30%, Czech: 0.40%, English: 0.20%, German: 0.20%, Polish: 0.10%
+Accuracy: 66.20%
+Erroneously classified as Unknown: 33.00%, Czech: 0.40%, English: 0.20%, Polish: 0.20%
 
 >> Detection of 1000 sentences (average length: 101 chars)
-Accuracy: 92.50%
-Erroneously classified as Unknown: 7.20%, Czech: 0.20%, English: 0.10%
+Accuracy: 92.60%
+Erroneously classified as Unknown: 7.00%, Czech: 0.30%, English: 0.10%
 

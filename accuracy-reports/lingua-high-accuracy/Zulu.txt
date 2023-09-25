@@ -1,16 +1,16 @@
 ##### Zulu #####
 
->>> Accuracy on average: 80.50%
+>>> Accuracy on average: 80.80%
 
 >> Detection of 1000 single words (average length: 9 chars)
-Accuracy: 62.30%
-Erroneously classified as Xhosa: 18.00%, Tsonga: 2.90%, English: 1.90%, Swahili: 1.90%, Tswana: 1.40%, Sotho: 1.30%, Latin: 1.20%, Shona: 1.00%, Ganda: 0.90%, Tagalog: 0.60%, Welsh: 0.60%, Afrikaans: 0.50%, Malay: 0.50%, Italian: 0.40%, Somali: 0.40%, Azerbaijani: 0.30%, Estonian: 0.30%, Indonesian: 0.30%, Lithuanian: 0.30%, Nynorsk: 0.30%, Spanish: 0.30%, Yoruba: 0.30%, Basque: 0.20%, Catalan: 0.20%, Danish: 0.20%, Dutch: 0.20%, Esperanto: 0.20%, French: 0.20%, Turkish: 0.20%, Unknown: 0.20%, Albanian: 0.10%, Finnish: 0.10%, Icelandic: 0.10%, Latvian: 0.10%, Portuguese: 0.10%
+Accuracy: 62.00%
+Erroneously classified as Xhosa: 18.00%, Tsonga: 2.90%, Tswana: 1.90%, English: 1.80%, Swahili: 1.80%, Sotho: 1.40%, Latin: 1.30%, Ganda: 1.10%, Shona: 1.00%, Tagalog: 0.60%, Welsh: 0.60%, Afrikaans: 0.50%, Somali: 0.50%, Italian: 0.40%, Malay: 0.40%, Yoruba: 0.40%, Azerbaijani: 0.30%, Estonian: 0.30%, Indonesian: 0.30%, Nynorsk: 0.30%, Spanish: 0.30%, Basque: 0.20%, Catalan: 0.20%, Danish: 0.20%, Esperanto: 0.20%, Finnish: 0.20%, French: 0.20%, Lithuanian: 0.20%, Turkish: 0.20%, Albanian: 0.10%, Latvian: 0.10%, Portuguese: 0.10%
 
 >> Detection of 1000 word pairs (average length: 17 chars)
-Accuracy: 82.60%
-Erroneously classified as Xhosa: 11.40%, Swahili: 1.00%, English: 0.90%, Latin: 0.60%, Afrikaans: 0.40%, Sotho: 0.40%, Tswana: 0.40%, Unknown: 0.40%, Tagalog: 0.30%, Tsonga: 0.30%, Shona: 0.20%, Swedish: 0.20%, Yoruba: 0.20%, Dutch: 0.10%, Indonesian: 0.10%, Italian: 0.10%, Portuguese: 0.10%, Somali: 0.10%, Turkish: 0.10%, Welsh: 0.10%
+Accuracy: 83.10%
+Erroneously classified as Xhosa: 12.00%, English: 0.90%, Swahili: 0.70%, Latin: 0.50%, Afrikaans: 0.40%, Sotho: 0.40%, Tswana: 0.40%, Shona: 0.20%, Tagalog: 0.20%, Tsonga: 0.20%, Yoruba: 0.20%, Dutch: 0.10%, Italian: 0.10%, Portuguese: 0.10%, Romanian: 0.10%, Somali: 0.10%, Swedish: 0.10%, Turkish: 0.10%, Welsh: 0.10%
 
 >> Detection of 1000 sentences (average length: 115 chars)
-Accuracy: 96.60%
-Erroneously classified as Xhosa: 3.20%, Unknown: 0.20%
+Accuracy: 97.30%
+Erroneously classified as Xhosa: 2.70%
 

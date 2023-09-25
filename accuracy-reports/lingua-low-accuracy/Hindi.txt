@@ -1,6 +1,6 @@
 ##### Hindi #####
 
->>> Accuracy on average: 32.73%
+>>> Accuracy on average: 32.70%
 
 >> Detection of 1000 single words (average length: 6 chars)
 Accuracy: 11.30%
@@ -11,6 +11,6 @@ Accuracy: 19.60%
 Erroneously classified as Unknown: 72.70%, Marathi: 7.70%
 
 >> Detection of 1000 sentences (average length: 81 chars)
-Accuracy: 67.30%
-Erroneously classified as Unknown: 23.20%, Marathi: 9.20%, Bokmal: 0.20%, English: 0.10%
+Accuracy: 67.20%
+Erroneously classified as Unknown: 23.60%, Marathi: 8.60%, Bokmal: 0.20%, English: 0.20%, Estonian: 0.10%, Nynorsk: 0.10%
 

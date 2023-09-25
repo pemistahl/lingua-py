@@ -1,16 +1,16 @@
 ##### Slovene #####
 
->>> Accuracy on average: 77.87%
+>>> Accuracy on average: 72.07%
 
 >> Detection of 1000 single words (average length: 8 chars)
-Accuracy: 61.50%
-Erroneously classified as Unknown: 36.10%, German: 0.80%, English: 0.50%, Polish: 0.50%, Turkish: 0.20%, Latin: 0.10%, Romanian: 0.10%, Slovak: 0.10%, Spanish: 0.10%
+Accuracy: 47.50%
+Erroneously classified as Unknown: 48.90%, Finnish: 0.90%, Polish: 0.80%, English: 0.30%, Estonian: 0.30%, Turkish: 0.30%, German: 0.20%, Lithuanian: 0.20%, Slovak: 0.20%, Bokmal: 0.10%, Czech: 0.10%, Latin: 0.10%, Spanish: 0.10%
 
 >> Detection of 1000 word pairs (average length: 16 chars)
-Accuracy: 75.60%
-Erroneously classified as Unknown: 23.60%, Finnish: 0.20%, Slovak: 0.20%, Bokmal: 0.10%, Catalan: 0.10%, German: 0.10%, Italian: 0.10%
+Accuracy: 72.40%
+Erroneously classified as Unknown: 25.90%, Slovak: 0.50%, Finnish: 0.40%, Bokmal: 0.20%, Polish: 0.20%, Catalan: 0.10%, Czech: 0.10%, Estonian: 0.10%, Italian: 0.10%
 
 >> Detection of 1000 sentences (average length: 114 chars)
-Accuracy: 96.50%
-Erroneously classified as Unknown: 3.40%, German: 0.10%
+Accuracy: 96.30%
+Erroneously classified as Unknown: 3.70%
 
