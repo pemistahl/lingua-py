@@ -50,14 +50,14 @@ class AccuracyPlotDrawer:
         "lingua-high",
     )
     _legend_labels = (
-        "Simplemma 0.8.2",
+        "Simplemma 0.9.1",
         "CLD 2",
         "CLD 3",
         "langid 1.1.6",
         "fastText 0.9.2",
         "langdetect 1.0.9",
-        "Lingua 1.3.0\nlow accuracy mode",
-        "Lingua 1.3.0\nhigh accuracy mode",
+        "Lingua 1.3.3\nlow accuracy mode",
+        "Lingua 1.3.3\nhigh accuracy mode",
     )
     _hatches = ("|", "-", "/", "x", "+", ".", "*", "O")
     _palette = (
