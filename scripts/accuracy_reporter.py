@@ -24,9 +24,10 @@ import time
 import urllib.request
 
 from collections import Counter
+from concurrent.futures import ProcessPoolExecutor
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Counter as TypedCounter, Dict, List, Optional, Tuple
+from typing import Callable, Counter as TypedCounter, Dict, List, Optional, Tuple
 
 from simplemma.langdetect import lang_detector as simplemma_detector
 from lingua import IsoCode639_1, Language, LanguageDetectorBuilder
@@ -200,127 +201,269 @@ class Statistic:
         return ", ".join(substrs)
 
 
-def main():
-    start = time.perf_counter()
-    lingua_detector_with_high_accuracy = (
-        LanguageDetectorBuilder.from_all_languages()
-        .with_preloaded_language_models()
-        .build()
-    )
+def format_accuracy(accuracy: float, digits: int = 2) -> str:
+    return f"{accuracy*100:.{digits}f}"
 
-    lingua_detector_with_low_accuracy = (
-        LanguageDetectorBuilder.from_all_languages()
-        .with_low_accuracy_mode()
-        .with_preloaded_language_models()
-        .build()
-    )
 
-    fasttext_model_url = (
-        "https://dl.fbaipublicfiles.com/fasttext/supervised-models/lid.176.bin"
-    )
-    fasttext_model_file = str(Path(__file__).parent / "fasttext_model.bin")
-    if not os.path.isfile(fasttext_model_file):
-        fasttext_model_file = urllib.request.urlretrieve(
-            fasttext_model_url, fasttext_model_file
-        )[0]
-    fasttext_detector = fasttext.load_model(fasttext_model_file)
+def map_detector_to_lingua(iso_code: str) -> Optional[Language]:
+    if iso_code in ["zh-cn", "zh-tw"]:
+        iso_code = "zh"
+    try:
+        lingua_iso_code = IsoCode639_1[iso_code.upper()]
+        for language in Language:
+            if language.iso_code_639_1 == lingua_iso_code:
+                return language
+        return None
+    except KeyError:
+        return None
 
-    cld3_detector = gcld3.NNetLanguageIdentifier(min_num_bytes=0, max_num_bytes=512)
 
-    simplemma_iso_codes = tuple(
-        [
-            language.iso_code_639_1.name.lower()
-            for language in [
-                Language.BULGARIAN,
-                Language.CATALAN,
-                Language.CZECH,
-                Language.WELSH,
-                Language.DANISH,
-                Language.GERMAN,
-                Language.GREEK,
-                Language.ENGLISH,
-                Language.SPANISH,
-                Language.ESTONIAN,
-                Language.PERSIAN,
-                Language.FINNISH,
-                Language.FRENCH,
-                Language.IRISH,
-                Language.HINDI,
-                Language.HUNGARIAN,
-                Language.ARMENIAN,
-                Language.INDONESIAN,
-                Language.ICELANDIC,
-                Language.ITALIAN,
-                Language.GEORGIAN,
-                Language.LATIN,
-                Language.LITHUANIAN,
-                Language.LATVIAN,
-                Language.MACEDONIAN,
-                Language.MALAY,
-                Language.BOKMAL,
-                Language.NYNORSK,
-                Language.DUTCH,
-                Language.POLISH,
-                Language.PORTUGUESE,
-                Language.ROMANIAN,
-                Language.RUSSIAN,
-                Language.SLOVAK,
-                Language.SLOVENE,
-                Language.ALBANIAN,
-                Language.SWEDISH,
-                Language.SWAHILI,
-                Language.TAGALOG,
-                Language.TURKISH,
-                Language.UKRAINIAN,
-            ]
+def simplemma_detect(text: str) -> Tuple[str, Optional[Language]]:
+    iso_codes = tuple(
+        language.iso_code_639_1.name.lower()
+        for language in [
+            Language.BULGARIAN,
+            Language.CATALAN,
+            Language.CZECH,
+            Language.WELSH,
+            Language.DANISH,
+            Language.GERMAN,
+            Language.GREEK,
+            Language.ENGLISH,
+            Language.SPANISH,
+            Language.ESTONIAN,
+            Language.PERSIAN,
+            Language.FINNISH,
+            Language.FRENCH,
+            Language.IRISH,
+            Language.HINDI,
+            Language.HUNGARIAN,
+            Language.ARMENIAN,
+            Language.INDONESIAN,
+            Language.ICELANDIC,
+            Language.ITALIAN,
+            Language.GEORGIAN,
+            Language.LATIN,
+            Language.LITHUANIAN,
+            Language.LATVIAN,
+            Language.MACEDONIAN,
+            Language.MALAY,
+            Language.BOKMAL,
+            Language.NYNORSK,
+            Language.DUTCH,
+            Language.POLISH,
+            Language.PORTUGUESE,
+            Language.ROMANIAN,
+            Language.RUSSIAN,
+            Language.SLOVAK,
+            Language.SLOVENE,
+            Language.ALBANIAN,
+            Language.SWEDISH,
+            Language.SWAHILI,
+            Language.TAGALOG,
+            Language.TURKISH,
+            Language.UKRAINIAN,
         ]
     )
 
-    test_data_directory = Path(__file__).parent / "../language-testdata"
-    accuracy_reports_directory = Path(__file__).parent / "../accuracy-reports"
-    lingua_high_accuracy_reports_directory = (
-        accuracy_reports_directory / "lingua-high-accuracy"
+    return text, map_detector_to_lingua(simplemma_detector(text, iso_codes)[0][0])  # type: ignore
+
+
+def cld2_detect(text: str) -> Tuple[str, Optional[Language]]:
+    try:
+        detected_language = map_detector_to_lingua(pycld2.detect(text)[2][0][1])
+    except pycld2.error:
+        detected_language = None
+    return text, detected_language
+
+
+cld3_detector = gcld3.NNetLanguageIdentifier(min_num_bytes=0, max_num_bytes=512)
+
+
+def cld3_detect(text: str) -> Tuple[str, Optional[Language]]:
+    return text, map_detector_to_lingua(cld3_detector.FindLanguage(text).language)
+
+
+def langid_detect(text: str) -> Tuple[str, Optional[Language]]:
+    return text, map_detector_to_lingua(langid.classify(text)[0])
+
+
+fasttext_model_url = (
+    "https://dl.fbaipublicfiles.com/fasttext/supervised-models/lid.176.bin"
+)
+fasttext_model_file = str(Path(__file__).parent / "fasttext_model.bin")
+if not os.path.isfile(fasttext_model_file):
+    fasttext_model_file = urllib.request.urlretrieve(
+        fasttext_model_url, fasttext_model_file
+    )[0]
+fasttext_detector = fasttext.load_model(fasttext_model_file)
+
+
+def fasttext_detect(text: str) -> Tuple[str, Optional[Language]]:
+    return text, map_detector_to_lingua(
+        fasttext_detector.predict(text)[0][0].split("__label__")[1]
     )
+
+
+def langdetect_detect(text: str) -> Tuple[str, Optional[Language]]:
+    try:
+        detected_language = map_detector_to_lingua(langdetect.detect(text))
+    except langdetect.lang_detect_exception.LangDetectException:
+        detected_language = None
+    return text, detected_language
+
+
+lingua_detector_with_low_accuracy = (
+    LanguageDetectorBuilder.from_all_languages()
+    .with_low_accuracy_mode()
+    .with_preloaded_language_models()
+    .build()
+)
+
+
+def lingua_low_accuracy_detect(text: str) -> Tuple[str, Optional[Language]]:
+    return text, lingua_detector_with_low_accuracy.detect_language_of(text)
+
+
+lingua_detector_with_high_accuracy = (
+    LanguageDetectorBuilder.from_all_languages()
+    .with_preloaded_language_models()
+    .build()
+)
+
+
+def lingua_high_accuracy_detect(text: str) -> Tuple[str, Optional[Language]]:
+    return text, lingua_detector_with_high_accuracy.detect_language_of(text)
+
+
+def get_file_content(subdirectory: str) -> Dict[Language, List[str]]:
+    file_content = {}
+    test_data_directory = Path(__file__).parent / "../language-testdata"
+
+    for language in Language:
+        test_data_file_name = f"{language.iso_code_639_1.name.lower()}.txt"
+        test_data_file_path = test_data_directory / subdirectory / test_data_file_name
+
+        with test_data_file_path.open(mode="r") as test_data_file:
+            file_content[language] = [
+                line.rstrip() for line in test_data_file if len(line.rstrip()) > 0
+            ]
+
+    return file_content
+
+
+single_words = get_file_content("single-words")
+word_pairs = get_file_content("word-pairs")
+sentences = get_file_content("sentences")
+
+
+def collect_statistics(
+    detector_name: str,
+    reports_directory: Path,
+    detector_fn: Callable[[str], Tuple[str, Optional[Language]]],
+) -> List[DetectorStatistics]:
+    start = time.perf_counter()
+    language_statistics = []
+
+    if not reports_directory.is_dir():
+        os.makedirs(reports_directory)
+
+    total_language_count = len(Language)
+
+    with ProcessPoolExecutor(max_workers=4) as executor:
+        for idx, language in enumerate(Language):
+            print(
+                f"Writing {detector_name} reports for {language.name.title()}... ({idx+1}/{total_language_count})"
+            )
+
+            statistics = DetectorStatistics.new()
+
+            detection_results = executor.map(detector_fn, single_words[language])
+            for single_word, detected_language in detection_results:
+                statistics.add_single_word_counts(detected_language, single_word)
+
+            detection_results = executor.map(detector_fn, word_pairs[language])
+            for word_pair, detected_language in detection_results:
+                statistics.add_word_pair_counts(detected_language, word_pair)
+
+            detection_results = executor.map(detector_fn, sentences[language])
+            for sentence, detected_language in detection_results:
+                statistics.add_sentence_counts(detected_language, sentence)
+
+            statistics.compute_accuracy_values()
+
+            reports_file_path = reports_directory / f"{language.name.title()}.txt"
+            report = statistics.create_report_data(language)
+
+            if report is not None:
+                with reports_file_path.open(mode="w") as reports_file:
+                    reports_file.write(report)
+
+            language_statistics.append(statistics)
+
+    stop = time.perf_counter()
+    print(f"{detector_name} reports written in {stop - start:.2f} seconds\n")
+
+    return language_statistics
+
+
+def main():
+    start = time.perf_counter()
+
+    accuracy_reports_directory = Path(__file__).parent / "../accuracy-reports"
+
+    simplemma_reports_directory = accuracy_reports_directory / "simplemma"
+    simplemma_statistics = collect_statistics(
+        "simplemma", simplemma_reports_directory, simplemma_detect
+    )
+
+    cld2_reports_directory = accuracy_reports_directory / "cld2"
+    cld2_statistics = collect_statistics("CLD2", cld2_reports_directory, cld2_detect)
+
+    cld3_reports_directory = accuracy_reports_directory / "cld3"
+    cld3_statistics = collect_statistics("CLD3", cld3_reports_directory, cld3_detect)
+
+    langid_reports_directory = accuracy_reports_directory / "langid"
+    langid_statistics = collect_statistics(
+        "langid", langid_reports_directory, langid_detect
+    )
+
+    fasttext_reports_directory = accuracy_reports_directory / "fasttext"
+    fasttext_statistics = collect_statistics(
+        "fasttext", fasttext_reports_directory, fasttext_detect
+    )
+
+    langdetect_reports_directory = accuracy_reports_directory / "langdetect"
+    langdetect_statistics = collect_statistics(
+        "langdetect", langdetect_reports_directory, langdetect_detect
+    )
+
     lingua_low_accuracy_reports_directory = (
         accuracy_reports_directory / "lingua-low-accuracy"
     )
-    langdetect_reports_directory = accuracy_reports_directory / "langdetect"
-    fasttext_reports_directory = accuracy_reports_directory / "fasttext"
-    langid_reports_directory = accuracy_reports_directory / "langid"
-    cld3_reports_directory = accuracy_reports_directory / "cld3"
-    cld2_reports_directory = accuracy_reports_directory / "cld2"
-    simplemma_reports_directory = accuracy_reports_directory / "simplemma"
+    lingua_low_accuracy_statistics = collect_statistics(
+        "lingua-low-accuracy",
+        lingua_low_accuracy_reports_directory,
+        lingua_low_accuracy_detect,
+    )
 
-    if not lingua_high_accuracy_reports_directory.is_dir():
-        os.makedirs(lingua_high_accuracy_reports_directory)
+    lingua_high_accuracy_reports_directory = (
+        accuracy_reports_directory / "lingua-high-accuracy"
+    )
+    lingua_high_accuracy_statistics = collect_statistics(
+        "lingua-high-accuracy",
+        lingua_high_accuracy_reports_directory,
+        lingua_high_accuracy_detect,
+    )
 
-    if not lingua_low_accuracy_reports_directory.is_dir():
-        os.makedirs(lingua_low_accuracy_reports_directory)
-
-    if not langdetect_reports_directory.is_dir():
-        os.makedirs(langdetect_reports_directory)
-
-    if not fasttext_reports_directory.is_dir():
-        os.makedirs(fasttext_reports_directory)
-
-    if not langid_reports_directory.is_dir():
-        os.makedirs(langid_reports_directory)
-
-    if not cld3_reports_directory.is_dir():
-        os.makedirs(cld3_reports_directory)
-
-    if not cld2_reports_directory.is_dir():
-        os.makedirs(cld2_reports_directory)
-
-    if not simplemma_reports_directory.is_dir():
-        os.makedirs(simplemma_reports_directory)
-
-    aggregated_report_file = (
+    aggregated_report_file_path = (
         accuracy_reports_directory / "aggregated-accuracy-values.csv"
     )
 
-    with aggregated_report_file.open(mode="w", newline="") as csv_file:
-        csv_writer = csv.writer(csv_file)
+    with aggregated_report_file_path.open(
+        mode="w", newline=""
+    ) as aggregated_report_file:
+        csv_writer = csv.writer(aggregated_report_file)
         csv_writer.writerow(
             [
                 "language",
@@ -359,231 +502,41 @@ def main():
             ]
         )
 
-        total_language_count = len(Language)
-
         for idx, language in enumerate(Language):
-            print(
-                f"Writing reports for {language.name.title()}... ({idx+1}/{total_language_count})"
-            )
+            simplemma_aggregated_report_row = simplemma_statistics[
+                idx
+            ].create_aggregated_report_row(language)
 
-            single_words = get_file_content(
-                test_data_directory, "single-words", language
-            )
-            word_pairs = get_file_content(test_data_directory, "word-pairs", language)
-            sentences = get_file_content(test_data_directory, "sentences", language)
+            cld2_aggregated_report_row = cld2_statistics[
+                idx
+            ].create_aggregated_report_row(language)
 
-            lingua_high_accuracy_statistics = DetectorStatistics.new()
-            lingua_low_accuracy_statistics = DetectorStatistics.new()
-            langdetect_statistics = DetectorStatistics.new()
-            fasttext_statistics = DetectorStatistics.new()
-            langid_statistics = DetectorStatistics.new()
-            cld3_statistics = DetectorStatistics.new()
-            cld2_statistics = DetectorStatistics.new()
-            simplemma_statistics = DetectorStatistics.new()
+            cld3_aggregated_report_row = cld3_statistics[
+                idx
+            ].create_aggregated_report_row(language)
 
-            for single_word in single_words:
-                lingua_language_in_high_accuracy_mode = (
-                    lingua_detector_with_high_accuracy.detect_language_of(single_word)
-                )
-                lingua_high_accuracy_statistics.add_single_word_counts(
-                    lingua_language_in_high_accuracy_mode, single_word
-                )
+            langid_aggregated_report_row = langid_statistics[
+                idx
+            ].create_aggregated_report_row(language)
 
-                lingua_language_in_low_accuracy_mode = (
-                    lingua_detector_with_low_accuracy.detect_language_of(single_word)
-                )
-                lingua_low_accuracy_statistics.add_single_word_counts(
-                    lingua_language_in_low_accuracy_mode, single_word
-                )
+            fasttext_aggregated_report_row = fasttext_statistics[
+                idx
+            ].create_aggregated_report_row(language)
 
-                try:
-                    langdetect_language = map_detector_to_lingua(
-                        langdetect.detect(single_word)
-                    )
-                except langdetect.lang_detect_exception.LangDetectException:
-                    langdetect_language = None
-                langdetect_statistics.add_single_word_counts(
-                    langdetect_language, single_word
-                )
+            langdetect_aggregated_report_row = langdetect_statistics[
+                idx
+            ].create_aggregated_report_row(language)
 
-                fasttext_language = map_detector_to_lingua(
-                    fasttext_detector.predict(single_word)[0][0].split("__label__")[1]
-                )
-                fasttext_statistics.add_single_word_counts(
-                    fasttext_language, single_word
-                )
-
-                langid_language = map_detector_to_lingua(
-                    langid.classify(single_word)[0]
-                )
-                langid_statistics.add_single_word_counts(langid_language, single_word)
-
-                cld3_language = map_detector_to_lingua(
-                    cld3_detector.FindLanguage(single_word).language
-                )
-                cld3_statistics.add_single_word_counts(cld3_language, single_word)
-
-                try:
-                    cld2_language = map_detector_to_lingua(
-                        pycld2.detect(single_word)[2][0][1]
-                    )
-                except pycld2.error:
-                    cld2_language = None
-                cld2_statistics.add_single_word_counts(cld2_language, single_word)
-
-                simplemma_language = map_detector_to_lingua(
-                    simplemma_detector(single_word, simplemma_iso_codes)[0][0]
-                )
-                simplemma_statistics.add_single_word_counts(
-                    simplemma_language, single_word
-                )
-
-            for word_pair in word_pairs:
-                lingua_language_in_high_accuracy_mode = (
-                    lingua_detector_with_high_accuracy.detect_language_of(word_pair)
-                )
-                lingua_high_accuracy_statistics.add_word_pair_counts(
-                    lingua_language_in_high_accuracy_mode, word_pair
-                )
-
-                lingua_language_in_low_accuracy_mode = (
-                    lingua_detector_with_low_accuracy.detect_language_of(word_pair)
-                )
-                lingua_low_accuracy_statistics.add_word_pair_counts(
-                    lingua_language_in_low_accuracy_mode, word_pair
-                )
-
-                try:
-                    langdetect_language = map_detector_to_lingua(
-                        langdetect.detect(word_pair)
-                    )
-                except langdetect.lang_detect_exception.LangDetectException:
-                    langdetect_language = None
-                langdetect_statistics.add_word_pair_counts(
-                    langdetect_language, word_pair
-                )
-
-                fasttext_language = map_detector_to_lingua(
-                    fasttext_detector.predict(word_pair)[0][0].split("__label__")[1]
-                )
-                fasttext_statistics.add_word_pair_counts(fasttext_language, word_pair)
-
-                langid_language = map_detector_to_lingua(langid.classify(word_pair)[0])
-                langid_statistics.add_word_pair_counts(langid_language, word_pair)
-
-                cld3_language = map_detector_to_lingua(
-                    cld3_detector.FindLanguage(word_pair).language
-                )
-                cld3_statistics.add_word_pair_counts(cld3_language, word_pair)
-
-                try:
-                    cld2_language = map_detector_to_lingua(
-                        pycld2.detect(word_pair)[2][0][1]
-                    )
-                except pycld2.error:
-                    cld2_language = None
-                cld2_statistics.add_word_pair_counts(cld2_language, word_pair)
-
-                simplemma_language = map_detector_to_lingua(
-                    simplemma_detector(word_pair, simplemma_iso_codes)[0][0]
-                )
-                simplemma_statistics.add_word_pair_counts(simplemma_language, word_pair)
-
-            for sentence in sentences:
-                lingua_language_in_high_accuracy_mode = (
-                    lingua_detector_with_high_accuracy.detect_language_of(sentence)
-                )
-                lingua_high_accuracy_statistics.add_sentence_counts(
-                    lingua_language_in_high_accuracy_mode, sentence
-                )
-
-                lingua_language_in_low_accuracy_mode = (
-                    lingua_detector_with_low_accuracy.detect_language_of(sentence)
-                )
-                lingua_low_accuracy_statistics.add_sentence_counts(
-                    lingua_language_in_low_accuracy_mode, sentence
-                )
-
-                try:
-                    langdetect_language = map_detector_to_lingua(
-                        langdetect.detect(sentence)
-                    )
-                except langdetect.lang_detect_exception.LangDetectException:
-                    langdetect_language = None
-                langdetect_statistics.add_sentence_counts(langdetect_language, sentence)
-
-                fasttext_language = map_detector_to_lingua(
-                    fasttext_detector.predict(sentence)[0][0].split("__label__")[1]
-                )
-                fasttext_statistics.add_sentence_counts(fasttext_language, sentence)
-
-                langid_language = map_detector_to_lingua(langid.classify(sentence)[0])
-                langid_statistics.add_sentence_counts(langid_language, sentence)
-
-                cld3_language = map_detector_to_lingua(
-                    cld3_detector.FindLanguage(sentence).language
-                )
-                cld3_statistics.add_sentence_counts(cld3_language, sentence)
-
-                try:
-                    cld2_language = map_detector_to_lingua(
-                        pycld2.detect(sentence)[2][0][1]
-                    )
-                except pycld2.error:
-                    cld2_language = None
-                cld2_statistics.add_sentence_counts(cld2_language, sentence)
-
-                simplemma_language = map_detector_to_lingua(
-                    simplemma_detector(sentence, simplemma_iso_codes)[0][0]
-                )
-                simplemma_statistics.add_sentence_counts(simplemma_language, sentence)
-
-            lingua_high_accuracy_statistics.compute_accuracy_values()
-            lingua_low_accuracy_statistics.compute_accuracy_values()
-            langdetect_statistics.compute_accuracy_values()
-            fasttext_statistics.compute_accuracy_values()
-            langid_statistics.compute_accuracy_values()
-            cld3_statistics.compute_accuracy_values()
-            cld2_statistics.compute_accuracy_values()
-            simplemma_statistics.compute_accuracy_values()
-
-            lingua_high_accuracy_report = (
-                lingua_high_accuracy_statistics.create_report_data(language)
-            )
-            lingua_low_accuracy_report = (
-                lingua_low_accuracy_statistics.create_report_data(language)
-            )
-            langdetect_report = langdetect_statistics.create_report_data(language)
-            fasttext_report = fasttext_statistics.create_report_data(language)
-            langid_report = langid_statistics.create_report_data(language)
-            cld3_report = cld3_statistics.create_report_data(language)
-            cld2_report = cld2_statistics.create_report_data(language)
-            simplemma_report = simplemma_statistics.create_report_data(language)
+            lingua_low_accuracy_aggregated_report_row = lingua_low_accuracy_statistics[
+                idx
+            ].create_aggregated_report_row(language)
 
             lingua_high_accuracy_aggregated_report_row = (
-                lingua_high_accuracy_statistics.create_aggregated_report_row(language)
+                lingua_high_accuracy_statistics[idx].create_aggregated_report_row(
+                    language
+                )
             )
-            lingua_low_accuracy_aggregated_report_row = (
-                lingua_low_accuracy_statistics.create_aggregated_report_row(language)
-            )
-            langdetect_aggregated_report_row = (
-                langdetect_statistics.create_aggregated_report_row(language)
-            )
-            fasttext_aggregated_report_row = (
-                fasttext_statistics.create_aggregated_report_row(language)
-            )
-            langid_aggregated_report_row = (
-                langid_statistics.create_aggregated_report_row(language)
-            )
-            cld3_aggregated_report_row = cld3_statistics.create_aggregated_report_row(
-                language
-            )
-            cld2_aggregated_report_row = cld2_statistics.create_aggregated_report_row(
-                language
-            )
-            simplemma_aggregated_report_row = (
-                simplemma_statistics.create_aggregated_report_row(language)
-            )
+
             total_aggregated_report_row = (
                 f"{language.name.title()},"
                 f"{simplemma_aggregated_report_row},"
@@ -597,97 +550,8 @@ def main():
             )
             csv_writer.writerow(total_aggregated_report_row.split(","))
 
-            report_file_name = f"{language.name.title()}.txt"
-            lingua_high_accuracy_reports_file_path = (
-                lingua_high_accuracy_reports_directory / report_file_name
-            )
-            lingua_low_accuracy_reports_file_path = (
-                lingua_low_accuracy_reports_directory / report_file_name
-            )
-            langdetect_reports_file_path = (
-                langdetect_reports_directory / report_file_name
-            )
-            fasttext_reports_file_path = fasttext_reports_directory / report_file_name
-            langid_reports_file_path = langid_reports_directory / report_file_name
-            cld3_reports_file_path = cld3_reports_directory / report_file_name
-            cld2_reports_file_path = cld2_reports_directory / report_file_name
-            simplemma_reports_file_path = simplemma_reports_directory / report_file_name
-
-            if lingua_high_accuracy_report is not None:
-                with lingua_high_accuracy_reports_file_path.open(
-                    mode="w"
-                ) as lingua_high_accuracy_reports_file:
-                    lingua_high_accuracy_reports_file.write(lingua_high_accuracy_report)
-
-            if lingua_low_accuracy_report is not None:
-                with lingua_low_accuracy_reports_file_path.open(
-                    mode="w"
-                ) as lingua_low_accuracy_reports_file:
-                    lingua_low_accuracy_reports_file.write(lingua_low_accuracy_report)
-
-            if langdetect_report is not None:
-                with langdetect_reports_file_path.open(
-                    mode="w"
-                ) as langdetect_reports_file:
-                    langdetect_reports_file.write(langdetect_report)
-
-            if fasttext_report is not None:
-                with fasttext_reports_file_path.open(mode="w") as fasttext_reports_file:
-                    fasttext_reports_file.write(fasttext_report)
-
-            if langid_report is not None:
-                with langid_reports_file_path.open(mode="w") as langid_reports_file:
-                    langid_reports_file.write(langid_report)
-
-            if cld3_report is not None:
-                with cld3_reports_file_path.open(mode="w") as cld3_reports_file:
-                    cld3_reports_file.write(cld3_report)
-
-            if cld2_report is not None:
-                with cld2_reports_file_path.open(mode="w") as cld2_reports_file:
-                    cld2_reports_file.write(cld2_report)
-
-            if simplemma_report is not None:
-                with simplemma_reports_file_path.open(
-                    mode="w"
-                ) as simplemma_reports_file:
-                    simplemma_reports_file.write(simplemma_report)
-
-            print("Done\n")
-
     elapsed = time.perf_counter() - start
     print(f"All accuracy reports successfully written in {elapsed:.2f} seconds")
-
-
-def get_file_content(
-    test_data_directory: Path, subdirectory: str, language: Language
-) -> List[str]:
-    test_data_file_name = f"{language.iso_code_639_1.name.lower()}.txt"
-    test_data_file_path = test_data_directory / subdirectory / test_data_file_name
-    with test_data_file_path.open(mode="r") as test_data_file:
-        lines = []
-        for line in test_data_file:
-            stripped_line = line.rstrip()
-            if len(stripped_line) > 0:
-                lines.append(stripped_line)
-        return lines
-
-
-def format_accuracy(accuracy: float, digits: int = 2) -> str:
-    return f"{accuracy*100:.{digits}f}"
-
-
-def map_detector_to_lingua(iso_code: str) -> Optional[Language]:
-    if iso_code in ["zh-cn", "zh-tw"]:
-        iso_code = "zh"
-    try:
-        lingua_iso_code = IsoCode639_1[iso_code.upper()]
-        for language in Language:
-            if language.iso_code_639_1 == lingua_iso_code:
-                return language
-        return None
-    except KeyError:
-        return None
 
 
 if __name__ == "__main__":
