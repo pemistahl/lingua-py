@@ -7,7 +7,7 @@
 [![supported languages](https://img.shields.io/badge/supported%20languages-75-green.svg)](#3-which-languages-are-supported)
 [![docs](https://img.shields.io/badge/docs-API-yellowgreen)](https://pemistahl.github.io/lingua-py)
 ![supported Python versions](https://img.shields.io/badge/Python-%3E%3D%203.8-blue)
-[![pypi](https://img.shields.io/badge/PYPI-v1.3.2-blue)](https://pypi.org/project/lingua-language-detector)
+[![pypi](https://img.shields.io/badge/PYPI-v1.3.3-blue)](https://pypi.org/project/lingua-language-detector)
 [![license](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 </div>
 
@@ -3310,11 +3310,50 @@ LanguageDetectorBuilder.from_iso_codes_639_1(IsoCode639_1.EN, IsoCode639_1.DE)
 LanguageDetectorBuilder.from_iso_codes_639_3(IsoCode639_3.ENG, IsoCode639_3.DEU)
 ```
 
-## 10. What's next for version 1.4.0?
+## 10. Performance tips
+
+If you find that Lingua is too slow for your purposes, e.g. when you classify
+a large amount of texts, a sensible option is to make use of process-based
+parallelism via the [`multiprocessing`](https://docs.python.org/3/library/multiprocessing.html)
+module. This allows to distribute the workload over multiple CPU cores which improves
+speed of execution at the cost of higher memory consumption.
+
+The easiest way to implement it is by making use of
+[`ProcessPoolExecutor`](https://docs.python.org/3/library/concurrent.futures.html#concurrent.futures.ProcessPoolExecutor):
+
+```python
+from concurrent.futures import ProcessPoolExecutor
+from lingua import LanguageDetectorBuilder
+
+detector = (
+  LanguageDetectorBuilder.from_all_languages()
+  .with_preloaded_language_models()
+  .build()
+)
+
+def classify(text):
+    return detector.detect_language_of(text)
+
+n = 4 # Set n to the number of CPU cores in your machine
+texts = ["huge amount", "of texts", ...]
+
+with ProcessPoolExecutor(max_workers=n) as executor:
+    results = executor.map(classify, texts)
+    for detected_language in results:
+        # process the results
+        ...
+```
+
+Be aware that starting n processes will consume n times more memory for the
+language models. In a single process, all language models consume around 800 MB
+of memory. So when starting 4 processes, memory consumption will increase up to
+3200 MB.
+
+## 11. What's next for version 1.4.0?
 
 Take a look at the [planned issues](https://github.com/pemistahl/lingua-py/milestone/4).
 
-## 11. Contributions
+## 12. Contributions
 
 Any contributions to *Lingua* are very much appreciated. Please read the instructions
 in [`CONTRIBUTING.md`](https://github.com/pemistahl/lingua-py/blob/main/CONTRIBUTING.md)
