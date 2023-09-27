@@ -104,13 +104,13 @@ regex = "^2023.8.8"
 
 [tool.poetry.group.dev.dependencies]
 mypy = "^1.5.1"
-pytest = "^7.4.1"
-black = "^23.7.0"
-coverage = "^7.3.0"
+pytest = "^7.4.2"
+black = "^23.9.1"
+coverage = "^7.3.1"
 
 [tool.poetry.group.misc.dependencies]
-scalene = "^1.5.27"
-pdoc = "^14.0.0"
+scalene = "^1.5.31"
+pdoc = "^14.1.0"
 
 [tool.poetry.group.script.dependencies]
 # https://github.com/facebookresearch/fastText/pull/1292
@@ -119,11 +119,11 @@ langdetect = "^1.0.9"
 langid = "^1.1.6"
 gcld3 = "^3.0.13"
 pycld2 = "^0.41"
-pandas = "^1.5.3"
+pandas = "^2.0.3"
 simplemma = "^0.9.1"
-matplotlib = "^3.6.3"
+matplotlib = "^3.7.3"
 seaborn = "^0.12.2"
-psutil = "^5.9.4"
+psutil = "^5.9.5"
 
 [tool.mypy]
 files = ["lingua", "scripts", "tests"]
