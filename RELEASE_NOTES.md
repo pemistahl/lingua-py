@@ -1,3 +1,25 @@
+## Lingua 1.3.3 (released on 27 Sep 2023)
+
+### Improvements
+
+- Processing the language models now performs a little faster by performing binary
+  search on the language model NumPy arrays.
+
+### Bug Fixes
+
+- Several bugs in multiple languages detection have been fixed that caused
+  incomplete results to be returned in several cases. (#143, #154)
+
+- A significant amount of Kazakh texts were incorrectly classified as Mongolian.
+  This has been fixed. (#160)
+
+### Miscellaneous
+
+- A new section on [performance tips](https://github.com/pemistahl/lingua-py#10-performance-tips)
+  has been added to the README.
+
+- All dependencies have been updated to their latest versions.
+
 ## Lingua 1.3.2 (released on 29 Jan 2023)
 
 ### Improvements
