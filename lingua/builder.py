@@ -191,7 +191,7 @@ class LanguageDetectorBuilder:
         return self
 
     def with_low_accuracy_mode(self) -> "LanguageDetectorBuilder":
-        """Disables the high accuracy mode in order to save memory
+        """Disable the high accuracy mode in order to save memory
         and increase performance.
 
         By default, Lingua's high detection accuracy comes at the cost

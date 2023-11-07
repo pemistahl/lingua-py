@@ -34,8 +34,7 @@ class LanguageModelFilesWriter:
         language: Language,
         char_class: str,
     ):
-        """Create language model files for accuracy report generation and
-        write them to a directory.
+        """Create language model files and write them to a directory.
 
         Args:
             input_file_path: The path to a txt file used for language

@@ -412,7 +412,9 @@ def test_relative_input_file_path_raises_exception():
 
 
 def test_non_existing_input_file_raises_exception():
-    non_existing_input_file_path = Path("/some/non-existing/path/file.txt")
+    non_existing_input_file_path = (
+        Path.cwd() / "some" / "non-existing" / "path" / "file.txt"
+    )
     expected_error_message = (
         f"Input file '{non_existing_input_file_path}' does not exist"
     )
@@ -494,7 +496,9 @@ def test_non_existing_output_directory_path_raises_exception():
     input_file = create_temp_input_file("some content")
     input_file_path = Path(input_file.name)
 
-    non_existing_output_directory_path = Path("/some/non-existing/directory")
+    non_existing_output_directory_path = (
+        Path.cwd() / "some" / "non-existing" / "directory"
+    )
     expected_error_message = (
         f"Output directory path '{non_existing_output_directory_path}' does not exist"
     )
