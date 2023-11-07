@@ -46,7 +46,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: [ '3.8', '3.9', '3.10', '3.11' ]
+        python-version: [ '3.8', '3.9', '3.10', '3.11', '3.12' ]
 
     steps:
       - name: Check out repository
@@ -60,7 +60,7 @@ jobs:
       - name: Set up Poetry
         uses: abatilo/actions-poetry@v2
         with:
-          poetry-version: 1.6
+          poetry-version: 1.7
 
       - name: Set up virtual environment
         run: poetry env use ${{ matrix.python-version }}
