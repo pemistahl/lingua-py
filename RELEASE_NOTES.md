@@ -1,3 +1,13 @@
+## Lingua 1.3.4 (released on 07 Nov 2023)
+
+### Miscellaneous
+
+- This release resolves some dependency issues so that the latest versions
+  of dependencies NumPy, Pandas and Matplotib can be used with Python >= 3.9
+  while older versions are used with Python 3.8.
+
+- All dependencies have been updated to their latest versions.
+
 ## Lingua 1.3.3 (released on 27 Sep 2023)
 
 ### Improvements
