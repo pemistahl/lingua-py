@@ -112,7 +112,7 @@ class AccuracyTableWriter:
             self._table += f"\t<tr>\n\t\t<td>{language}</td>\n"
 
             for column in self._columns:
-                accuracy_value = language_data.loc[[column]][0]
+                accuracy_value = language_data.loc[[column]].iloc[0]
                 if not math.isnan(accuracy_value):
                     accuracy_value = int(round(accuracy_value))
                     accuracy_str = str(accuracy_value)
@@ -128,7 +128,7 @@ class AccuracyTableWriter:
         self._table += "\t<tr>\n\t\t<td><strong>Mean</strong></td>\n"
 
         for column in self._columns:
-            accuracy_value = mean.loc[[column]][0]
+            accuracy_value = mean.loc[[column]].iloc[0]
             color = self._get_square_color(accuracy_value)
             self._table += f'\t\t<td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/{color}.png"> <strong>{accuracy_value}</strong></td>\n'
 
@@ -137,14 +137,14 @@ class AccuracyTableWriter:
         self._table += "\t<tr>\n\t\t<td>Median</td>\n"
 
         for column in self._columns:
-            accuracy_value = median.loc[[column]][0]
+            accuracy_value = median.loc[[column]].iloc[0]
             self._table += f"\t\t<td>{accuracy_value}</td>\n"
 
         self._table += "\t</tr>\n"
         self._table += "\t<tr>\n\t\t<td>Standard Deviation</td>\n"
 
         for column in self._columns:
-            accuracy_value = std.loc[[column]][0]
+            accuracy_value = std.loc[[column]].iloc[0]
             self._table += f"\t\t<td>{accuracy_value}</td>\n"
 
         self._table += "\t</tr>\n"

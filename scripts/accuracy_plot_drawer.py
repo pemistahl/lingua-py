@@ -155,7 +155,13 @@ class AccuracyPlotDrawer:
         plt.grid(self._grid_color)
 
         axes = sns.boxplot(
-            data=data, x="classifier", y="accuracy", linewidth=5, palette=self._palette
+            data=data,
+            x="classifier",
+            hue="classifier",
+            y="accuracy",
+            linewidth=5,
+            palette=self._palette,
+            legend=False,
         )
 
         axes.set_ylim(ylim)
@@ -165,6 +171,8 @@ class AccuracyPlotDrawer:
         axes.set_ylabel(
             "Accuracy (%)", fontsize=self._label_fontsize, fontweight=self._fontweight
         )
+        # set_xticklabels should only be called after set_xticks
+        axes.set_xticks(axes.get_xticks())
         axes.set_xticklabels(self._legend_labels)
 
         plt.tight_layout()
