@@ -102,14 +102,14 @@ classifiers = [
 python = ">=3.8,<3.13,!=3.11.0"
 numpy = [
     {version = "^1.24.4,<1.25", python = ">=3.8,<3.9"},
-    {version = "^1.26.1", python = ">=3.9,<3.13"}
+    {version = "^1.26.2", python = ">=3.9,<3.13"}
 ]
 regex = "^2023.10.3"
 
 [tool.poetry.group.dev.dependencies]
-mypy = "^1.6.1"
+mypy = "^1.7.0"
 pytest = "^7.4.3"
-black = "^23.10.1"
+black = "^23.11.0"
 coverage = "^7.3.2"
 
 [tool.poetry.group.misc.dependencies]
@@ -125,7 +125,7 @@ gcld3 = "^3.0.13"
 pycld2 = "^0.41"
 pandas = [
     {version = "^2.0.3,<2.1", python = ">=3.8,<3.9"},
-    {version = "^2.1.2", python = ">=3.9,<3.13"}
+    {version = "^2.1.3", python = ">=3.9,<3.13"}
 ]
 simplemma = "^0.9.1"
 matplotlib = [
