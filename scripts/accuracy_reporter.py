@@ -14,6 +14,7 @@
 # limitations under the License.
 
 import csv
+import fastspell
 import fasttext
 import gcld3
 import langdetect
@@ -316,6 +317,26 @@ def fasttext_detect(texts: List[str]) -> List[Optional[Language]]:
     ]
 
 
+fastspell_obj = None
+
+
+def fastspell_setup(language: Language) -> None:
+    global fastspell_obj
+    fastspell_obj = fastspell.FastSpell(language.iso_code_639_1.name.lower())
+
+
+def fastspell_cons_detect(texts: List[str]) -> List[Optional[Language]]:
+    assert fastspell_obj is not None
+    fastspell_obj.mode = "cons"
+    return [map_detector_to_lingua(fastspell_obj.getlang(text)) for text in texts]
+
+
+def fastspell_aggr_detect(texts: List[str]) -> List[Optional[Language]]:
+    assert fastspell_obj is not None
+    fastspell_obj.mode = "aggr"
+    return [map_detector_to_lingua(fastspell_obj.getlang(text)) for text in texts]
+
+
 def langdetect_detect(texts: List[str]) -> List[Optional[Language]]:
     results = []
     for text in texts:
@@ -374,6 +395,7 @@ def collect_statistics(
     detector_name: str,
     reports_directory: Path,
     detector_fn: Callable[[List[str]], List[Optional[Language]]],
+    setup_detector_fn: Optional[Callable[[Language], None]] = None,
 ) -> List[DetectorStatistics]:
     start = time.perf_counter()
     language_statistics = []
@@ -387,6 +409,9 @@ def collect_statistics(
         print(
             f"Writing {detector_name} reports for {language.name.title()}... ({idx+1}/{total_language_count})"
         )
+
+        if setup_detector_fn is not None:
+            setup_detector_fn(language)
 
         statistics = DetectorStatistics.new()
 
@@ -449,6 +474,22 @@ def main():
         "fasttext", fasttext_reports_directory, fasttext_detect
     )
 
+    fastspell_cons_reports_directory = accuracy_reports_directory / "fastspell_cons"
+    fastspell_cons_statistics = collect_statistics(
+        "fastspell_cons",
+        fastspell_cons_reports_directory,
+        fastspell_cons_detect,
+        fastspell_setup,
+    )
+
+    fastspell_aggr_reports_directory = accuracy_reports_directory / "fastspell_aggr"
+    fastspell_aggr_statistics = collect_statistics(
+        "fastspell_aggr",
+        fastspell_aggr_reports_directory,
+        fastspell_aggr_detect,
+        fastspell_setup,
+    )
+
     langdetect_reports_directory = accuracy_reports_directory / "langdetect"
     langdetect_statistics = collect_statistics(
         "langdetect", langdetect_reports_directory, langdetect_detect
@@ -503,6 +544,14 @@ def main():
                 "single-words-fasttext",
                 "word-pairs-fasttext",
                 "sentences-fasttext",
+                "average-fastspell-cons",
+                "single-words-fastspell-cons",
+                "word-pairs-fastspell-cons",
+                "sentences-fastspell-cons",
+                "average-fastspell-aggr",
+                "single-words-fastspell-aggr",
+                "word-pairs-fastspell-aggr",
+                "sentences-fastspell-aggr",
                 "average-langdetect",
                 "single-words-langdetect",
                 "word-pairs-langdetect",
@@ -539,6 +588,14 @@ def main():
                 idx
             ].create_aggregated_report_row(language)
 
+            fastspell_cons_aggregated_report_row = fastspell_cons_statistics[
+                idx
+            ].create_aggregated_report_row(language)
+
+            fastspell_aggr_aggregated_report_row = fastspell_aggr_statistics[
+                idx
+            ].create_aggregated_report_row(language)
+
             langdetect_aggregated_report_row = langdetect_statistics[
                 idx
             ].create_aggregated_report_row(language)
@@ -560,6 +617,8 @@ def main():
                 f"{cld3_aggregated_report_row},"
                 f"{langid_aggregated_report_row},"
                 f"{fasttext_aggregated_report_row},"
+                f"{fastspell_cons_aggregated_report_row},"
+                f"{fastspell_aggr_aggregated_report_row},"
                 f"{langdetect_aggregated_report_row},"
                 f"{lingua_low_accuracy_aggregated_report_row},"
                 f"{lingua_high_accuracy_aggregated_report_row}"
