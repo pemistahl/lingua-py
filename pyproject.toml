@@ -15,16 +15,13 @@
 
 [tool.poetry]
 name = "lingua-language-detector"
-version = "1.3.4"
+version = "2.0.0"
 description = "An accurate natural language detection library, suitable for long and short text alike"
 authors = ["Peter M. Stahl <pemistahl@gmail.com>"]
 license = "Apache-2.0"
 readme = "README.md"
 homepage = "https://pemistahl.github.io/lingua-py"
 repository = "https://github.com/pemistahl/lingua-py"
-packages = [
-    { include = "lingua" }
-]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Intended Audience :: Developers",
@@ -90,6 +87,7 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Rust",
     "Topic :: Scientific/Engineering :: Information Analysis",
     "Topic :: Software Development :: Libraries :: Python Modules",
     "Topic :: Software Development :: Internationalization",
@@ -99,22 +97,11 @@ classifiers = [
 ]
 
 [tool.poetry.dependencies]
-python = ">=3.8,<3.13,!=3.11.0"
-numpy = [
-    {version = "^1.24.4,<1.25", python = ">=3.8,<3.9"},
-    {version = "^1.26.2", python = ">=3.9,<3.13"}
-]
-regex = "^2023.10.3"
+python = ">=3.8,<3.13"
 
 [tool.poetry.group.dev.dependencies]
 mypy = "^1.7.0"
-pytest = "^7.4.3"
 black = "^23.11.0"
-coverage = "^7.3.2"
-
-[tool.poetry.group.misc.dependencies]
-scalene = "^1.5.31.1"
-pdoc = "^14.1.0"
 
 [tool.poetry.group.script.dependencies]
 # https://github.com/facebookresearch/fastText/pull/1292
@@ -122,6 +109,10 @@ fasttext = {git = "https://github.com/cfculhane/fastText.git"}
 langdetect = "^1.0.9"
 langid = "^1.1.6"
 gcld3 = "^3.0.13"
+numpy = [
+    {version = "^1.24.4,<1.25", python = ">=3.8,<3.9"},
+    {version = "^1.26.2", python = ">=3.9,<3.13"}
+]
 pycld2 = "^0.41"
 pandas = [
     {version = "^2.0.3,<2.1", python = ">=3.8,<3.9"},
@@ -136,18 +127,12 @@ seaborn = "^0.13.0"
 psutil = "^5.9.6"
 
 [tool.mypy]
-files = ["lingua", "scripts", "tests"]
+files = ["scripts"]
 ignore_missing_imports = true
 pretty = true
 
-[tool.pytest.ini_options]
-addopts = "--doctest-modules --ignore=scripts"
-
-[tool.coverage.run]
-source = ["lingua"]
-
 [tool.black]
-include = '(lingua|scripts|tests)/.*\.py'
+include = 'scripts/.*\.py'
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

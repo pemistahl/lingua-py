@@ -24,13 +24,12 @@ import time
 import urllib.request
 
 from collections import Counter
-from concurrent.futures import ProcessPoolExecutor
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Callable, Counter as TypedCounter, Dict, List, Optional, Tuple
 
 from simplemma.langdetect import lang_detector as simplemma_detector
-from lingua import IsoCode639_1, Language, LanguageDetectorBuilder
+from lingua import IsoCode639_1, Language, LanguageDetectorBuilder  # type: ignore
 
 
 @dataclass
@@ -188,14 +187,16 @@ class Statistic:
         sorted_accuracies = []
         for lang, accuracy in self._language_accuracies.items():
             if lang != language:
-                sorted_accuracies.append((lang, accuracy))
+                if lang is None:
+                    lng = "Unknown"
+                else:
+                    lng = lang.name.title()
+                sorted_accuracies.append((lng, accuracy))
 
         sorted_accuracies.sort(key=lambda elem: (-elem[1], elem[0]))
 
         substrs = [
-            f"{language.name.title()}: {format_accuracy(accuracy)}%"
-            if language is not None
-            else f"Unknown: {format_accuracy(accuracy)}%"
+            f"{language}: {format_accuracy(accuracy)}%"
             for language, accuracy in sorted_accuracies
         ]
         return ", ".join(substrs)
@@ -209,16 +210,15 @@ def map_detector_to_lingua(iso_code: str) -> Optional[Language]:
     if iso_code in ["zh-cn", "zh-tw"]:
         iso_code = "zh"
     try:
-        lingua_iso_code = IsoCode639_1[iso_code.upper()]
-        for language in Language:
-            if language.iso_code_639_1 == lingua_iso_code:
+        for language in Language.all():
+            if language.iso_code_639_1.name.lower() == iso_code:
                 return language
         return None
     except KeyError:
         return None
 
 
-def simplemma_detect(text: str) -> Tuple[str, Optional[Language]]:
+def simplemma_detect(texts: List[str]) -> List[Optional[Language]]:
     iso_codes = tuple(
         language.iso_code_639_1.name.lower()
         for language in [
@@ -266,26 +266,34 @@ def simplemma_detect(text: str) -> Tuple[str, Optional[Language]]:
         ]
     )
 
-    return text, map_detector_to_lingua(simplemma_detector(text, iso_codes)[0][0])  # type: ignore
+    return [
+        map_detector_to_lingua(simplemma_detector(text, iso_codes)[0][0])
+        for text in texts
+    ]
 
 
-def cld2_detect(text: str) -> Tuple[str, Optional[Language]]:
-    try:
-        detected_language = map_detector_to_lingua(pycld2.detect(text)[2][0][1])
-    except pycld2.error:
-        detected_language = None
-    return text, detected_language
+def cld2_detect(texts: List[str]) -> List[Optional[Language]]:
+    results = []
+    for text in texts:
+        try:
+            results.append(map_detector_to_lingua(pycld2.detect(text)[2][0][1]))
+        except pycld2.error:
+            results.append(None)
+    return results
 
 
 cld3_detector = gcld3.NNetLanguageIdentifier(min_num_bytes=0, max_num_bytes=512)
 
 
-def cld3_detect(text: str) -> Tuple[str, Optional[Language]]:
-    return text, map_detector_to_lingua(cld3_detector.FindLanguage(text).language)
+def cld3_detect(texts: List[str]) -> List[Optional[Language]]:
+    return [
+        map_detector_to_lingua(cld3_detector.FindLanguage(text).language)
+        for text in texts
+    ]
 
 
-def langid_detect(text: str) -> Tuple[str, Optional[Language]]:
-    return text, map_detector_to_lingua(langid.classify(text)[0])
+def langid_detect(texts: List[str]) -> List[Optional[Language]]:
+    return [map_detector_to_lingua(langid.classify(text)[0]) for text in texts]
 
 
 fasttext_model_url = (
@@ -299,18 +307,23 @@ if not os.path.isfile(fasttext_model_file):
 fasttext_detector = fasttext.load_model(fasttext_model_file)
 
 
-def fasttext_detect(text: str) -> Tuple[str, Optional[Language]]:
-    return text, map_detector_to_lingua(
-        fasttext_detector.predict(text)[0][0].split("__label__")[1]
-    )
+def fasttext_detect(texts: List[str]) -> List[Optional[Language]]:
+    return [
+        map_detector_to_lingua(
+            fasttext_detector.predict(text)[0][0].split("__label__")[1]
+        )
+        for text in texts
+    ]
 
 
-def langdetect_detect(text: str) -> Tuple[str, Optional[Language]]:
-    try:
-        detected_language = map_detector_to_lingua(langdetect.detect(text))
-    except langdetect.lang_detect_exception.LangDetectException:
-        detected_language = None
-    return text, detected_language
+def langdetect_detect(texts: List[str]) -> List[Optional[Language]]:
+    results = []
+    for text in texts:
+        try:
+            results.append(map_detector_to_lingua(langdetect.detect(text)))
+        except langdetect.lang_detect_exception.LangDetectException:
+            results.append(None)
+    return results
 
 
 lingua_detector_with_low_accuracy = (
@@ -321,8 +334,8 @@ lingua_detector_with_low_accuracy = (
 )
 
 
-def lingua_low_accuracy_detect(text: str) -> Tuple[str, Optional[Language]]:
-    return text, lingua_detector_with_low_accuracy.detect_language_of(text)
+def lingua_low_accuracy_detect(texts: List[str]) -> List[Optional[Language]]:
+    return lingua_detector_with_low_accuracy.detect_languages_in_parallel_of(texts)
 
 
 lingua_detector_with_high_accuracy = (
@@ -332,15 +345,15 @@ lingua_detector_with_high_accuracy = (
 )
 
 
-def lingua_high_accuracy_detect(text: str) -> Tuple[str, Optional[Language]]:
-    return text, lingua_detector_with_high_accuracy.detect_language_of(text)
+def lingua_high_accuracy_detect(texts: List[str]) -> List[Optional[Language]]:
+    return lingua_detector_with_high_accuracy.detect_languages_in_parallel_of(texts)
 
 
 def get_file_content(subdirectory: str) -> Dict[Language, List[str]]:
     file_content = {}
     test_data_directory = Path(__file__).parent / "../language-testdata"
 
-    for language in Language:
+    for language in Language.all():
         test_data_file_name = f"{language.iso_code_639_1.name.lower()}.txt"
         test_data_file_path = test_data_directory / subdirectory / test_data_file_name
 
@@ -360,7 +373,7 @@ sentences = get_file_content("sentences")
 def collect_statistics(
     detector_name: str,
     reports_directory: Path,
-    detector_fn: Callable[[str], Tuple[str, Optional[Language]]],
+    detector_fn: Callable[[List[str]], List[Optional[Language]]],
 ) -> List[DetectorStatistics]:
     start = time.perf_counter()
     language_statistics = []
@@ -368,38 +381,41 @@ def collect_statistics(
     if not reports_directory.is_dir():
         os.makedirs(reports_directory)
 
-    total_language_count = len(Language)
+    total_language_count = len(Language.all())
 
-    with ProcessPoolExecutor(max_workers=4) as executor:
-        for idx, language in enumerate(Language):
-            print(
-                f"Writing {detector_name} reports for {language.name.title()}... ({idx+1}/{total_language_count})"
-            )
+    for idx, language in enumerate(sorted(Language.all())):
+        print(
+            f"Writing {detector_name} reports for {language.name.title()}... ({idx+1}/{total_language_count})"
+        )
 
-            statistics = DetectorStatistics.new()
+        statistics = DetectorStatistics.new()
 
-            detection_results = executor.map(detector_fn, single_words[language])
-            for single_word, detected_language in detection_results:
-                statistics.add_single_word_counts(detected_language, single_word)
+        detected_languages = detector_fn(single_words[language])
+        for single_word, detected_language in zip(
+            single_words[language], detected_languages
+        ):
+            statistics.add_single_word_counts(detected_language, single_word)
 
-            detection_results = executor.map(detector_fn, word_pairs[language])
-            for word_pair, detected_language in detection_results:
-                statistics.add_word_pair_counts(detected_language, word_pair)
+        detected_languages = detector_fn(word_pairs[language])
+        for word_pair, detected_language in zip(
+            word_pairs[language], detected_languages
+        ):
+            statistics.add_word_pair_counts(detected_language, word_pair)
 
-            detection_results = executor.map(detector_fn, sentences[language])
-            for sentence, detected_language in detection_results:
-                statistics.add_sentence_counts(detected_language, sentence)
+        detected_languages = detector_fn(sentences[language])
+        for sentence, detected_language in zip(sentences[language], detected_languages):
+            statistics.add_sentence_counts(detected_language, sentence)
 
-            statistics.compute_accuracy_values()
+        statistics.compute_accuracy_values()
 
-            reports_file_path = reports_directory / f"{language.name.title()}.txt"
-            report = statistics.create_report_data(language)
+        reports_file_path = reports_directory / f"{language.name.title()}.txt"
+        report = statistics.create_report_data(language)
 
-            if report is not None:
-                with reports_file_path.open(mode="w") as reports_file:
-                    reports_file.write(report)
+        if report is not None:
+            with reports_file_path.open(mode="w") as reports_file:
+                reports_file.write(report)
 
-            language_statistics.append(statistics)
+        language_statistics.append(statistics)
 
     stop = time.perf_counter()
     print(f"{detector_name} reports written in {stop - start:.2f} seconds\n")
@@ -502,7 +518,7 @@ def main():
             ]
         )
 
-        for idx, language in enumerate(Language):
+        for idx, language in enumerate(sorted(Language.all())):
             simplemma_aggregated_report_row = simplemma_statistics[
                 idx
             ].create_aggregated_report_row(language)

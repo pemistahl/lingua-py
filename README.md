@@ -2,12 +2,11 @@
 
 ![lingua](https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/logo.png)
 
-[![build](https://github.com/pemistahl/lingua-py/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/pemistahl/lingua-py/actions/workflows/build.yml)
-[![codecov](https://codecov.io/gh/pemistahl/lingua-py/branch/main/graph/badge.svg)](https://codecov.io/gh/pemistahl/lingua-py)
+[![build status](https://github.com/pemistahl/lingua-rs/actions/workflows/python-build.yml/badge.svg)](https://github.com/pemistahl/lingua-rs/actions/workflows/python-build.yml)
+[![codecov](https://codecov.io/gh/pemistahl/lingua-rs/branch/main/graph/badge.svg)](https://codecov.io/gh/pemistahl/lingua-rs)
 [![supported languages](https://img.shields.io/badge/supported%20languages-75-green.svg)](#3-which-languages-are-supported)
-[![docs](https://img.shields.io/badge/docs-API-yellowgreen)](https://pemistahl.github.io/lingua-py)
 ![supported Python versions](https://img.shields.io/badge/Python-%3E%3D%203.8-blue)
-[![pypi](https://img.shields.io/badge/PYPI-v1.3.4-blue)](https://pypi.org/project/lingua-language-detector)
+[![pypi](https://img.shields.io/badge/PYPI-v2.0.0-blue)](https://pypi.org/project/lingua-language-detector)
 [![license](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 </div>
 
@@ -33,9 +32,10 @@ Python is widely used in natural language processing, so there are a couple
 of comprehensive open source libraries for this task, such as Google's
 [*CLD 2*](https://github.com/CLD2Owners/cld2) and
 [*CLD 3*](https://github.com/google/cld3),
-[*langid*](https://github.com/saffsd/langid.py),
-[*fastText*](https://fasttext.cc/docs/en/language-identification.html) and
-[*langdetect*](https://github.com/Mimino666/langdetect).
+[*Langid*](https://github.com/saffsd/langid.py),
+[*fastText*](https://fasttext.cc/docs/en/language-identification.html),
+[*Simplemma*](https://github.com/adbar/simplemma) and
+[*Langdetect*](https://github.com/Mimino666/langdetect).
 Unfortunately, except for the last one they have two major drawbacks:
 
 1. Detection only works with quite lengthy text fragments. For very short
@@ -50,7 +50,27 @@ methods but does not use any dictionaries of words. She does not need a
 connection to any external API or service either. Once the library has been
 downloaded, it can be used completely offline.
 
-## 3. Which languages are supported?
+## 3. A short history of this library
+
+This library started as a pure Python implementation. Python's quick prototyping
+capabilities made an important contribution to its improvements. Unfortunately,
+there was always a tradeoff between performance and memory consumption. At first,
+*Lingua's* language models were stored in dictionaries during runtime. This led
+to quick performance at the cost of large memory consumption (more than 3 GB).
+Because of that, the language models were then stored in NumPy arrays instead of
+dictionaries. Memory consumption reduced to approximately 800 MB but CPU
+performance dropped significantly. Both approaches were not satisfying.
+
+Starting from version 2.0.0, the pure Python implementation was replaced with
+compiled Python bindings to the native
+[Rust implementation](https://github.com/pemistahl/lingua-rs) of *Lingua*.
+This decision has led to both quick performance and a small memory
+footprint of less than 1 GB. The pure Python implementation is still available
+in a [separate branch](https://github.com/pemistahl/lingua-py/tree/pure-python-impl)
+in this repository and will be kept up-to-date in subsequent 1.* releases.
+Both 1.* and 2.* versions will remain available on the Python package index (PyPI).
+
+## 4. Which languages are supported?
 
 Compared to other language detection libraries, *Lingua's* focus is on
 *quality over quantity*, that is, getting detection right for a small set of
@@ -157,7 +177,7 @@ are supported:
 - Z
     - Zulu
 
-## 4. How good is it?
+## 5. How accurate is it?
 
 *Lingua* is able to report accuracy statistics for some bundled test data
 available for each supported language. The test data for each language is split
@@ -177,9 +197,10 @@ subset of 1000 single words, 1000 word pairs and 1000 sentences has been
 extracted, respectively.
 
 Given the generated test data, I have compared the detection results of
-*Lingua*, *fastText*, *langdetect*, *langid*, *CLD 2* and *CLD 3* running over the data of
-*Lingua's* supported 75 languages. Languages that are not supported by the other
-detectors are simply ignored for them during the detection process.
+*Lingua*, *fastText*, *Langdetect*, *Langid*, *Simplemma*, *CLD 2* and *CLD 3*
+running over the data of *Lingua's* supported 75 languages. Languages that are
+not supported by the other detectors are simply ignored for them during the
+detection process.
 
 Each of the following sections contains two plots. The bar plot shows the detailed accuracy
 results for each supported language. The box plot illustrates the distributions of the
@@ -187,7 +208,7 @@ accuracy values for each classifier. The boxes themselves represent the areas wh
 middle 50 % of data lie within. Within the colored boxes, the horizontal lines mark the
 median of the distributions.
 
-### 4.1 Single word detection
+### 5.1 Single word detection
 
 <br/>
 
@@ -202,7 +223,7 @@ median of the distributions.
 
 <br/><br/>
 
-### 4.2 Word pair detection
+### 5.2 Word pair detection
 
 <br/>
 
@@ -217,7 +238,7 @@ median of the distributions.
 
 <br/><br/>
 
-### 4.3 Sentence detection
+### 5.3 Sentence detection
 
 <br/>
 
@@ -232,7 +253,7 @@ median of the distributions.
 
 <br/><br/>
 
-### 4.4 Average detection
+### 5.4 Average detection
 
 <br/>
 
@@ -247,7 +268,7 @@ median of the distributions.
 
 <br/><br/>
 
-### 4.5 Mean, median and standard deviation
+### 5.5 Mean, median and standard deviation
 
 The table below shows detailed statistics for each language and classifier
 including mean, median and standard deviation.
@@ -3036,7 +3057,31 @@ including mean, median and standard deviation.
   </table>
 </details>
 
-## 5. Why is it better than other libraries?
+## 6. How fast is it?
+
+The accuracy reporter script measures the time each language detector needs
+to classify 3000 input texts for each of the supported 75 languages. The results
+below have been produced on an iMac 3.6 Ghz 8-Core Intel Core i9 with 40 GB RAM.
+
+Lingua in [multi-threaded mode](https://github.com/pemistahl/lingua-py#117-single-threaded-versus-multi-threaded-language-detection)
+is one of the fastest algorithms in this comparison. CLD 2, CLD 3 and fasttext
+are similarly fast as they have been implemented in C or C++. Pure Python libraries
+such as Simplemma, Langid or Langdetect a significantly slower.
+
+| Detector                                     |             Time |
+|----------------------------------------------|-----------------:|
+| Lingua (low accuracy mode, multi-threaded)   |         3.00 sec |
+| Lingua (high accuracy mode, multi-threaded)  |         7.97 sec |
+| CLD 2                                        |         8.65 sec |
+| fastText                                     |        10.50 sec |
+| CLD 3                                        |        16.77 sec |
+| Lingua (low accuracy mode, single-threaded)  |        20.46 sec |
+| Lingua (high accuracy mode, single-threaded) |        51.88 sec |
+| Simplemma                                    |  2 min 36.44 sec |
+| Langid                                       |  3 min 50.40 sec |
+| Langdetect                                   | 10 min 43.96 sec |
+
+## 7. Why is it better than other libraries?
 
 Every language detector uses a probabilistic
 [n-gram](https://en.wikipedia.org/wiki/N-gram) model trained on the character
@@ -3065,12 +3110,13 @@ text, do not let those take part in the classifcation process. The filtering
 mechanism of the rule-based engine is quite good, however, filtering based on
 your own knowledge of the input text is always preferable.
 
-## 6. Test report generation
+## 8. Test report generation
 
 If you want to reproduce the accuracy results above, you can generate the test
-reports yourself for all classifiers and languages by executing:
+reports yourself for all classifiers and languages by installing
+[Poetry](https://python-poetry.org) and executing:
 
-    poetry install --only script
+    poetry install --no-root --only script
     poetry run python3 scripts/accuracy_reporter.py
 
 For each detector and language, a test report file is then written into
@@ -3095,37 +3141,47 @@ Accuracy: 99.70%
 Erroneously classified as Dutch: 0.20%, Latin: 0.10%
 ```
 
-## 7. How to add it to your project?
+## 9. How to add it to your project?
 
 *Lingua* is available in the [Python Package Index](https://pypi.org/project/lingua-language-detector)
 and can be installed with:
 
     pip install lingua-language-detector
 
-## 8. How to build?
+## 10. How to build?
 
-*Lingua* requires Python >= 3.8 and uses [Poetry](https://python-poetry.org) for packaging and
-dependency management. You need to install it first if you have not done so yet.
-Afterwards, clone the repository and install the project dependencies:
+*Lingua* requires Python >= 3.8.
+First create a virtualenv and install the Python wheel for your platform with `pip`.
 
 ```
 git clone https://github.com/pemistahl/lingua-py.git
 cd lingua-py
-poetry install
+python3 -m venv .venv
+source .venv/bin/activate
+pip install --find-links=lingua lingua-language-detector
 ```
 
-The library makes uses of type annotations which allow for static type checking with
-[Mypy](http://mypy-lang.org). Run the following command for checking the types:
+In the scripts directory, there are Python scripts for writing accuracy reports,
+drawing plots and writing accuracy values in an HTML table. The dependencies
+for these scripts are managed by [Poetry](https://python-poetry.org) which
+you need to install if you have not done so yet. In order to install the script
+dependencies in your virtualenv, run
 
+    poetry install --no-root --only script
+
+The project makes uses of type annotations which allow for static type checking with
+[Mypy](http://mypy-lang.org). Run the following commands for checking the types:
+
+    poetry install --no-root --only dev
     poetry run mypy
 
-The source code is accompanied by an extensive unit test suite. To run the tests, simply say:
+The Python source code is formatted with [Black](https://github.com/psf/black):
 
-    poetry run pytest
+    poetry run black .
 
-## 9. How to use?
+## 11. How to use?
 
-### 9.1 Basic usage
+### 11.1 Basic usage
 
 ```python
 >>> from lingua import Language, LanguageDetectorBuilder
@@ -3135,7 +3191,7 @@ The source code is accompanied by an extensive unit test suite. To run the tests
 Language.ENGLISH
 ```
 
-### 9.2 Minimum relative distance
+### 11.2 Minimum relative distance
 
 By default, *Lingua* returns the most likely language for a given input text.
 However, there are certain words that are spelled the same in more than one
@@ -3162,7 +3218,7 @@ phrases, do not set the minimum relative distance too high. Otherwise, `None`
 will be returned most of the time as in the example above. This is the return
 value for cases where language detection is not reliably possible.
 
-### 9.3 Confidence values
+### 11.3 Confidence values
 
 Knowing about the most likely language is nice but how reliable is the computed
 likelihood? And how less likely are the other examined languages in comparison
@@ -3173,8 +3229,8 @@ to the most likely one? These questions can be answered as well:
 >>> languages = [Language.ENGLISH, Language.FRENCH, Language.GERMAN, Language.SPANISH]
 >>> detector = LanguageDetectorBuilder.from_languages(*languages).build()
 >>> confidence_values = detector.compute_language_confidence_values("languages are awesome")
->>> for language, value in confidence_values:
-...     print(f"{language.name}: {value:.2f}")
+>>> for confidence in confidence_values:
+...     print(f"{confidence.language.name}: {confidence.value:.2f}")
 ENGLISH: 0.93
 FRENCH: 0.04
 GERMAN: 0.02
@@ -3206,7 +3262,7 @@ language is unambiguously identified by the rule engine, the value 1.0 will
 always be returned. If the given language is not supported by this detector
 instance, the value 0.0 will always be returned.
 
-### 9.4 Eager loading versus lazy loading
+### 11.4 Eager loading versus lazy loading
 
 By default, *Lingua* uses lazy-loading to load only those language models on
 demand which are considered relevant by the rule-based filter engine. For web
@@ -3221,7 +3277,7 @@ LanguageDetectorBuilder.from_all_languages().with_preloaded_language_models().bu
 Multiple instances of `LanguageDetector` share the same language models in
 memory which are accessed asynchronously by the instances.
 
-### 9.5 Low accuracy mode versus high accuracy mode
+### 11.5 Low accuracy mode versus high accuracy mode
 
 *Lingua's* high detection accuracy comes at the cost of being noticeably slower
 than other language detectors. The large language models also consume significant
@@ -3239,8 +3295,8 @@ of less than 120 characters will drop significantly. However, detection accuracy
 texts which are longer than 120 characters will remain mostly unaffected.
 
 In high accuracy mode (the default), the language detector consumes approximately
-800 MB of memory if all language models are loaded. In low accuracy mode, memory
-consumption is reduced to approximately 60 MB.
+1 GB of memory if all language models are loaded. In low accuracy mode, memory
+consumption is reduced to approximately 103 MB.
 
 An alternative for a smaller memory footprint and faster performance is to reduce the set
 of languages when building the language detector. In most cases, it is not advisable to
@@ -3248,7 +3304,7 @@ build the detector from all supported languages. When you have knowledge about
 the texts you want to classify you can almost always rule out certain languages as impossible
 or unlikely to occur.
 
-### 9.6 Detection of multiple languages in mixed-language texts
+### 11.6 Detection of multiple languages in mixed-language texts
 
 In contrast to most other language detectors, *Lingua* is able to detect multiple languages
 in mixed-language texts. This feature can yield quite reasonable results but it is still
@@ -3278,7 +3334,23 @@ In the example above, a list of
 is returned. Each entry in the list describes a contiguous single-language text section,
 providing start and end indices of the respective substring.
 
-### 9.7 Methods to build the LanguageDetector
+### 11.7 Single-threaded versus multi-threaded language detection
+
+The `LanguageDetector` methods explained above all operate in a single thread.
+If you want to classify a very large set of texts, you will probably want to
+use all available CPU cores efficiently in multiple threads for maximum performance.
+
+Every single-threaded method has a multi-threaded equivalent that accepts a list of texts
+and returns a list of results.
+
+| Single-threaded                      | Multi-threaded                                   |
+|--------------------------------------|--------------------------------------------------|
+| `detect_language_of`                 | `detect_languages_in_parallel_of`                |
+| `detect_multiple_languages_of`       | `detect_multiple_languages_in_parallel_of`       |
+| `compute_language_confidence_values` | `compute_language_confidence_values_in_parallel` |
+| `compute_language_confidence`        | `compute_language_confidence_in_parallel`        |
+
+### 11.8 Methods to build the LanguageDetector
 
 There might be classification tasks where you know beforehand that your
 language data is definitely not written in Latin, for instance. The detection
@@ -3310,51 +3382,12 @@ LanguageDetectorBuilder.from_iso_codes_639_1(IsoCode639_1.EN, IsoCode639_1.DE)
 LanguageDetectorBuilder.from_iso_codes_639_3(IsoCode639_3.ENG, IsoCode639_3.DEU)
 ```
 
-## 10. Performance tips
+## 12. What's next for version 2.1.0?
 
-If you find that Lingua is too slow for your purposes, e.g. when you classify
-a large amount of texts, a sensible option is to make use of process-based
-parallelism via the [`multiprocessing`](https://docs.python.org/3/library/multiprocessing.html)
-module. This allows to distribute the workload over multiple CPU cores which improves
-speed of execution at the cost of higher memory consumption.
+Take a look at the [planned issues](https://github.com/pemistahl/lingua-py/milestone/6).
 
-The easiest way to implement it is by making use of
-[`ProcessPoolExecutor`](https://docs.python.org/3/library/concurrent.futures.html#concurrent.futures.ProcessPoolExecutor):
-
-```python
-from concurrent.futures import ProcessPoolExecutor
-from lingua import LanguageDetectorBuilder
-
-detector = (
-  LanguageDetectorBuilder.from_all_languages()
-  .with_preloaded_language_models()
-  .build()
-)
-
-def classify(text):
-    return detector.detect_language_of(text)
-
-n = 4 # Set n to the number of CPU cores in your machine
-texts = ["huge amount", "of texts", ...]
-
-with ProcessPoolExecutor(max_workers=n) as executor:
-    results = executor.map(classify, texts)
-    for detected_language in results:
-        # process the results
-        ...
-```
-
-Be aware that starting n processes will consume n times more memory for the
-language models. In a single process, all language models consume around 800 MB
-of memory. So when starting 4 processes, memory consumption will increase up to
-3200 MB.
-
-## 11. What's next for version 1.4.0?
-
-Take a look at the [planned issues](https://github.com/pemistahl/lingua-py/milestone/4).
-
-## 12. Contributions
+## 13. Contributions
 
 Any contributions to *Lingua* are very much appreciated. Please read the instructions
-in [`CONTRIBUTING.md`](https://github.com/pemistahl/lingua-py/blob/main/CONTRIBUTING.md)
-for how to add new languages to the library.
+in [`CONTRIBUTING.md`](https://github.com/pemistahl/lingua-rs/blob/main/CONTRIBUTING.md)
+in the repository of the Rust implementation for how to add new languages to the library.

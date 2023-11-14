@@ -1,3 +1,13 @@
+### Lingua 2.0.0 (released on 14 Nov 2023)
+
+### Features
+
+### Features
+
+- Python bindings for the Rust implementation of Lingua have now replaced the
+  pure Python implementation in order to benefit from Rust's performance in any
+  Python software.
+
 ## Lingua 1.3.4 (released on 07 Nov 2023)
 
 ### Miscellaneous

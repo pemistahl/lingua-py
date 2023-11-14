@@ -25,7 +25,6 @@ on:
       - '.github/**'
       - 'lingua/**'
       - 'scripts/**'
-      - 'tests/**'
   pull_request:
     branches:
       - main
@@ -35,11 +34,10 @@ on:
       - '.github/**'
       - 'lingua/**'
       - 'scripts/**'
-      - 'tests/**'
 
 jobs:
-  build-and-test:
-    name: Build and test
+  python-build:
+    name: Python ${{ matrix.python-version }}
 
     runs-on: ubuntu-latest
 
@@ -66,22 +64,10 @@ jobs:
         run: poetry env use ${{ matrix.python-version }}
 
       - name: Install project dependencies
-        run: poetry install --only main,dev
+        run: poetry install --no-root --only dev
 
       - name: Check static types
         run: poetry run mypy
 
       - name: Check code formatting
         run: poetry run black --check .
-
-      - name: Run unit tests with code coverage
-        run: |
-          poetry run coverage run -m pytest
-          poetry run coverage xml
-
-      - name: Upload code coverage report
-        if: ${{ github.event_name == 'push' && matrix.python-version == '3.8' }}
-        uses: codecov/codecov-action@v3
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          files: ./coverage.xml
