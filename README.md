@@ -3148,14 +3148,20 @@ and can be installed with:
 
     pip install lingua-language-detector
 
-## 10. How to build?
+## 10. How to build locally?
 
 *Lingua* requires Python >= 3.8.
-First create a virtualenv and install the Python wheel for your platform with `pip`.
+First [download](https://pypi.org/project/lingua-language-detector/#files)
+the correct Python wheel for your platform on PyPI and put it in the `lingua` directory.
+Then create a virtualenv and install the Python wheel with `pip`.
 
 ```
 git clone https://github.com/pemistahl/lingua-py.git
-cd lingua-py
+cd lingua-py/lingua
+
+# Put the downloaded wheel file in this directory
+
+cd ../
 python3 -m venv .venv
 source .venv/bin/activate
 pip install --find-links=lingua lingua-language-detector

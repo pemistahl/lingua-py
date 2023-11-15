@@ -2,8 +2,6 @@
 
 ### Features
 
-### Features
-
 - Python bindings for the Rust implementation of Lingua have now replaced the
   pure Python implementation in order to benefit from Rust's performance in any
   Python software.
