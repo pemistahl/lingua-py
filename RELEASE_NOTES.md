@@ -6,6 +6,10 @@
   pure Python implementation in order to benefit from Rust's performance in any
   Python software.
 
+- Parallel equivalents for all methods in `LanguageDetector` have been added
+  to give the user the choice of using the library single-threaded or
+  multi-threaded.
+
 ## Lingua 1.3.4 (released on 07 Nov 2023)
 
 ### Miscellaneous
