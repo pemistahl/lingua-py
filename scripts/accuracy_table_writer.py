@@ -25,6 +25,8 @@ class AccuracyTableWriter:
         "average-lingua-low",
         "average-langdetect",
         "average-fasttext",
+        "average-fastspell_cons",
+        "average-fastspell_aggr",
         "average-langid",
         "average-cld3",
         "average-cld2",
@@ -33,6 +35,8 @@ class AccuracyTableWriter:
         "single-words-lingua-low",
         "single-words-langdetect",
         "single-words-fasttext",
+        "single-words-fastspell_cons",
+        "single-words-fastspell_aggr",
         "single-words-langid",
         "single-words-cld3",
         "single-words-cld2",
@@ -41,6 +45,8 @@ class AccuracyTableWriter:
         "word-pairs-lingua-low",
         "word-pairs-langdetect",
         "word-pairs-fasttext",
+        "word-pairs-fastspell_cons",
+        "word-pairs-fastspell_aggr",
         "word-pairs-langid",
         "word-pairs-cld3",
         "word-pairs-cld2",
@@ -49,6 +55,8 @@ class AccuracyTableWriter:
         "sentences-lingua-low",
         "sentences-langdetect",
         "sentences-fasttext",
+        "sentences-fastspell_cons",
+        "sentences-fastspell_aggr",
         "sentences-langid",
         "sentences-cld3",
         "sentences-cld2",
@@ -68,6 +76,8 @@ class AccuracyTableWriter:
         <th>Lingua<br>(low accuracy mode)</th>
         <th>Langdetect</th>
         <th>FastText</th>
+        <th>FastSpell<br>(conservative mode)</th>
+        <th>FastSpell<br>(aggressive mode)</th>
         <th>Langid</th>
         <th>&nbsp;&nbsp;CLD3&nbsp;&nbsp;</th>
         <th>&nbsp;&nbsp;CLD2&nbsp;&nbsp;</th>
@@ -76,6 +86,8 @@ class AccuracyTableWriter:
         <th>Lingua<br>(low accuracy mode)</th>
         <th>Langdetect</th>
         <th>FastText</th>
+        <th>FastSpell<br>(conservative mode)</th>
+        <th>FastSpell<br>(aggressive mode)</th>
         <th>Langid</th>
         <th>&nbsp;&nbsp;CLD3&nbsp;&nbsp;</th>
         <th>&nbsp;&nbsp;CLD2&nbsp;&nbsp;</th>
@@ -84,6 +96,8 @@ class AccuracyTableWriter:
         <th>Lingua<br>(low accuracy mode)</th>
         <th>Langdetect</th>
         <th>FastText</th>
+        <th>FastSpell<br>(conservative mode)</th>
+        <th>FastSpell<br>(aggressive mode)</th>
         <th>Langid</th>
         <th>&nbsp;&nbsp;CLD3&nbsp;&nbsp;</th>
         <th>&nbsp;&nbsp;CLD2&nbsp;&nbsp;</th>
@@ -92,6 +106,8 @@ class AccuracyTableWriter:
         <th>Lingua<br>(low accuracy mode)</th>
         <th>Langdetect</th>
         <th>FastText</th>
+        <th>FastSpell<br>(conservative mode)</th>
+        <th>FastSpell<br>(aggressive mode)</th>
         <th>Langid</th>
         <th>&nbsp;&nbsp;CLD3&nbsp;&nbsp;</th>
         <th>&nbsp;&nbsp;CLD2&nbsp;&nbsp;</th>

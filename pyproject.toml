@@ -106,6 +106,8 @@ black = "^23.11.0"
 [tool.poetry.group.script.dependencies]
 # https://github.com/facebookresearch/fastText/pull/1292
 fasttext = {git = "https://github.com/cfculhane/fastText.git"}
+cyhunspell = {git = "https://github.com/MSeal/cython_hunspell", tag = "2.0.3"}
+fastspell = "^0.11"
 langdetect = "^1.0.9"
 langid = "^1.1.6"
 gcld3 = "^3.0.13"
