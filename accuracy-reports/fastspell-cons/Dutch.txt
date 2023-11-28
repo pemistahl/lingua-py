@@ -1,0 +1,16 @@
+##### Dutch #####
+
+>>> Accuracy on average: 71.40%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 46.40%
+Erroneously classified as English: 15.50%, Unknown: 9.90%, German: 9.20%, French: 3.80%, Italian: 2.00%, Bokmal: 1.70%, Swedish: 1.60%, Spanish: 1.20%, Finnish: 0.90%, Portuguese: 0.90%, Afrikaans: 0.80%, Polish: 0.70%, Catalan: 0.60%, Czech: 0.60%, Turkish: 0.50%, Danish: 0.40%, Basque: 0.30%, Croatian: 0.30%, Latin: 0.30%, Bengali: 0.20%, Chinese: 0.20%, Esperanto: 0.20%, Estonian: 0.20%, Hungarian: 0.20%, Indonesian: 0.20%, Latvian: 0.20%, Malay: 0.20%, Russian: 0.20%, Serbian: 0.20%, Albanian: 0.10%, Bosnian: 0.10%, Romanian: 0.10%, Urdu: 0.10%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 70.50%
+Erroneously classified as Unknown: 10.50%, English: 7.30%, German: 5.10%, French: 1.90%, Afrikaans: 1.00%, Italian: 0.60%, Swedish: 0.60%, Spanish: 0.40%, Croatian: 0.30%, Finnish: 0.30%, Portuguese: 0.30%, Bokmal: 0.20%, Danish: 0.20%, Polish: 0.20%, Bosnian: 0.10%, Catalan: 0.10%, Estonian: 0.10%, Hungarian: 0.10%, Indonesian: 0.10%, Slovene: 0.10%
+
+>> Detection of 1000 sentences (average length: 107 chars)
+Accuracy: 97.30%
+Erroneously classified as Unknown: 1.90%, English: 0.30%, Afrikaans: 0.20%, German: 0.20%, Bokmal: 0.10%
+

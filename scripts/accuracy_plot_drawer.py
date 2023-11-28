@@ -45,8 +45,8 @@ class AccuracyPlotDrawer:
         "cld3",
         "langid",
         "fasttext",
-        "fastspell_cons",
-        "fastspell_aggr",
+        "fastspell-cons",
+        "fastspell-aggr",
         "langdetect",
         "lingua-low",
         "lingua-high",
@@ -55,15 +55,15 @@ class AccuracyPlotDrawer:
         "Simplemma 0.9.1",
         "CLD 2",
         "CLD 3",
-        "langid 1.1.6",
-        "fastText 0.9.2",
-        "fastSpell 0.11\nconservative mode",
-        "fastSpell 0.11\naggressive mode",
-        "langdetect 1.0.9",
+        "Langid 1.1.6",
+        "FastText 0.9.2",
+        "FastSpell 0.11\nconservative mode",
+        "FastSpell 0.11\naggressive mode",
+        "Langdetect 1.0.9",
         "Lingua 2.0.0\nlow accuracy mode",
         "Lingua 2.0.0\nhigh accuracy mode",
     )
-    _hatches = ("|", "-", "/", "x", "+", ".", "*", "O")
+    _hatches = ("|", "-", "/", "x", "+", "\\", "o", ".", "*", "O")
     _palette = (
         "#39d7e6",
         "#6bbcff",
@@ -71,7 +71,9 @@ class AccuracyPlotDrawer:
         "#b259ff",
         "#ff6347",
         "#ff8800",
+        "#ffb866",
         "#ffc400",
+        "#8edca7",
         "#41c46b",
     )
     _ticks = np.arange(0, 101, 10)
@@ -101,7 +103,7 @@ class AccuracyPlotDrawer:
             self._draw_boxplot(
                 columns,
                 suffixed_title,
-                ylim=(0, 100),
+                xlim=(0, 100),
                 filename=f"boxplot-{prefix}.png",
             )
 
@@ -115,7 +117,7 @@ class AccuracyPlotDrawer:
         row_filter = self._dataframe[self._hue].isin(columns)
         data = self._dataframe[row_filter]
 
-        plt.figure(figsize=(16, 180))
+        plt.figure(figsize=(16, 220))
         plt.title(
             title + "\n", fontsize=self._title_fontsize, fontweight=self._fontweight
         )
@@ -148,36 +150,42 @@ class AccuracyPlotDrawer:
         plt.tight_layout()
         plt.savefig(self._plot_filepath / filename, dpi=self._dpi)
 
-    def _draw_boxplot(self, columns, title, ylim, filename):
+    def _draw_boxplot(self, columns, title, xlim, filename):
         row_filter = self._dataframe[self._hue].isin(columns)
         data = self._dataframe[row_filter]
 
-        plt.figure(figsize=(40, 12))
-        plt.title(title, fontsize=self._title_fontsize, fontweight=self._fontweight)
-        plt.xticks(fontsize=self._ticks_fontsize)
-        plt.yticks(fontsize=self._ticks_fontsize, ticks=self._ticks)
+        plt.figure(figsize=(20, 25))
+        plt.title(
+            title + "\n", fontsize=self._title_fontsize, fontweight=self._fontweight
+        )
+        plt.xticks(fontsize=self._ticks_fontsize, ticks=self._ticks)
+        plt.yticks(fontsize=self._ticks_fontsize)
         plt.grid(self._grid_color)
 
         axes = sns.boxplot(
             data=data,
-            x="classifier",
+            x="accuracy",
             hue="classifier",
-            y="accuracy",
+            y="classifier",
             linewidth=5,
             palette=self._palette,
             legend=False,
         )
 
-        axes.set_ylim(ylim)
-        axes.set_xlabel(
+        axes.set_xlim(xlim)
+        axes.xaxis.tick_top()
+        axes.xaxis.set_label_position("top")
+        axes.tick_params(axis="both", which="major", labelsize=self._label_fontsize)
+        axes.tick_params(axis="both", which="minor", labelsize=self._label_fontsize)
+        axes.set_ylabel(
             "Classifier", fontsize=self._label_fontsize, fontweight=self._fontweight
         )
-        axes.set_ylabel(
-            "Accuracy (%)", fontsize=self._label_fontsize, fontweight=self._fontweight
+        axes.set_xlabel(
+            "Accuracy (%)\n", fontsize=self._label_fontsize, fontweight=self._fontweight
         )
-        # set_xticklabels should only be called after set_xticks
-        axes.set_xticks(axes.get_xticks())
-        axes.set_xticklabels(self._legend_labels)
+        # set_yticklabels should only be called after set_yticks
+        axes.set_yticks(axes.get_yticks())
+        axes.set_yticklabels(self._legend_labels)
 
         plt.tight_layout()
         plt.savefig(self._plot_filepath / filename, dpi=self._dpi)

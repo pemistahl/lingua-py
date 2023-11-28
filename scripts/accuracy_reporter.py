@@ -474,17 +474,17 @@ def main():
         "fasttext", fasttext_reports_directory, fasttext_detect
     )
 
-    fastspell_cons_reports_directory = accuracy_reports_directory / "fastspell_cons"
+    fastspell_cons_reports_directory = accuracy_reports_directory / "fastspell-cons"
     fastspell_cons_statistics = collect_statistics(
-        "fastspell_cons",
+        "fastspell-cons",
         fastspell_cons_reports_directory,
         fastspell_cons_detect,
         fastspell_setup,
     )
 
-    fastspell_aggr_reports_directory = accuracy_reports_directory / "fastspell_aggr"
+    fastspell_aggr_reports_directory = accuracy_reports_directory / "fastspell-aggr"
     fastspell_aggr_statistics = collect_statistics(
-        "fastspell_aggr",
+        "fastspell-aggr",
         fastspell_aggr_reports_directory,
         fastspell_aggr_detect,
         fastspell_setup,
