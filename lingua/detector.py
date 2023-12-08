@@ -13,12 +13,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import numpy as np
+import brotli
 
 from collections import Counter
 from dataclasses import dataclass
 from decimal import Decimal
 from math import exp
+from pathlib import Path
 from typing import (
     Counter as TypedCounter,
     Dict,
@@ -37,13 +38,13 @@ from ._constant import (
 )
 from .language import Language, _Alphabet
 from ._model import _TrainingDataLanguageModel, _TestDataLanguageModel
+from ._ngram import _get_ngram_name_by_length
 
-_UNIGRAM_MODELS: Dict[Language, np.ndarray] = {}
-_BIGRAM_MODELS: Dict[Language, np.ndarray] = {}
-_TRIGRAM_MODELS: Dict[Language, np.ndarray] = {}
-_QUADRIGRAM_MODELS: Dict[Language, np.ndarray] = {}
-_FIVEGRAM_MODELS: Dict[Language, np.ndarray] = {}
-_CACHE: Dict[Language, Dict[str, Optional[float]]] = {}
+_UNIGRAM_MODELS: Dict[Language, Dict[str, float]] = {}
+_BIGRAM_MODELS: Dict[Language, Dict[str, float]] = {}
+_TRIGRAM_MODELS: Dict[Language, Dict[str, float]] = {}
+_QUADRIGRAM_MODELS: Dict[Language, Dict[str, float]] = {}
+_FIVEGRAM_MODELS: Dict[Language, Dict[str, float]] = {}
 _HIGH_ACCURACY_MODE_MAX_TEXT_LENGTH = 120
 
 
@@ -54,13 +55,25 @@ def _split_text_into_words(text: str) -> List[str]:
 def _load_language_models(
     language: Language,
     ngram_length: int,
-) -> Optional[Dict[Language, np.ndarray]]:
-    loaded_model = _TrainingDataLanguageModel.from_numpy_binary_file(
-        language, ngram_length
-    )
-    if loaded_model is None:
+) -> Optional[Dict[Language, Dict[str, float]]]:
+    json_data = _load_json(language, ngram_length)
+    if json_data is None:
         return None
-    return {language: loaded_model}
+
+    loaded_models = _TrainingDataLanguageModel.from_json(json_data)
+    return {language: loaded_models}
+
+
+def _load_json(language: Language, ngram_length: int) -> Optional[str]:
+    ngram_name = _get_ngram_name_by_length(ngram_length)
+    iso_code = language.iso_code_639_1.name.lower()
+    relative_brotli_file_path = f"./language-models/{iso_code}/{ngram_name}s.json.br"
+    absolute_brotli_file_path = Path(__file__).parent / relative_brotli_file_path
+    try:
+        with open(absolute_brotli_file_path, mode="rb") as brotli_file:
+            return brotli.decompress(brotli_file.read()).decode("utf-8")
+    except FileNotFoundError:
+        return None
 
 
 def _sum_up_probabilities(
@@ -187,12 +200,11 @@ class LanguageDetector:
     _is_low_accuracy_mode_enabled: bool
     _languages_with_unique_characters: FrozenSet[Language]
     _one_language_alphabets: Dict[_Alphabet, Language]
-    _unigram_language_models: Dict[Language, np.ndarray]
-    _bigram_language_models: Dict[Language, np.ndarray]
-    _trigram_language_models: Dict[Language, np.ndarray]
-    _quadrigram_language_models: Dict[Language, np.ndarray]
-    _fivegram_language_models: Dict[Language, np.ndarray]
-    _cache: Dict[Language, Dict[str, Optional[float]]]
+    _unigram_language_models: Dict[Language, Dict[str, float]]
+    _bigram_language_models: Dict[Language, Dict[str, float]]
+    _trigram_language_models: Dict[Language, Dict[str, float]]
+    _quadrigram_language_models: Dict[Language, Dict[str, float]]
+    _fivegram_language_models: Dict[Language, Dict[str, float]]
 
     def __repr__(self):
         languages = sorted([language.name for language in self._languages])
@@ -225,7 +237,6 @@ class LanguageDetector:
             _TRIGRAM_MODELS,
             _QUADRIGRAM_MODELS,
             _FIVEGRAM_MODELS,
-            _CACHE,
         )
 
         if is_every_language_model_preloaded:
@@ -733,12 +744,6 @@ class LanguageDetector:
     def _look_up_ngram_probability(
         self, language: Language, ngram: str
     ) -> Optional[float]:
-        if language not in self._cache:
-            self._cache[language] = {}
-
-        if ngram in self._cache[language]:
-            return self._cache[language][ngram]
-
         ngram_length = len(ngram)
         if ngram_length == 5:
             language_models = self._fivegram_language_models
@@ -755,27 +760,13 @@ class LanguageDetector:
         else:
             raise ValueError(f"unsupported ngram length detected: {ngram_length}")
 
-        probability = None
-
         if language not in language_models:
             models = _load_language_models(language, ngram_length)
             if models is None:
-                self._cache[language][ngram] = probability
-                return probability
+                return None
             language_models.update(models)
 
-        idx = np.searchsorted(language_models[language]["ngram"], ngram)
-
-        try:
-            ngram_in_arr = language_models[language]["ngram"][idx]
-            if ngram_in_arr == ngram:
-                probability = language_models[language]["frequency"][idx]
-        except IndexError:
-            pass
-
-        self._cache[language][ngram] = probability
-
-        return probability
+        return language_models[language].get(ngram, None)
 
     def _count_unigrams(
         self,

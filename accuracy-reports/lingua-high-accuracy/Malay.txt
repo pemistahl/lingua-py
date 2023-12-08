@@ -8,7 +8,7 @@ Erroneously classified as Indonesian: 26.00%, English: 5.20%, Swahili: 3.00%, La
 
 >> Detection of 1000 word pairs (average length: 15 chars)
 Accuracy: 38.40%
-Erroneously classified as Indonesian: 43.80%, English: 3.50%, Tagalog: 1.40%, Swahili: 1.30%, Albanian: 1.10%, German: 1.10%, Latin: 1.00%, Shona: 0.80%, Tsonga: 0.60%, Basque: 0.50%, Esperanto: 0.50%, Italian: 0.40%, Nynorsk: 0.40%, Sotho: 0.40%, Turkish: 0.40%, Welsh: 0.40%, Xhosa: 0.40%, Afrikaans: 0.30%, Danish: 0.30%, Portuguese: 0.30%, Yoruba: 0.30%, Zulu: 0.30%, Bokmal: 0.20%, Dutch: 0.20%, Estonian: 0.20%, Finnish: 0.20%, Ganda: 0.20%, Romanian: 0.20%, Somali: 0.20%, Swedish: 0.20%, Tswana: 0.20%, French: 0.10%, Lithuanian: 0.10%, Maori: 0.10%
+Erroneously classified as Indonesian: 43.80%, English: 3.60%, Tagalog: 1.40%, Swahili: 1.30%, Albanian: 1.10%, German: 1.10%, Latin: 1.00%, Shona: 0.80%, Tsonga: 0.60%, Basque: 0.50%, Esperanto: 0.50%, Italian: 0.40%, Nynorsk: 0.40%, Sotho: 0.40%, Turkish: 0.40%, Welsh: 0.40%, Xhosa: 0.40%, Afrikaans: 0.30%, Danish: 0.30%, Portuguese: 0.30%, Yoruba: 0.30%, Zulu: 0.30%, Bokmal: 0.20%, Dutch: 0.20%, Estonian: 0.20%, Finnish: 0.20%, Ganda: 0.20%, Romanian: 0.20%, Somali: 0.20%, Tswana: 0.20%, French: 0.10%, Lithuanian: 0.10%, Maori: 0.10%, Swedish: 0.10%
 
 >> Detection of 1000 sentences (average length: 116 chars)
 Accuracy: 28.10%

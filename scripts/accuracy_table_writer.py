@@ -25,6 +25,8 @@ class AccuracyTableWriter:
         "average-lingua-low",
         "average-langdetect",
         "average-fasttext",
+        "average-fastspell-cons",
+        "average-fastspell-aggr",
         "average-langid",
         "average-cld3",
         "average-cld2",
@@ -33,6 +35,8 @@ class AccuracyTableWriter:
         "single-words-lingua-low",
         "single-words-langdetect",
         "single-words-fasttext",
+        "single-words-fastspell-cons",
+        "single-words-fastspell-aggr",
         "single-words-langid",
         "single-words-cld3",
         "single-words-cld2",
@@ -41,6 +45,8 @@ class AccuracyTableWriter:
         "word-pairs-lingua-low",
         "word-pairs-langdetect",
         "word-pairs-fasttext",
+        "word-pairs-fastspell-cons",
+        "word-pairs-fastspell-aggr",
         "word-pairs-langid",
         "word-pairs-cld3",
         "word-pairs-cld2",
@@ -49,6 +55,8 @@ class AccuracyTableWriter:
         "sentences-lingua-low",
         "sentences-langdetect",
         "sentences-fasttext",
+        "sentences-fastspell-cons",
+        "sentences-fastspell-aggr",
         "sentences-langid",
         "sentences-cld3",
         "sentences-cld2",
@@ -57,10 +65,10 @@ class AccuracyTableWriter:
     _table = """<table>
     <tr>
         <th>Language</th>
-        <th colspan="8">Average</th>
-        <th colspan="8">Single Words</th>
-        <th colspan="8">Word Pairs</th>
-        <th colspan="8">Sentences</th>
+        <th colspan="10">Average</th>
+        <th colspan="10">Single Words</th>
+        <th colspan="10">Word Pairs</th>
+        <th colspan="10">Sentences</th>
     </tr>
     <tr>
         <th></th>
@@ -68,6 +76,8 @@ class AccuracyTableWriter:
         <th>Lingua<br>(low accuracy mode)</th>
         <th>Langdetect</th>
         <th>FastText</th>
+        <th>FastSpell<br>(conservative mode)</th>
+        <th>FastSpell<br>(aggressive mode)</th>
         <th>Langid</th>
         <th>&nbsp;&nbsp;CLD3&nbsp;&nbsp;</th>
         <th>&nbsp;&nbsp;CLD2&nbsp;&nbsp;</th>
@@ -76,6 +86,8 @@ class AccuracyTableWriter:
         <th>Lingua<br>(low accuracy mode)</th>
         <th>Langdetect</th>
         <th>FastText</th>
+        <th>FastSpell<br>(conservative mode)</th>
+        <th>FastSpell<br>(aggressive mode)</th>
         <th>Langid</th>
         <th>&nbsp;&nbsp;CLD3&nbsp;&nbsp;</th>
         <th>&nbsp;&nbsp;CLD2&nbsp;&nbsp;</th>
@@ -84,6 +96,8 @@ class AccuracyTableWriter:
         <th>Lingua<br>(low accuracy mode)</th>
         <th>Langdetect</th>
         <th>FastText</th>
+        <th>FastSpell<br>(conservative mode)</th>
+        <th>FastSpell<br>(aggressive mode)</th>
         <th>Langid</th>
         <th>&nbsp;&nbsp;CLD3&nbsp;&nbsp;</th>
         <th>&nbsp;&nbsp;CLD2&nbsp;&nbsp;</th>
@@ -92,6 +106,8 @@ class AccuracyTableWriter:
         <th>Lingua<br>(low accuracy mode)</th>
         <th>Langdetect</th>
         <th>FastText</th>
+        <th>FastSpell<br>(conservative mode)</th>
+        <th>FastSpell<br>(aggressive mode)</th>
         <th>Langid</th>
         <th>&nbsp;&nbsp;CLD3&nbsp;&nbsp;</th>
         <th>&nbsp;&nbsp;CLD2&nbsp;&nbsp;</th>
@@ -120,20 +136,20 @@ class AccuracyTableWriter:
                     accuracy_str = "-"
 
                 color = self._get_square_color(accuracy_value)
-                self._table += f'\t\t<td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/{color}.png"> {accuracy_str}</td>\n'
+                self._table += f'\t\t<td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/{color}.png"> {accuracy_str}</td>\n'
 
             self._table += "\t</tr>\n"
 
-        self._table += '\t<tr>\n\t\t<td colspan="32"></td>\n\t</tr>\n'
+        self._table += '\t<tr>\n\t\t<td colspan="40"></td>\n\t</tr>\n'
         self._table += "\t<tr>\n\t\t<td><strong>Mean</strong></td>\n"
 
         for column in self._columns:
             accuracy_value = mean.loc[[column]].iloc[0]
             color = self._get_square_color(accuracy_value)
-            self._table += f'\t\t<td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/{color}.png"> <strong>{accuracy_value}</strong></td>\n'
+            self._table += f'\t\t<td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/{color}.png"> <strong>{accuracy_value}</strong></td>\n'
 
         self._table += "\t</tr>\n"
-        self._table += '\t<tr>\n\t\t<td colspan="32"></td>\n\t</tr>\n'
+        self._table += '\t<tr>\n\t\t<td colspan="40"></td>\n\t</tr>\n'
         self._table += "\t<tr>\n\t\t<td>Median</td>\n"
 
         for column in self._columns:

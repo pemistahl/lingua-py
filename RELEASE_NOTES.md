@@ -1,3 +1,13 @@
+## Lingua 1.3.5 (released on 08 Dec 2023)
+
+### Improvements
+
+- The language models are now stored in dictionaries instead of NumPy arrays.
+  This change leads to significantly improved runtime performance at the cost
+  of higher memory consumption (up to 3 GB for all models). As the runtime
+  performance was much too slow with the former approach, this change makes
+  sense because adding more memory is quite cheap.
+
 ## Lingua 1.3.4 (released on 07 Nov 2023)
 
 ### Miscellaneous

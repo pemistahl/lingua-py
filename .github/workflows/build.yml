@@ -18,7 +18,7 @@ name: build
 on:
   push:
     branches:
-      - main
+      - pure-python-impl
     paths:
       - 'poetry.lock'
       - 'pyproject.toml'
@@ -28,7 +28,7 @@ on:
       - 'tests/**'
   pull_request:
     branches:
-      - main
+      - pure-python-impl
     paths:
       - 'poetry.lock'
       - 'pyproject.toml'

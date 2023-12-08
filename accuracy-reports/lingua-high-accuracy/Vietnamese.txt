@@ -4,7 +4,7 @@
 
 >> Detection of 879 single words (average length: 4 chars)
 Accuracy: 78.84%
-Erroneously classified as Irish: 1.82%, Tagalog: 1.59%, Yoruba: 1.59%, Icelandic: 0.91%, Latin: 0.91%, Romanian: 0.91%, Maori: 0.80%, Sotho: 0.80%, English: 0.68%, French: 0.68%, Lithuanian: 0.68%, Portuguese: 0.68%, Swahili: 0.68%, Zulu: 0.68%, German: 0.57%, Shona: 0.57%, Dutch: 0.46%, Estonian: 0.46%, Italian: 0.46%, Malay: 0.46%, Spanish: 0.46%, Tsonga: 0.46%, Basque: 0.34%, Catalan: 0.34%, Hungarian: 0.34%, Swedish: 0.34%, Tswana: 0.34%, Afrikaans: 0.23%, Bosnian: 0.23%, Esperanto: 0.23%, Polish: 0.23%, Somali: 0.23%, Turkish: 0.23%, Welsh: 0.23%, Xhosa: 0.23%, Croatian: 0.11%, Czech: 0.11%, Slovak: 0.11%
+Erroneously classified as Irish: 1.82%, Tagalog: 1.59%, Yoruba: 1.59%, Icelandic: 0.91%, Latin: 0.91%, Romanian: 0.91%, Maori: 0.80%, Sotho: 0.80%, English: 0.68%, French: 0.68%, German: 0.68%, Lithuanian: 0.68%, Portuguese: 0.68%, Swahili: 0.68%, Zulu: 0.68%, Shona: 0.57%, Estonian: 0.46%, Italian: 0.46%, Malay: 0.46%, Spanish: 0.46%, Tsonga: 0.46%, Basque: 0.34%, Catalan: 0.34%, Dutch: 0.34%, Hungarian: 0.34%, Swedish: 0.34%, Tswana: 0.34%, Afrikaans: 0.23%, Bosnian: 0.23%, Esperanto: 0.23%, Polish: 0.23%, Somali: 0.23%, Turkish: 0.23%, Welsh: 0.23%, Xhosa: 0.23%, Croatian: 0.11%, Czech: 0.11%, Slovak: 0.11%
 
 >> Detection of 957 word pairs (average length: 12 chars)
 Accuracy: 94.15%

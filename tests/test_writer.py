@@ -13,11 +13,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import numpy as np
+import brotli
 import os
 import pytest
+import regex
 
-from math import log
 from pathlib import Path
 from tempfile import NamedTemporaryFile, TemporaryDirectory
 
@@ -48,237 +48,91 @@ def test_data_files_text():
 
 @pytest.fixture
 def expected_unigram_model():
-    return np.array(
-        [
-            ("a", log(3 / 100)),
-            ("b", log(1 / 100)),
-            ("c", log(3 / 100)),
-            ("d", log(1 / 20)),
-            ("e", log(7 / 50)),
-            ("f", log(1 / 50)),
-            ("g", log(1 / 100)),
-            ("h", log(1 / 25)),
-            ("i", log(3 / 50)),
-            ("l", log(1 / 100)),
-            ("m", log(1 / 100)),
-            ("n", log(1 / 10)),
-            ("o", log(1 / 10)),
-            ("p", log(3 / 100)),
-            ("r", log(1 / 20)),
-            ("s", log(1 / 10)),
-            ("t", log(13 / 100)),
-            ("u", log(3 / 100)),
-            ("w", log(1 / 50)),
-            ("y", log(3 / 100)),
-        ],
-        dtype=[("ngram", "U1"), ("frequency", "f2")],
-    )
+    return """
+    {
+        "language":"ENGLISH",
+        "ngrams":{
+            "13/100":"t",
+            "1/25":"h",
+            "7/50":"e",
+            "1/10":"n o s",
+            "3/100":"a c p u y",
+            "1/20":"d r",
+            "3/50":"i",
+            "1/50":"f w",
+            "1/100":"b g l m"
+        }
+    }
+    """
 
 
 @pytest.fixture
 def expected_bigram_model():
-    return np.array(
-        [
-            ("al", log(1 / 3)),
-            ("ar", log(1 / 3)),
-            ("ay", log(1 / 3)),
-            ("by", log(1 / 1)),
-            ("ce", log(1 / 3)),
-            ("co", log(1 / 3)),
-            ("ct", log(1 / 3)),
-            ("de", log(1 / 5)),
-            ("do", log(1 / 5)),
-            ("ds", log(1 / 5)),
-            ("du", log(1 / 5)),
-            ("ed", log(1 / 14)),
-            ("em", log(1 / 14)),
-            ("en", log(3 / 14)),
-            ("es", log(2 / 7)),
-            ("ey", log(1 / 14)),
-            ("fo", log(1 / 2)),
-            ("he", log(1 / 1)),
-            ("in", log(2 / 3)),
-            ("io", log(1 / 6)),
-            ("is", log(1 / 6)),
-            ("nc", log(1 / 10)),
-            ("nd", log(1 / 10)),
-            ("ng", log(1 / 10)),
-            ("no", log(1 / 10)),
-            ("ns", log(1 / 10)),
-            ("nt", log(1 / 5)),
-            ("od", log(1 / 10)),
-            ("of", log(1 / 10)),
-            ("on", log(1 / 5)),
-            ("or", log(1 / 5)),
-            ("os", log(1 / 10)),
-            ("ot", log(1 / 5)),
-            ("po", log(1 / 3)),
-            ("pr", log(1 / 3)),
-            ("pu", log(1 / 3)),
-            ("rd", log(1 / 5)),
-            ("re", log(1 / 5)),
-            ("ro", log(1 / 5)),
-            ("rp", log(1 / 5)),
-            ("se", log(2 / 5)),
-            ("si", log(1 / 10)),
-            ("st", log(1 / 5)),
-            ("ta", log(1 / 13)),
-            ("te", log(3 / 13)),
-            ("th", log(4 / 13)),
-            ("ti", log(2 / 13)),
-            ("to", log(1 / 13)),
-            ("uc", log(1 / 3)),
-            ("ur", log(1 / 3)),
-            ("us", log(1 / 3)),
-            ("wa", log(1 / 2)),
-            ("wo", log(1 / 2)),
-        ],
-        dtype=[("ngram", "U2"), ("frequency", "f2")],
-    )
+    return """
+    {
+        "language":"ENGLISH",
+        "ngrams":{
+            "4/13":"th",
+            "1/1":"by he",
+            "2/7":"es",
+            "2/5":"se",
+            "3/14":"en",
+            "1/5":"de do ds du nt on or ot rd re ro rp st",
+            "3/13":"te",
+            "1/10":"nc nd ng no ns od of os si",
+            "1/3":"al ar ay ce co ct po pr pu uc ur us",
+            "2/3":"in",
+            "1/14":"ed em ey",
+            "1/2":"fo wa wo",
+            "2/13":"ti",
+            "1/6":"io is",
+            "1/13":"ta to"
+        }
+    }
+    """
 
 
 @pytest.fixture
 def expected_trigram_model():
-    return np.array(
-        [
-            ("are", log(1 / 1)),
-            ("ces", log(1 / 1)),
-            ("con", log(1 / 1)),
-            ("cti", log(1 / 1)),
-            ("ded", log(1 / 1)),
-            ("duc", log(1 / 1)),
-            ("enc", log(1 / 3)),
-            ("end", log(1 / 3)),
-            ("ent", log(1 / 3)),
-            ("ese", log(1 / 4)),
-            ("est", log(1 / 4)),
-            ("for", log(1 / 1)),
-            ("hem", log(1 / 4)),
-            ("hes", log(1 / 4)),
-            ("hey", log(1 / 4)),
-            ("ing", log(1 / 4)),
-            ("int", log(1 / 4)),
-            ("ion", log(1 / 1)),
-            ("ist", log(1 / 1)),
-            ("nce", log(1 / 1)),
-            ("nde", log(1 / 1)),
-            ("not", log(1 / 1)),
-            ("nsi", log(1 / 1)),
-            ("nte", log(1 / 1)),
-            ("odu", log(1 / 1)),
-            ("ons", log(1 / 2)),
-            ("ord", log(1 / 2)),
-            ("ose", log(1 / 1)),
-            ("ota", log(1 / 2)),
-            ("pos", log(1 / 1)),
-            ("pro", log(1 / 1)),
-            ("pur", log(1 / 1)),
-            ("rds", log(1 / 1)),
-            ("rod", log(1 / 1)),
-            ("rpo", log(1 / 1)),
-            ("sen", log(1 / 4)),
-            ("ses", log(1 / 4)),
-            ("sis", log(1 / 1)),
-            ("sti", log(1 / 2)),
-            ("tal", log(1 / 1)),
-            ("ten", log(2 / 3)),
-            ("tes", log(1 / 3)),
-            ("the", log(1 / 1)),
-            ("tin", log(1 / 2)),
-            ("tio", log(1 / 2)),
-            ("tot", log(1 / 1)),
-            ("uct", log(1 / 1)),
-            ("urp", log(1 / 1)),
-            ("use", log(1 / 1)),
-            ("way", log(1 / 1)),
-            ("wor", log(1 / 1)),
-        ],
-        dtype=[("ngram", "U3"), ("frequency", "f2")],
-    )
+    return """
+    {
+        "language":"ENGLISH",
+        "ngrams":{
+            "1/1":"are ces con cti ded duc for ion ist nce nde not nsi nte odu ose pos pro pur rds rod rpo sis tal the tot uct urp use way wor",
+            "1/4":"ese est hem hes hey ing int sen ses",
+            "1/3":"enc end ent tes",
+            "2/3":"ten",
+            "1/2":"ons ord ota sti tin tio"
+        }
+    }
+    """
 
 
 @pytest.fixture
 def expected_quadrigram_model():
-    return np.array(
-        [
-            ("cons", log(1 / 1)),
-            ("ctio", log(1 / 1)),
-            ("duct", log(1 / 1)),
-            ("ence", log(1 / 1)),
-            ("ende", log(1 / 1)),
-            ("ente", log(1 / 1)),
-            ("esti", log(1 / 1)),
-            ("hese", log(1 / 1)),
-            ("inte", log(1 / 1)),
-            ("nces", log(1 / 1)),
-            ("nded", log(1 / 1)),
-            ("nsis", log(1 / 1)),
-            ("nten", log(1 / 1)),
-            ("oduc", log(1 / 1)),
-            ("onsi", log(1 / 1)),
-            ("ords", log(1 / 1)),
-            ("oses", log(1 / 1)),
-            ("otal", log(1 / 1)),
-            ("pose", log(1 / 1)),
-            ("prod", log(1 / 1)),
-            ("purp", log(1 / 1)),
-            ("rodu", log(1 / 1)),
-            ("rpos", log(1 / 1)),
-            ("sent", log(1 / 1)),
-            ("sist", log(1 / 1)),
-            ("stin", log(1 / 1)),
-            ("tenc", log(1 / 2)),
-            ("tend", log(1 / 2)),
-            ("test", log(1 / 1)),
-            ("them", log(1 / 4)),
-            ("thes", log(1 / 4)),
-            ("they", log(1 / 4)),
-            ("ting", log(1 / 1)),
-            ("tion", log(1 / 1)),
-            ("tota", log(1 / 1)),
-            ("ucti", log(1 / 1)),
-            ("urpo", log(1 / 1)),
-            ("word", log(1 / 1)),
-        ],
-        dtype=[("ngram", "U4"), ("frequency", "f2")],
-    )
+    return """
+    {
+        "language":"ENGLISH",
+        "ngrams":{
+            "1/4":"them thes they",
+            "1/1":"cons ctio duct ence ende ente esti hese inte nces nded nsis nten oduc onsi ords oses otal pose prod purp rodu rpos sent sist stin test ting tion tota ucti urpo word",
+            "1/2":"tenc tend"
+        }
+    }
+    """
 
 
 @pytest.fixture
 def expected_fivegram_model():
-    return np.array(
-        [
-            ("consi", log(1 / 1)),
-            ("ction", log(1 / 1)),
-            ("ducti", log(1 / 1)),
-            ("ences", log(1 / 1)),
-            ("ended", log(1 / 1)),
-            ("enten", log(1 / 1)),
-            ("estin", log(1 / 1)),
-            ("inten", log(1 / 1)),
-            ("nsist", log(1 / 1)),
-            ("ntenc", log(1 / 2)),
-            ("ntend", log(1 / 2)),
-            ("oduct", log(1 / 1)),
-            ("onsis", log(1 / 1)),
-            ("poses", log(1 / 1)),
-            ("produ", log(1 / 1)),
-            ("purpo", log(1 / 1)),
-            ("roduc", log(1 / 1)),
-            ("rpose", log(1 / 1)),
-            ("sente", log(1 / 1)),
-            ("sting", log(1 / 1)),
-            ("tence", log(1 / 1)),
-            ("tende", log(1 / 1)),
-            ("testi", log(1 / 1)),
-            ("these", log(1 / 1)),
-            ("total", log(1 / 1)),
-            ("uctio", log(1 / 1)),
-            ("urpos", log(1 / 1)),
-            ("words", log(1 / 1)),
-        ],
-        dtype=[("ngram", "U5"), ("frequency", "f2")],
-    )
+    return """
+    {
+        "language":"ENGLISH",
+        "ngrams":{
+            "1/1":"consi ction ducti ences ended enten estin inten nsist oduct onsis poses produ purpo roduc rpose sente sting tence tende testi these total uctio urpos words",
+            "1/2":"ntenc ntend"
+        }
+    }
+    """
 
 
 @pytest.fixture
@@ -330,11 +184,11 @@ def test_language_model_files_writer(
     files = read_directory_content(output_directory_path)
 
     assert len(files) == 5
-    assert files[4] == "unigrams.npz"
-    assert files[0] == "bigrams.npz"
-    assert files[3] == "trigrams.npz"
-    assert files[2] == "quadrigrams.npz"
-    assert files[1] == "fivegrams.npz"
+    assert files[4] == "unigrams.json.br"
+    assert files[0] == "bigrams.json.br"
+    assert files[3] == "trigrams.json.br"
+    assert files[2] == "quadrigrams.json.br"
+    assert files[1] == "fivegrams.json.br"
 
     unigrams_file_path = output_directory_path / files[4]
     bigrams_file_path = output_directory_path / files[0]
@@ -342,11 +196,11 @@ def test_language_model_files_writer(
     quadrigrams_file_path = output_directory_path / files[2]
     fivegrams_file_path = output_directory_path / files[1]
 
-    check_npz_file_content(unigrams_file_path, expected_unigram_model)
-    check_npz_file_content(bigrams_file_path, expected_bigram_model)
-    check_npz_file_content(trigrams_file_path, expected_trigram_model)
-    check_npz_file_content(quadrigrams_file_path, expected_quadrigram_model)
-    check_npz_file_content(fivegrams_file_path, expected_fivegram_model)
+    check_brotli_file_content(unigrams_file_path, expected_unigram_model)
+    check_brotli_file_content(bigrams_file_path, expected_bigram_model)
+    check_brotli_file_content(trigrams_file_path, expected_trigram_model)
+    check_brotli_file_content(quadrigrams_file_path, expected_quadrigram_model)
+    check_brotli_file_content(fivegrams_file_path, expected_fivegram_model)
 
 
 def test_test_data_files_writer(
@@ -548,10 +402,10 @@ def test_file_as_output_directory_raises_exception():
     assert exception_info2.value.args[0] == expected_error_message
 
 
-def check_npz_file_content(file_path: Path, expected_numpy_array: np.ndarray):
-    with np.load(file_path) as data:
-        assert "arr" in data
-        assert np.array_equal(data["arr"], expected_numpy_array)
+def check_brotli_file_content(file_path: Path, expected_file_content: str):
+    with open(file_path, mode="rb") as brotli_file:
+        decompressed_json = brotli.decompress(brotli_file.read()).decode("utf-8")
+        assert decompressed_json == minify(expected_file_content)
 
 
 def check_file_content(
@@ -575,3 +429,7 @@ def read_directory_content(directory):
     files = os.listdir(directory)
     files.sort()
     return files
+
+
+def minify(json: str):
+    return regex.sub(r"\n\s*", "", json)

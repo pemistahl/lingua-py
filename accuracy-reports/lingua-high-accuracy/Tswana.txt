@@ -4,7 +4,7 @@
 
 >> Detection of 1000 single words (average length: 8 chars)
 Accuracy: 65.30%
-Erroneously classified as Sotho: 15.90%, Tsonga: 2.40%, Shona: 1.70%, Swahili: 1.40%, English: 1.30%, Xhosa: 1.30%, Tagalog: 1.10%, Basque: 1.00%, Latin: 1.00%, Zulu: 1.00%, Ganda: 0.70%, Malay: 0.70%, French: 0.50%, Yoruba: 0.50%, German: 0.40%, Italian: 0.40%, Maori: 0.40%, Somali: 0.40%, Bokmal: 0.30%, Romanian: 0.30%, Afrikaans: 0.20%, Catalan: 0.20%, Czech: 0.20%, Irish: 0.20%, Bosnian: 0.10%, Croatian: 0.10%, Danish: 0.10%, Esperanto: 0.10%, Finnish: 0.10%, Indonesian: 0.10%, Polish: 0.10%, Portuguese: 0.10%, Slovene: 0.10%, Swedish: 0.10%, Turkish: 0.10%, Welsh: 0.10%
+Erroneously classified as Sotho: 15.80%, Tsonga: 2.40%, Shona: 1.70%, Swahili: 1.40%, English: 1.30%, Xhosa: 1.30%, Tagalog: 1.10%, Basque: 1.00%, Latin: 1.00%, Zulu: 1.00%, Malay: 0.80%, Ganda: 0.70%, French: 0.50%, Yoruba: 0.50%, German: 0.40%, Italian: 0.40%, Maori: 0.40%, Somali: 0.40%, Bokmal: 0.30%, Romanian: 0.30%, Afrikaans: 0.20%, Catalan: 0.20%, Czech: 0.20%, Irish: 0.20%, Bosnian: 0.10%, Croatian: 0.10%, Danish: 0.10%, Esperanto: 0.10%, Finnish: 0.10%, Indonesian: 0.10%, Polish: 0.10%, Portuguese: 0.10%, Slovene: 0.10%, Swedish: 0.10%, Turkish: 0.10%, Welsh: 0.10%
 
 >> Detection of 1000 word pairs (average length: 15 chars)
 Accuracy: 88.50%

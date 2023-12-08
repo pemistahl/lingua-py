@@ -14,6 +14,7 @@
 # limitations under the License.
 
 import csv
+import fastspell
 import fasttext
 import gcld3
 import langdetect
@@ -24,7 +25,6 @@ import time
 import urllib.request
 
 from collections import Counter
-from concurrent.futures import ProcessPoolExecutor
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Callable, Counter as TypedCounter, Dict, List, Optional, Tuple
@@ -218,7 +218,7 @@ def map_detector_to_lingua(iso_code: str) -> Optional[Language]:
         return None
 
 
-def simplemma_detect(text: str) -> Tuple[str, Optional[Language]]:
+def simplemma_detect(texts: List[str]) -> List[Optional[Language]]:
     iso_codes = tuple(
         language.iso_code_639_1.name.lower()
         for language in [
@@ -266,26 +266,34 @@ def simplemma_detect(text: str) -> Tuple[str, Optional[Language]]:
         ]
     )
 
-    return text, map_detector_to_lingua(simplemma_detector(text, iso_codes)[0][0])  # type: ignore
+    return [
+        map_detector_to_lingua(simplemma_detector(text, iso_codes)[0][0])  # type: ignore
+        for text in texts
+    ]
 
 
-def cld2_detect(text: str) -> Tuple[str, Optional[Language]]:
-    try:
-        detected_language = map_detector_to_lingua(pycld2.detect(text)[2][0][1])
-    except pycld2.error:
-        detected_language = None
-    return text, detected_language
+def cld2_detect(texts: List[str]) -> List[Optional[Language]]:
+    results = []
+    for text in texts:
+        try:
+            results.append(map_detector_to_lingua(pycld2.detect(text)[2][0][1]))
+        except pycld2.error:
+            results.append(None)
+    return results
 
 
 cld3_detector = gcld3.NNetLanguageIdentifier(min_num_bytes=0, max_num_bytes=512)
 
 
-def cld3_detect(text: str) -> Tuple[str, Optional[Language]]:
-    return text, map_detector_to_lingua(cld3_detector.FindLanguage(text).language)
+def cld3_detect(texts: List[str]) -> List[Optional[Language]]:
+    return [
+        map_detector_to_lingua(cld3_detector.FindLanguage(text).language)
+        for text in texts
+    ]
 
 
-def langid_detect(text: str) -> Tuple[str, Optional[Language]]:
-    return text, map_detector_to_lingua(langid.classify(text)[0])
+def langid_detect(texts: List[str]) -> List[Optional[Language]]:
+    return [map_detector_to_lingua(langid.classify(text)[0]) for text in texts]
 
 
 fasttext_model_url = (
@@ -299,18 +307,43 @@ if not os.path.isfile(fasttext_model_file):
 fasttext_detector = fasttext.load_model(fasttext_model_file)
 
 
-def fasttext_detect(text: str) -> Tuple[str, Optional[Language]]:
-    return text, map_detector_to_lingua(
-        fasttext_detector.predict(text)[0][0].split("__label__")[1]
-    )
+def fasttext_detect(texts: List[str]) -> List[Optional[Language]]:
+    return [
+        map_detector_to_lingua(
+            fasttext_detector.predict(text)[0][0].split("__label__")[1]
+        )
+        for text in texts
+    ]
 
 
-def langdetect_detect(text: str) -> Tuple[str, Optional[Language]]:
-    try:
-        detected_language = map_detector_to_lingua(langdetect.detect(text))
-    except langdetect.lang_detect_exception.LangDetectException:
-        detected_language = None
-    return text, detected_language
+fastspell_obj = None
+
+
+def fastspell_setup(language: Language) -> None:
+    global fastspell_obj
+    fastspell_obj = fastspell.FastSpell(language.iso_code_639_1.name.lower())
+
+
+def fastspell_cons_detect(texts: List[str]) -> List[Optional[Language]]:
+    assert fastspell_obj is not None
+    fastspell_obj.mode = "cons"
+    return [map_detector_to_lingua(fastspell_obj.getlang(text)) for text in texts]
+
+
+def fastspell_aggr_detect(texts: List[str]) -> List[Optional[Language]]:
+    assert fastspell_obj is not None
+    fastspell_obj.mode = "aggr"
+    return [map_detector_to_lingua(fastspell_obj.getlang(text)) for text in texts]
+
+
+def langdetect_detect(texts: List[str]) -> List[Optional[Language]]:
+    results = []
+    for text in texts:
+        try:
+            results.append(map_detector_to_lingua(langdetect.detect(text)))
+        except langdetect.lang_detect_exception.LangDetectException:
+            results.append(None)
+    return results
 
 
 lingua_detector_with_low_accuracy = (
@@ -321,8 +354,10 @@ lingua_detector_with_low_accuracy = (
 )
 
 
-def lingua_low_accuracy_detect(text: str) -> Tuple[str, Optional[Language]]:
-    return text, lingua_detector_with_low_accuracy.detect_language_of(text)
+def lingua_low_accuracy_detect(texts: List[str]) -> List[Optional[Language]]:
+    return [
+        lingua_detector_with_low_accuracy.detect_language_of(text) for text in texts
+    ]
 
 
 lingua_detector_with_high_accuracy = (
@@ -332,8 +367,10 @@ lingua_detector_with_high_accuracy = (
 )
 
 
-def lingua_high_accuracy_detect(text: str) -> Tuple[str, Optional[Language]]:
-    return text, lingua_detector_with_high_accuracy.detect_language_of(text)
+def lingua_high_accuracy_detect(texts: List[str]) -> List[Optional[Language]]:
+    return [
+        lingua_detector_with_high_accuracy.detect_language_of(text) for text in texts
+    ]
 
 
 def get_file_content(subdirectory: str) -> Dict[Language, List[str]]:
@@ -360,7 +397,8 @@ sentences = get_file_content("sentences")
 def collect_statistics(
     detector_name: str,
     reports_directory: Path,
-    detector_fn: Callable[[str], Tuple[str, Optional[Language]]],
+    detector_fn: Callable[[List[str]], List[Optional[Language]]],
+    setup_detector_fn: Optional[Callable[[Language], None]] = None,
 ) -> List[DetectorStatistics]:
     start = time.perf_counter()
     language_statistics = []
@@ -370,36 +408,42 @@ def collect_statistics(
 
     total_language_count = len(Language)
 
-    with ProcessPoolExecutor(max_workers=4) as executor:
-        for idx, language in enumerate(Language):
-            print(
-                f"Writing {detector_name} reports for {language.name.title()}... ({idx+1}/{total_language_count})"
-            )
+    for idx, language in enumerate(Language):
+        print(
+            f"Writing {detector_name} reports for {language.name.title()}... ({idx+1}/{total_language_count})"
+        )
 
-            statistics = DetectorStatistics.new()
+        if setup_detector_fn is not None:
+            setup_detector_fn(language)
 
-            detection_results = executor.map(detector_fn, single_words[language])
-            for single_word, detected_language in detection_results:
-                statistics.add_single_word_counts(detected_language, single_word)
+        statistics = DetectorStatistics.new()
 
-            detection_results = executor.map(detector_fn, word_pairs[language])
-            for word_pair, detected_language in detection_results:
-                statistics.add_word_pair_counts(detected_language, word_pair)
+        detected_languages = detector_fn(single_words[language])
+        for single_word, detected_language in zip(
+            single_words[language], detected_languages
+        ):
+            statistics.add_single_word_counts(detected_language, single_word)
 
-            detection_results = executor.map(detector_fn, sentences[language])
-            for sentence, detected_language in detection_results:
-                statistics.add_sentence_counts(detected_language, sentence)
+        detected_languages = detector_fn(word_pairs[language])
+        for word_pair, detected_language in zip(
+            word_pairs[language], detected_languages
+        ):
+            statistics.add_word_pair_counts(detected_language, word_pair)
 
-            statistics.compute_accuracy_values()
+        detected_languages = detector_fn(sentences[language])
+        for sentence, detected_language in zip(sentences[language], detected_languages):
+            statistics.add_sentence_counts(detected_language, sentence)
 
-            reports_file_path = reports_directory / f"{language.name.title()}.txt"
-            report = statistics.create_report_data(language)
+        statistics.compute_accuracy_values()
 
-            if report is not None:
-                with reports_file_path.open(mode="w") as reports_file:
-                    reports_file.write(report)
+        reports_file_path = reports_directory / f"{language.name.title()}.txt"
+        report = statistics.create_report_data(language)
 
-            language_statistics.append(statistics)
+        if report is not None:
+            with reports_file_path.open(mode="w") as reports_file:
+                reports_file.write(report)
+
+        language_statistics.append(statistics)
 
     stop = time.perf_counter()
     print(f"{detector_name} reports written in {stop - start:.2f} seconds\n")
@@ -431,6 +475,22 @@ def main():
     fasttext_reports_directory = accuracy_reports_directory / "fasttext"
     fasttext_statistics = collect_statistics(
         "fasttext", fasttext_reports_directory, fasttext_detect
+    )
+
+    fastspell_cons_reports_directory = accuracy_reports_directory / "fastspell-cons"
+    fastspell_cons_statistics = collect_statistics(
+        "fastspell-cons",
+        fastspell_cons_reports_directory,
+        fastspell_cons_detect,
+        fastspell_setup,
+    )
+
+    fastspell_aggr_reports_directory = accuracy_reports_directory / "fastspell-aggr"
+    fastspell_aggr_statistics = collect_statistics(
+        "fastspell-aggr",
+        fastspell_aggr_reports_directory,
+        fastspell_aggr_detect,
+        fastspell_setup,
     )
 
     langdetect_reports_directory = accuracy_reports_directory / "langdetect"
@@ -487,6 +547,14 @@ def main():
                 "single-words-fasttext",
                 "word-pairs-fasttext",
                 "sentences-fasttext",
+                "average-fastspell-cons",
+                "single-words-fastspell-cons",
+                "word-pairs-fastspell-cons",
+                "sentences-fastspell-cons",
+                "average-fastspell-aggr",
+                "single-words-fastspell-aggr",
+                "word-pairs-fastspell-aggr",
+                "sentences-fastspell-aggr",
                 "average-langdetect",
                 "single-words-langdetect",
                 "word-pairs-langdetect",
@@ -523,6 +591,14 @@ def main():
                 idx
             ].create_aggregated_report_row(language)
 
+            fastspell_cons_aggregated_report_row = fastspell_cons_statistics[
+                idx
+            ].create_aggregated_report_row(language)
+
+            fastspell_aggr_aggregated_report_row = fastspell_aggr_statistics[
+                idx
+            ].create_aggregated_report_row(language)
+
             langdetect_aggregated_report_row = langdetect_statistics[
                 idx
             ].create_aggregated_report_row(language)
@@ -544,6 +620,8 @@ def main():
                 f"{cld3_aggregated_report_row},"
                 f"{langid_aggregated_report_row},"
                 f"{fasttext_aggregated_report_row},"
+                f"{fastspell_cons_aggregated_report_row},"
+                f"{fastspell_aggr_aggregated_report_row},"
                 f"{langdetect_aggregated_report_row},"
                 f"{lingua_low_accuracy_aggregated_report_row},"
                 f"{lingua_high_accuracy_aggregated_report_row}"

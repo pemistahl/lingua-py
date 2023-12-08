@@ -13,10 +13,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import brotli
+import regex
+
 from pathlib import Path
 from typing import Dict, List, Optional
-
-import regex
 
 from ._constant import MULTIPLE_WHITESPACE, NUMBERS, PUNCTUATION
 from .language import Language
@@ -92,19 +93,19 @@ class LanguageModelFilesWriter:
         )
 
         cls._write_compressed_language_model(
-            unigram_model, 1, output_directory_path, "unigrams.npz"
+            unigram_model, output_directory_path, "unigrams.json.br"
         )
         cls._write_compressed_language_model(
-            bigram_model, 2, output_directory_path, "bigrams.npz"
+            bigram_model, output_directory_path, "bigrams.json.br"
         )
         cls._write_compressed_language_model(
-            trigram_model, 3, output_directory_path, "trigrams.npz"
+            trigram_model, output_directory_path, "trigrams.json.br"
         )
         cls._write_compressed_language_model(
-            quadrigram_model, 4, output_directory_path, "quadrigrams.npz"
+            quadrigram_model, output_directory_path, "quadrigrams.json.br"
         )
         cls._write_compressed_language_model(
-            fivegram_model, 5, output_directory_path, "fivegrams.npz"
+            fivegram_model, output_directory_path, "fivegrams.json.br"
         )
 
     @classmethod
@@ -132,12 +133,15 @@ class LanguageModelFilesWriter:
     def _write_compressed_language_model(
         cls,
         model: _TrainingDataLanguageModel,
-        ngram_length: int,
         output_directory_path: Path,
         file_name: str,
     ):
-        file_path = output_directory_path / file_name
-        model.to_numpy_binary_file(file_path, ngram_length)
+        brotli_file_path = output_directory_path / file_name
+        compressed_json = brotli.compress(
+            model.to_json().encode("utf-8"), mode=brotli.MODE_TEXT
+        )
+        with open(brotli_file_path, mode="wb") as brotli_file:
+            brotli_file.write(compressed_json)
 
 
 class TestDataFilesWriter:

@@ -8,7 +8,7 @@ Erroneously classified as Bulgarian: 14.20%, Serbian: 13.10%, Russian: 8.10%, Uk
 
 >> Detection of 1000 word pairs (average length: 16 chars)
 Accuracy: 70.00%
-Erroneously classified as Bulgarian: 11.00%, Serbian: 10.40%, Russian: 5.20%, Ukrainian: 1.80%, Mongolian: 0.80%, Kazakh: 0.60%, Belarusian: 0.20%
+Erroneously classified as Bulgarian: 11.00%, Serbian: 10.50%, Russian: 5.20%, Ukrainian: 1.80%, Mongolian: 0.70%, Kazakh: 0.60%, Belarusian: 0.20%
 
 >> Detection of 1000 sentences (average length: 120 chars)
 Accuracy: 95.30%

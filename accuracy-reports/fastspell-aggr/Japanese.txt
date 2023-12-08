@@ -1,0 +1,16 @@
+##### Japanese #####
+
+>>> Accuracy on average: 86.88%
+
+>> Detection of 157 single words (average length: 1 chars)
+Accuracy: 71.97%
+Erroneously classified as English: 4.46%, Chinese: 3.82%, Unknown: 3.82%, Russian: 1.91%, Macedonian: 1.27%, Portuguese: 1.27%, Spanish: 1.27%, Telugu: 1.27%, Catalan: 0.64%, Dutch: 0.64%, German: 0.64%, Indonesian: 0.64%, Italian: 0.64%, Korean: 0.64%, Latin: 0.64%, Latvian: 0.64%, Polish: 0.64%, Slovene: 0.64%, Swedish: 0.64%, Ukrainian: 0.64%, Urdu: 0.64%, Vietnamese: 0.64%
+
+>> Detection of 1000 word pairs (average length: 2 chars)
+Accuracy: 88.90%
+Erroneously classified as English: 3.30%, Chinese: 1.90%, Korean: 1.20%, Russian: 0.70%, Portuguese: 0.50%, Ukrainian: 0.50%, Vietnamese: 0.50%, Unknown: 0.50%, Italian: 0.40%, Lithuanian: 0.30%, Spanish: 0.30%, Catalan: 0.20%, Croatian: 0.10%, Czech: 0.10%, Finnish: 0.10%, French: 0.10%, Greek: 0.10%, Latin: 0.10%, Polish: 0.10%, Thai: 0.10%
+
+>> Detection of 412 sentences (average length: 43 chars)
+Accuracy: 99.76%
+Erroneously classified as Chinese: 0.24%
+

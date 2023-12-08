@@ -12,5 +12,5 @@ Erroneously classified as Unknown: 65.20%, Hindi: 5.20%
 
 >> Detection of 1000 sentences (average length: 84 chars)
 Accuracy: 71.50%
-Erroneously classified as Unknown: 21.60%, Hindi: 6.70%, Bokmal: 0.10%, English: 0.10%
+Erroneously classified as Unknown: 21.50%, Hindi: 6.80%, Bokmal: 0.10%, English: 0.10%
 
