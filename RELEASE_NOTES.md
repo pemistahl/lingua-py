@@ -1,3 +1,17 @@
+### Lingua 2.0.2 (released on 12 Dec 2023)
+
+### Improvements
+
+- Type stubs for the Python bindings are now available, allowing better static code
+  analysis, better code completion in supported IDEs and easier understanding of
+  the library's API. (#197)
+
+### Bug Fixes
+
+- The method `LanguageDetector.detect_multiple_languages_of` still returned character
+  indices instead of byte indices when only a single `DetectionResult` was produced.
+  This has been fixed. (#203, #205)
+
 ### Lingua 2.0.1 (released on 23 Nov 2023)
 
 ### Bug Fixes

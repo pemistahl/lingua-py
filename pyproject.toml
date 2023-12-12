@@ -15,7 +15,7 @@
 
 [tool.poetry]
 name = "lingua-language-detector"
-version = "2.0.1"
+version = "2.0.2"
 description = "An accurate natural language detection library, suitable for long and short text alike"
 authors = ["Peter M. Stahl <pemistahl@gmail.com>"]
 license = "Apache-2.0"

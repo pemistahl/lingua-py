@@ -6,7 +6,7 @@
 [![codecov](https://codecov.io/gh/pemistahl/lingua-rs/branch/main/graph/badge.svg)](https://codecov.io/gh/pemistahl/lingua-rs)
 [![supported languages](https://img.shields.io/badge/supported%20languages-75-green.svg)](#3-which-languages-are-supported)
 ![supported Python versions](https://img.shields.io/badge/Python-%3E%3D%203.8-blue)
-[![pypi](https://img.shields.io/badge/PYPI-v2.0.1-blue)](https://pypi.org/project/lingua-language-detector)
+[![pypi](https://img.shields.io/badge/PYPI-v2.0.2-blue)](https://pypi.org/project/lingua-language-detector)
 [![license](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 </div>
 
@@ -33,8 +33,8 @@ of comprehensive open source libraries for this task, such as Google's
 [*CLD 2*](https://github.com/CLD2Owners/cld2) and
 [*CLD 3*](https://github.com/google/cld3),
 [*Langid*](https://github.com/saffsd/langid.py),
-[*fastText*](https://fasttext.cc/docs/en/language-identification.html),
-[*fastspell*](https://github.com/mbanon/fastspell),
+[*FastText*](https://fasttext.cc/docs/en/language-identification.html),
+[*FastSpell*](https://github.com/mbanon/fastspell),
 [*Simplemma*](https://github.com/adbar/simplemma) and
 [*Langdetect*](https://github.com/Mimino666/langdetect).
 Unfortunately, most of them have two major drawbacks:
@@ -198,7 +198,7 @@ subset of 1000 single words, 1000 word pairs and 1000 sentences has been
 extracted, respectively.
 
 Given the generated test data, I have compared the detection results of
-*Lingua*, *fastText*, *Langdetect*, *Langid*, *Simplemma*, *CLD 2* and *CLD 3*
+*Lingua*, *FastText*, *FastSpell*, *Langdetect*, *Langid*, *Simplemma*, *CLD 2* and *CLD 3*
 running over the data of *Lingua's* supported 75 languages. Languages that are
 not supported by the other detectors are simply ignored for them during the
 detection process.
@@ -3828,8 +3828,17 @@ The Python source code is formatted with [Black](https://github.com/psf/black):
 >>> from lingua import Language, LanguageDetectorBuilder
 >>> languages = [Language.ENGLISH, Language.FRENCH, Language.GERMAN, Language.SPANISH]
 >>> detector = LanguageDetectorBuilder.from_languages(*languages).build()
->>> detector.detect_language_of("languages are awesome")
+>>> language = detector.detect_language_of("languages are awesome")
+>>> language
 Language.ENGLISH
+>>> language.iso_code_639_1
+IsoCode639_1.EN
+>>> language.iso_code_639_1.name
+'EN'
+>>> language.iso_code_639_3
+IsoCode639_3.ENG
+>>> language.iso_code_639_3.name
+'ENG'
 ```
 
 ### 11.2 Minimum relative distance
