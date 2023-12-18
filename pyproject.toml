@@ -126,7 +126,7 @@ matplotlib = [
     {version = "^3.8.1", python = ">=3.9,<3.13"}
 ]
 seaborn = "^0.13.0"
-psutil = "^5.9.6"
+psutil = "^5.9.7"
 
 [tool.mypy]
 files = ["scripts"]
