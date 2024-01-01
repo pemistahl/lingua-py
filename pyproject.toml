@@ -125,7 +125,7 @@ matplotlib = [
     {version = "^3.7.3,<3.8", python = ">=3.8,<3.9"},
     {version = "^3.8.1", python = ">=3.9,<3.13"}
 ]
-seaborn = "^0.13.0"
+seaborn = "^0.13.1"
 psutil = "^5.9.6"
 
 [tool.mypy]
