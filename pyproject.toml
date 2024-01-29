@@ -101,7 +101,7 @@ python = ">=3.8,<3.13"
 
 [tool.poetry.group.dev.dependencies]
 mypy = "^1.7.1"
-black = "^23.11.0"
+black = "^24.1.1"
 
 [tool.poetry.group.script.dependencies]
 # https://github.com/facebookresearch/fastText/pull/1292
