@@ -193,9 +193,11 @@ class Statistic:
         sorted_accuracies.sort(key=lambda elem: (-elem[1], elem[0]))
 
         substrs = [
-            f"{language.name.title()}: {format_accuracy(accuracy)}%"
-            if language is not None
-            else f"Unknown: {format_accuracy(accuracy)}%"
+            (
+                f"{language.name.title()}: {format_accuracy(accuracy)}%"
+                if language is not None
+                else f"Unknown: {format_accuracy(accuracy)}%"
+            )
             for language, accuracy in sorted_accuracies
         ]
         return ", ".join(substrs)
