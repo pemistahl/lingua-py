@@ -100,7 +100,7 @@ classifiers = [
 python = ">=3.8,<3.13"
 
 [tool.poetry.group.dev.dependencies]
-mypy = "^1.7.1"
+mypy = "^1.9.0"
 black = "^24.2.0"
 
 [tool.poetry.group.script.dependencies]
