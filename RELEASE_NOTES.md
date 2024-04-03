@@ -1,4 +1,4 @@
-## Lingua 1.3.5 (released on 08 Dec 2023)
+## Lingua 1.3.5 (released on 03 Apr 2024)
 
 ### Improvements
 
@@ -7,6 +7,17 @@
   of higher memory consumption (up to 3 GB for all models). As the runtime
   performance was much too slow with the former approach, this change makes
   sense because adding more memory is quite cheap.
+
+- The language model files are now compressed with the Brotli algorithm which
+  reduces the file size by 15 %, on average.
+
+- The characters `Щщ` are now correctly identified as possible indicators for
+  the Ukrainian language, leading to slightly higher accuracy when identifying
+  Ukrainian texts.
+
+### Miscellaneous
+
+- All dependencies have been updated to their latest versions.
 
 ## Lingua 1.3.4 (released on 07 Nov 2023)
 

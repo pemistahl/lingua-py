@@ -463,7 +463,13 @@ def test_language_detection_with_rules(word, expected_language):
         ),
         pytest.param(
             "плаваща",
-            [Language.BULGARIAN, Language.KAZAKH, Language.MONGOLIAN, Language.RUSSIAN],
+            [
+                Language.BULGARIAN,
+                Language.KAZAKH,
+                Language.MONGOLIAN,
+                Language.RUSSIAN,
+                Language.UKRAINIAN,
+            ],
         ),
         pytest.param(
             "довършат",

@@ -80,7 +80,16 @@ CHARS_TO_LANGUAGES_MAPPING: Dict[str, FrozenSet[Language]] = {
     "ЁёЫыЭэ": frozenset(
         [Language.BELARUSIAN, Language.KAZAKH, Language.MONGOLIAN, Language.RUSSIAN]
     ),
-    "ЩщЪъ": frozenset(
+    "Щщ": frozenset(
+        [
+            Language.BULGARIAN,
+            Language.KAZAKH,
+            Language.MONGOLIAN,
+            Language.RUSSIAN,
+            Language.UKRAINIAN,
+        ]
+    ),
+    "Ъъ": frozenset(
         [Language.BULGARIAN, Language.KAZAKH, Language.MONGOLIAN, Language.RUSSIAN]
     ),
     "Òò": frozenset(
