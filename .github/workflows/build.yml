@@ -53,14 +53,14 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
 
       - name: Set up Poetry
         uses: abatilo/actions-poetry@v2
         with:
-          poetry-version: 1.7
+          poetry-version: 1.8
 
       - name: Set up virtual environment
         run: poetry env use ${{ matrix.python-version }}
@@ -80,8 +80,9 @@ jobs:
           poetry run coverage xml
 
       - name: Upload code coverage report
-        if: ${{ github.event_name == 'push' && matrix.python-version == '3.8' }}
-        uses: codecov/codecov-action@v3
+        if: ${{ github.event_name == 'push' && matrix.python-version == '3.12' }}
+        uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: ./coverage.xml
+          fail_ci_if_error: true
