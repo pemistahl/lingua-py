@@ -863,17 +863,17 @@ def test_ngram_probability_lookup(
 @pytest.mark.parametrize(
     "ngram_model, expected_sum_of_probabilities",
     [
-        # pytest.param(
-        #    _TestDataLanguageModel([["a"], ["l"], ["t"], ["e"], ["r"]]),
-        #    log(0.01) + log(0.02) + log(0.03) + log(0.04) + log(0.05),
-        # ),
-        # pytest.param(
-        #    # back off unknown Trigram("tez") to known Bigram("te")
-        #    _TestDataLanguageModel(
-        #        [["alt", "al", "a"], ["lte", "lt", "l"], ["tez", "te", "t"]]
-        #    ),
-        #    log(0.19) + log(0.2) + log(0.13),
-        # ),
+        pytest.param(
+            _TestDataLanguageModel([["a"], ["l"], ["t"], ["e"], ["r"]]),
+            log(0.01) + log(0.02) + log(0.03) + log(0.04) + log(0.05),
+        ),
+        pytest.param(
+            # back off unknown Trigram("tez") to known Bigram("te")
+            _TestDataLanguageModel(
+                [["alt", "al", "a"], ["lte", "lt", "l"], ["tez", "te", "t"]]
+            ),
+            log(0.19) + log(0.2) + log(0.13),
+        ),
         pytest.param(
             # back off unknown Fivegram("aquas") to known Unigram("a")
             _TestDataLanguageModel([["aquas", "aqua", "aqu", "aq", "a"]]),
