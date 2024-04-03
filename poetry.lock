@@ -1410,17 +1410,17 @@ files = [
 
 [[package]]
 name = "seaborn"
-version = "0.13.0"
+version = "0.13.2"
 description = "Statistical data visualization"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "seaborn-0.13.0-py3-none-any.whl", hash = "sha256:70d740828c48de0f402bb17234e475eda687e3c65f4383ea25d0cc4728f7772e"},
-    {file = "seaborn-0.13.0.tar.gz", hash = "sha256:0e76abd2ec291c655b516703c6a022f0fd5afed26c8e714e8baef48150f73598"},
+    {file = "seaborn-0.13.2-py3-none-any.whl", hash = "sha256:636f8336facf092165e27924f223d3c62ca560b1f2bb5dff7ab7fad265361987"},
+    {file = "seaborn-0.13.2.tar.gz", hash = "sha256:93e60a40988f4d65e9f4885df477e2fdaff6b73a9ded434c1ab356dd57eefff7"},
 ]
 
 [package.dependencies]
-matplotlib = ">=3.3,<3.6.1 || >3.6.1"
+matplotlib = ">=3.4,<3.6.1 || >3.6.1"
 numpy = ">=1.20,<1.24.0 || >1.24.0"
 pandas = ">=1.2"
 
@@ -1556,4 +1556,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.8,<3.13"
-content-hash = "00521d606dc5609c77107c494a25af2f3260df3098a8dfc05b5f226923334667"
+content-hash = "545cfebc0bc6b0ce3a239561c9bcccc77c54665de8a0835d35b2a84c2b018ecf"
