@@ -3980,7 +3980,7 @@ ENGLISH: 'A little bit is better than nothing.'
 ```
 
 In the example above, a list of
-[`DetectionResult`](https://github.com/pemistahl/lingua-py/blob/main/lingua/detector.py#L148)
+[`DetectionResult`](https://github.com/pemistahl/lingua-py/blob/pure-python-impl/lingua/detector.py#L148)
 is returned. Each entry in the list describes a contiguous single-language text section,
 providing start and end indices of the respective substring.
 
