@@ -1,0 +1,16 @@
+##### Finnish #####
+
+>>> Accuracy on average: 74.43%
+
+>> Detection of 1000 single words (average length: 10 chars)
+Accuracy: 90.30%
+Erroneously classified as English: 9.70%
+
+>> Detection of 1000 word pairs (average length: 19 chars)
+Accuracy: 85.00%
+Erroneously classified as English: 15.00%
+
+>> Detection of 1000 sentences (average length: 103 chars)
+Accuracy: 48.00%
+Erroneously classified as English: 52.00%
+

@@ -1,0 +1,16 @@
+##### Latvian #####
+
+>>> Accuracy on average: 88.50%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 96.80%
+Erroneously classified as Xhosa: 3.20%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 93.30%
+Erroneously classified as Xhosa: 6.70%
+
+>> Detection of 1000 sentences (average length: 109 chars)
+Accuracy: 75.40%
+Erroneously classified as Xhosa: 24.60%
+

@@ -1,0 +1,16 @@
+##### Hungarian #####
+
+>>> Accuracy on average: 72.17%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 90.30%
+Erroneously classified as English: 9.70%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 83.60%
+Erroneously classified as English: 16.40%
+
+>> Detection of 1000 sentences (average length: 116 chars)
+Accuracy: 42.60%
+Erroneously classified as English: 57.40%
+

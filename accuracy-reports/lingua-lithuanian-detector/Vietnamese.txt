@@ -1,0 +1,16 @@
+##### Vietnamese #####
+
+>>> Accuracy on average: 96.40%
+
+>> Detection of 879 single words (average length: 4 chars)
+Accuracy: 99.43%
+Erroneously classified as Lithuanian: 0.57%
+
+>> Detection of 957 word pairs (average length: 12 chars)
+Accuracy: 99.37%
+Erroneously classified as Lithuanian: 0.63%
+
+>> Detection of 1000 sentences (average length: 120 chars)
+Accuracy: 90.40%
+Erroneously classified as Lithuanian: 9.60%
+

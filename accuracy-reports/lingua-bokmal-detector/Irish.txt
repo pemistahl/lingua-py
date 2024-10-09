@@ -1,0 +1,16 @@
+##### Irish #####
+
+>>> Accuracy on average: 83.57%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 95.00%
+Erroneously classified as Bokmal: 5.00%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 90.50%
+Erroneously classified as Bokmal: 9.50%
+
+>> Detection of 1000 sentences (average length: 113 chars)
+Accuracy: 65.20%
+Erroneously classified as Bokmal: 34.80%
+

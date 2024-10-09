@@ -1,0 +1,16 @@
+##### Slovene #####
+
+>>> Accuracy on average: 80.70%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 94.60%
+Erroneously classified as German: 5.40%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 90.00%
+Erroneously classified as German: 10.00%
+
+>> Detection of 1000 sentences (average length: 114 chars)
+Accuracy: 57.50%
+Erroneously classified as German: 42.50%
+

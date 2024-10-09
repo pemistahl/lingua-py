@@ -1,0 +1,16 @@
+##### Sotho #####
+
+>>> Accuracy on average: 79.07%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 91.30%
+Erroneously classified as Nynorsk: 8.70%
+
+>> Detection of 1000 word pairs (average length: 15 chars)
+Accuracy: 88.30%
+Erroneously classified as Nynorsk: 11.70%
+
+>> Detection of 1000 sentences (average length: 117 chars)
+Accuracy: 57.60%
+Erroneously classified as Nynorsk: 42.40%
+

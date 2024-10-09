@@ -1,0 +1,16 @@
+##### Swedish #####
+
+>>> Accuracy on average: 68.73%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 86.90%
+Erroneously classified as Maori: 13.10%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 75.00%
+Erroneously classified as Maori: 25.00%
+
+>> Detection of 1000 sentences (average length: 90 chars)
+Accuracy: 44.30%
+Erroneously classified as Maori: 55.70%
+

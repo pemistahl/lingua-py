@@ -1,0 +1,16 @@
+##### English #####
+
+>>> Accuracy on average: 74.00%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 91.40%
+Erroneously classified as Basque: 8.60%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 83.90%
+Erroneously classified as Basque: 16.10%
+
+>> Detection of 1000 sentences (average length: 108 chars)
+Accuracy: 46.70%
+Erroneously classified as Basque: 53.30%
+

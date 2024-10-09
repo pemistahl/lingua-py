@@ -1,0 +1,16 @@
+##### Polish #####
+
+>>> Accuracy on average: 84.20%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 95.00%
+Erroneously classified as Bokmal: 5.00%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 91.30%
+Erroneously classified as Bokmal: 8.70%
+
+>> Detection of 1000 sentences (average length: 99 chars)
+Accuracy: 66.30%
+Erroneously classified as Bokmal: 33.70%
+

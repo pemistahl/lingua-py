@@ -1,0 +1,16 @@
+##### Yoruba #####
+
+>>> Accuracy on average: 81.37%
+
+>> Detection of 1000 single words (average length: 7 chars)
+Accuracy: 91.10%
+Erroneously classified as Danish: 8.90%
+
+>> Detection of 1000 word pairs (average length: 15 chars)
+Accuracy: 83.10%
+Erroneously classified as Danish: 16.90%
+
+>> Detection of 1000 sentences (average length: 86 chars)
+Accuracy: 69.90%
+Erroneously classified as Danish: 30.10%
+

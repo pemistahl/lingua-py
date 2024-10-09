@@ -1,0 +1,16 @@
+##### Russian #####
+
+>>> Accuracy on average: 99.97%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 100.00%
+Erroneously classified as 
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 100.00%
+Erroneously classified as 
+
+>> Detection of 1000 sentences (average length: 65 chars)
+Accuracy: 99.90%
+Erroneously classified as Malay: 0.10%
+

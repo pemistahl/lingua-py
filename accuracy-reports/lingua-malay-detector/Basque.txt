@@ -1,0 +1,16 @@
+##### Basque #####
+
+>>> Accuracy on average: 54.20%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 76.70%
+Erroneously classified as Malay: 23.30%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 64.60%
+Erroneously classified as Malay: 35.40%
+
+>> Detection of 1000 sentences (average length: 102 chars)
+Accuracy: 21.30%
+Erroneously classified as Malay: 78.70%
+

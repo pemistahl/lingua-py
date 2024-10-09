@@ -1,0 +1,16 @@
+##### Latvian #####
+
+>>> Accuracy on average: 75.03%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 92.00%
+Erroneously classified as French: 8.00%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 87.30%
+Erroneously classified as French: 12.70%
+
+>> Detection of 1000 sentences (average length: 109 chars)
+Accuracy: 45.80%
+Erroneously classified as French: 54.20%
+

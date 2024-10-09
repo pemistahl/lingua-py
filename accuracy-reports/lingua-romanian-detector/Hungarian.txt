@@ -1,0 +1,16 @@
+##### Hungarian #####
+
+>>> Accuracy on average: 73.23%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 90.00%
+Erroneously classified as Romanian: 10.00%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 86.60%
+Erroneously classified as Romanian: 13.40%
+
+>> Detection of 1000 sentences (average length: 116 chars)
+Accuracy: 43.10%
+Erroneously classified as Romanian: 56.90%
+

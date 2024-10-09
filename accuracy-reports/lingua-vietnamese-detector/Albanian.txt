@@ -1,0 +1,16 @@
+##### Albanian #####
+
+>>> Accuracy on average: 95.83%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 99.10%
+Erroneously classified as Vietnamese: 0.90%
+
+>> Detection of 1000 word pairs (average length: 15 chars)
+Accuracy: 97.90%
+Erroneously classified as Vietnamese: 2.10%
+
+>> Detection of 1000 sentences (average length: 118 chars)
+Accuracy: 90.50%
+Erroneously classified as Vietnamese: 9.50%
+

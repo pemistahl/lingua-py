@@ -1,0 +1,16 @@
+##### Yoruba #####
+
+>>> Accuracy on average: 85.03%
+
+>> Detection of 1000 single words (average length: 7 chars)
+Accuracy: 92.20%
+Erroneously classified as German: 7.80%
+
+>> Detection of 1000 word pairs (average length: 15 chars)
+Accuracy: 85.40%
+Erroneously classified as German: 14.60%
+
+>> Detection of 1000 sentences (average length: 86 chars)
+Accuracy: 77.50%
+Erroneously classified as German: 22.50%
+

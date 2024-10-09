@@ -1,0 +1,16 @@
+##### Afrikaans #####
+
+>>> Accuracy on average: 63.57%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 83.40%
+Erroneously classified as Esperanto: 16.60%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 70.10%
+Erroneously classified as Esperanto: 29.90%
+
+>> Detection of 1000 sentences (average length: 102 chars)
+Accuracy: 37.20%
+Erroneously classified as Esperanto: 62.80%
+

@@ -1,0 +1,16 @@
+##### Finnish #####
+
+>>> Accuracy on average: 60.27%
+
+>> Detection of 1000 single words (average length: 10 chars)
+Accuracy: 82.20%
+Erroneously classified as Dutch: 17.80%
+
+>> Detection of 1000 word pairs (average length: 19 chars)
+Accuracy: 69.20%
+Erroneously classified as Dutch: 30.80%
+
+>> Detection of 1000 sentences (average length: 103 chars)
+Accuracy: 29.40%
+Erroneously classified as Dutch: 70.60%
+

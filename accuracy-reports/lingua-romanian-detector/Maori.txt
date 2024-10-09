@@ -1,0 +1,16 @@
+##### Maori #####
+
+>>> Accuracy on average: 79.03%
+
+>> Detection of 1000 single words (average length: 7 chars)
+Accuracy: 91.40%
+Erroneously classified as Romanian: 8.60%
+
+>> Detection of 1000 word pairs (average length: 15 chars)
+Accuracy: 85.10%
+Erroneously classified as Romanian: 14.90%
+
+>> Detection of 1000 sentences (average length: 108 chars)
+Accuracy: 60.60%
+Erroneously classified as Romanian: 39.40%
+

@@ -1,0 +1,16 @@
+##### Romanian #####
+
+>>> Accuracy on average: 69.10%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 87.30%
+Erroneously classified as Swahili: 12.70%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 80.40%
+Erroneously classified as Swahili: 19.60%
+
+>> Detection of 1000 sentences (average length: 118 chars)
+Accuracy: 39.60%
+Erroneously classified as Swahili: 60.40%
+

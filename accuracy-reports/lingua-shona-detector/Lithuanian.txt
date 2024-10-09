@@ -1,0 +1,16 @@
+##### Lithuanian #####
+
+>>> Accuracy on average: 71.77%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 90.50%
+Erroneously classified as Shona: 9.50%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 81.50%
+Erroneously classified as Shona: 18.50%
+
+>> Detection of 1000 sentences (average length: 108 chars)
+Accuracy: 43.30%
+Erroneously classified as Shona: 56.70%
+

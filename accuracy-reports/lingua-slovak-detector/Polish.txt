@@ -1,0 +1,16 @@
+##### Polish #####
+
+>>> Accuracy on average: 48.63%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 75.60%
+Erroneously classified as Slovak: 24.40%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 57.10%
+Erroneously classified as Slovak: 42.90%
+
+>> Detection of 1000 sentences (average length: 99 chars)
+Accuracy: 13.20%
+Erroneously classified as Slovak: 86.80%
+

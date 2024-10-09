@@ -1,0 +1,16 @@
+##### French #####
+
+>>> Accuracy on average: 62.33%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 85.50%
+Erroneously classified as Lithuanian: 14.50%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 73.00%
+Erroneously classified as Lithuanian: 27.00%
+
+>> Detection of 1000 sentences (average length: 112 chars)
+Accuracy: 28.50%
+Erroneously classified as Lithuanian: 71.50%
+

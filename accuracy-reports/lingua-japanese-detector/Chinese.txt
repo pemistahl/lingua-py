@@ -1,0 +1,16 @@
+##### Chinese #####
+
+>>> Accuracy on average: 43.85%
+
+>> Detection of 1000 single words (average length: 1 chars)
+Accuracy: 76.20%
+Erroneously classified as Japanese: 23.80%
+
+>> Detection of 1000 word pairs (average length: 2 chars)
+Accuracy: 55.20%
+Erroneously classified as Japanese: 44.80%
+
+>> Detection of 729 sentences (average length: 48 chars)
+Accuracy: 0.14%
+Erroneously classified as Japanese: 99.86%
+

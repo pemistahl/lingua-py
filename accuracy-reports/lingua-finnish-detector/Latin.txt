@@ -1,0 +1,16 @@
+##### Latin #####
+
+>>> Accuracy on average: 75.73%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 91.60%
+Erroneously classified as Finnish: 8.40%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 81.50%
+Erroneously classified as Finnish: 18.50%
+
+>> Detection of 1000 sentences (average length: 91 chars)
+Accuracy: 54.10%
+Erroneously classified as Finnish: 45.90%
+

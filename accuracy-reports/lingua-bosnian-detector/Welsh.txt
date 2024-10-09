@@ -1,0 +1,16 @@
+##### Welsh #####
+
+>>> Accuracy on average: 84.17%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 94.10%
+Erroneously classified as Bosnian: 5.90%
+
+>> Detection of 1000 word pairs (average length: 15 chars)
+Accuracy: 89.40%
+Erroneously classified as Bosnian: 10.60%
+
+>> Detection of 1000 sentences (average length: 97 chars)
+Accuracy: 69.00%
+Erroneously classified as Bosnian: 31.00%
+

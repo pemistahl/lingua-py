@@ -1,0 +1,16 @@
+##### Xhosa #####
+
+>>> Accuracy on average: 49.40%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 77.20%
+Erroneously classified as Tagalog: 22.80%
+
+>> Detection of 1000 word pairs (average length: 18 chars)
+Accuracy: 60.90%
+Erroneously classified as Tagalog: 39.10%
+
+>> Detection of 1000 sentences (average length: 127 chars)
+Accuracy: 10.10%
+Erroneously classified as Tagalog: 89.90%
+

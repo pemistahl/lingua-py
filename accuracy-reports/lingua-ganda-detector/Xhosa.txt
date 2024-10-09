@@ -1,0 +1,16 @@
+##### Xhosa #####
+
+>>> Accuracy on average: 41.77%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 71.00%
+Erroneously classified as Ganda: 29.00%
+
+>> Detection of 1000 word pairs (average length: 18 chars)
+Accuracy: 49.30%
+Erroneously classified as Ganda: 50.70%
+
+>> Detection of 1000 sentences (average length: 127 chars)
+Accuracy: 5.00%
+Erroneously classified as Ganda: 95.00%
+

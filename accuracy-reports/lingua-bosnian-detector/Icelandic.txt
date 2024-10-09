@@ -1,0 +1,16 @@
+##### Icelandic #####
+
+>>> Accuracy on average: 79.30%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 91.70%
+Erroneously classified as Bosnian: 8.30%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 86.70%
+Erroneously classified as Bosnian: 13.30%
+
+>> Detection of 1000 sentences (average length: 108 chars)
+Accuracy: 59.50%
+Erroneously classified as Bosnian: 40.50%
+

@@ -1,0 +1,16 @@
+##### Vietnamese #####
+
+>>> Accuracy on average: 91.83%
+
+>> Detection of 879 single words (average length: 4 chars)
+Accuracy: 98.86%
+Erroneously classified as Romanian: 1.14%
+
+>> Detection of 957 word pairs (average length: 12 chars)
+Accuracy: 93.83%
+Erroneously classified as Romanian: 6.17%
+
+>> Detection of 1000 sentences (average length: 120 chars)
+Accuracy: 82.80%
+Erroneously classified as Romanian: 17.20%
+

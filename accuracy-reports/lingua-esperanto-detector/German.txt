@@ -1,0 +1,16 @@
+##### German #####
+
+>>> Accuracy on average: 58.73%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 82.20%
+Erroneously classified as Esperanto: 17.80%
+
+>> Detection of 1000 word pairs (average length: 18 chars)
+Accuracy: 68.90%
+Erroneously classified as Esperanto: 31.10%
+
+>> Detection of 1000 sentences (average length: 111 chars)
+Accuracy: 25.10%
+Erroneously classified as Esperanto: 74.90%
+

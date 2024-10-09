@@ -1,0 +1,16 @@
+##### Vietnamese #####
+
+>>> Accuracy on average: 97.69%
+
+>> Detection of 879 single words (average length: 4 chars)
+Accuracy: 99.66%
+Erroneously classified as Swahili: 0.34%
+
+>> Detection of 957 word pairs (average length: 12 chars)
+Accuracy: 98.01%
+Erroneously classified as Swahili: 1.99%
+
+>> Detection of 1000 sentences (average length: 120 chars)
+Accuracy: 95.40%
+Erroneously classified as Swahili: 4.60%
+

@@ -1,0 +1,16 @@
+##### Irish #####
+
+>>> Accuracy on average: 90.20%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 97.00%
+Erroneously classified as Croatian: 3.00%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 94.30%
+Erroneously classified as Croatian: 5.70%
+
+>> Detection of 1000 sentences (average length: 113 chars)
+Accuracy: 79.30%
+Erroneously classified as Croatian: 20.70%
+

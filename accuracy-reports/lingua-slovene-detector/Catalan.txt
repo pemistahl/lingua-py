@@ -1,0 +1,16 @@
+##### Catalan #####
+
+>>> Accuracy on average: 60.83%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 83.80%
+Erroneously classified as Slovene: 16.20%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 67.50%
+Erroneously classified as Slovene: 32.50%
+
+>> Detection of 1000 sentences (average length: 103 chars)
+Accuracy: 31.20%
+Erroneously classified as Slovene: 68.80%
+

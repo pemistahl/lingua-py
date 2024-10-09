@@ -1,0 +1,16 @@
+##### Vietnamese #####
+
+>>> Accuracy on average: 92.35%
+
+>> Detection of 879 single words (average length: 4 chars)
+Accuracy: 99.09%
+Erroneously classified as German: 0.91%
+
+>> Detection of 957 word pairs (average length: 12 chars)
+Accuracy: 94.46%
+Erroneously classified as German: 5.54%
+
+>> Detection of 1000 sentences (average length: 120 chars)
+Accuracy: 83.50%
+Erroneously classified as German: 16.50%
+

@@ -1,0 +1,16 @@
+##### Bosnian #####
+
+>>> Accuracy on average: 66.60%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 87.80%
+Erroneously classified as Malay: 12.20%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 77.60%
+Erroneously classified as Malay: 22.40%
+
+>> Detection of 1000 sentences (average length: 105 chars)
+Accuracy: 34.40%
+Erroneously classified as Malay: 65.60%
+

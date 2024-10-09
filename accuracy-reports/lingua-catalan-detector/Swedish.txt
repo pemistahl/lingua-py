@@ -1,0 +1,16 @@
+##### Swedish #####
+
+>>> Accuracy on average: 62.40%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 83.30%
+Erroneously classified as Catalan: 16.70%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 70.90%
+Erroneously classified as Catalan: 29.10%
+
+>> Detection of 1000 sentences (average length: 90 chars)
+Accuracy: 33.00%
+Erroneously classified as Catalan: 67.00%
+

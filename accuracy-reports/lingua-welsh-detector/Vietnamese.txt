@@ -1,0 +1,16 @@
+##### Vietnamese #####
+
+>>> Accuracy on average: 95.75%
+
+>> Detection of 879 single words (average length: 4 chars)
+Accuracy: 99.43%
+Erroneously classified as Welsh: 0.57%
+
+>> Detection of 957 word pairs (average length: 12 chars)
+Accuracy: 95.51%
+Erroneously classified as Welsh: 4.49%
+
+>> Detection of 1000 sentences (average length: 120 chars)
+Accuracy: 92.30%
+Erroneously classified as Welsh: 7.70%
+

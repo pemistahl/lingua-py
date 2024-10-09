@@ -1,0 +1,16 @@
+##### Ganda #####
+
+>>> Accuracy on average: 44.93%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 74.30%
+Erroneously classified as Shona: 25.70%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 54.00%
+Erroneously classified as Shona: 46.00%
+
+>> Detection of 1000 sentences (average length: 125 chars)
+Accuracy: 6.50%
+Erroneously classified as Shona: 93.50%
+

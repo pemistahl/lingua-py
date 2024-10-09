@@ -1,0 +1,16 @@
+##### Czech #####
+
+>>> Accuracy on average: 87.40%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 95.70%
+Erroneously classified as Tagalog: 4.30%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 93.30%
+Erroneously classified as Tagalog: 6.70%
+
+>> Detection of 1000 sentences (average length: 93 chars)
+Accuracy: 73.20%
+Erroneously classified as Tagalog: 26.80%
+

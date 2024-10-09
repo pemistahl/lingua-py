@@ -1,0 +1,16 @@
+##### Italian #####
+
+>>> Accuracy on average: 58.00%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 81.90%
+Erroneously classified as Danish: 18.10%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 68.10%
+Erroneously classified as Danish: 31.90%
+
+>> Detection of 1000 sentences (average length: 123 chars)
+Accuracy: 24.00%
+Erroneously classified as Danish: 76.00%
+

@@ -1,0 +1,16 @@
+##### Arabic #####
+
+>>> Accuracy on average: 99.87%
+
+>> Detection of 1000 single words (average length: 6 chars)
+Accuracy: 100.00%
+Erroneously classified as 
+
+>> Detection of 1000 word pairs (average length: 14 chars)
+Accuracy: 100.00%
+Erroneously classified as 
+
+>> Detection of 1000 sentences (average length: 89 chars)
+Accuracy: 99.60%
+Erroneously classified as Polish: 0.40%
+

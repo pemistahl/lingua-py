@@ -1,0 +1,16 @@
+##### Icelandic #####
+
+>>> Accuracy on average: 77.63%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 92.30%
+Erroneously classified as Tsonga: 7.70%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 87.50%
+Erroneously classified as Tsonga: 12.50%
+
+>> Detection of 1000 sentences (average length: 108 chars)
+Accuracy: 53.10%
+Erroneously classified as Tsonga: 46.90%
+

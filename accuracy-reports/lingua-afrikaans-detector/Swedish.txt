@@ -1,0 +1,16 @@
+##### Swedish #####
+
+>>> Accuracy on average: 46.70%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 71.40%
+Erroneously classified as Afrikaans: 28.60%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 49.60%
+Erroneously classified as Afrikaans: 50.40%
+
+>> Detection of 1000 sentences (average length: 90 chars)
+Accuracy: 19.10%
+Erroneously classified as Afrikaans: 80.90%
+

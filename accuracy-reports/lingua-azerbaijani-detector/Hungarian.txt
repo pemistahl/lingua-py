@@ -1,0 +1,16 @@
+##### Hungarian #####
+
+>>> Accuracy on average: 89.20%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 98.00%
+Erroneously classified as Azerbaijani: 2.00%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 94.50%
+Erroneously classified as Azerbaijani: 5.50%
+
+>> Detection of 1000 sentences (average length: 116 chars)
+Accuracy: 75.10%
+Erroneously classified as Azerbaijani: 24.90%
+

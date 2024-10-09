@@ -1,0 +1,16 @@
+##### Estonian #####
+
+>>> Accuracy on average: 67.47%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 86.90%
+Erroneously classified as Spanish: 13.10%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 77.40%
+Erroneously classified as Spanish: 22.60%
+
+>> Detection of 1000 sentences (average length: 101 chars)
+Accuracy: 38.10%
+Erroneously classified as Spanish: 61.90%
+

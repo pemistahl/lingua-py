@@ -1,0 +1,16 @@
+##### Albanian #####
+
+>>> Accuracy on average: 76.00%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 93.30%
+Erroneously classified as Maori: 6.70%
+
+>> Detection of 1000 word pairs (average length: 15 chars)
+Accuracy: 90.90%
+Erroneously classified as Maori: 9.10%
+
+>> Detection of 1000 sentences (average length: 118 chars)
+Accuracy: 43.80%
+Erroneously classified as Maori: 56.20%
+

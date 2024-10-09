@@ -1,0 +1,16 @@
+##### Esperanto #####
+
+>>> Accuracy on average: 58.13%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 86.80%
+Erroneously classified as Croatian: 13.20%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 67.40%
+Erroneously classified as Croatian: 32.60%
+
+>> Detection of 1000 sentences (average length: 101 chars)
+Accuracy: 20.20%
+Erroneously classified as Croatian: 79.80%
+

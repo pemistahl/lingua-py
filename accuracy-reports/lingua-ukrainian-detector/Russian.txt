@@ -1,0 +1,16 @@
+##### Russian #####
+
+>>> Accuracy on average: 56.93%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 78.30%
+Erroneously classified as Ukrainian: 21.70%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 60.40%
+Erroneously classified as Ukrainian: 39.60%
+
+>> Detection of 1000 sentences (average length: 65 chars)
+Accuracy: 32.10%
+Erroneously classified as Ukrainian: 67.90%
+

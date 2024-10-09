@@ -1,0 +1,16 @@
+##### Bokmal #####
+
+>>> Accuracy on average: 75.43%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 90.60%
+Erroneously classified as Xhosa: 9.40%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 83.20%
+Erroneously classified as Xhosa: 16.80%
+
+>> Detection of 1000 sentences (average length: 98 chars)
+Accuracy: 52.50%
+Erroneously classified as Xhosa: 47.50%
+

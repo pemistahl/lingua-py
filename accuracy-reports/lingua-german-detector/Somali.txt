@@ -1,0 +1,16 @@
+##### Somali #####
+
+>>> Accuracy on average: 94.07%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 98.40%
+Erroneously classified as German: 1.60%
+
+>> Detection of 1000 word pairs (average length: 15 chars)
+Accuracy: 98.20%
+Erroneously classified as German: 1.80%
+
+>> Detection of 1000 sentences (average length: 124 chars)
+Accuracy: 85.60%
+Erroneously classified as German: 14.40%
+

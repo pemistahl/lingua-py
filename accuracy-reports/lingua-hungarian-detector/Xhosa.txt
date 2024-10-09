@@ -1,0 +1,16 @@
+##### Xhosa #####
+
+>>> Accuracy on average: 61.23%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 88.00%
+Erroneously classified as Hungarian: 12.00%
+
+>> Detection of 1000 word pairs (average length: 18 chars)
+Accuracy: 72.90%
+Erroneously classified as Hungarian: 27.10%
+
+>> Detection of 1000 sentences (average length: 127 chars)
+Accuracy: 22.80%
+Erroneously classified as Hungarian: 77.20%
+

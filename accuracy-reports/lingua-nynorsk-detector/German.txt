@@ -1,0 +1,16 @@
+##### German #####
+
+>>> Accuracy on average: 40.63%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 71.30%
+Erroneously classified as Nynorsk: 28.70%
+
+>> Detection of 1000 word pairs (average length: 18 chars)
+Accuracy: 45.20%
+Erroneously classified as Nynorsk: 54.80%
+
+>> Detection of 1000 sentences (average length: 111 chars)
+Accuracy: 5.40%
+Erroneously classified as Nynorsk: 94.60%
+

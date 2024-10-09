@@ -1,0 +1,16 @@
+##### Basque #####
+
+>>> Accuracy on average: 65.73%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 86.60%
+Erroneously classified as Nynorsk: 13.40%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 75.20%
+Erroneously classified as Nynorsk: 24.80%
+
+>> Detection of 1000 sentences (average length: 102 chars)
+Accuracy: 35.40%
+Erroneously classified as Nynorsk: 64.60%
+

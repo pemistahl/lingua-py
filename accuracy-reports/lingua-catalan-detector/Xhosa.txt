@@ -1,0 +1,16 @@
+##### Xhosa #####
+
+>>> Accuracy on average: 75.63%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 93.80%
+Erroneously classified as Catalan: 6.20%
+
+>> Detection of 1000 word pairs (average length: 18 chars)
+Accuracy: 86.60%
+Erroneously classified as Catalan: 13.40%
+
+>> Detection of 1000 sentences (average length: 127 chars)
+Accuracy: 46.50%
+Erroneously classified as Catalan: 53.50%
+

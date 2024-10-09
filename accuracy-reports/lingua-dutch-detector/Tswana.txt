@@ -1,0 +1,16 @@
+##### Tswana #####
+
+>>> Accuracy on average: 88.53%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 96.30%
+Erroneously classified as Dutch: 3.70%
+
+>> Detection of 1000 word pairs (average length: 15 chars)
+Accuracy: 93.80%
+Erroneously classified as Dutch: 6.20%
+
+>> Detection of 1000 sentences (average length: 113 chars)
+Accuracy: 75.50%
+Erroneously classified as Dutch: 24.50%
+

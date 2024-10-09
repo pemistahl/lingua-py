@@ -1,0 +1,16 @@
+##### Tagalog #####
+
+>>> Accuracy on average: 41.40%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 77.00%
+Erroneously classified as Sotho: 23.00%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 45.10%
+Erroneously classified as Sotho: 54.90%
+
+>> Detection of 1000 sentences (average length: 123 chars)
+Accuracy: 2.10%
+Erroneously classified as Sotho: 97.90%
+

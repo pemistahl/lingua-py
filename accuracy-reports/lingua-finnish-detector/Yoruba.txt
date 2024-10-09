@@ -1,0 +1,16 @@
+##### Yoruba #####
+
+>>> Accuracy on average: 90.47%
+
+>> Detection of 1000 single words (average length: 7 chars)
+Accuracy: 95.60%
+Erroneously classified as Finnish: 4.40%
+
+>> Detection of 1000 word pairs (average length: 15 chars)
+Accuracy: 92.10%
+Erroneously classified as Finnish: 7.90%
+
+>> Detection of 1000 sentences (average length: 86 chars)
+Accuracy: 83.70%
+Erroneously classified as Finnish: 16.30%
+

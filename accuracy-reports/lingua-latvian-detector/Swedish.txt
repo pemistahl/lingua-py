@@ -1,0 +1,16 @@
+##### Swedish #####
+
+>>> Accuracy on average: 87.37%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 96.50%
+Erroneously classified as Latvian: 3.50%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 92.90%
+Erroneously classified as Latvian: 7.10%
+
+>> Detection of 1000 sentences (average length: 90 chars)
+Accuracy: 72.70%
+Erroneously classified as Latvian: 27.30%
+

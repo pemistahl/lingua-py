@@ -1,0 +1,16 @@
+##### Zulu #####
+
+>>> Accuracy on average: 67.27%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 88.00%
+Erroneously classified as Bokmal: 12.00%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 79.80%
+Erroneously classified as Bokmal: 20.20%
+
+>> Detection of 1000 sentences (average length: 115 chars)
+Accuracy: 34.00%
+Erroneously classified as Bokmal: 66.00%
+

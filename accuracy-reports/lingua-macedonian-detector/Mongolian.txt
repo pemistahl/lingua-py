@@ -1,0 +1,16 @@
+##### Mongolian #####
+
+>>> Accuracy on average: 89.77%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 97.00%
+Erroneously classified as Macedonian: 3.00%
+
+>> Detection of 1000 word pairs (average length: 15 chars)
+Accuracy: 95.30%
+Erroneously classified as Macedonian: 4.70%
+
+>> Detection of 1000 sentences (average length: 103 chars)
+Accuracy: 77.00%
+Erroneously classified as Macedonian: 23.00%
+

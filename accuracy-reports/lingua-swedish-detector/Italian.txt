@@ -1,0 +1,16 @@
+##### Italian #####
+
+>>> Accuracy on average: 50.60%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 75.00%
+Erroneously classified as Swedish: 25.00%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 60.50%
+Erroneously classified as Swedish: 39.50%
+
+>> Detection of 1000 sentences (average length: 123 chars)
+Accuracy: 16.30%
+Erroneously classified as Swedish: 83.70%
+

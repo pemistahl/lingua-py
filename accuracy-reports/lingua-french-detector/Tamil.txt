@@ -1,0 +1,16 @@
+##### Tamil #####
+
+>>> Accuracy on average: 99.33%
+
+>> Detection of 1000 single words (average length: 10 chars)
+Accuracy: 100.00%
+Erroneously classified as 
+
+>> Detection of 1000 word pairs (average length: 19 chars)
+Accuracy: 100.00%
+Erroneously classified as 
+
+>> Detection of 1000 sentences (average length: 104 chars)
+Accuracy: 98.00%
+Erroneously classified as French: 2.00%
+

@@ -1,0 +1,16 @@
+##### Xhosa #####
+
+>>> Accuracy on average: 85.37%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 95.60%
+Erroneously classified as Bosnian: 4.40%
+
+>> Detection of 1000 word pairs (average length: 18 chars)
+Accuracy: 93.80%
+Erroneously classified as Bosnian: 6.20%
+
+>> Detection of 1000 sentences (average length: 127 chars)
+Accuracy: 66.70%
+Erroneously classified as Bosnian: 33.30%
+

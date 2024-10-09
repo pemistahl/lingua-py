@@ -1,0 +1,16 @@
+##### Xhosa #####
+
+>>> Accuracy on average: 67.20%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 87.60%
+Erroneously classified as Bokmal: 12.40%
+
+>> Detection of 1000 word pairs (average length: 18 chars)
+Accuracy: 81.00%
+Erroneously classified as Bokmal: 19.00%
+
+>> Detection of 1000 sentences (average length: 127 chars)
+Accuracy: 33.00%
+Erroneously classified as Bokmal: 67.00%
+

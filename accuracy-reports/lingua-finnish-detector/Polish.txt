@@ -1,0 +1,16 @@
+##### Polish #####
+
+>>> Accuracy on average: 79.90%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 93.00%
+Erroneously classified as Finnish: 7.00%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 87.60%
+Erroneously classified as Finnish: 12.40%
+
+>> Detection of 1000 sentences (average length: 99 chars)
+Accuracy: 59.10%
+Erroneously classified as Finnish: 40.90%
+
