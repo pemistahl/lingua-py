@@ -13,13 +13,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import brotli
-
 from collections import Counter
 from dataclasses import dataclass
 from decimal import Decimal
 from math import exp
-from pathlib import Path
 from typing import (
     Counter as TypedCounter,
     Dict,
@@ -37,43 +34,37 @@ from ._constant import (
     TOKENS_WITH_OPTIONAL_WHITESPACE,
 )
 from .language import Language, _Alphabet
-from ._model import _TrainingDataLanguageModel, _TestDataLanguageModel
-from ._ngram import _get_ngram_name_by_length
+from ._model import (
+    _load_ngram_probability_model,
+    _load_ngram_model,
+    _create_ngrams,
+    _create_lower_order_ngrams,
+    _NgramModelType,
+)
 
 _UNIGRAM_MODELS: Dict[Language, Dict[str, float]] = {}
 _BIGRAM_MODELS: Dict[Language, Dict[str, float]] = {}
 _TRIGRAM_MODELS: Dict[Language, Dict[str, float]] = {}
 _QUADRIGRAM_MODELS: Dict[Language, Dict[str, float]] = {}
 _FIVEGRAM_MODELS: Dict[Language, Dict[str, float]] = {}
+_UNIQUE_UNIGRAM_MODELS: Dict[Language, FrozenSet[str]] = {}
+_UNIQUE_BIGRAM_MODELS: Dict[Language, FrozenSet[str]] = {}
+_UNIQUE_TRIGRAM_MODELS: Dict[Language, FrozenSet[str]] = {}
+_UNIQUE_QUADRIGRAM_MODELS: Dict[Language, FrozenSet[str]] = {}
+_UNIQUE_FIVEGRAM_MODELS: Dict[Language, FrozenSet[str]] = {}
+_MOST_COMMON_UNIGRAM_MODELS: Dict[Language, FrozenSet[str]] = {}
+_MOST_COMMON_BIGRAM_MODELS: Dict[Language, FrozenSet[str]] = {}
+_MOST_COMMON_TRIGRAM_MODELS: Dict[Language, FrozenSet[str]] = {}
+_MOST_COMMON_QUADRIGRAM_MODELS: Dict[Language, FrozenSet[str]] = {}
+_MOST_COMMON_FIVEGRAM_MODELS: Dict[Language, FrozenSet[str]] = {}
+_LANGUAGES_WITH_SINGLE_UNIQUE_SCRIPT: FrozenSet[Language] = (
+    Language.all_with_single_unique_script()
+)
 _HIGH_ACCURACY_MODE_MAX_TEXT_LENGTH = 120
 
 
 def _split_text_into_words(text: str) -> List[str]:
     return LETTERS.findall(text.lower())
-
-
-def _load_language_models(
-    language: Language,
-    ngram_length: int,
-) -> Optional[Dict[Language, Dict[str, float]]]:
-    json_data = _load_json(language, ngram_length)
-    if json_data is None:
-        return None
-
-    loaded_models = _TrainingDataLanguageModel.from_json(json_data)
-    return {language: loaded_models}
-
-
-def _load_json(language: Language, ngram_length: int) -> Optional[str]:
-    ngram_name = _get_ngram_name_by_length(ngram_length)
-    iso_code = language.iso_code_639_1.name.lower()
-    relative_brotli_file_path = f"./language-models/{iso_code}/{ngram_name}s.json.br"
-    absolute_brotli_file_path = Path(__file__).parent / relative_brotli_file_path
-    try:
-        with open(absolute_brotli_file_path, mode="rb") as brotli_file:
-            return brotli.decompress(brotli_file.read()).decode("utf-8")
-    except FileNotFoundError:
-        return None
 
 
 def _sum_up_probabilities(
@@ -114,7 +105,7 @@ def _collect_languages_with_unique_characters(
     )
 
 
-def _collect_one_language_alphabets(
+def _collect_single_language_alphabets(
     languages: FrozenSet[Language],
 ) -> Dict[_Alphabet, Language]:
     return {
@@ -198,6 +189,7 @@ class LanguageDetector:
     _languages: FrozenSet[Language]
     _minimum_relative_distance: float
     _is_low_accuracy_mode_enabled: bool
+    _is_built_from_one_language: bool
     _languages_with_unique_characters: FrozenSet[Language]
     _one_language_alphabets: Dict[_Alphabet, Language]
     _unigram_language_models: Dict[Language, Dict[str, float]]
@@ -205,6 +197,16 @@ class LanguageDetector:
     _trigram_language_models: Dict[Language, Dict[str, float]]
     _quadrigram_language_models: Dict[Language, Dict[str, float]]
     _fivegram_language_models: Dict[Language, Dict[str, float]]
+    _unique_unigram_language_models: Dict[Language, FrozenSet[str]]
+    _unique_bigram_language_models: Dict[Language, FrozenSet[str]]
+    _unique_trigram_language_models: Dict[Language, FrozenSet[str]]
+    _unique_quadrigram_language_models: Dict[Language, FrozenSet[str]]
+    _unique_fivegram_language_models: Dict[Language, FrozenSet[str]]
+    _most_common_unigram_language_models: Dict[Language, FrozenSet[str]]
+    _most_common_bigram_language_models: Dict[Language, FrozenSet[str]]
+    _most_common_trigram_language_models: Dict[Language, FrozenSet[str]]
+    _most_common_quadrigram_language_models: Dict[Language, FrozenSet[str]]
+    _most_common_fivegram_language_models: Dict[Language, FrozenSet[str]]
 
     def __repr__(self):
         languages = sorted([language.name for language in self._languages])
@@ -222,14 +224,16 @@ class LanguageDetector:
         is_every_language_model_preloaded: bool,
         is_low_accuracy_mode_enabled: bool,
     ) -> "LanguageDetector":
+        is_built_from_one_language = len(languages) == 1
         languages_with_unique_characters = _collect_languages_with_unique_characters(
             languages
         )
-        one_language_alphabets = _collect_one_language_alphabets(languages)
+        one_language_alphabets = _collect_single_language_alphabets(languages)
         detector = LanguageDetector(
             languages,
             minimum_relative_distance,
             is_low_accuracy_mode_enabled,
+            is_built_from_one_language,
             languages_with_unique_characters,
             one_language_alphabets,
             _UNIGRAM_MODELS,
@@ -237,64 +241,212 @@ class LanguageDetector:
             _TRIGRAM_MODELS,
             _QUADRIGRAM_MODELS,
             _FIVEGRAM_MODELS,
+            _UNIQUE_UNIGRAM_MODELS,
+            _UNIQUE_BIGRAM_MODELS,
+            _UNIQUE_TRIGRAM_MODELS,
+            _UNIQUE_QUADRIGRAM_MODELS,
+            _UNIQUE_FIVEGRAM_MODELS,
+            _MOST_COMMON_UNIGRAM_MODELS,
+            _MOST_COMMON_BIGRAM_MODELS,
+            _MOST_COMMON_TRIGRAM_MODELS,
+            _MOST_COMMON_QUADRIGRAM_MODELS,
+            _MOST_COMMON_FIVEGRAM_MODELS,
         )
 
         if is_every_language_model_preloaded:
             detector._preload_language_models()
 
+        if is_built_from_one_language or is_low_accuracy_mode_enabled:
+            detector._preload_unique_ngram_models()
+
+        if is_built_from_one_language:
+            detector._preload_most_common_ngram_models()
+
         return detector
+
+    def _preload_unique_ngram_models(self):
+        unique_unigram_models = [
+            _load_ngram_model(language, 1, model_type=_NgramModelType.UNIQUE)
+            for language in self._languages
+            if language not in self._unique_unigram_language_models
+        ]
+
+        unique_bigram_models = [
+            _load_ngram_model(language, 2, model_type=_NgramModelType.UNIQUE)
+            for language in self._languages
+            if language not in self._unique_bigram_language_models
+        ]
+
+        unique_trigram_models = [
+            _load_ngram_model(language, 3, model_type=_NgramModelType.UNIQUE)
+            for language in self._languages
+            if language not in self._unique_trigram_language_models
+        ]
+
+        unique_quadrigram_models = [
+            _load_ngram_model(language, 4, model_type=_NgramModelType.UNIQUE)
+            for language in self._languages
+            if language not in self._unique_quadrigram_language_models
+        ]
+
+        unique_fivegram_models = [
+            _load_ngram_model(language, 5, model_type=_NgramModelType.UNIQUE)
+            for language in self._languages
+            if language not in self._unique_fivegram_language_models
+        ]
+
+        for unique_unigram_model in unique_unigram_models:
+            if unique_unigram_model is not None:
+                self._unique_unigram_language_models[unique_unigram_model.language] = (
+                    unique_unigram_model.ngrams
+                )
+
+        for unique_bigram_model in unique_bigram_models:
+            if unique_bigram_model is not None:
+                self._unique_bigram_language_models[unique_bigram_model.language] = (
+                    unique_bigram_model.ngrams
+                )
+
+        for unique_trigram_model in unique_trigram_models:
+            if unique_trigram_model is not None:
+                self._unique_trigram_language_models[unique_trigram_model.language] = (
+                    unique_trigram_model.ngrams
+                )
+
+        for unique_quadrigram_model in unique_quadrigram_models:
+            if unique_quadrigram_model is not None:
+                self._unique_quadrigram_language_models[
+                    unique_quadrigram_model.language
+                ] = unique_quadrigram_model.ngrams
+
+        for unique_fivegram_model in unique_fivegram_models:
+            if unique_fivegram_model is not None:
+                self._unique_fivegram_language_models[
+                    unique_fivegram_model.language
+                ] = unique_fivegram_model.ngrams
+
+    def _preload_most_common_ngram_models(self):
+        most_common_unigram_models = [
+            _load_ngram_model(language, 1, model_type=_NgramModelType.MOSTCOMMON)
+            for language in self._languages
+            if language not in self._most_common_unigram_language_models
+        ]
+
+        most_common_bigram_models = [
+            _load_ngram_model(language, 2, model_type=_NgramModelType.MOSTCOMMON)
+            for language in self._languages
+            if language not in self._most_common_bigram_language_models
+        ]
+
+        most_common_trigram_models = [
+            _load_ngram_model(language, 3, model_type=_NgramModelType.MOSTCOMMON)
+            for language in self._languages
+            if language not in self._most_common_trigram_language_models
+        ]
+
+        most_common_quadrigram_models = [
+            _load_ngram_model(language, 4, model_type=_NgramModelType.MOSTCOMMON)
+            for language in self._languages
+            if language not in self._most_common_quadrigram_language_models
+        ]
+
+        most_common_fivegram_models = [
+            _load_ngram_model(language, 5, model_type=_NgramModelType.MOSTCOMMON)
+            for language in self._languages
+            if language not in self._most_common_fivegram_language_models
+        ]
+
+        for most_common_unigram_model in most_common_unigram_models:
+            if most_common_unigram_model is not None:
+                self._most_common_unigram_language_models[
+                    most_common_unigram_model.language
+                ] = most_common_unigram_model.ngrams
+
+        for most_common_bigram_model in most_common_bigram_models:
+            if most_common_bigram_model is not None:
+                self._most_common_bigram_language_models[
+                    most_common_bigram_model.language
+                ] = most_common_bigram_model.ngrams
+
+        for most_common_trigram_model in most_common_trigram_models:
+            if most_common_trigram_model is not None:
+                self._most_common_trigram_language_models[
+                    most_common_trigram_model.language
+                ] = most_common_trigram_model.ngrams
+
+        for most_common_quadrigram_model in most_common_quadrigram_models:
+            if most_common_quadrigram_model is not None:
+                self._most_common_quadrigram_language_models[
+                    most_common_quadrigram_model.language
+                ] = most_common_quadrigram_model.ngrams
+
+        for most_common_fivegram_model in most_common_fivegram_models:
+            if most_common_fivegram_model is not None:
+                self._most_common_fivegram_language_models[
+                    most_common_fivegram_model.language
+                ] = most_common_fivegram_model.ngrams
 
     def _preload_language_models(self):
         trigram_models = [
-            _load_language_models(language, 3)
+            _load_ngram_probability_model(language, 3)
             for language in self._languages
             if language not in self._trigram_language_models
         ]
 
         for trigram_model in trigram_models:
             if trigram_model is not None:
-                self._trigram_language_models.update(trigram_model)
+                self._trigram_language_models[trigram_model.language] = (
+                    trigram_model.ngrams
+                )
 
         if not self._is_low_accuracy_mode_enabled:
             unigram_models = [
-                _load_language_models(language, 1)
+                _load_ngram_probability_model(language, 1)
                 for language in self._languages
                 if language not in self._unigram_language_models
             ]
 
             bigram_models = [
-                _load_language_models(language, 2)
+                _load_ngram_probability_model(language, 2)
                 for language in self._languages
                 if language not in self._bigram_language_models
             ]
 
             quadrigram_models = [
-                _load_language_models(language, 4)
+                _load_ngram_probability_model(language, 4)
                 for language in self._languages
                 if language not in self._quadrigram_language_models
             ]
 
             fivegram_models = [
-                _load_language_models(language, 5)
+                _load_ngram_probability_model(language, 5)
                 for language in self._languages
                 if language not in self._fivegram_language_models
             ]
 
             for unigram_model in unigram_models:
                 if unigram_model is not None:
-                    self._unigram_language_models.update(unigram_model)
+                    self._unigram_language_models[unigram_model.language] = (
+                        unigram_model.ngrams
+                    )
 
             for bigram_model in bigram_models:
                 if bigram_model is not None:
-                    self._bigram_language_models.update(bigram_model)
+                    self._bigram_language_models[bigram_model.language] = (
+                        bigram_model.ngrams
+                    )
 
             for quadrigram_model in quadrigram_models:
                 if quadrigram_model is not None:
-                    self._quadrigram_language_models.update(quadrigram_model)
+                    self._quadrigram_language_models[quadrigram_model.language] = (
+                        quadrigram_model.ngrams
+                    )
 
             for fivegram_model in fivegram_models:
                 if fivegram_model is not None:
-                    self._fivegram_language_models.update(fivegram_model)
+                    self._fivegram_language_models[fivegram_model.language] = (
+                        fivegram_model.ngrams
+                    )
 
     def unload_language_models(self):
         """Clear all language models loaded by this LanguageDetector instance.
@@ -310,6 +462,23 @@ class LanguageDetector:
                     self._bigram_language_models.pop(language)
                     self._quadrigram_language_models.pop(language)
                     self._fivegram_language_models.pop(language)
+
+                if (
+                    self._is_built_from_one_language
+                    or self._is_low_accuracy_mode_enabled
+                ):
+                    self._unique_unigram_language_models.pop(language)
+                    self._unique_bigram_language_models.pop(language)
+                    self._unique_trigram_language_models.pop(language)
+                    self._unique_quadrigram_language_models.pop(language)
+                    self._unique_fivegram_language_models.pop(language)
+
+                if self._is_built_from_one_language:
+                    self._most_common_unigram_language_models.pop(language)
+                    self._most_common_bigram_language_models.pop(language)
+                    self._most_common_trigram_language_models.pop(language)
+                    self._most_common_quadrigram_language_models.pop(language)
+                    self._most_common_fivegram_language_models.pop(language)
 
             except KeyError:
                 pass
@@ -332,6 +501,8 @@ class LanguageDetector:
         most_likely_language, most_likely_language_probability = confidence_values[0]
 
         if len(confidence_values) == 1:
+            if most_likely_language_probability == 0.0:
+                return None
             return most_likely_language
 
         second_most_likely_language_probability = confidence_values[1].value
@@ -492,8 +663,19 @@ class LanguageDetector:
 
         words = _split_text_into_words(text)
         if len(words) == 0:
-            _sort_confidence_values(values)
             return values
+
+        if self._is_built_from_one_language or self._is_low_accuracy_mode_enabled:
+            language_detected_by_ngrams = (
+                self._detect_language_with_unique_and_common_ngrams(words)
+            )
+            if language_detected_by_ngrams is not None:
+                for i in range(len(values)):
+                    if values[i].language == language_detected_by_ngrams:
+                        values[i] = ConfidenceValue(language_detected_by_ngrams, 1.0)
+                        break
+                _sort_confidence_values(values)
+                return values
 
         language_detected_by_rules = self._detect_language_with_rules(words)
 
@@ -503,6 +685,9 @@ class LanguageDetector:
                     values[i] = ConfidenceValue(language_detected_by_rules, 1.0)
                     break
             _sort_confidence_values(values)
+            return values
+
+        if self._is_built_from_one_language:
             return values
 
         filtered_languages = self._filter_languages_by_rules(words)
@@ -533,7 +718,7 @@ class LanguageDetector:
 
         for ngram_length in ngram_length_range:
             if character_count >= ngram_length:
-                ngram_model = _TestDataLanguageModel.from_text(words, ngram_length)
+                ngram_model = _create_lower_order_ngrams(words, ngram_length)
 
                 if ngram_length == 1:
                     unigram_counts = self._count_unigrams(
@@ -590,6 +775,94 @@ class LanguageDetector:
             if value.language == language:
                 return value.value
         return 0.0
+
+    def _detect_language_with_unique_and_common_ngrams(
+        self, words: List[str]
+    ) -> Optional[Language]:
+        fivegrams = _create_ngrams(words, ngram_length=5)
+
+        for language in self._languages:
+            if language in self._unique_fivegram_language_models:
+                for fivegram in fivegrams:
+                    if fivegram in self._unique_fivegram_language_models[language]:
+                        return language
+
+            if (
+                self._is_built_from_one_language
+                and language in self._most_common_fivegram_language_models
+            ):
+                for fivegram in fivegrams:
+                    if fivegram in self._most_common_fivegram_language_models[language]:
+                        return language
+
+        quadrigrams = _create_ngrams(words, ngram_length=4)
+
+        for language in self._languages:
+            if language in self._unique_quadrigram_language_models:
+                for quadrigram in quadrigrams:
+                    if quadrigram in self._unique_quadrigram_language_models[language]:
+                        return language
+
+            if (
+                self._is_built_from_one_language
+                and language in self._most_common_quadrigram_language_models
+            ):
+                for quadrigram in quadrigrams:
+                    if (
+                        quadrigram
+                        in self._most_common_quadrigram_language_models[language]
+                    ):
+                        return language
+
+        trigrams = _create_ngrams(words, ngram_length=3)
+
+        for language in self._languages:
+            if language in self._unique_trigram_language_models:
+                for trigram in trigrams:
+                    if trigram in self._unique_trigram_language_models[language]:
+                        return language
+
+            if (
+                self._is_built_from_one_language
+                and language in self._most_common_trigram_language_models
+            ):
+                for trigram in trigrams:
+                    if trigram in self._most_common_trigram_language_models[language]:
+                        return language
+
+        bigrams = _create_ngrams(words, ngram_length=2)
+
+        for language in self._languages:
+            if language in self._unique_bigram_language_models:
+                for bigram in bigrams:
+                    if bigram in self._unique_bigram_language_models[language]:
+                        return language
+
+            if (
+                language == Language.HINDI
+                or language == Language.MARATHI
+                or (language == Language.JAPANESE and self._is_built_from_one_language)
+                or language in _LANGUAGES_WITH_SINGLE_UNIQUE_SCRIPT
+            ):
+                unigrams = _create_ngrams(words, ngram_length=1)
+
+                if language in self._unique_unigram_language_models:
+                    for unigram in unigrams:
+                        if unigram in self._unique_unigram_language_models[language]:
+                            return language
+
+                if (
+                    self._is_built_from_one_language
+                    and language in self._most_common_unigram_language_models
+                ):
+                    for unigram in unigrams:
+                        if (
+                            unigram
+                            in self._most_common_unigram_language_models[language]
+                        ):
+                            return language
+
+        return None
 
     def _detect_language_with_rules(self, words: List[str]) -> Optional[Language]:
         total_language_counts: TypedCounter[Optional[Language]] = Counter()
@@ -719,7 +992,7 @@ class LanguageDetector:
 
     def _compute_language_probabilities(
         self,
-        ngram_model: _TestDataLanguageModel,
+        ngram_model: List[List[str]],
         filtered_languages: FrozenSet[Language],
     ) -> Dict[Language, float]:
         probabilities = {}
@@ -730,10 +1003,10 @@ class LanguageDetector:
         return probabilities
 
     def _compute_sum_of_ngram_probabilities(
-        self, language: Language, ngram_model: _TestDataLanguageModel
+        self, language: Language, ngram_model: List[List[str]]
     ) -> float:
         result = 0.0
-        for ngrams in ngram_model.ngrams:
+        for ngrams in ngram_model:
             for ngram in ngrams:
                 probability = self._look_up_ngram_probability(language, ngram)
                 if probability is not None:
@@ -761,21 +1034,21 @@ class LanguageDetector:
             raise ValueError(f"unsupported ngram length detected: {ngram_length}")
 
         if language not in language_models:
-            models = _load_language_models(language, ngram_length)
-            if models is None:
+            model = _load_ngram_probability_model(language, ngram_length)
+            if model is None:
                 return None
-            language_models.update(models)
+            language_models[model.language] = model.ngrams
 
         return language_models[language].get(ngram, None)
 
     def _count_unigrams(
         self,
-        unigram_model: _TestDataLanguageModel,
+        unigram_model: List[List[str]],
         filtered_languages: FrozenSet[Language],
     ) -> TypedCounter[Language]:
         unigram_counts: TypedCounter[Language] = Counter()
         for language in filtered_languages:
-            for unigrams in unigram_model.ngrams:
+            for unigrams in unigram_model:
                 if self._look_up_ngram_probability(language, unigrams[0]) is not None:
                     unigram_counts[language] += 1
         return unigram_counts

@@ -16,11 +16,19 @@
 import pytest
 
 from fractions import Fraction
+from math import isclose
 from typing import Dict, List
 
 from lingua.detector import _split_text_into_words
 from lingua.language import Language
-from lingua._model import _TrainingDataLanguageModel, _TestDataLanguageModel
+from lingua._model import (
+    _load_ngram_probability_model,
+    _load_ngram_model,
+    _create_lower_order_ngrams,
+    _NgramModelType,
+    _TrainingDataLanguageModel,
+)
+from tests import minify
 
 TEXT: str = """These sentences are intended for testing purposes.
     ⚠ Do not use them in production
@@ -110,6 +118,25 @@ def expected_unigram_relative_frequencies() -> Dict[str, Fraction]:
             "y": "3/100",
         }
     )
+
+
+def expected_unigram_model_json():
+    return """
+    {
+        "language":"ENGLISH",
+        "ngrams":{
+            "3/100":"a c p u y",
+            "1/100":"b g l m",
+            "1/20":"d r",
+            "7/50":"e",
+            "1/50":"f w",
+            "1/25":"h",
+            "3/50":"i",
+            "1/10":"n o s",
+            "13/100":"t"
+        }
+    }
+    """
 
 
 def expected_bigrams() -> List[List[str]]:
@@ -740,7 +767,7 @@ def expected_fivegram_relative_frequencies() -> Dict[str, Fraction]:
         ),
     ],
 )
-def test_training_data_model_creation(
+def test_training_data_model_from_text(
     ngram_length,
     expected_absolute_frequencies,
     expected_relative_frequencies,
@@ -759,6 +786,26 @@ def test_training_data_model_creation(
 
 
 @pytest.mark.parametrize(
+    "language," "absolute_frequencies," "relative_frequencies," "expected_json",
+    [
+        pytest.param(
+            Language.ENGLISH,
+            expected_unigram_absolute_frequencies(),
+            expected_unigram_relative_frequencies(),
+            expected_unigram_model_json(),
+        )
+    ],
+)
+def test_training_data_model_to_json(
+    language, absolute_frequencies, relative_frequencies, expected_json
+):
+    model = _TrainingDataLanguageModel(
+        language, absolute_frequencies, relative_frequencies
+    )
+    assert model.to_json() == minify(expected_json)
+
+
+@pytest.mark.parametrize(
     "ngram_length,expected_ngrams",
     [
         pytest.param(1, expected_unigrams(), id="unigram_model"),
@@ -769,5 +816,18 @@ def test_training_data_model_creation(
     ],
 )
 def test_test_data_model_creation(ngram_length, expected_ngrams):
-    model = _TestDataLanguageModel.from_text(_split_text_into_words(TEXT), ngram_length)
-    assert sorted(model.ngrams) == expected_ngrams
+    ngrams = _create_lower_order_ngrams(_split_text_into_words(TEXT), ngram_length)
+    assert sorted(ngrams) == expected_ngrams
+
+
+def test_load_ngram_probability_model():
+    ngram_model = _load_ngram_probability_model(Language.ENGLISH, 1)
+    assert ngram_model.language == Language.ENGLISH
+    assert "a" in ngram_model.ngrams
+    assert isclose(ngram_model.ngrams["a"], -2.470391707934208, rel_tol=0.001)
+
+
+def test_load_ngram_model():
+    unique_ngram_model = _load_ngram_model(Language.ENGLISH, 1, _NgramModelType.UNIQUE)
+    assert unique_ngram_model.language == Language.ENGLISH
+    assert unique_ngram_model.ngrams == frozenset(["ɦ", "ƅ", "ﬀ", "ƴ", "ｍ", "ȼ"])
