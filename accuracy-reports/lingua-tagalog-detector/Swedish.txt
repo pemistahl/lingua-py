@@ -1,0 +1,16 @@
+##### Swedish #####
+
+>>> Accuracy on average: 64.23%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 84.30%
+Erroneously classified as Tagalog: 15.70%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 72.70%
+Erroneously classified as Tagalog: 27.30%
+
+>> Detection of 1000 sentences (average length: 90 chars)
+Accuracy: 35.70%
+Erroneously classified as Tagalog: 64.30%
+

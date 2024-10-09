@@ -1,0 +1,16 @@
+##### Czech #####
+
+>>> Accuracy on average: 80.50%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 93.80%
+Erroneously classified as Afrikaans: 6.20%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 87.10%
+Erroneously classified as Afrikaans: 12.90%
+
+>> Detection of 1000 sentences (average length: 93 chars)
+Accuracy: 60.60%
+Erroneously classified as Afrikaans: 39.40%
+

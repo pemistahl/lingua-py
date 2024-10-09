@@ -1,0 +1,16 @@
+##### Slovene #####
+
+>>> Accuracy on average: 96.50%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 99.00%
+Erroneously classified as Vietnamese: 1.00%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 98.60%
+Erroneously classified as Vietnamese: 1.40%
+
+>> Detection of 1000 sentences (average length: 114 chars)
+Accuracy: 91.90%
+Erroneously classified as Vietnamese: 8.10%
+

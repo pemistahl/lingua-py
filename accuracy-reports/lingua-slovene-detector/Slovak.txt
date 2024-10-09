@@ -1,0 +1,16 @@
+##### Slovak #####
+
+>>> Accuracy on average: 52.33%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 77.20%
+Erroneously classified as Slovene: 22.80%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 61.70%
+Erroneously classified as Slovene: 38.30%
+
+>> Detection of 1000 sentences (average length: 101 chars)
+Accuracy: 18.10%
+Erroneously classified as Slovene: 81.90%
+

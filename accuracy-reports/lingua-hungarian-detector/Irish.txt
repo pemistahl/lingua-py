@@ -1,0 +1,16 @@
+##### Irish #####
+
+>>> Accuracy on average: 89.67%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 96.50%
+Erroneously classified as Hungarian: 3.50%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 94.30%
+Erroneously classified as Hungarian: 5.70%
+
+>> Detection of 1000 sentences (average length: 113 chars)
+Accuracy: 78.20%
+Erroneously classified as Hungarian: 21.80%
+

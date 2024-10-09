@@ -1,0 +1,16 @@
+##### Turkish #####
+
+>>> Accuracy on average: 84.67%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 94.70%
+Erroneously classified as Croatian: 5.30%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 92.70%
+Erroneously classified as Croatian: 7.30%
+
+>> Detection of 1000 sentences (average length: 119 chars)
+Accuracy: 66.60%
+Erroneously classified as Croatian: 33.40%
+

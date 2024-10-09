@@ -1,0 +1,16 @@
+##### Shona #####
+
+>>> Accuracy on average: 44.10%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 72.50%
+Erroneously classified as Maori: 27.50%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 55.20%
+Erroneously classified as Maori: 44.80%
+
+>> Detection of 1000 sentences (average length: 117 chars)
+Accuracy: 4.60%
+Erroneously classified as Maori: 95.40%
+

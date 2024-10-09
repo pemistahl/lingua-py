@@ -1,0 +1,16 @@
+##### Basque #####
+
+>>> Accuracy on average: 58.77%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 86.00%
+Erroneously classified as Bokmal: 14.00%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 71.90%
+Erroneously classified as Bokmal: 28.10%
+
+>> Detection of 1000 sentences (average length: 102 chars)
+Accuracy: 18.40%
+Erroneously classified as Bokmal: 81.60%
+

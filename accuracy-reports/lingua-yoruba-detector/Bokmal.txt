@@ -1,0 +1,16 @@
+##### Bokmal #####
+
+>>> Accuracy on average: 75.07%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 91.90%
+Erroneously classified as Yoruba: 8.10%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 82.40%
+Erroneously classified as Yoruba: 17.60%
+
+>> Detection of 1000 sentences (average length: 98 chars)
+Accuracy: 50.90%
+Erroneously classified as Yoruba: 49.10%
+

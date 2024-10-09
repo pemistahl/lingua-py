@@ -1,0 +1,16 @@
+##### Latvian #####
+
+>>> Accuracy on average: 78.33%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 93.30%
+Erroneously classified as Czech: 6.70%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 86.90%
+Erroneously classified as Czech: 13.10%
+
+>> Detection of 1000 sentences (average length: 109 chars)
+Accuracy: 54.80%
+Erroneously classified as Czech: 45.20%
+

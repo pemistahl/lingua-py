@@ -23,7 +23,9 @@ JAPANESE_CHARACTER_SET: Pattern = regex.compile(r"^[\p{Hiragana}\p{Katakana}\p{H
 MULTIPLE_WHITESPACE: Pattern = regex.compile(r"\s+")
 NUMBERS: Pattern = regex.compile(r"\p{N}")
 PUNCTUATION: Pattern = regex.compile(r"\p{P}")
-LETTERS: Pattern = regex.compile(r"\p{Han}|\p{Hangul}|\p{Hiragana}|\p{Katakana}|\p{L}+")
+LETTERS: Pattern = regex.compile(
+    r"\p{Deva}+|\p{Han}|\p{Hangul}|\p{Hiragana}|\p{Katakana}|\p{L}+"
+)
 TOKENS_WITH_OPTIONAL_WHITESPACE = regex.compile(
     r"\s*(?:\p{Han}|\p{Hangul}|\p{Hiragana}|\p{Katakana}|[\p{L}'-]+)[\p{N}\p{P}]*\s*"
 )

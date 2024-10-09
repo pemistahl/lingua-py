@@ -1,0 +1,16 @@
+##### Ganda #####
+
+>>> Accuracy on average: 68.90%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 89.90%
+Erroneously classified as Dutch: 10.10%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 80.10%
+Erroneously classified as Dutch: 19.90%
+
+>> Detection of 1000 sentences (average length: 125 chars)
+Accuracy: 36.70%
+Erroneously classified as Dutch: 63.30%
+

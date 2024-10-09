@@ -1,0 +1,16 @@
+##### Xhosa #####
+
+>>> Accuracy on average: 75.83%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 93.50%
+Erroneously classified as Welsh: 6.50%
+
+>> Detection of 1000 word pairs (average length: 18 chars)
+Accuracy: 87.60%
+Erroneously classified as Welsh: 12.40%
+
+>> Detection of 1000 sentences (average length: 127 chars)
+Accuracy: 46.40%
+Erroneously classified as Welsh: 53.60%
+

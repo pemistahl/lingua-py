@@ -1,0 +1,16 @@
+##### Czech #####
+
+>>> Accuracy on average: 88.50%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 96.20%
+Erroneously classified as Ganda: 3.80%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 94.80%
+Erroneously classified as Ganda: 5.20%
+
+>> Detection of 1000 sentences (average length: 93 chars)
+Accuracy: 74.50%
+Erroneously classified as Ganda: 25.50%
+

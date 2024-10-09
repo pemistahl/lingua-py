@@ -1,0 +1,16 @@
+##### Yoruba #####
+
+>>> Accuracy on average: 66.93%
+
+>> Detection of 1000 single words (average length: 7 chars)
+Accuracy: 86.50%
+Erroneously classified as Malay: 13.50%
+
+>> Detection of 1000 word pairs (average length: 15 chars)
+Accuracy: 69.50%
+Erroneously classified as Malay: 30.50%
+
+>> Detection of 1000 sentences (average length: 86 chars)
+Accuracy: 44.80%
+Erroneously classified as Malay: 55.20%
+

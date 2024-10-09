@@ -1,0 +1,16 @@
+##### Finnish #####
+
+>>> Accuracy on average: 55.10%
+
+>> Detection of 1000 single words (average length: 10 chars)
+Accuracy: 79.40%
+Erroneously classified as Lithuanian: 20.60%
+
+>> Detection of 1000 word pairs (average length: 19 chars)
+Accuracy: 66.40%
+Erroneously classified as Lithuanian: 33.60%
+
+>> Detection of 1000 sentences (average length: 103 chars)
+Accuracy: 19.50%
+Erroneously classified as Lithuanian: 80.50%
+

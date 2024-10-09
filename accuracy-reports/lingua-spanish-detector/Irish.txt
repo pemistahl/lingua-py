@@ -1,0 +1,16 @@
+##### Irish #####
+
+>>> Accuracy on average: 76.77%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 92.50%
+Erroneously classified as Spanish: 7.50%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 85.90%
+Erroneously classified as Spanish: 14.10%
+
+>> Detection of 1000 sentences (average length: 113 chars)
+Accuracy: 51.90%
+Erroneously classified as Spanish: 48.10%
+

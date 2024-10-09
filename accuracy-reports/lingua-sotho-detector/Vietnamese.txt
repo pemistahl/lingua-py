@@ -1,0 +1,16 @@
+##### Vietnamese #####
+
+>>> Accuracy on average: 84.07%
+
+>> Detection of 879 single words (average length: 4 chars)
+Accuracy: 97.72%
+Erroneously classified as Sotho: 2.28%
+
+>> Detection of 957 word pairs (average length: 12 chars)
+Accuracy: 88.19%
+Erroneously classified as Sotho: 11.81%
+
+>> Detection of 1000 sentences (average length: 120 chars)
+Accuracy: 66.30%
+Erroneously classified as Sotho: 33.70%
+

@@ -1,0 +1,16 @@
+##### Bokmal #####
+
+>>> Accuracy on average: 42.77%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 67.50%
+Erroneously classified as Afrikaans: 32.50%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 46.40%
+Erroneously classified as Afrikaans: 53.60%
+
+>> Detection of 1000 sentences (average length: 98 chars)
+Accuracy: 14.40%
+Erroneously classified as Afrikaans: 85.60%
+

@@ -1,0 +1,16 @@
+##### Bulgarian #####
+
+>>> Accuracy on average: 63.83%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 85.00%
+Erroneously classified as Ukrainian: 15.00%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 73.80%
+Erroneously classified as Ukrainian: 26.20%
+
+>> Detection of 1000 sentences (average length: 89 chars)
+Accuracy: 32.70%
+Erroneously classified as Ukrainian: 67.30%
+

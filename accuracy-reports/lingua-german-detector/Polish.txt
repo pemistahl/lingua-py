@@ -1,0 +1,16 @@
+##### Polish #####
+
+>>> Accuracy on average: 81.73%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 93.70%
+Erroneously classified as German: 6.30%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 89.80%
+Erroneously classified as German: 10.20%
+
+>> Detection of 1000 sentences (average length: 99 chars)
+Accuracy: 61.70%
+Erroneously classified as German: 38.30%
+

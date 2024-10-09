@@ -1,0 +1,16 @@
+##### Catalan #####
+
+>>> Accuracy on average: 68.67%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 87.60%
+Erroneously classified as Croatian: 12.40%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 74.40%
+Erroneously classified as Croatian: 25.60%
+
+>> Detection of 1000 sentences (average length: 103 chars)
+Accuracy: 44.00%
+Erroneously classified as Croatian: 56.00%
+

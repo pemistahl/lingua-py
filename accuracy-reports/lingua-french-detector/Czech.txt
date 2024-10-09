@@ -1,0 +1,16 @@
+##### Czech #####
+
+>>> Accuracy on average: 79.63%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 92.90%
+Erroneously classified as French: 7.10%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 87.60%
+Erroneously classified as French: 12.40%
+
+>> Detection of 1000 sentences (average length: 93 chars)
+Accuracy: 58.40%
+Erroneously classified as French: 41.60%
+

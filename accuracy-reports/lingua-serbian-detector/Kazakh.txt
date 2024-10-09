@@ -1,0 +1,16 @@
+##### Kazakh #####
+
+>>> Accuracy on average: 81.27%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 93.30%
+Erroneously classified as Serbian: 6.70%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 89.40%
+Erroneously classified as Serbian: 10.60%
+
+>> Detection of 1000 sentences (average length: 102 chars)
+Accuracy: 61.10%
+Erroneously classified as Serbian: 38.90%
+

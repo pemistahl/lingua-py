@@ -1,0 +1,16 @@
+##### Tagalog #####
+
+>>> Accuracy on average: 57.13%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 82.50%
+Erroneously classified as Yoruba: 17.50%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 69.00%
+Erroneously classified as Yoruba: 31.00%
+
+>> Detection of 1000 sentences (average length: 123 chars)
+Accuracy: 19.90%
+Erroneously classified as Yoruba: 80.10%
+

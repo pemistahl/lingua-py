@@ -1,0 +1,16 @@
+##### Tswana #####
+
+>>> Accuracy on average: 66.80%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 87.60%
+Erroneously classified as Somali: 12.40%
+
+>> Detection of 1000 word pairs (average length: 15 chars)
+Accuracy: 77.20%
+Erroneously classified as Somali: 22.80%
+
+>> Detection of 1000 sentences (average length: 113 chars)
+Accuracy: 35.60%
+Erroneously classified as Somali: 64.40%
+

@@ -1,0 +1,16 @@
+##### Finnish #####
+
+>>> Accuracy on average: 56.90%
+
+>> Detection of 1000 single words (average length: 10 chars)
+Accuracy: 81.40%
+Erroneously classified as Bokmal: 18.60%
+
+>> Detection of 1000 word pairs (average length: 19 chars)
+Accuracy: 66.30%
+Erroneously classified as Bokmal: 33.70%
+
+>> Detection of 1000 sentences (average length: 103 chars)
+Accuracy: 23.00%
+Erroneously classified as Bokmal: 77.00%
+

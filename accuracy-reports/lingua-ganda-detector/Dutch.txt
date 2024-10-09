@@ -1,0 +1,16 @@
+##### Dutch #####
+
+>>> Accuracy on average: 87.90%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 95.80%
+Erroneously classified as Ganda: 4.20%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 92.50%
+Erroneously classified as Ganda: 7.50%
+
+>> Detection of 1000 sentences (average length: 107 chars)
+Accuracy: 75.40%
+Erroneously classified as Ganda: 24.60%
+

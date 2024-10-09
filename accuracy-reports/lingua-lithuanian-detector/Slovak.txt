@@ -1,0 +1,16 @@
+##### Slovak #####
+
+>>> Accuracy on average: 74.07%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 90.30%
+Erroneously classified as Lithuanian: 9.70%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 83.80%
+Erroneously classified as Lithuanian: 16.20%
+
+>> Detection of 1000 sentences (average length: 101 chars)
+Accuracy: 48.10%
+Erroneously classified as Lithuanian: 51.90%
+

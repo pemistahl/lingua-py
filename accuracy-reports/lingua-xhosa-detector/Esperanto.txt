@@ -1,0 +1,16 @@
+##### Esperanto #####
+
+>>> Accuracy on average: 81.87%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 93.30%
+Erroneously classified as Xhosa: 6.70%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 88.30%
+Erroneously classified as Xhosa: 11.70%
+
+>> Detection of 1000 sentences (average length: 101 chars)
+Accuracy: 64.00%
+Erroneously classified as Xhosa: 36.00%
+

@@ -1,0 +1,16 @@
+##### Nynorsk #####
+
+>>> Accuracy on average: 87.23%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 96.00%
+Erroneously classified as Somali: 4.00%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 92.30%
+Erroneously classified as Somali: 7.70%
+
+>> Detection of 1000 sentences (average length: 96 chars)
+Accuracy: 73.40%
+Erroneously classified as Somali: 26.60%
+

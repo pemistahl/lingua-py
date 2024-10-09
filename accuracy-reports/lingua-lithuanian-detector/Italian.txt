@@ -1,0 +1,16 @@
+##### Italian #####
+
+>>> Accuracy on average: 63.40%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 86.90%
+Erroneously classified as Lithuanian: 13.10%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 77.20%
+Erroneously classified as Lithuanian: 22.80%
+
+>> Detection of 1000 sentences (average length: 123 chars)
+Accuracy: 26.10%
+Erroneously classified as Lithuanian: 73.90%
+

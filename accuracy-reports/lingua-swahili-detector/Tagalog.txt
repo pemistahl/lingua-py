@@ -1,0 +1,16 @@
+##### Tagalog #####
+
+>>> Accuracy on average: 40.63%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 67.10%
+Erroneously classified as Swahili: 32.90%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 47.30%
+Erroneously classified as Swahili: 52.70%
+
+>> Detection of 1000 sentences (average length: 123 chars)
+Accuracy: 7.50%
+Erroneously classified as Swahili: 92.50%
+

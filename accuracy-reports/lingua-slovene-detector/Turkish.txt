@@ -1,0 +1,16 @@
+##### Turkish #####
+
+>>> Accuracy on average: 78.50%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 93.00%
+Erroneously classified as Slovene: 7.00%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 89.00%
+Erroneously classified as Slovene: 11.00%
+
+>> Detection of 1000 sentences (average length: 119 chars)
+Accuracy: 53.50%
+Erroneously classified as Slovene: 46.50%
+

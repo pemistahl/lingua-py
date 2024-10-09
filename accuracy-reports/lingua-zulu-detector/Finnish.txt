@@ -1,0 +1,16 @@
+##### Finnish #####
+
+>>> Accuracy on average: 77.43%
+
+>> Detection of 1000 single words (average length: 10 chars)
+Accuracy: 92.00%
+Erroneously classified as Zulu: 8.00%
+
+>> Detection of 1000 word pairs (average length: 19 chars)
+Accuracy: 87.50%
+Erroneously classified as Zulu: 12.50%
+
+>> Detection of 1000 sentences (average length: 103 chars)
+Accuracy: 52.80%
+Erroneously classified as Zulu: 47.20%
+

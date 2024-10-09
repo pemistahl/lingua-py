@@ -1,0 +1,16 @@
+##### German #####
+
+>>> Accuracy on average: 56.77%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 82.90%
+Erroneously classified as Finnish: 17.10%
+
+>> Detection of 1000 word pairs (average length: 18 chars)
+Accuracy: 67.00%
+Erroneously classified as Finnish: 33.00%
+
+>> Detection of 1000 sentences (average length: 111 chars)
+Accuracy: 20.40%
+Erroneously classified as Finnish: 79.60%
+

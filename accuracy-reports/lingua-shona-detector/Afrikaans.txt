@@ -1,0 +1,16 @@
+##### Afrikaans #####
+
+>>> Accuracy on average: 74.33%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 93.40%
+Erroneously classified as Shona: 6.60%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 86.50%
+Erroneously classified as Shona: 13.50%
+
+>> Detection of 1000 sentences (average length: 102 chars)
+Accuracy: 43.10%
+Erroneously classified as Shona: 56.90%
+

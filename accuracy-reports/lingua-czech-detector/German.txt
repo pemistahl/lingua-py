@@ -1,0 +1,16 @@
+##### German #####
+
+>>> Accuracy on average: 69.03%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 87.10%
+Erroneously classified as Czech: 12.90%
+
+>> Detection of 1000 word pairs (average length: 18 chars)
+Accuracy: 77.90%
+Erroneously classified as Czech: 22.10%
+
+>> Detection of 1000 sentences (average length: 111 chars)
+Accuracy: 42.10%
+Erroneously classified as Czech: 57.90%
+

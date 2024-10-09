@@ -14,7 +14,7 @@
 # limitations under the License.
 
 from lingua.isocode import IsoCode639_1, IsoCode639_3
-from lingua.language import Language
+from lingua.language import Language, _Alphabet
 
 
 def test_all_languages_are_available():
@@ -263,9 +263,45 @@ def test_languages_support_latin_script():
     )
 
 
+def test_languages_with_single_unique_script():
+    assert Language.all_with_single_unique_script() == frozenset(
+        [
+            Language.ARMENIAN,
+            Language.BENGALI,
+            Language.GEORGIAN,
+            Language.GREEK,
+            Language.GUJARATI,
+            Language.PUNJABI,
+            Language.KOREAN,
+            Language.HEBREW,
+            Language.TAMIL,
+            Language.TELUGU,
+            Language.THAI,
+        ]
+    )
+
+
 def test_language_from_iso_code_639_1():
     assert Language.from_iso_code_639_1(IsoCode639_1.DE) == Language.GERMAN
 
 
 def test_language_from_iso_code_639_3():
     assert Language.from_iso_code_639_3(IsoCode639_3.DEU) == Language.GERMAN
+
+
+def test_alphabets_supporting_single_language():
+    assert _Alphabet.all_supporting_single_language() == {
+        _Alphabet.ARMENIAN: Language.ARMENIAN,
+        _Alphabet.BENGALI: Language.BENGALI,
+        _Alphabet.GEORGIAN: Language.GEORGIAN,
+        _Alphabet.GREEK: Language.GREEK,
+        _Alphabet.GUJARATI: Language.GUJARATI,
+        _Alphabet.GURMUKHI: Language.PUNJABI,
+        _Alphabet.HANGUL: Language.KOREAN,
+        _Alphabet.HEBREW: Language.HEBREW,
+        _Alphabet.HIRAGANA: Language.JAPANESE,
+        _Alphabet.KATAKANA: Language.JAPANESE,
+        _Alphabet.TAMIL: Language.TAMIL,
+        _Alphabet.TELUGU: Language.TELUGU,
+        _Alphabet.THAI: Language.THAI,
+    }

@@ -1,0 +1,16 @@
+##### Vietnamese #####
+
+>>> Accuracy on average: 98.35%
+
+>> Detection of 879 single words (average length: 4 chars)
+Accuracy: 99.89%
+Erroneously classified as Icelandic: 0.11%
+
+>> Detection of 957 word pairs (average length: 12 chars)
+Accuracy: 99.16%
+Erroneously classified as Icelandic: 0.84%
+
+>> Detection of 1000 sentences (average length: 120 chars)
+Accuracy: 96.00%
+Erroneously classified as Icelandic: 4.00%
+

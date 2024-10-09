@@ -1,0 +1,16 @@
+##### Basque #####
+
+>>> Accuracy on average: 95.93%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 98.20%
+Erroneously classified as Vietnamese: 1.80%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 98.50%
+Erroneously classified as Vietnamese: 1.50%
+
+>> Detection of 1000 sentences (average length: 102 chars)
+Accuracy: 91.10%
+Erroneously classified as Vietnamese: 8.90%
+

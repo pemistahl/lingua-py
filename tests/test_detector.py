@@ -13,7 +13,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import json
 import pytest
 
 from math import isclose, log
@@ -28,12 +27,10 @@ from lingua.detector import (
     _QUADRIGRAM_MODELS,
     _FIVEGRAM_MODELS,
     _collect_languages_with_unique_characters,
-    _collect_one_language_alphabets,
-    _load_json,
+    _collect_single_language_alphabets,
     _split_text_into_words,
 )
 from lingua.language import Language
-from lingua._model import _TestDataLanguageModel
 
 
 # ##############################
@@ -225,15 +222,26 @@ def customized_detector_for_english_and_german(
         _languages=languages,
         _minimum_relative_distance=0.0,
         _is_low_accuracy_mode_enabled=False,
+        _is_built_from_one_language=False,
         _languages_with_unique_characters=_collect_languages_with_unique_characters(
             languages
         ),
-        _one_language_alphabets=_collect_one_language_alphabets(languages),
+        _one_language_alphabets=_collect_single_language_alphabets(languages),
         _unigram_language_models=unigram_models,
         _bigram_language_models=bigram_models,
         _trigram_language_models=trigram_models,
         _quadrigram_language_models=quadrigram_models,
         _fivegram_language_models=fivegram_models,
+        _unique_unigram_language_models={},
+        _unique_bigram_language_models={},
+        _unique_trigram_language_models={},
+        _unique_quadrigram_language_models={},
+        _unique_fivegram_language_models={},
+        _most_common_unigram_language_models={},
+        _most_common_bigram_language_models={},
+        _most_common_trigram_language_models={},
+        _most_common_quadrigram_language_models={},
+        _most_common_fivegram_language_models={},
     )
 
 
@@ -248,18 +256,6 @@ detector_for_all_languages = (
     .with_preloaded_language_models()
     .build()
 )
-
-
-def test_load_json():
-    json_str = _load_json(Language.ENGLISH, 1)
-    json_obj = json.loads(json_str)
-
-    assert "language" in json_obj
-    assert json_obj["language"] == "ENGLISH"
-
-    assert "ngrams" in json_obj
-    assert "2/93616591" in json_obj["ngrams"]
-    assert json_obj["ngrams"]["2/93616591"] == "ﬀ ċ ė ĩ ȼ ɔ ţ ũ ʔ ơ ả ộ ù"
 
 
 @pytest.mark.parametrize(
@@ -870,19 +866,17 @@ def test_ngram_probability_lookup(
     "ngram_model, expected_sum_of_probabilities",
     [
         pytest.param(
-            _TestDataLanguageModel([["a"], ["l"], ["t"], ["e"], ["r"]]),
+            [["a"], ["l"], ["t"], ["e"], ["r"]],
             log(0.01) + log(0.02) + log(0.03) + log(0.04) + log(0.05),
         ),
         pytest.param(
             # back off unknown Trigram("tez") to known Bigram("te")
-            _TestDataLanguageModel(
-                [["alt", "al", "a"], ["lte", "lt", "l"], ["tez", "te", "t"]]
-            ),
+            [["alt", "al", "a"], ["lte", "lt", "l"], ["tez", "te", "t"]],
             log(0.19) + log(0.2) + log(0.13),
         ),
         pytest.param(
             # back off unknown Fivegram("aquas") to known Unigram("a")
-            _TestDataLanguageModel([["aquas", "aqua", "aqu", "aq", "a"]]),
+            [["aquas", "aqua", "aqu", "aq", "a"]],
             log(0.01),
         ),
     ],
@@ -904,7 +898,7 @@ def test_summation_of_ngram_probabilities(
     "ngram_model,expected_probabilities",
     [
         pytest.param(
-            _TestDataLanguageModel([["a"], ["l"], ["t"], ["e"], ["r"]]),
+            [["a"], ["l"], ["t"], ["e"], ["r"]],
             {
                 Language.ENGLISH: log(0.01)
                 + log(0.02)
@@ -919,27 +913,23 @@ def test_summation_of_ngram_probabilities(
             },
         ),
         pytest.param(
-            _TestDataLanguageModel(
-                [
-                    ["alt", "al", "a"],
-                    ["lte", "lt", "l"],
-                    ["ter", "te", "t"],
-                    ["wxy", "wx", "w"],
-                ]
-            ),
+            [
+                ["alt", "al", "a"],
+                ["lte", "lt", "l"],
+                ["ter", "te", "t"],
+                ["wxy", "wx", "w"],
+            ],
             {
                 Language.ENGLISH: log(0.19) + log(0.2) + log(0.21),
                 Language.GERMAN: log(0.22) + log(0.23) + log(0.24),
             },
         ),
         pytest.param(
-            _TestDataLanguageModel(
-                [
-                    ["alte", "alt", "al", "a"],
-                    ["lter", "lte", "lt", "l"],
-                    ["wxyz", "wxy", "wx", "w"],
-                ]
-            ),
+            [
+                ["alte", "alt", "al", "a"],
+                ["lter", "lte", "lt", "l"],
+                ["wxyz", "wxy", "wx", "w"],
+            ],
             {
                 Language.ENGLISH: log(0.25) + log(0.26),
                 Language.GERMAN: log(0.27) + log(0.28),

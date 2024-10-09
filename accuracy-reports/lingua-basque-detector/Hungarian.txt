@@ -1,0 +1,16 @@
+##### Hungarian #####
+
+>>> Accuracy on average: 77.17%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 93.40%
+Erroneously classified as Basque: 6.60%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 86.80%
+Erroneously classified as Basque: 13.20%
+
+>> Detection of 1000 sentences (average length: 116 chars)
+Accuracy: 51.30%
+Erroneously classified as Basque: 48.70%
+

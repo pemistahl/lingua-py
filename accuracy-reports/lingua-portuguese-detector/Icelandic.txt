@@ -1,0 +1,16 @@
+##### Icelandic #####
+
+>>> Accuracy on average: 80.10%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 92.80%
+Erroneously classified as Portuguese: 7.20%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 88.40%
+Erroneously classified as Portuguese: 11.60%
+
+>> Detection of 1000 sentences (average length: 108 chars)
+Accuracy: 59.10%
+Erroneously classified as Portuguese: 40.90%
+

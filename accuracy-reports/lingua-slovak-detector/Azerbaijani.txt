@@ -1,0 +1,16 @@
+##### Azerbaijani #####
+
+>>> Accuracy on average: 81.67%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 92.80%
+Erroneously classified as Slovak: 7.20%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 91.30%
+Erroneously classified as Slovak: 8.70%
+
+>> Detection of 1000 sentences (average length: 107 chars)
+Accuracy: 60.90%
+Erroneously classified as Slovak: 39.10%
+

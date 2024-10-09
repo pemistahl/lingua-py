@@ -1,0 +1,16 @@
+##### Esperanto #####
+
+>>> Accuracy on average: 84.20%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 94.60%
+Erroneously classified as Latvian: 5.40%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 91.80%
+Erroneously classified as Latvian: 8.20%
+
+>> Detection of 1000 sentences (average length: 101 chars)
+Accuracy: 66.20%
+Erroneously classified as Latvian: 33.80%
+

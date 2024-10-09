@@ -1,0 +1,16 @@
+##### Basque #####
+
+>>> Accuracy on average: 64.60%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 82.30%
+Erroneously classified as Yoruba: 17.70%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 74.00%
+Erroneously classified as Yoruba: 26.00%
+
+>> Detection of 1000 sentences (average length: 102 chars)
+Accuracy: 37.50%
+Erroneously classified as Yoruba: 62.50%
+

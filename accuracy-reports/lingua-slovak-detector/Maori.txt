@@ -1,0 +1,16 @@
+##### Maori #####
+
+>>> Accuracy on average: 90.83%
+
+>> Detection of 1000 single words (average length: 7 chars)
+Accuracy: 97.00%
+Erroneously classified as Slovak: 3.00%
+
+>> Detection of 1000 word pairs (average length: 15 chars)
+Accuracy: 93.60%
+Erroneously classified as Slovak: 6.40%
+
+>> Detection of 1000 sentences (average length: 108 chars)
+Accuracy: 81.90%
+Erroneously classified as Slovak: 18.10%
+

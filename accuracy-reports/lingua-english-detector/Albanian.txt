@@ -1,0 +1,16 @@
+##### Albanian #####
+
+>>> Accuracy on average: 64.97%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 84.50%
+Erroneously classified as English: 15.50%
+
+>> Detection of 1000 word pairs (average length: 15 chars)
+Accuracy: 75.80%
+Erroneously classified as English: 24.20%
+
+>> Detection of 1000 sentences (average length: 118 chars)
+Accuracy: 34.60%
+Erroneously classified as English: 65.40%
+

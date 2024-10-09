@@ -1,0 +1,16 @@
+##### Xhosa #####
+
+>>> Accuracy on average: 48.43%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 75.10%
+Erroneously classified as Shona: 24.90%
+
+>> Detection of 1000 word pairs (average length: 18 chars)
+Accuracy: 60.40%
+Erroneously classified as Shona: 39.60%
+
+>> Detection of 1000 sentences (average length: 127 chars)
+Accuracy: 9.80%
+Erroneously classified as Shona: 90.20%
+

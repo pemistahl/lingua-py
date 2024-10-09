@@ -1,0 +1,16 @@
+##### Basque #####
+
+>>> Accuracy on average: 65.20%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 86.60%
+Erroneously classified as Catalan: 13.40%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 76.20%
+Erroneously classified as Catalan: 23.80%
+
+>> Detection of 1000 sentences (average length: 102 chars)
+Accuracy: 32.80%
+Erroneously classified as Catalan: 67.20%
+

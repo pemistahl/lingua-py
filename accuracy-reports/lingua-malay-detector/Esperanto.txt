@@ -1,0 +1,16 @@
+##### Esperanto #####
+
+>>> Accuracy on average: 62.03%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 83.30%
+Erroneously classified as Malay: 16.70%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 72.30%
+Erroneously classified as Malay: 27.70%
+
+>> Detection of 1000 sentences (average length: 101 chars)
+Accuracy: 30.50%
+Erroneously classified as Malay: 69.50%
+

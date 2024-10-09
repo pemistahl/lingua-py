@@ -1,0 +1,16 @@
+##### Hungarian #####
+
+>>> Accuracy on average: 84.87%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 95.50%
+Erroneously classified as Czech: 4.50%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 93.10%
+Erroneously classified as Czech: 6.90%
+
+>> Detection of 1000 sentences (average length: 116 chars)
+Accuracy: 66.00%
+Erroneously classified as Czech: 34.00%
+

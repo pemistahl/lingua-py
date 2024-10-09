@@ -1,0 +1,16 @@
+##### Croatian #####
+
+>>> Accuracy on average: 59.87%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 85.50%
+Erroneously classified as Romanian: 14.50%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 71.30%
+Erroneously classified as Romanian: 28.70%
+
+>> Detection of 1000 sentences (average length: 127 chars)
+Accuracy: 22.80%
+Erroneously classified as Romanian: 77.20%
+

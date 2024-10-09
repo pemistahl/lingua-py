@@ -1,0 +1,16 @@
+##### Bokmal #####
+
+>>> Accuracy on average: 97.10%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 98.80%
+Erroneously classified as Vietnamese: 1.20%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 99.00%
+Erroneously classified as Vietnamese: 1.00%
+
+>> Detection of 1000 sentences (average length: 98 chars)
+Accuracy: 93.50%
+Erroneously classified as Vietnamese: 6.50%
+

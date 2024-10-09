@@ -1,0 +1,16 @@
+##### Polish #####
+
+>>> Accuracy on average: 66.03%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 88.40%
+Erroneously classified as Spanish: 11.60%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 76.60%
+Erroneously classified as Spanish: 23.40%
+
+>> Detection of 1000 sentences (average length: 99 chars)
+Accuracy: 33.10%
+Erroneously classified as Spanish: 66.90%
+

@@ -1,0 +1,16 @@
+##### Hungarian #####
+
+>>> Accuracy on average: 84.50%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 96.10%
+Erroneously classified as Icelandic: 3.90%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 91.80%
+Erroneously classified as Icelandic: 8.20%
+
+>> Detection of 1000 sentences (average length: 116 chars)
+Accuracy: 65.60%
+Erroneously classified as Icelandic: 34.40%
+

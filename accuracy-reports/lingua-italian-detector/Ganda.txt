@@ -1,0 +1,16 @@
+##### Ganda #####
+
+>>> Accuracy on average: 78.07%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 94.90%
+Erroneously classified as Italian: 5.10%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 89.10%
+Erroneously classified as Italian: 10.90%
+
+>> Detection of 1000 sentences (average length: 125 chars)
+Accuracy: 50.20%
+Erroneously classified as Italian: 49.80%
+

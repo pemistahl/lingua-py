@@ -1,0 +1,16 @@
+##### Bokmal #####
+
+>>> Accuracy on average: 26.90%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 53.20%
+Erroneously classified as Nynorsk: 46.80%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 25.50%
+Erroneously classified as Nynorsk: 74.50%
+
+>> Detection of 1000 sentences (average length: 98 chars)
+Accuracy: 2.00%
+Erroneously classified as Nynorsk: 98.00%
+

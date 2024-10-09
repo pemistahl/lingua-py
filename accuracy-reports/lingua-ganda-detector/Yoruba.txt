@@ -1,0 +1,16 @@
+##### Yoruba #####
+
+>>> Accuracy on average: 79.13%
+
+>> Detection of 1000 single words (average length: 7 chars)
+Accuracy: 90.90%
+Erroneously classified as Ganda: 9.10%
+
+>> Detection of 1000 word pairs (average length: 15 chars)
+Accuracy: 80.80%
+Erroneously classified as Ganda: 19.20%
+
+>> Detection of 1000 sentences (average length: 86 chars)
+Accuracy: 65.70%
+Erroneously classified as Ganda: 34.30%
+

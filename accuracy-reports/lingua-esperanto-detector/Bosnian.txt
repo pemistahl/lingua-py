@@ -1,0 +1,16 @@
+##### Bosnian #####
+
+>>> Accuracy on average: 56.43%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 80.90%
+Erroneously classified as Esperanto: 19.10%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 66.20%
+Erroneously classified as Esperanto: 33.80%
+
+>> Detection of 1000 sentences (average length: 105 chars)
+Accuracy: 22.20%
+Erroneously classified as Esperanto: 77.80%
+
