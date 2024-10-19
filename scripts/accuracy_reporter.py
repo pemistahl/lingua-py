@@ -54,6 +54,9 @@ class DetectorStatistics:
     _single_word_statistic: "Statistic"
     _word_pair_statistic: "Statistic"
     _sentence_statistic: "Statistic"
+    _single_word_accuracy: float
+    _word_pair_accuracy: float
+    _sentence_accuracy: float
     _average_accuracy: float
 
     @classmethod
@@ -67,6 +70,9 @@ class DetectorStatistics:
             _single_word_statistic=Statistic.new(),
             _word_pair_statistic=Statistic.new(),
             _sentence_statistic=Statistic.new(),
+            _single_word_accuracy=0.0,
+            _word_pair_accuracy=0.0,
+            _sentence_accuracy=0.0,
             _average_accuracy=0.0,
         )
 
@@ -98,20 +104,22 @@ class DetectorStatistics:
             else self._language
         )
         (
-            single_word_accuracy,
+            self._single_word_accuracy,
             single_word_report,
         ) = self._single_word_statistic.create_report_data(language, "single words")
         (
-            word_pair_accuracy,
+            self._word_pair_accuracy,
             word_pair_report,
         ) = self._word_pair_statistic.create_report_data(language, "word pairs")
         (
-            sentence_accuracy,
+            self._sentence_accuracy,
             sentence_report,
         ) = self._sentence_statistic.create_report_data(language, "sentences")
 
         self._average_accuracy = (
-            single_word_accuracy + word_pair_accuracy + sentence_accuracy
+            self._single_word_accuracy
+            + self._word_pair_accuracy
+            + self._sentence_accuracy
         ) / 3
 
         if self._average_accuracy == 0:
@@ -130,21 +138,12 @@ class DetectorStatistics:
 
         if category == Category.AVERAGE and self._average_accuracy > 0:
             accuracy = self._average_accuracy
-        elif (
-            category == Category.SINGLE_WORDS
-            and self._language in self._single_word_statistic._language_accuracies
-        ):
-            accuracy = self._single_word_statistic._language_accuracies[self._language]
-        elif (
-            category == Category.WORD_PAIRS
-            and self._language in self._word_pair_statistic._language_accuracies
-        ):
-            accuracy = self._word_pair_statistic._language_accuracies[self._language]
-        elif (
-            category == Category.SENTENCES
-            and self._language in self._sentence_statistic._language_accuracies
-        ):
-            accuracy = self._sentence_statistic._language_accuracies[self._language]
+        elif category == Category.SINGLE_WORDS and self._single_word_accuracy > 0:
+            accuracy = self._single_word_accuracy
+        elif category == Category.WORD_PAIRS and self._word_pair_accuracy > 0:
+            accuracy = self._word_pair_accuracy
+        elif category == Category.SENTENCES and self._sentence_accuracy > 0:
+            accuracy = self._sentence_accuracy
 
         return pd.DataFrame(
             {
