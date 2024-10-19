@@ -1,0 +1,16 @@
+##### Swedish #####
+
+>>> Accuracy on average: 80.57%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 92.10%
+Erroneously classified as Albanian: 7.90%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 86.40%
+Erroneously classified as Albanian: 13.60%
+
+>> Detection of 1000 sentences (average length: 90 chars)
+Accuracy: 63.20%
+Erroneously classified as Albanian: 36.80%
+

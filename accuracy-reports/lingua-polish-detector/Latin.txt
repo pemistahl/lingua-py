@@ -1,0 +1,16 @@
+##### Latin #####
+
+>>> Accuracy on average: 69.87%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 92.30%
+Erroneously classified as Polish: 7.70%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 85.30%
+Erroneously classified as Polish: 14.70%
+
+>> Detection of 1000 sentences (average length: 91 chars)
+Accuracy: 32.00%
+Erroneously classified as Polish: 68.00%
+

@@ -1,0 +1,16 @@
+##### Romanian #####
+
+>>> Accuracy on average: 47.70%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 77.20%
+Erroneously classified as Esperanto: 22.80%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 53.10%
+Erroneously classified as Esperanto: 46.90%
+
+>> Detection of 1000 sentences (average length: 118 chars)
+Accuracy: 12.80%
+Erroneously classified as Esperanto: 87.20%
+

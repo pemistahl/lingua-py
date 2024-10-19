@@ -1,0 +1,16 @@
+##### Latin #####
+
+>>> Accuracy on average: 69.67%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 88.80%
+Erroneously classified as Bosnian: 11.20%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 77.30%
+Erroneously classified as Bosnian: 22.70%
+
+>> Detection of 1000 sentences (average length: 91 chars)
+Accuracy: 42.90%
+Erroneously classified as Bosnian: 57.10%
+

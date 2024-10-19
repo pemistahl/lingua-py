@@ -1,0 +1,16 @@
+##### Portuguese #####
+
+>>> Accuracy on average: 69.33%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 90.70%
+Erroneously classified as Tagalog: 9.30%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 83.30%
+Erroneously classified as Tagalog: 16.70%
+
+>> Detection of 1000 sentences (average length: 127 chars)
+Accuracy: 34.00%
+Erroneously classified as Tagalog: 66.00%
+

@@ -1,0 +1,16 @@
+##### Shona #####
+
+>>> Accuracy on average: 68.87%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 86.40%
+Erroneously classified as Swedish: 13.60%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 83.40%
+Erroneously classified as Swedish: 16.60%
+
+>> Detection of 1000 sentences (average length: 117 chars)
+Accuracy: 36.80%
+Erroneously classified as Swedish: 63.20%
+

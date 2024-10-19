@@ -1,0 +1,16 @@
+##### Turkish #####
+
+>>> Accuracy on average: 70.00%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 91.00%
+Erroneously classified as Sotho: 9.00%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 81.60%
+Erroneously classified as Sotho: 18.40%
+
+>> Detection of 1000 sentences (average length: 119 chars)
+Accuracy: 37.40%
+Erroneously classified as Sotho: 62.60%
+

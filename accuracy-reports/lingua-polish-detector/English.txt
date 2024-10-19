@@ -1,0 +1,16 @@
+##### English #####
+
+>>> Accuracy on average: 79.47%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 93.30%
+Erroneously classified as Polish: 6.70%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 86.30%
+Erroneously classified as Polish: 13.70%
+
+>> Detection of 1000 sentences (average length: 108 chars)
+Accuracy: 58.80%
+Erroneously classified as Polish: 41.20%
+

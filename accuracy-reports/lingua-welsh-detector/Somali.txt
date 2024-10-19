@@ -1,0 +1,16 @@
+##### Somali #####
+
+>>> Accuracy on average: 88.10%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 96.20%
+Erroneously classified as Welsh: 3.80%
+
+>> Detection of 1000 word pairs (average length: 15 chars)
+Accuracy: 95.60%
+Erroneously classified as Welsh: 4.40%
+
+>> Detection of 1000 sentences (average length: 124 chars)
+Accuracy: 72.50%
+Erroneously classified as Welsh: 27.50%
+

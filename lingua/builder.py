@@ -20,7 +20,7 @@ from .isocode import IsoCode639_1, IsoCode639_3
 from .language import Language
 
 _MISSING_LANGUAGE_MESSAGE: str = (
-    "LanguageDetector needs at least 2 languages to choose from"
+    "LanguageDetector needs at least 1 language to choose from"
 )
 
 
@@ -93,7 +93,7 @@ class LanguageDetectorBuilder:
         with all built-in languages except those passed to this method.
         """
         languages_to_load = Language.all().difference(languages)
-        if len(languages_to_load) < 2:
+        if len(languages_to_load) == 0:
             raise ValueError(_MISSING_LANGUAGE_MESSAGE)
         return cls._from(languages_to_load)
 
@@ -101,8 +101,11 @@ class LanguageDetectorBuilder:
     def from_languages(cls, *languages: Language) -> "LanguageDetectorBuilder":
         """Create and return an instance of LanguageDetectorBuilder
         with the languages passed to this method.
+
+        Raises:
+            ValueError: if no language is specified
         """
-        if len(languages) < 2:
+        if len(languages) == 0:
             raise ValueError(_MISSING_LANGUAGE_MESSAGE)
         return cls._from(languages)
 
@@ -115,9 +118,9 @@ class LanguageDetectorBuilder:
         to this method.
 
         Raises:
-            ValueError: if less than two ISO codes are specified
+            ValueError: if no ISO code is specified
         """
-        if len(iso_codes) < 2:
+        if len(iso_codes) == 0:
             raise ValueError(_MISSING_LANGUAGE_MESSAGE)
         languages = set()
         for iso_code in iso_codes:
@@ -134,9 +137,9 @@ class LanguageDetectorBuilder:
         to this method.
 
         Raises:
-            ValueError: if less than two ISO codes are specified
+            ValueError: if no ISO code is specified
         """
-        if len(iso_codes) < 2:
+        if len(iso_codes) == 0:
             raise ValueError(_MISSING_LANGUAGE_MESSAGE)
         languages = set()
         for iso_code in iso_codes:

@@ -1,0 +1,16 @@
+##### Italian #####
+
+>>> Accuracy on average: 66.83%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 86.60%
+Erroneously classified as Dutch: 13.40%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 77.50%
+Erroneously classified as Dutch: 22.50%
+
+>> Detection of 1000 sentences (average length: 123 chars)
+Accuracy: 36.40%
+Erroneously classified as Dutch: 63.60%
+

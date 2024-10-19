@@ -1,0 +1,16 @@
+##### Vietnamese #####
+
+>>> Accuracy on average: 93.07%
+
+>> Detection of 879 single words (average length: 4 chars)
+Accuracy: 98.75%
+Erroneously classified as Tsonga: 1.25%
+
+>> Detection of 957 word pairs (average length: 12 chars)
+Accuracy: 97.07%
+Erroneously classified as Tsonga: 2.93%
+
+>> Detection of 1000 sentences (average length: 120 chars)
+Accuracy: 83.40%
+Erroneously classified as Tsonga: 16.60%
+

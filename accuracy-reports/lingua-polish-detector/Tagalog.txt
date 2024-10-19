@@ -1,0 +1,16 @@
+##### Tagalog #####
+
+>>> Accuracy on average: 84.57%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 96.20%
+Erroneously classified as Polish: 3.80%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 90.70%
+Erroneously classified as Polish: 9.30%
+
+>> Detection of 1000 sentences (average length: 123 chars)
+Accuracy: 66.80%
+Erroneously classified as Polish: 33.20%
+

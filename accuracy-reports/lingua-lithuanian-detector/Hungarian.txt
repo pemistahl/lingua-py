@@ -1,0 +1,16 @@
+##### Hungarian #####
+
+>>> Accuracy on average: 84.10%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 95.40%
+Erroneously classified as Lithuanian: 4.60%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 92.00%
+Erroneously classified as Lithuanian: 8.00%
+
+>> Detection of 1000 sentences (average length: 116 chars)
+Accuracy: 64.90%
+Erroneously classified as Lithuanian: 35.10%
+

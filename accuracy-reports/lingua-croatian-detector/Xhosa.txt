@@ -1,0 +1,16 @@
+##### Xhosa #####
+
+>>> Accuracy on average: 85.43%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 95.60%
+Erroneously classified as Croatian: 4.40%
+
+>> Detection of 1000 word pairs (average length: 18 chars)
+Accuracy: 92.90%
+Erroneously classified as Croatian: 7.10%
+
+>> Detection of 1000 sentences (average length: 127 chars)
+Accuracy: 67.80%
+Erroneously classified as Croatian: 32.20%
+

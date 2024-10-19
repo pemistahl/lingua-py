@@ -1,0 +1,16 @@
+##### Slovene #####
+
+>>> Accuracy on average: 82.00%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 94.50%
+Erroneously classified as Basque: 5.50%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 91.50%
+Erroneously classified as Basque: 8.50%
+
+>> Detection of 1000 sentences (average length: 114 chars)
+Accuracy: 60.00%
+Erroneously classified as Basque: 40.00%
+

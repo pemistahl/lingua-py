@@ -1,0 +1,16 @@
+##### Yoruba #####
+
+>>> Accuracy on average: 87.10%
+
+>> Detection of 1000 single words (average length: 7 chars)
+Accuracy: 93.40%
+Erroneously classified as Slovene: 6.60%
+
+>> Detection of 1000 word pairs (average length: 15 chars)
+Accuracy: 89.30%
+Erroneously classified as Slovene: 10.70%
+
+>> Detection of 1000 sentences (average length: 86 chars)
+Accuracy: 78.60%
+Erroneously classified as Slovene: 21.40%
+

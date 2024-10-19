@@ -13,27 +13,67 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import brotli
 import json
-import math
 import regex
 
 from collections import Counter, defaultdict, OrderedDict
 from dataclasses import dataclass
+from enum import Enum, auto
 from fractions import Fraction
-from typing import Any, Counter as TypedCounter, Dict, List, Optional
+from math import log
+from pathlib import Path
+from typing import Any, Counter as TypedCounter, Dict, FrozenSet, List, Optional
 
 from .language import Language
-from ._ngram import _NgramRange
+from ._ngram import _NgramRange, _get_ngram_name_by_length
 
 
-class _LinguaJSONEncoder(json.JSONEncoder):
+class _NgramProbabilitiesJSONEncoder(json.JSONEncoder):
     def default(self, obj: Any) -> Any:
-        if isinstance(obj, _JSONLanguageModel):
-            return {"language": obj.language.name, "ngrams": obj.ngrams}
+        if isinstance(obj, _TrainingDataLanguageModel):
+            language = obj.language.name
+            ngrams = self.encode_frequencies(obj.relative_frequencies)
+            return {"language": language, "ngrams": ngrams}
         return json.JSONEncoder.default(self, obj)
 
+    def encode_frequencies(self, obj: Optional[Dict[str, Fraction]]) -> Dict[str, str]:
+        fractions_to_ngrams = defaultdict(list)
+        if obj is not None:
+            for ngram, fraction in obj.items():
+                fractions_to_ngrams[fraction].append(ngram)
 
-class _LinguaJSONDecoder(json.JSONDecoder):
+        fractions_to_joined_ngrams = OrderedDict()
+        for fraction, ngrams in fractions_to_ngrams.items():
+            fraction_str = f"{fraction.numerator}/{fraction.denominator}"
+            fractions_to_joined_ngrams[fraction_str] = " ".join(
+                sorted(map(lambda n: n, ngrams))
+            )
+        return fractions_to_joined_ngrams
+
+
+class _NgramProbabilitiesJSONDecoder(json.JSONDecoder):
+    def __init__(self, *args, **kwargs):
+        json.JSONDecoder.__init__(self, object_hook=self.object_hook, *args, **kwargs)
+
+    def object_hook(self, obj: Any) -> Any:
+        if isinstance(obj, dict) and "language" in obj and "ngrams" in obj:
+            language = Language[obj["language"]]
+            ngrams = self.parse_frequencies(obj["ngrams"])
+            return _NgramProbabilityModel(language, ngrams)
+        return obj
+
+    def parse_frequencies(self, obj: Dict[str, str]) -> Dict[str, float]:
+        frequencies = {}
+        for fraction, ngrams in obj.items():
+            numerator, denominator = fraction.split("/")
+            frequency = log(int(numerator) / int(denominator))
+            for ngram in ngrams.split(" "):
+                frequencies[ngram] = frequency
+        return frequencies
+
+
+class _NgramsJSONDecoder(json.JSONDecoder):
     def __init__(self, *args, **kwargs):
         json.JSONDecoder.__init__(self, object_hook=self.object_hook, *args, **kwargs)
 
@@ -41,14 +81,59 @@ class _LinguaJSONDecoder(json.JSONDecoder):
         if isinstance(obj, dict) and "language" in obj and "ngrams" in obj:
             language = Language[obj["language"]]
             ngrams = self.object_hook(obj["ngrams"])
-            return _JSONLanguageModel(language, ngrams)
+            return _NgramModel(language, frozenset(ngrams))
         return obj
 
 
 @dataclass
-class _JSONLanguageModel:
+class _NgramProbabilityModel:
     language: Language
-    ngrams: Dict[str, str]
+    ngrams: Dict[str, float]
+
+
+@dataclass
+class _NgramModel:
+    language: Language
+    ngrams: FrozenSet[str]
+
+
+class _NgramModelType(Enum):
+    UNIQUE = auto()
+    MOSTCOMMON = auto()
+
+
+def _load_ngram_probability_model(
+    language: Language, ngram_length: int
+) -> Optional[_NgramProbabilityModel]:
+    ngram_name = _get_ngram_name_by_length(ngram_length)
+    iso_code = language.iso_code_639_1.name.lower()
+    relative_file_path = f"./language-models/{iso_code}/{ngram_name}s.json.br"
+    absolute_file_path = Path(__file__).parent / relative_file_path
+    try:
+        with open(absolute_file_path, mode="rb") as ngrams_file:
+            ngrams_json = brotli.decompress(ngrams_file.read()).decode("utf-8")
+            return json.loads(ngrams_json, cls=_NgramProbabilitiesJSONDecoder)
+    except FileNotFoundError:
+        return None
+
+
+def _load_ngram_model(
+    language: Language, ngram_length: int, model_type: _NgramModelType
+) -> Optional[_NgramModel]:
+    ngram_name = _get_ngram_name_by_length(ngram_length)
+    iso_code = language.iso_code_639_1.name.lower()
+    relative_file_path = (
+        f"./language-models/{iso_code}/{model_type.name.lower()}_{ngram_name}s.json.br"
+    )
+    absolute_file_path = Path(__file__).parent / relative_file_path
+    try:
+        with open(absolute_file_path, mode="rb") as unique_ngrams_file:
+            unique_ngrams_json = brotli.decompress(unique_ngrams_file.read()).decode(
+                "utf-8"
+            )
+            return json.loads(unique_ngrams_json, cls=_NgramsJSONDecoder)
+    except FileNotFoundError:
+        return None
 
 
 @dataclass
@@ -78,36 +163,12 @@ class _TrainingDataLanguageModel:
             relative_frequencies=relative_frequencies,
         )
 
-    @classmethod
-    def from_json(cls, serialized_json: str) -> Dict[str, float]:
-        json_language_model: _JSONLanguageModel = json.loads(
-            serialized_json, cls=_LinguaJSONDecoder
-        )
-        frequencies = {}
-
-        for fraction, ngrams in json_language_model.ngrams.items():
-            numerator, denominator = fraction.split("/")
-            frequency = math.log(int(numerator) / int(denominator))
-            for ngram in ngrams.split(" "):
-                frequencies[ngram] = frequency
-
-        return frequencies
-
     def to_json(self) -> str:
-        fractions_to_ngrams = defaultdict(list)
-        if self.relative_frequencies is not None:
-            for ngram, fraction in self.relative_frequencies.items():
-                fractions_to_ngrams[fraction].append(ngram)
-
-        fractions_to_joined_ngrams = OrderedDict()
-        for fraction, ngrams in fractions_to_ngrams.items():
-            fraction_str = f"{fraction.numerator}/{fraction.denominator}"
-            fractions_to_joined_ngrams[fraction_str] = " ".join(
-                sorted(map(lambda n: n, ngrams))
-            )
-
-        model = _JSONLanguageModel(self.language, fractions_to_joined_ngrams)
-        return regex.sub(r"([:,])\s*", r"\1", json.dumps(model, cls=_LinguaJSONEncoder))
+        return regex.sub(
+            r"([:,])\s*",
+            r"\1",
+            json.dumps(self, ensure_ascii=False, cls=_NgramProbabilitiesJSONEncoder),
+        )
 
     @classmethod
     def compute_absolute_frequencies(
@@ -144,21 +205,19 @@ class _TrainingDataLanguageModel:
         return ngram_probabilities
 
 
-@dataclass
-class _TestDataLanguageModel:
-    ngrams: List[List[str]]
+def _create_ngrams(words: List[str], ngram_length: int) -> FrozenSet[str]:
+    if ngram_length not in range(1, 6):
+        raise ValueError(f"ngram length {ngram_length} is not in range 1..6")
+    ngrams = set()
+    for word in words:
+        chars_count = len(word)
+        if chars_count >= ngram_length:
+            for i in range(0, chars_count - ngram_length + 1):
+                substr = word[i : i + ngram_length]
+                ngrams.add(substr)
+    return frozenset(ngrams)
 
-    @classmethod
-    def from_text(cls, words: List[str], ngram_length: int) -> "_TestDataLanguageModel":
-        if ngram_length not in range(1, 6):
-            raise ValueError(f"ngram length {ngram_length} is not in range 1..6")
-        ngrams = set()
-        for word in words:
-            chars_count = len(word)
-            if chars_count >= ngram_length:
-                for i in range(0, chars_count - ngram_length + 1):
-                    substr = word[i : i + ngram_length]
-                    ngrams.add(substr)
 
-        lower_order_ngrams = [list(_NgramRange(ngram)) for ngram in ngrams]
-        return _TestDataLanguageModel(lower_order_ngrams)
+def _create_lower_order_ngrams(words: List[str], ngram_length: int) -> List[List[str]]:
+    ngrams = _create_ngrams(words, ngram_length)
+    return [list(_NgramRange(ngram)) for ngram in ngrams]

@@ -1,0 +1,16 @@
+##### Maori #####
+
+>>> Accuracy on average: 87.20%
+
+>> Detection of 1000 single words (average length: 7 chars)
+Accuracy: 96.20%
+Erroneously classified as Hungarian: 3.80%
+
+>> Detection of 1000 word pairs (average length: 15 chars)
+Accuracy: 92.20%
+Erroneously classified as Hungarian: 7.80%
+
+>> Detection of 1000 sentences (average length: 108 chars)
+Accuracy: 73.20%
+Erroneously classified as Hungarian: 26.80%
+

@@ -1,0 +1,16 @@
+##### Xhosa #####
+
+>>> Accuracy on average: 72.77%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 92.60%
+Erroneously classified as Azerbaijani: 7.40%
+
+>> Detection of 1000 word pairs (average length: 18 chars)
+Accuracy: 86.90%
+Erroneously classified as Azerbaijani: 13.10%
+
+>> Detection of 1000 sentences (average length: 127 chars)
+Accuracy: 38.80%
+Erroneously classified as Azerbaijani: 61.20%
+

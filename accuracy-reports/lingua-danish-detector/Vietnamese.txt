@@ -1,0 +1,16 @@
+##### Vietnamese #####
+
+>>> Accuracy on average: 97.40%
+
+>> Detection of 879 single words (average length: 4 chars)
+Accuracy: 99.77%
+Erroneously classified as Danish: 0.23%
+
+>> Detection of 957 word pairs (average length: 12 chars)
+Accuracy: 98.22%
+Erroneously classified as Danish: 1.78%
+
+>> Detection of 1000 sentences (average length: 120 chars)
+Accuracy: 94.20%
+Erroneously classified as Danish: 5.80%
+

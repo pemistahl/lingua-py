@@ -1,0 +1,16 @@
+##### Russian #####
+
+>>> Accuracy on average: 91.70%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 96.80%
+Erroneously classified as Mongolian: 3.20%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 93.30%
+Erroneously classified as Mongolian: 6.70%
+
+>> Detection of 1000 sentences (average length: 65 chars)
+Accuracy: 85.00%
+Erroneously classified as Mongolian: 15.00%
+

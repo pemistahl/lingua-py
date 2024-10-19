@@ -1,0 +1,16 @@
+##### Xhosa #####
+
+>>> Accuracy on average: 43.13%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 72.60%
+Erroneously classified as Sotho: 27.40%
+
+>> Detection of 1000 word pairs (average length: 18 chars)
+Accuracy: 51.90%
+Erroneously classified as Sotho: 48.10%
+
+>> Detection of 1000 sentences (average length: 127 chars)
+Accuracy: 4.90%
+Erroneously classified as Sotho: 95.10%
+

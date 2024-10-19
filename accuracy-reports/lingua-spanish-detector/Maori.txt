@@ -1,0 +1,16 @@
+##### Maori #####
+
+>>> Accuracy on average: 82.97%
+
+>> Detection of 1000 single words (average length: 7 chars)
+Accuracy: 92.40%
+Erroneously classified as Spanish: 7.60%
+
+>> Detection of 1000 word pairs (average length: 15 chars)
+Accuracy: 87.60%
+Erroneously classified as Spanish: 12.40%
+
+>> Detection of 1000 sentences (average length: 108 chars)
+Accuracy: 68.90%
+Erroneously classified as Spanish: 31.10%
+

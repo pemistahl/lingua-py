@@ -1,0 +1,16 @@
+##### Latvian #####
+
+>>> Accuracy on average: 70.23%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 90.80%
+Erroneously classified as Bosnian: 9.20%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 79.30%
+Erroneously classified as Bosnian: 20.70%
+
+>> Detection of 1000 sentences (average length: 109 chars)
+Accuracy: 40.60%
+Erroneously classified as Bosnian: 59.40%
+

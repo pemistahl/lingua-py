@@ -1,0 +1,16 @@
+##### Irish #####
+
+>>> Accuracy on average: 88.60%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 96.50%
+Erroneously classified as Afrikaans: 3.50%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 92.90%
+Erroneously classified as Afrikaans: 7.10%
+
+>> Detection of 1000 sentences (average length: 113 chars)
+Accuracy: 76.40%
+Erroneously classified as Afrikaans: 23.60%
+

@@ -1,0 +1,16 @@
+##### Basque #####
+
+>>> Accuracy on average: 69.53%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 86.10%
+Erroneously classified as Shona: 13.90%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 80.80%
+Erroneously classified as Shona: 19.20%
+
+>> Detection of 1000 sentences (average length: 102 chars)
+Accuracy: 41.70%
+Erroneously classified as Shona: 58.30%
+

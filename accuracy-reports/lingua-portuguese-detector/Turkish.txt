@@ -1,0 +1,16 @@
+##### Turkish #####
+
+>>> Accuracy on average: 72.77%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 91.40%
+Erroneously classified as Portuguese: 8.60%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 83.40%
+Erroneously classified as Portuguese: 16.60%
+
+>> Detection of 1000 sentences (average length: 119 chars)
+Accuracy: 43.50%
+Erroneously classified as Portuguese: 56.50%
+

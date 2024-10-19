@@ -1,0 +1,16 @@
+##### Basque #####
+
+>>> Accuracy on average: 66.00%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 86.10%
+Erroneously classified as Swahili: 13.90%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 77.90%
+Erroneously classified as Swahili: 22.10%
+
+>> Detection of 1000 sentences (average length: 102 chars)
+Accuracy: 34.00%
+Erroneously classified as Swahili: 66.00%
+

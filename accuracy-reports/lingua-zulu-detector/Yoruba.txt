@@ -1,0 +1,16 @@
+##### Yoruba #####
+
+>>> Accuracy on average: 79.40%
+
+>> Detection of 1000 single words (average length: 7 chars)
+Accuracy: 91.10%
+Erroneously classified as Zulu: 8.90%
+
+>> Detection of 1000 word pairs (average length: 15 chars)
+Accuracy: 85.50%
+Erroneously classified as Zulu: 14.50%
+
+>> Detection of 1000 sentences (average length: 86 chars)
+Accuracy: 61.60%
+Erroneously classified as Zulu: 38.40%
+

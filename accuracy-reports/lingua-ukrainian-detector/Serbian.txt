@@ -1,0 +1,16 @@
+##### Serbian #####
+
+>>> Accuracy on average: 62.43%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 82.80%
+Erroneously classified as Ukrainian: 17.20%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 72.10%
+Erroneously classified as Ukrainian: 27.90%
+
+>> Detection of 1000 sentences (average length: 100 chars)
+Accuracy: 32.40%
+Erroneously classified as Ukrainian: 67.60%
+

@@ -1,0 +1,16 @@
+##### Maori #####
+
+>>> Accuracy on average: 80.27%
+
+>> Detection of 1000 single words (average length: 7 chars)
+Accuracy: 93.40%
+Erroneously classified as Bokmal: 6.60%
+
+>> Detection of 1000 word pairs (average length: 15 chars)
+Accuracy: 86.20%
+Erroneously classified as Bokmal: 13.80%
+
+>> Detection of 1000 sentences (average length: 108 chars)
+Accuracy: 61.20%
+Erroneously classified as Bokmal: 38.80%
+

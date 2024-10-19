@@ -1,0 +1,16 @@
+##### Croatian #####
+
+>>> Accuracy on average: 83.87%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 95.50%
+Erroneously classified as Tswana: 4.50%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 92.60%
+Erroneously classified as Tswana: 7.40%
+
+>> Detection of 1000 sentences (average length: 127 chars)
+Accuracy: 63.50%
+Erroneously classified as Tswana: 36.50%
+

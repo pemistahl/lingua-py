@@ -1,0 +1,16 @@
+##### Estonian #####
+
+>>> Accuracy on average: 76.37%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 91.80%
+Erroneously classified as Czech: 8.20%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 86.40%
+Erroneously classified as Czech: 13.60%
+
+>> Detection of 1000 sentences (average length: 101 chars)
+Accuracy: 50.90%
+Erroneously classified as Czech: 49.10%
+

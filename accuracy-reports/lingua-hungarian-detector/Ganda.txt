@@ -1,0 +1,16 @@
+##### Ganda #####
+
+>>> Accuracy on average: 75.17%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 92.20%
+Erroneously classified as Hungarian: 7.80%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 85.50%
+Erroneously classified as Hungarian: 14.50%
+
+>> Detection of 1000 sentences (average length: 125 chars)
+Accuracy: 47.80%
+Erroneously classified as Hungarian: 52.20%
+

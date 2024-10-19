@@ -1,0 +1,16 @@
+##### Swahili #####
+
+>>> Accuracy on average: 77.77%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 92.60%
+Erroneously classified as Estonian: 7.40%
+
+>> Detection of 1000 word pairs (average length: 15 chars)
+Accuracy: 88.20%
+Erroneously classified as Estonian: 11.80%
+
+>> Detection of 1000 sentences (average length: 108 chars)
+Accuracy: 52.50%
+Erroneously classified as Estonian: 47.50%
+

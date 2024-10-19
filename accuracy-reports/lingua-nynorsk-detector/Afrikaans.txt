@@ -1,0 +1,16 @@
+##### Afrikaans #####
+
+>>> Accuracy on average: 44.57%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 69.50%
+Erroneously classified as Nynorsk: 30.50%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 47.40%
+Erroneously classified as Nynorsk: 52.60%
+
+>> Detection of 1000 sentences (average length: 102 chars)
+Accuracy: 16.80%
+Erroneously classified as Nynorsk: 83.20%
+

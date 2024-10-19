@@ -1,0 +1,16 @@
+##### Finnish #####
+
+>>> Accuracy on average: 97.60%
+
+>> Detection of 1000 single words (average length: 10 chars)
+Accuracy: 99.30%
+Erroneously classified as Vietnamese: 0.70%
+
+>> Detection of 1000 word pairs (average length: 19 chars)
+Accuracy: 99.40%
+Erroneously classified as Vietnamese: 0.60%
+
+>> Detection of 1000 sentences (average length: 103 chars)
+Accuracy: 94.10%
+Erroneously classified as Vietnamese: 5.90%
+

@@ -1,0 +1,16 @@
+##### Xhosa #####
+
+>>> Accuracy on average: 63.00%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 86.80%
+Erroneously classified as Maori: 13.20%
+
+>> Detection of 1000 word pairs (average length: 18 chars)
+Accuracy: 76.50%
+Erroneously classified as Maori: 23.50%
+
+>> Detection of 1000 sentences (average length: 127 chars)
+Accuracy: 25.70%
+Erroneously classified as Maori: 74.30%
+

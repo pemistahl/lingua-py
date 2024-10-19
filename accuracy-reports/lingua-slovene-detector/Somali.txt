@@ -1,0 +1,16 @@
+##### Somali #####
+
+>>> Accuracy on average: 78.07%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 92.50%
+Erroneously classified as Slovene: 7.50%
+
+>> Detection of 1000 word pairs (average length: 15 chars)
+Accuracy: 88.30%
+Erroneously classified as Slovene: 11.70%
+
+>> Detection of 1000 sentences (average length: 124 chars)
+Accuracy: 53.40%
+Erroneously classified as Slovene: 46.60%
+

@@ -1,0 +1,16 @@
+##### Ganda #####
+
+>>> Accuracy on average: 46.53%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 77.80%
+Erroneously classified as Indonesian: 22.20%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 54.60%
+Erroneously classified as Indonesian: 45.40%
+
+>> Detection of 1000 sentences (average length: 125 chars)
+Accuracy: 7.20%
+Erroneously classified as Indonesian: 92.80%
+

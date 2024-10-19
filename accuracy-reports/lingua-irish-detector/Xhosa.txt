@@ -1,0 +1,16 @@
+##### Xhosa #####
+
+>>> Accuracy on average: 72.87%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 91.60%
+Erroneously classified as Irish: 8.40%
+
+>> Detection of 1000 word pairs (average length: 18 chars)
+Accuracy: 86.00%
+Erroneously classified as Irish: 14.00%
+
+>> Detection of 1000 sentences (average length: 127 chars)
+Accuracy: 41.00%
+Erroneously classified as Irish: 59.00%
+

@@ -1,0 +1,16 @@
+##### Somali #####
+
+>>> Accuracy on average: 90.93%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 97.00%
+Erroneously classified as Polish: 3.00%
+
+>> Detection of 1000 word pairs (average length: 15 chars)
+Accuracy: 95.80%
+Erroneously classified as Polish: 4.20%
+
+>> Detection of 1000 sentences (average length: 124 chars)
+Accuracy: 80.00%
+Erroneously classified as Polish: 20.00%
+

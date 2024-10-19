@@ -1,0 +1,16 @@
+##### Irish #####
+
+>>> Accuracy on average: 70.43%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 91.30%
+Erroneously classified as Turkish: 8.70%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 82.20%
+Erroneously classified as Turkish: 17.80%
+
+>> Detection of 1000 sentences (average length: 113 chars)
+Accuracy: 37.80%
+Erroneously classified as Turkish: 62.20%
+

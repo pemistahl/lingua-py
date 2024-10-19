@@ -1,0 +1,16 @@
+##### Danish #####
+
+>>> Accuracy on average: 41.97%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 69.20%
+Erroneously classified as Dutch: 30.80%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 46.80%
+Erroneously classified as Dutch: 53.20%
+
+>> Detection of 1000 sentences (average length: 112 chars)
+Accuracy: 9.90%
+Erroneously classified as Dutch: 90.10%
+

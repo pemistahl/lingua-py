@@ -1,0 +1,16 @@
+##### Polish #####
+
+>>> Accuracy on average: 81.17%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 94.40%
+Erroneously classified as Icelandic: 5.60%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 88.50%
+Erroneously classified as Icelandic: 11.50%
+
+>> Detection of 1000 sentences (average length: 99 chars)
+Accuracy: 60.60%
+Erroneously classified as Icelandic: 39.40%
+

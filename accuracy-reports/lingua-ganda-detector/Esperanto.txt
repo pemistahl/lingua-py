@@ -1,0 +1,16 @@
+##### Esperanto #####
+
+>>> Accuracy on average: 75.30%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 90.70%
+Erroneously classified as Ganda: 9.30%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 85.40%
+Erroneously classified as Ganda: 14.60%
+
+>> Detection of 1000 sentences (average length: 101 chars)
+Accuracy: 49.80%
+Erroneously classified as Ganda: 50.20%
+

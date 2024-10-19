@@ -1,0 +1,16 @@
+##### Latin #####
+
+>>> Accuracy on average: 64.73%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 85.90%
+Erroneously classified as Malay: 14.10%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 71.00%
+Erroneously classified as Malay: 29.00%
+
+>> Detection of 1000 sentences (average length: 91 chars)
+Accuracy: 37.30%
+Erroneously classified as Malay: 62.70%
+

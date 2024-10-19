@@ -1,0 +1,16 @@
+##### Basque #####
+
+>>> Accuracy on average: 72.97%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 88.50%
+Erroneously classified as Sotho: 11.50%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 82.80%
+Erroneously classified as Sotho: 17.20%
+
+>> Detection of 1000 sentences (average length: 102 chars)
+Accuracy: 47.60%
+Erroneously classified as Sotho: 52.40%
+

@@ -1,0 +1,16 @@
+##### Italian #####
+
+>>> Accuracy on average: 67.33%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 88.20%
+Erroneously classified as Tagalog: 11.80%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 82.10%
+Erroneously classified as Tagalog: 17.90%
+
+>> Detection of 1000 sentences (average length: 123 chars)
+Accuracy: 31.70%
+Erroneously classified as Tagalog: 68.30%
+

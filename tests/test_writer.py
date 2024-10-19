@@ -16,13 +16,13 @@
 import brotli
 import os
 import pytest
-import regex
 
 from pathlib import Path
 from tempfile import NamedTemporaryFile, TemporaryDirectory
 
 from lingua.language import Language
 from lingua.writer import LanguageModelFilesWriter, TestDataFilesWriter
+from tests import minify
 
 
 @pytest.fixture
@@ -429,7 +429,3 @@ def read_directory_content(directory):
     files = os.listdir(directory)
     files.sort()
     return files
-
-
-def minify(json: str):
-    return regex.sub(r"\n\s*", "", json)

@@ -1,0 +1,16 @@
+##### Swedish #####
+
+>>> Accuracy on average: 35.63%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 62.60%
+Erroneously classified as Danish: 37.40%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 37.50%
+Erroneously classified as Danish: 62.50%
+
+>> Detection of 1000 sentences (average length: 90 chars)
+Accuracy: 6.80%
+Erroneously classified as Danish: 93.20%
+

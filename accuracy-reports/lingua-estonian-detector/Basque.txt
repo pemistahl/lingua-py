@@ -1,0 +1,16 @@
+##### Basque #####
+
+>>> Accuracy on average: 76.70%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 91.90%
+Erroneously classified as Estonian: 8.10%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 85.40%
+Erroneously classified as Estonian: 14.60%
+
+>> Detection of 1000 sentences (average length: 102 chars)
+Accuracy: 52.80%
+Erroneously classified as Estonian: 47.20%
+

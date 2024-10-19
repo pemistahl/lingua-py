@@ -1,0 +1,16 @@
+##### Hungarian #####
+
+>>> Accuracy on average: 82.60%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 93.80%
+Erroneously classified as Tswana: 6.20%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 92.10%
+Erroneously classified as Tswana: 7.90%
+
+>> Detection of 1000 sentences (average length: 116 chars)
+Accuracy: 61.90%
+Erroneously classified as Tswana: 38.10%
+

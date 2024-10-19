@@ -1,0 +1,16 @@
+##### Swedish #####
+
+>>> Accuracy on average: 72.63%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 88.60%
+Erroneously classified as Zulu: 11.40%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 79.00%
+Erroneously classified as Zulu: 21.00%
+
+>> Detection of 1000 sentences (average length: 90 chars)
+Accuracy: 50.30%
+Erroneously classified as Zulu: 49.70%
+

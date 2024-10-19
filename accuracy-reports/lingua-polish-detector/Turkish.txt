@@ -1,0 +1,16 @@
+##### Turkish #####
+
+>>> Accuracy on average: 86.03%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 96.30%
+Erroneously classified as Polish: 3.70%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 93.80%
+Erroneously classified as Polish: 6.20%
+
+>> Detection of 1000 sentences (average length: 119 chars)
+Accuracy: 68.00%
+Erroneously classified as Polish: 32.00%
+

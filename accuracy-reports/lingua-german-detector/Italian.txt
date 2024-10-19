@@ -1,0 +1,16 @@
+##### Italian #####
+
+>>> Accuracy on average: 60.20%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 85.60%
+Erroneously classified as German: 14.40%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 72.60%
+Erroneously classified as German: 27.40%
+
+>> Detection of 1000 sentences (average length: 123 chars)
+Accuracy: 22.40%
+Erroneously classified as German: 77.60%
+

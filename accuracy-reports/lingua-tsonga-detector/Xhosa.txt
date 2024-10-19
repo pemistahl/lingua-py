@@ -1,0 +1,16 @@
+##### Xhosa #####
+
+>>> Accuracy on average: 38.90%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 67.40%
+Erroneously classified as Tsonga: 32.60%
+
+>> Detection of 1000 word pairs (average length: 18 chars)
+Accuracy: 45.50%
+Erroneously classified as Tsonga: 54.50%
+
+>> Detection of 1000 sentences (average length: 127 chars)
+Accuracy: 3.80%
+Erroneously classified as Tsonga: 96.20%
+

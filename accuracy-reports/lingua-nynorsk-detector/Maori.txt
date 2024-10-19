@@ -1,0 +1,16 @@
+##### Maori #####
+
+>>> Accuracy on average: 82.00%
+
+>> Detection of 1000 single words (average length: 7 chars)
+Accuracy: 93.30%
+Erroneously classified as Nynorsk: 6.70%
+
+>> Detection of 1000 word pairs (average length: 15 chars)
+Accuracy: 88.00%
+Erroneously classified as Nynorsk: 12.00%
+
+>> Detection of 1000 sentences (average length: 108 chars)
+Accuracy: 64.70%
+Erroneously classified as Nynorsk: 35.30%
+

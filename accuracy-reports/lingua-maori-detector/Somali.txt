@@ -1,0 +1,16 @@
+##### Somali #####
+
+>>> Accuracy on average: 58.63%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 86.30%
+Erroneously classified as Maori: 13.70%
+
+>> Detection of 1000 word pairs (average length: 15 chars)
+Accuracy: 68.50%
+Erroneously classified as Maori: 31.50%
+
+>> Detection of 1000 sentences (average length: 124 chars)
+Accuracy: 21.10%
+Erroneously classified as Maori: 78.90%
+

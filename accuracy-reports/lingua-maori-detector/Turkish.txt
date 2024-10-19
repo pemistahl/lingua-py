@@ -1,0 +1,16 @@
+##### Turkish #####
+
+>>> Accuracy on average: 68.23%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 90.40%
+Erroneously classified as Maori: 9.60%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 79.90%
+Erroneously classified as Maori: 20.10%
+
+>> Detection of 1000 sentences (average length: 119 chars)
+Accuracy: 34.40%
+Erroneously classified as Maori: 65.60%
+

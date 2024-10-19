@@ -1,0 +1,16 @@
+##### Slovene #####
+
+>>> Accuracy on average: 80.17%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 94.60%
+Erroneously classified as Hungarian: 5.40%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 88.80%
+Erroneously classified as Hungarian: 11.20%
+
+>> Detection of 1000 sentences (average length: 114 chars)
+Accuracy: 57.10%
+Erroneously classified as Hungarian: 42.90%
+

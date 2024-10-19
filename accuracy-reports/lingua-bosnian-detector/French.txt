@@ -1,0 +1,16 @@
+##### French #####
+
+>>> Accuracy on average: 72.43%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 89.60%
+Erroneously classified as Bosnian: 10.40%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 80.40%
+Erroneously classified as Bosnian: 19.60%
+
+>> Detection of 1000 sentences (average length: 112 chars)
+Accuracy: 47.30%
+Erroneously classified as Bosnian: 52.70%
+

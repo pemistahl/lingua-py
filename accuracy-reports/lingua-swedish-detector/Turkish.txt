@@ -1,0 +1,16 @@
+##### Turkish #####
+
+>>> Accuracy on average: 64.87%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 88.50%
+Erroneously classified as Swedish: 11.50%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 76.90%
+Erroneously classified as Swedish: 23.10%
+
+>> Detection of 1000 sentences (average length: 119 chars)
+Accuracy: 29.20%
+Erroneously classified as Swedish: 70.80%
+

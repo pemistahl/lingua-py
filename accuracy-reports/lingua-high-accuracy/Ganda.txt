@@ -1,14 +1,14 @@
 ##### Ganda #####
 
->>> Accuracy on average: 91.43%
+>>> Accuracy on average: 91.37%
 
 >> Detection of 1000 single words (average length: 9 chars)
-Accuracy: 79.00%
-Erroneously classified as Swahili: 2.70%, Zulu: 2.20%, Shona: 1.90%, Xhosa: 1.70%, Somali: 1.50%, Tsonga: 1.40%, Tswana: 1.10%, English: 1.00%, Latin: 0.80%, Sotho: 0.60%, Malay: 0.50%, Tagalog: 0.50%, Indonesian: 0.40%, Bokmal: 0.30%, Finnish: 0.30%, French: 0.30%, German: 0.30%, Maori: 0.30%, Polish: 0.30%, Romanian: 0.30%, Afrikaans: 0.20%, Basque: 0.20%, Estonian: 0.20%, Italian: 0.20%, Nynorsk: 0.20%, Yoruba: 0.20%, Azerbaijani: 0.10%, Bosnian: 0.10%, Catalan: 0.10%, Croatian: 0.10%, Danish: 0.10%, Icelandic: 0.10%, Irish: 0.10%, Latvian: 0.10%, Lithuanian: 0.10%, Portuguese: 0.10%, Slovene: 0.10%, Swedish: 0.10%, Turkish: 0.10%, Welsh: 0.10%
+Accuracy: 78.90%
+Erroneously classified as Swahili: 2.70%, Zulu: 2.20%, Shona: 1.90%, Xhosa: 1.70%, Somali: 1.50%, Tsonga: 1.40%, Tswana: 1.10%, English: 1.00%, Latin: 0.80%, Sotho: 0.60%, Tagalog: 0.50%, Indonesian: 0.40%, Malay: 0.40%, Bokmal: 0.30%, Finnish: 0.30%, French: 0.30%, German: 0.30%, Maori: 0.30%, Polish: 0.30%, Romanian: 0.30%, Turkish: 0.30%, Afrikaans: 0.20%, Basque: 0.20%, Estonian: 0.20%, Italian: 0.20%, Nynorsk: 0.20%, Yoruba: 0.20%, Azerbaijani: 0.10%, Bosnian: 0.10%, Catalan: 0.10%, Croatian: 0.10%, Danish: 0.10%, Icelandic: 0.10%, Irish: 0.10%, Latvian: 0.10%, Lithuanian: 0.10%, Portuguese: 0.10%, Slovene: 0.10%, Swedish: 0.10%, Welsh: 0.10%
 
 >> Detection of 1000 word pairs (average length: 17 chars)
-Accuracy: 95.30%
-Erroneously classified as Swahili: 1.00%, English: 0.50%, Shona: 0.50%, Sotho: 0.40%, Tsonga: 0.40%, Zulu: 0.40%, Afrikaans: 0.10%, Basque: 0.10%, Bokmal: 0.10%, Bosnian: 0.10%, Croatian: 0.10%, Danish: 0.10%, Dutch: 0.10%, Italian: 0.10%, Malay: 0.10%, Maori: 0.10%, Romanian: 0.10%, Slovene: 0.10%, Tagalog: 0.10%, Xhosa: 0.10%, Yoruba: 0.10%
+Accuracy: 95.20%
+Erroneously classified as Swahili: 1.00%, English: 0.50%, Shona: 0.50%, Sotho: 0.40%, Tsonga: 0.40%, Zulu: 0.40%, Afrikaans: 0.10%, Basque: 0.10%, Bokmal: 0.10%, Bosnian: 0.10%, Croatian: 0.10%, Danish: 0.10%, Dutch: 0.10%, Italian: 0.10%, Malay: 0.10%, Maori: 0.10%, Romanian: 0.10%, Slovene: 0.10%, Tagalog: 0.10%, Turkish: 0.10%, Xhosa: 0.10%, Yoruba: 0.10%
 
 >> Detection of 1000 sentences (average length: 125 chars)
 Accuracy: 100.00%

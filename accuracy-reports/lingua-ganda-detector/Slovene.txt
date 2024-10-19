@@ -1,0 +1,16 @@
+##### Slovene #####
+
+>>> Accuracy on average: 78.57%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 93.10%
+Erroneously classified as Ganda: 6.90%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 87.90%
+Erroneously classified as Ganda: 12.10%
+
+>> Detection of 1000 sentences (average length: 114 chars)
+Accuracy: 54.70%
+Erroneously classified as Ganda: 45.30%
+

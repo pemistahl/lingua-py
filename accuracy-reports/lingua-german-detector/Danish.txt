@@ -1,0 +1,16 @@
+##### Danish #####
+
+>>> Accuracy on average: 39.53%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 67.10%
+Erroneously classified as German: 32.90%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 42.60%
+Erroneously classified as German: 57.40%
+
+>> Detection of 1000 sentences (average length: 112 chars)
+Accuracy: 8.90%
+Erroneously classified as German: 91.10%
+

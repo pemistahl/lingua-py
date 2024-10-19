@@ -1,0 +1,16 @@
+##### Bosnian #####
+
+>>> Accuracy on average: 64.53%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 86.30%
+Erroneously classified as Romanian: 13.70%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 76.20%
+Erroneously classified as Romanian: 23.80%
+
+>> Detection of 1000 sentences (average length: 105 chars)
+Accuracy: 31.10%
+Erroneously classified as Romanian: 68.90%
+

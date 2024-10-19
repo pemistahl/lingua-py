@@ -1,0 +1,16 @@
+##### Bokmal #####
+
+>>> Accuracy on average: 73.67%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 91.00%
+Erroneously classified as Tswana: 9.00%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 79.80%
+Erroneously classified as Tswana: 20.20%
+
+>> Detection of 1000 sentences (average length: 98 chars)
+Accuracy: 50.20%
+Erroneously classified as Tswana: 49.80%
+

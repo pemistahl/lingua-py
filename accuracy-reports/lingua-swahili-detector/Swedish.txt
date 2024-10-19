@@ -1,0 +1,16 @@
+##### Swedish #####
+
+>>> Accuracy on average: 69.77%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 87.10%
+Erroneously classified as Swahili: 12.90%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 75.60%
+Erroneously classified as Swahili: 24.40%
+
+>> Detection of 1000 sentences (average length: 90 chars)
+Accuracy: 46.60%
+Erroneously classified as Swahili: 53.40%
+

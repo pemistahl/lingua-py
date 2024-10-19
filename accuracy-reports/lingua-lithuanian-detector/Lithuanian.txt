@@ -1,0 +1,16 @@
+##### Lithuanian #####
+
+>>> Accuracy on average: 87.03%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 71.10%
+Erroneously classified as Unknown: 28.90%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 90.20%
+Erroneously classified as Unknown: 9.80%
+
+>> Detection of 1000 sentences (average length: 108 chars)
+Accuracy: 99.80%
+Erroneously classified as Unknown: 0.20%
+

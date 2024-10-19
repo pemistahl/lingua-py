@@ -1,0 +1,16 @@
+##### Ganda #####
+
+>>> Accuracy on average: 77.53%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 94.20%
+Erroneously classified as Catalan: 5.80%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 88.30%
+Erroneously classified as Catalan: 11.70%
+
+>> Detection of 1000 sentences (average length: 125 chars)
+Accuracy: 50.10%
+Erroneously classified as Catalan: 49.90%
+

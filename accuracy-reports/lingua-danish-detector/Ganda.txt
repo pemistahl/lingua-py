@@ -1,0 +1,16 @@
+##### Ganda #####
+
+>>> Accuracy on average: 70.83%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 90.00%
+Erroneously classified as Danish: 10.00%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 81.10%
+Erroneously classified as Danish: 18.90%
+
+>> Detection of 1000 sentences (average length: 125 chars)
+Accuracy: 41.40%
+Erroneously classified as Danish: 58.60%
+

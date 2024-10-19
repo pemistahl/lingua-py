@@ -1,0 +1,16 @@
+##### Tagalog #####
+
+>>> Accuracy on average: 47.37%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 75.00%
+Erroneously classified as Ganda: 25.00%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 55.60%
+Erroneously classified as Ganda: 44.40%
+
+>> Detection of 1000 sentences (average length: 123 chars)
+Accuracy: 11.50%
+Erroneously classified as Ganda: 88.50%
+

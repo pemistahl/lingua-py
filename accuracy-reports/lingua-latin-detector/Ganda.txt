@@ -1,0 +1,16 @@
+##### Ganda #####
+
+>>> Accuracy on average: 61.53%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 86.60%
+Erroneously classified as Latin: 13.40%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 76.00%
+Erroneously classified as Latin: 24.00%
+
+>> Detection of 1000 sentences (average length: 125 chars)
+Accuracy: 22.00%
+Erroneously classified as Latin: 78.00%
+

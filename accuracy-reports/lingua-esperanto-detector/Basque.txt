@@ -1,0 +1,16 @@
+##### Basque #####
+
+>>> Accuracy on average: 55.57%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 80.20%
+Erroneously classified as Esperanto: 19.80%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 66.10%
+Erroneously classified as Esperanto: 33.90%
+
+>> Detection of 1000 sentences (average length: 102 chars)
+Accuracy: 20.40%
+Erroneously classified as Esperanto: 79.60%
+

@@ -1,0 +1,16 @@
+##### Danish #####
+
+>>> Accuracy on average: 57.80%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 82.30%
+Erroneously classified as Indonesian: 17.70%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 67.60%
+Erroneously classified as Indonesian: 32.40%
+
+>> Detection of 1000 sentences (average length: 112 chars)
+Accuracy: 23.50%
+Erroneously classified as Indonesian: 76.50%
+

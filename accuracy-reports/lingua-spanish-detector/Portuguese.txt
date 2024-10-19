@@ -1,0 +1,16 @@
+##### Portuguese #####
+
+>>> Accuracy on average: 32.53%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 59.80%
+Erroneously classified as Spanish: 40.20%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 34.10%
+Erroneously classified as Spanish: 65.90%
+
+>> Detection of 1000 sentences (average length: 127 chars)
+Accuracy: 3.70%
+Erroneously classified as Spanish: 96.30%
+

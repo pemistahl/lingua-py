@@ -1,0 +1,16 @@
+##### Polish #####
+
+>>> Accuracy on average: 75.50%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 90.80%
+Erroneously classified as Indonesian: 9.20%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 83.90%
+Erroneously classified as Indonesian: 16.10%
+
+>> Detection of 1000 sentences (average length: 99 chars)
+Accuracy: 51.80%
+Erroneously classified as Indonesian: 48.20%
+

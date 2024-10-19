@@ -1,0 +1,16 @@
+##### Bokmal #####
+
+>>> Accuracy on average: 74.23%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 88.20%
+Erroneously classified as Swahili: 11.80%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 81.10%
+Erroneously classified as Swahili: 18.90%
+
+>> Detection of 1000 sentences (average length: 98 chars)
+Accuracy: 53.40%
+Erroneously classified as Swahili: 46.60%
+

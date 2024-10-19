@@ -1,0 +1,16 @@
+##### Nynorsk #####
+
+>>> Accuracy on average: 73.23%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 87.30%
+Erroneously classified as Zulu: 12.70%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 82.00%
+Erroneously classified as Zulu: 18.00%
+
+>> Detection of 1000 sentences (average length: 96 chars)
+Accuracy: 50.40%
+Erroneously classified as Zulu: 49.60%
+

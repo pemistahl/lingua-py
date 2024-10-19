@@ -1,0 +1,16 @@
+##### Italian #####
+
+>>> Accuracy on average: 51.80%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 79.30%
+Erroneously classified as Slovene: 20.70%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 61.20%
+Erroneously classified as Slovene: 38.80%
+
+>> Detection of 1000 sentences (average length: 123 chars)
+Accuracy: 14.90%
+Erroneously classified as Slovene: 85.10%
+

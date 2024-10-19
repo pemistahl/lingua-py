@@ -1,0 +1,16 @@
+##### Portuguese #####
+
+>>> Accuracy on average: 71.13%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 90.80%
+Erroneously classified as Finnish: 9.20%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 83.50%
+Erroneously classified as Finnish: 16.50%
+
+>> Detection of 1000 sentences (average length: 127 chars)
+Accuracy: 39.10%
+Erroneously classified as Finnish: 60.90%
+

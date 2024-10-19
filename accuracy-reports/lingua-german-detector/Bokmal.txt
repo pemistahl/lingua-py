@@ -1,0 +1,16 @@
+##### Bokmal #####
+
+>>> Accuracy on average: 46.07%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 72.00%
+Erroneously classified as German: 28.00%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 51.70%
+Erroneously classified as German: 48.30%
+
+>> Detection of 1000 sentences (average length: 98 chars)
+Accuracy: 14.50%
+Erroneously classified as German: 85.50%
+

@@ -1,0 +1,16 @@
+##### Catalan #####
+
+>>> Accuracy on average: 72.67%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 90.20%
+Erroneously classified as Turkish: 9.80%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 81.10%
+Erroneously classified as Turkish: 18.90%
+
+>> Detection of 1000 sentences (average length: 103 chars)
+Accuracy: 46.70%
+Erroneously classified as Turkish: 53.30%
+

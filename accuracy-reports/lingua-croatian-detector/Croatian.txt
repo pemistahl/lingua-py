@@ -1,0 +1,16 @@
+##### Croatian #####
+
+>>> Accuracy on average: 67.63%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 40.60%
+Erroneously classified as Unknown: 59.40%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 65.00%
+Erroneously classified as Unknown: 35.00%
+
+>> Detection of 1000 sentences (average length: 127 chars)
+Accuracy: 97.30%
+Erroneously classified as Unknown: 2.70%
+

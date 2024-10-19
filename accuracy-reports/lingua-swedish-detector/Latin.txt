@@ -1,0 +1,16 @@
+##### Latin #####
+
+>>> Accuracy on average: 63.17%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 85.50%
+Erroneously classified as Swedish: 14.50%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 70.50%
+Erroneously classified as Swedish: 29.50%
+
+>> Detection of 1000 sentences (average length: 91 chars)
+Accuracy: 33.50%
+Erroneously classified as Swedish: 66.50%
+
