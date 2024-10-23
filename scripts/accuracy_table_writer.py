@@ -112,7 +112,7 @@ class AccuracyTableWriter:
             f"lingua-{language.name.lower()}-detector" for language in Language
         ]
         merged_single_language_mode_column = {
-            "lingua-single-language-detector": df[single_language_mode_columns].sum(
+            "lingua-single-language-detector": df[single_language_mode_columns].mean(
                 axis="columns"
             )
         }
