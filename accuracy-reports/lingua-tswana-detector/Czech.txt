@@ -1,0 +1,16 @@
+##### Czech #####
+
+>>> Accuracy on average: 91.43%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 97.50%
+Erroneously classified as Tswana: 2.50%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 95.30%
+Erroneously classified as Tswana: 4.70%
+
+>> Detection of 1000 sentences (average length: 93 chars)
+Accuracy: 81.50%
+Erroneously classified as Tswana: 18.50%
+

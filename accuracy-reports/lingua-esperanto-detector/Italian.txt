@@ -1,0 +1,16 @@
+##### Italian #####
+
+>>> Accuracy on average: 44.57%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 70.80%
+Erroneously classified as Esperanto: 29.20%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 54.20%
+Erroneously classified as Esperanto: 45.80%
+
+>> Detection of 1000 sentences (average length: 123 chars)
+Accuracy: 8.70%
+Erroneously classified as Esperanto: 91.30%
+

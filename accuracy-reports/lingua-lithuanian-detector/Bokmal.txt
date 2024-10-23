@@ -1,0 +1,16 @@
+##### Bokmal #####
+
+>>> Accuracy on average: 80.70%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 92.40%
+Erroneously classified as Lithuanian: 7.60%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 86.60%
+Erroneously classified as Lithuanian: 13.40%
+
+>> Detection of 1000 sentences (average length: 98 chars)
+Accuracy: 63.10%
+Erroneously classified as Lithuanian: 36.90%
+

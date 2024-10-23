@@ -1,0 +1,16 @@
+##### Tswana #####
+
+>>> Accuracy on average: 86.13%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 94.90%
+Erroneously classified as German: 5.10%
+
+>> Detection of 1000 word pairs (average length: 15 chars)
+Accuracy: 92.80%
+Erroneously classified as German: 7.20%
+
+>> Detection of 1000 sentences (average length: 113 chars)
+Accuracy: 70.70%
+Erroneously classified as German: 29.30%
+

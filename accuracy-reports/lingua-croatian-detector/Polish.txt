@@ -1,0 +1,16 @@
+##### Polish #####
+
+>>> Accuracy on average: 72.23%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 89.40%
+Erroneously classified as Croatian: 10.60%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 81.40%
+Erroneously classified as Croatian: 18.60%
+
+>> Detection of 1000 sentences (average length: 99 chars)
+Accuracy: 45.90%
+Erroneously classified as Croatian: 54.10%
+

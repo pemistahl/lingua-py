@@ -1,0 +1,16 @@
+##### Latin #####
+
+>>> Accuracy on average: 70.13%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 88.80%
+Erroneously classified as Afrikaans: 11.20%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 77.40%
+Erroneously classified as Afrikaans: 22.60%
+
+>> Detection of 1000 sentences (average length: 91 chars)
+Accuracy: 44.20%
+Erroneously classified as Afrikaans: 55.80%
+

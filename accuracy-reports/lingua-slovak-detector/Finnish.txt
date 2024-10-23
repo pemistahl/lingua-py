@@ -1,0 +1,16 @@
+##### Finnish #####
+
+>>> Accuracy on average: 64.50%
+
+>> Detection of 1000 single words (average length: 10 chars)
+Accuracy: 85.90%
+Erroneously classified as Slovak: 14.10%
+
+>> Detection of 1000 word pairs (average length: 19 chars)
+Accuracy: 75.90%
+Erroneously classified as Slovak: 24.10%
+
+>> Detection of 1000 sentences (average length: 103 chars)
+Accuracy: 31.70%
+Erroneously classified as Slovak: 68.30%
+

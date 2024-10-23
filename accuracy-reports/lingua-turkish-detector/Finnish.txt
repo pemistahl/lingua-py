@@ -1,0 +1,16 @@
+##### Finnish #####
+
+>>> Accuracy on average: 70.40%
+
+>> Detection of 1000 single words (average length: 10 chars)
+Accuracy: 87.30%
+Erroneously classified as Turkish: 12.70%
+
+>> Detection of 1000 word pairs (average length: 19 chars)
+Accuracy: 80.60%
+Erroneously classified as Turkish: 19.40%
+
+>> Detection of 1000 sentences (average length: 103 chars)
+Accuracy: 43.30%
+Erroneously classified as Turkish: 56.70%
+

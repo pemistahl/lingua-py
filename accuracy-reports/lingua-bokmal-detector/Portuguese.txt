@@ -1,0 +1,16 @@
+##### Portuguese #####
+
+>>> Accuracy on average: 65.93%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 88.40%
+Erroneously classified as Bokmal: 11.60%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 79.90%
+Erroneously classified as Bokmal: 20.10%
+
+>> Detection of 1000 sentences (average length: 127 chars)
+Accuracy: 29.50%
+Erroneously classified as Bokmal: 70.50%
+

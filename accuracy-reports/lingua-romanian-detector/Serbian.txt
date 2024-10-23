@@ -1,0 +1,16 @@
+##### Serbian #####
+
+>>> Accuracy on average: 99.60%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 100.00%
+Erroneously classified as 
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 100.00%
+Erroneously classified as 
+
+>> Detection of 1000 sentences (average length: 100 chars)
+Accuracy: 98.80%
+Erroneously classified as Romanian: 1.20%
+

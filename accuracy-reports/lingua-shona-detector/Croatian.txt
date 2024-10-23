@@ -1,0 +1,16 @@
+##### Croatian #####
+
+>>> Accuracy on average: 69.20%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 89.10%
+Erroneously classified as Shona: 10.90%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 80.80%
+Erroneously classified as Shona: 19.20%
+
+>> Detection of 1000 sentences (average length: 127 chars)
+Accuracy: 37.70%
+Erroneously classified as Shona: 62.30%
+

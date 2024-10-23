@@ -1,0 +1,16 @@
+##### Hungarian #####
+
+>>> Accuracy on average: 72.40%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 91.20%
+Erroneously classified as Turkish: 8.80%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 84.00%
+Erroneously classified as Turkish: 16.00%
+
+>> Detection of 1000 sentences (average length: 116 chars)
+Accuracy: 42.00%
+Erroneously classified as Turkish: 58.00%
+

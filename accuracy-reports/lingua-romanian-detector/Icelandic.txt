@@ -1,0 +1,16 @@
+##### Icelandic #####
+
+>>> Accuracy on average: 82.00%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 94.00%
+Erroneously classified as Romanian: 6.00%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 91.40%
+Erroneously classified as Romanian: 8.60%
+
+>> Detection of 1000 sentences (average length: 108 chars)
+Accuracy: 60.60%
+Erroneously classified as Romanian: 39.40%
+

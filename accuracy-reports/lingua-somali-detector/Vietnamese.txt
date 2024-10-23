@@ -1,0 +1,16 @@
+##### Vietnamese #####
+
+>>> Accuracy on average: 96.86%
+
+>> Detection of 879 single words (average length: 4 chars)
+Accuracy: 99.43%
+Erroneously classified as Somali: 0.57%
+
+>> Detection of 957 word pairs (average length: 12 chars)
+Accuracy: 98.75%
+Erroneously classified as Somali: 1.25%
+
+>> Detection of 1000 sentences (average length: 120 chars)
+Accuracy: 92.40%
+Erroneously classified as Somali: 7.60%
+

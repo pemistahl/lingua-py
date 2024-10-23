@@ -1,0 +1,16 @@
+##### Zulu #####
+
+>>> Accuracy on average: 39.23%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 65.10%
+Erroneously classified as Tsonga: 34.90%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 49.10%
+Erroneously classified as Tsonga: 50.90%
+
+>> Detection of 1000 sentences (average length: 115 chars)
+Accuracy: 3.50%
+Erroneously classified as Tsonga: 96.50%
+

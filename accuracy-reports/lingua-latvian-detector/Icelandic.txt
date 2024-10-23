@@ -1,0 +1,16 @@
+##### Icelandic #####
+
+>>> Accuracy on average: 85.20%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 96.20%
+Erroneously classified as Latvian: 3.80%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 93.10%
+Erroneously classified as Latvian: 6.90%
+
+>> Detection of 1000 sentences (average length: 108 chars)
+Accuracy: 66.30%
+Erroneously classified as Latvian: 33.70%
+

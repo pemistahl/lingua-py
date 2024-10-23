@@ -1,0 +1,16 @@
+##### Tsonga #####
+
+>>> Accuracy on average: 71.93%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 87.50%
+Erroneously classified as English: 12.50%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 83.10%
+Erroneously classified as English: 16.90%
+
+>> Detection of 1000 sentences (average length: 121 chars)
+Accuracy: 45.20%
+Erroneously classified as English: 54.80%
+

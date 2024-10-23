@@ -1,0 +1,16 @@
+##### Vietnamese #####
+
+>>> Accuracy on average: 92.29%
+
+>> Detection of 879 single words (average length: 4 chars)
+Accuracy: 98.63%
+Erroneously classified as Maori: 1.37%
+
+>> Detection of 957 word pairs (average length: 12 chars)
+Accuracy: 95.82%
+Erroneously classified as Maori: 4.18%
+
+>> Detection of 1000 sentences (average length: 120 chars)
+Accuracy: 82.40%
+Erroneously classified as Maori: 17.60%
+

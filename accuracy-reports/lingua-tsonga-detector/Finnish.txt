@@ -1,0 +1,16 @@
+##### Finnish #####
+
+>>> Accuracy on average: 76.60%
+
+>> Detection of 1000 single words (average length: 10 chars)
+Accuracy: 91.10%
+Erroneously classified as Tsonga: 8.90%
+
+>> Detection of 1000 word pairs (average length: 19 chars)
+Accuracy: 85.50%
+Erroneously classified as Tsonga: 14.50%
+
+>> Detection of 1000 sentences (average length: 103 chars)
+Accuracy: 53.20%
+Erroneously classified as Tsonga: 46.80%
+

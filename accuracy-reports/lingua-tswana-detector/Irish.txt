@@ -1,0 +1,16 @@
+##### Irish #####
+
+>>> Accuracy on average: 81.97%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 95.50%
+Erroneously classified as Tswana: 4.50%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 90.30%
+Erroneously classified as Tswana: 9.70%
+
+>> Detection of 1000 sentences (average length: 113 chars)
+Accuracy: 60.10%
+Erroneously classified as Tswana: 39.90%
+

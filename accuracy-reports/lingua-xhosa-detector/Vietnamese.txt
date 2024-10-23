@@ -1,0 +1,16 @@
+##### Vietnamese #####
+
+>>> Accuracy on average: 86.04%
+
+>> Detection of 879 single words (average length: 4 chars)
+Accuracy: 97.61%
+Erroneously classified as Xhosa: 2.39%
+
+>> Detection of 957 word pairs (average length: 12 chars)
+Accuracy: 90.60%
+Erroneously classified as Xhosa: 9.40%
+
+>> Detection of 1000 sentences (average length: 120 chars)
+Accuracy: 69.90%
+Erroneously classified as Xhosa: 30.10%
+

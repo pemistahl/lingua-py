@@ -1,0 +1,16 @@
+##### Turkish #####
+
+>>> Accuracy on average: 59.03%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 83.80%
+Erroneously classified as Tagalog: 16.20%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 71.60%
+Erroneously classified as Tagalog: 28.40%
+
+>> Detection of 1000 sentences (average length: 119 chars)
+Accuracy: 21.70%
+Erroneously classified as Tagalog: 78.30%
+

@@ -1,0 +1,16 @@
+##### Italian #####
+
+>>> Accuracy on average: 82.40%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 93.90%
+Erroneously classified as Xhosa: 6.10%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 91.00%
+Erroneously classified as Xhosa: 9.00%
+
+>> Detection of 1000 sentences (average length: 123 chars)
+Accuracy: 62.30%
+Erroneously classified as Xhosa: 37.70%
+

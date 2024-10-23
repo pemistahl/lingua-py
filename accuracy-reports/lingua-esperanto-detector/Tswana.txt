@@ -1,0 +1,16 @@
+##### Tswana #####
+
+>>> Accuracy on average: 84.53%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 94.60%
+Erroneously classified as Esperanto: 5.40%
+
+>> Detection of 1000 word pairs (average length: 15 chars)
+Accuracy: 91.00%
+Erroneously classified as Esperanto: 9.00%
+
+>> Detection of 1000 sentences (average length: 113 chars)
+Accuracy: 68.00%
+Erroneously classified as Esperanto: 32.00%
+

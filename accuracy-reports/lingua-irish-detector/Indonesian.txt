@@ -1,0 +1,16 @@
+##### Indonesian #####
+
+>>> Accuracy on average: 87.37%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 97.10%
+Erroneously classified as Irish: 2.90%
+
+>> Detection of 1000 word pairs (average length: 15 chars)
+Accuracy: 94.40%
+Erroneously classified as Irish: 5.60%
+
+>> Detection of 1000 sentences (average length: 105 chars)
+Accuracy: 70.60%
+Erroneously classified as Irish: 29.40%
+

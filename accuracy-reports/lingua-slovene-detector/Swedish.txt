@@ -1,0 +1,16 @@
+##### Swedish #####
+
+>>> Accuracy on average: 65.40%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 83.50%
+Erroneously classified as Slovene: 16.50%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 74.00%
+Erroneously classified as Slovene: 26.00%
+
+>> Detection of 1000 sentences (average length: 90 chars)
+Accuracy: 38.70%
+Erroneously classified as Slovene: 61.30%
+

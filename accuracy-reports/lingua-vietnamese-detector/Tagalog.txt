@@ -1,0 +1,16 @@
+##### Tagalog #####
+
+>>> Accuracy on average: 77.80%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 94.50%
+Erroneously classified as Vietnamese: 5.50%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 86.00%
+Erroneously classified as Vietnamese: 14.00%
+
+>> Detection of 1000 sentences (average length: 123 chars)
+Accuracy: 52.90%
+Erroneously classified as Vietnamese: 47.10%
+

@@ -1,0 +1,16 @@
+##### Zulu #####
+
+>>> Accuracy on average: 100.00%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 100.00%
+Erroneously classified as 
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 100.00%
+Erroneously classified as 
+
+>> Detection of 1000 sentences (average length: 115 chars)
+Accuracy: 100.00%
+Erroneously classified as 
+

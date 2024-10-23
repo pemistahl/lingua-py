@@ -1,0 +1,16 @@
+##### Slovene #####
+
+>>> Accuracy on average: 78.10%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 93.30%
+Erroneously classified as Icelandic: 6.70%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 88.20%
+Erroneously classified as Icelandic: 11.80%
+
+>> Detection of 1000 sentences (average length: 114 chars)
+Accuracy: 52.80%
+Erroneously classified as Icelandic: 47.20%
+

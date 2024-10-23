@@ -1,0 +1,16 @@
+##### Welsh #####
+
+>>> Accuracy on average: 74.00%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 91.90%
+Erroneously classified as Nynorsk: 8.10%
+
+>> Detection of 1000 word pairs (average length: 15 chars)
+Accuracy: 83.00%
+Erroneously classified as Nynorsk: 17.00%
+
+>> Detection of 1000 sentences (average length: 97 chars)
+Accuracy: 47.10%
+Erroneously classified as Nynorsk: 52.90%
+

@@ -1,0 +1,16 @@
+##### French #####
+
+>>> Accuracy on average: 91.07%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 96.80%
+Erroneously classified as Zulu: 3.20%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 95.60%
+Erroneously classified as Zulu: 4.40%
+
+>> Detection of 1000 sentences (average length: 112 chars)
+Accuracy: 80.80%
+Erroneously classified as Zulu: 19.20%
+

@@ -1,0 +1,16 @@
+##### Croatian #####
+
+>>> Accuracy on average: 74.83%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 91.90%
+Erroneously classified as Maori: 8.10%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 88.20%
+Erroneously classified as Maori: 11.80%
+
+>> Detection of 1000 sentences (average length: 127 chars)
+Accuracy: 44.40%
+Erroneously classified as Maori: 55.60%
+

@@ -1,0 +1,16 @@
+##### Dutch #####
+
+>>> Accuracy on average: 77.83%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 90.70%
+Erroneously classified as Lithuanian: 9.30%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 86.30%
+Erroneously classified as Lithuanian: 13.70%
+
+>> Detection of 1000 sentences (average length: 107 chars)
+Accuracy: 56.50%
+Erroneously classified as Lithuanian: 43.50%
+

@@ -1,0 +1,16 @@
+##### Esperanto #####
+
+>>> Accuracy on average: 78.73%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 91.70%
+Erroneously classified as Sotho: 8.30%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 87.80%
+Erroneously classified as Sotho: 12.20%
+
+>> Detection of 1000 sentences (average length: 101 chars)
+Accuracy: 56.70%
+Erroneously classified as Sotho: 43.30%
+

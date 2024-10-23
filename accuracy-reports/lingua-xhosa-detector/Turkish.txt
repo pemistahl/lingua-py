@@ -1,0 +1,16 @@
+##### Turkish #####
+
+>>> Accuracy on average: 65.93%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 87.60%
+Erroneously classified as Xhosa: 12.40%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 76.60%
+Erroneously classified as Xhosa: 23.40%
+
+>> Detection of 1000 sentences (average length: 119 chars)
+Accuracy: 33.60%
+Erroneously classified as Xhosa: 66.40%
+

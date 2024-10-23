@@ -1,0 +1,16 @@
+##### Yoruba #####
+
+>>> Accuracy on average: 80.87%
+
+>> Detection of 1000 single words (average length: 7 chars)
+Accuracy: 90.10%
+Erroneously classified as Spanish: 9.90%
+
+>> Detection of 1000 word pairs (average length: 15 chars)
+Accuracy: 84.40%
+Erroneously classified as Spanish: 15.60%
+
+>> Detection of 1000 sentences (average length: 86 chars)
+Accuracy: 68.10%
+Erroneously classified as Spanish: 31.90%
+

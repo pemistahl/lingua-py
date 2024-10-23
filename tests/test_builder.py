@@ -58,31 +58,34 @@ def test_build_from_blacklist():
 
 
 def test_cannot_build_from_blacklist():
-    languages = Language.all().difference({Language.GERMAN})
     with pytest.raises(ValueError) as exception_info:
-        LanguageDetectorBuilder.from_all_languages_without(*languages)
+        LanguageDetectorBuilder.from_all_languages_without(*Language.all())
     assert (
         exception_info.value.args[0]
-        == "LanguageDetector needs at least 2 languages to choose from"
+        == "LanguageDetector needs at least 1 language to choose from"
     )
 
 
 def test_build_from_whitelist():
-    languages = {Language.GERMAN, Language.ENGLISH}
-    builder = LanguageDetectorBuilder.from_languages(*languages)
-    assert builder._languages == languages
+    language_sets = [{Language.GERMAN}, {Language.GERMAN, Language.ENGLISH}]
+    for languages in language_sets:
+        builder = LanguageDetectorBuilder.from_languages(*languages)
+        assert builder._languages == languages
 
 
 def test_cannot_build_from_whitelist():
     with pytest.raises(ValueError) as exception_info:
-        LanguageDetectorBuilder.from_languages(Language.GERMAN)
+        LanguageDetectorBuilder.from_languages()
     assert (
         exception_info.value.args[0]
-        == "LanguageDetector needs at least 2 languages to choose from"
+        == "LanguageDetector needs at least 1 language to choose from"
     )
 
 
 def test_build_from_iso_639_1_codes():
+    builder = LanguageDetectorBuilder.from_iso_codes_639_1(IsoCode639_1.DE)
+    assert builder._languages == {Language.GERMAN}
+
     builder = LanguageDetectorBuilder.from_iso_codes_639_1(
         IsoCode639_1.DE, IsoCode639_1.SV
     )
@@ -91,10 +94,10 @@ def test_build_from_iso_639_1_codes():
 
 def test_cannot_build_from_iso_639_1_codes():
     with pytest.raises(ValueError) as exception_info:
-        LanguageDetectorBuilder.from_iso_codes_639_1(IsoCode639_1.DE)
+        LanguageDetectorBuilder.from_iso_codes_639_1()
     assert (
         exception_info.value.args[0]
-        == "LanguageDetector needs at least 2 languages to choose from"
+        == "LanguageDetector needs at least 1 language to choose from"
     )
 
 
@@ -107,10 +110,10 @@ def test_build_from_iso_639_3_codes():
 
 def test_cannot_build_from_iso_639_3_codes():
     with pytest.raises(ValueError) as exception_info:
-        LanguageDetectorBuilder.from_iso_codes_639_3(IsoCode639_3.DEU)
+        LanguageDetectorBuilder.from_iso_codes_639_3()
     assert (
         exception_info.value.args[0]
-        == "LanguageDetector needs at least 2 languages to choose from"
+        == "LanguageDetector needs at least 1 language to choose from"
     )
 
 

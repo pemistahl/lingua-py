@@ -1,0 +1,16 @@
+##### Turkish #####
+
+>>> Accuracy on average: 59.27%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 82.60%
+Erroneously classified as Romanian: 17.40%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 70.30%
+Erroneously classified as Romanian: 29.70%
+
+>> Detection of 1000 sentences (average length: 119 chars)
+Accuracy: 24.90%
+Erroneously classified as Romanian: 75.10%
+

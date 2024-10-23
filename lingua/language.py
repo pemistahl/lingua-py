@@ -421,6 +421,18 @@ class Language(Enum):
         )
 
     @classmethod
+    def all_with_single_unique_script(cls) -> FrozenSet["Language"]:
+        """Return a set of all languages supporting a single unique script."""
+        languages = set()
+        single_language_alphabets = _Alphabet.all_supporting_single_language().keys()
+        for language in Language:
+            if len(language._alphabets) == 1:
+                alphabet = next(iter(language._alphabets))
+                if alphabet in single_language_alphabets:
+                    languages.add(language)
+        return frozenset(languages)
+
+    @classmethod
     def from_iso_code_639_1(cls, iso_code: IsoCode639_1) -> "Language":
         """Return the language associated with the ISO 639-1 code
         passed to this method.

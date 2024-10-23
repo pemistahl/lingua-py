@@ -1,0 +1,16 @@
+##### Tagalog #####
+
+>>> Accuracy on average: 76.43%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 92.50%
+Erroneously classified as Croatian: 7.50%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 87.10%
+Erroneously classified as Croatian: 12.90%
+
+>> Detection of 1000 sentences (average length: 123 chars)
+Accuracy: 49.70%
+Erroneously classified as Croatian: 50.30%
+

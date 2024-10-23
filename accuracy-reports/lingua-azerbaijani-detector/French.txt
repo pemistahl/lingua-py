@@ -1,0 +1,16 @@
+##### French #####
+
+>>> Accuracy on average: 88.27%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 96.20%
+Erroneously classified as Azerbaijani: 3.80%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 92.60%
+Erroneously classified as Azerbaijani: 7.40%
+
+>> Detection of 1000 sentences (average length: 112 chars)
+Accuracy: 76.00%
+Erroneously classified as Azerbaijani: 24.00%
+

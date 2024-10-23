@@ -1,0 +1,16 @@
+##### Nynorsk #####
+
+>>> Accuracy on average: 57.03%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 79.80%
+Erroneously classified as Italian: 20.20%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 67.00%
+Erroneously classified as Italian: 33.00%
+
+>> Detection of 1000 sentences (average length: 96 chars)
+Accuracy: 24.30%
+Erroneously classified as Italian: 75.70%
+

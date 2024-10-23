@@ -1,0 +1,16 @@
+##### Polish #####
+
+>>> Accuracy on average: 84.00%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 94.20%
+Erroneously classified as Hungarian: 5.80%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 90.10%
+Erroneously classified as Hungarian: 9.90%
+
+>> Detection of 1000 sentences (average length: 99 chars)
+Accuracy: 67.70%
+Erroneously classified as Hungarian: 32.30%
+

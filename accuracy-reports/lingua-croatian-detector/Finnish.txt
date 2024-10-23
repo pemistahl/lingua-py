@@ -1,0 +1,16 @@
+##### Finnish #####
+
+>>> Accuracy on average: 65.97%
+
+>> Detection of 1000 single words (average length: 10 chars)
+Accuracy: 86.10%
+Erroneously classified as Croatian: 13.90%
+
+>> Detection of 1000 word pairs (average length: 19 chars)
+Accuracy: 77.00%
+Erroneously classified as Croatian: 23.00%
+
+>> Detection of 1000 sentences (average length: 103 chars)
+Accuracy: 34.80%
+Erroneously classified as Croatian: 65.20%
+

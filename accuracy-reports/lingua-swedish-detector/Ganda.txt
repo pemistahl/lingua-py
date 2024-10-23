@@ -1,0 +1,16 @@
+##### Ganda #####
+
+>>> Accuracy on average: 68.93%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 89.20%
+Erroneously classified as Swedish: 10.80%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 81.00%
+Erroneously classified as Swedish: 19.00%
+
+>> Detection of 1000 sentences (average length: 125 chars)
+Accuracy: 36.60%
+Erroneously classified as Swedish: 63.40%
+

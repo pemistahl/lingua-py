@@ -1,0 +1,16 @@
+##### Catalan #####
+
+>>> Accuracy on average: 60.87%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 83.40%
+Erroneously classified as Slovak: 16.60%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 66.50%
+Erroneously classified as Slovak: 33.50%
+
+>> Detection of 1000 sentences (average length: 103 chars)
+Accuracy: 32.70%
+Erroneously classified as Slovak: 67.30%
+

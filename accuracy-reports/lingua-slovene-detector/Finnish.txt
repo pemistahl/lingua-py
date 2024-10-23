@@ -1,0 +1,16 @@
+##### Finnish #####
+
+>>> Accuracy on average: 65.10%
+
+>> Detection of 1000 single words (average length: 10 chars)
+Accuracy: 85.30%
+Erroneously classified as Slovene: 14.70%
+
+>> Detection of 1000 word pairs (average length: 19 chars)
+Accuracy: 76.20%
+Erroneously classified as Slovene: 23.80%
+
+>> Detection of 1000 sentences (average length: 103 chars)
+Accuracy: 33.80%
+Erroneously classified as Slovene: 66.20%
+

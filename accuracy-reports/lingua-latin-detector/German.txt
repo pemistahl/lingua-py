@@ -1,0 +1,16 @@
+##### German #####
+
+>>> Accuracy on average: 65.13%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 85.20%
+Erroneously classified as Latin: 14.80%
+
+>> Detection of 1000 word pairs (average length: 18 chars)
+Accuracy: 74.80%
+Erroneously classified as Latin: 25.20%
+
+>> Detection of 1000 sentences (average length: 111 chars)
+Accuracy: 35.40%
+Erroneously classified as Latin: 64.60%
+

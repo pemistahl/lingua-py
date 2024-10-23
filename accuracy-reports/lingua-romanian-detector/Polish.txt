@@ -1,0 +1,16 @@
+##### Polish #####
+
+>>> Accuracy on average: 74.73%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 91.20%
+Erroneously classified as Romanian: 8.80%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 85.80%
+Erroneously classified as Romanian: 14.20%
+
+>> Detection of 1000 sentences (average length: 99 chars)
+Accuracy: 47.20%
+Erroneously classified as Romanian: 52.80%
+

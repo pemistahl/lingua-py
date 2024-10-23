@@ -1,0 +1,16 @@
+##### Finnish #####
+
+>>> Accuracy on average: 58.63%
+
+>> Detection of 1000 single words (average length: 10 chars)
+Accuracy: 82.00%
+Erroneously classified as Bosnian: 18.00%
+
+>> Detection of 1000 word pairs (average length: 19 chars)
+Accuracy: 69.00%
+Erroneously classified as Bosnian: 31.00%
+
+>> Detection of 1000 sentences (average length: 103 chars)
+Accuracy: 24.90%
+Erroneously classified as Bosnian: 75.10%
+

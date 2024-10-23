@@ -1,0 +1,16 @@
+##### Swedish #####
+
+>>> Accuracy on average: 62.00%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 85.10%
+Erroneously classified as Finnish: 14.90%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 71.30%
+Erroneously classified as Finnish: 28.70%
+
+>> Detection of 1000 sentences (average length: 90 chars)
+Accuracy: 29.60%
+Erroneously classified as Finnish: 70.40%
+

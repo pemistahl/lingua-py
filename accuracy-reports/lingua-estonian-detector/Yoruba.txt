@@ -1,0 +1,16 @@
+##### Yoruba #####
+
+>>> Accuracy on average: 88.20%
+
+>> Detection of 1000 single words (average length: 7 chars)
+Accuracy: 95.00%
+Erroneously classified as Estonian: 5.00%
+
+>> Detection of 1000 word pairs (average length: 15 chars)
+Accuracy: 89.90%
+Erroneously classified as Estonian: 10.10%
+
+>> Detection of 1000 sentences (average length: 86 chars)
+Accuracy: 79.70%
+Erroneously classified as Estonian: 20.30%
+

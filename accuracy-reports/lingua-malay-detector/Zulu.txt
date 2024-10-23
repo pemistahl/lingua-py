@@ -1,0 +1,16 @@
+##### Zulu #####
+
+>>> Accuracy on average: 52.17%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 79.90%
+Erroneously classified as Malay: 20.10%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 63.90%
+Erroneously classified as Malay: 36.10%
+
+>> Detection of 1000 sentences (average length: 115 chars)
+Accuracy: 12.70%
+Erroneously classified as Malay: 87.30%
+
