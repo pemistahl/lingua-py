@@ -22,14 +22,11 @@ JAPANESE_CHARACTER_SET: Pattern = regex.compile(r"^[\p{Hiragana}\p{Katakana}\p{H
 MULTIPLE_WHITESPACE: Pattern = regex.compile(r"\s+")
 NUMBERS: Pattern = regex.compile(r"\p{N}")
 PUNCTUATION: Pattern = regex.compile(r"\p{P}")
-LETTERS: Pattern = regex.compile(
-    r"\p{Deva}+|\p{Han}|\p{Hangul}|\p{Hiragana}|\p{Katakana}|\p{L}+"
+TOKENS_WITHOUT_WHITESPACE: Pattern = regex.compile(
+    r"\p{Bengali}+|\p{Devanagari}+|\p{Gujarati}+|\p{Gurmukhi}+|\p{Han}|\p{Hangul}+|\p{Hiragana}|\p{Katakana}|\p{Tamil}+|\p{Telugu}+|\p{Thai}+|\p{L}+"
 )
 TOKENS_WITH_OPTIONAL_WHITESPACE = regex.compile(
-    r"\s*(?:\p{Han}|\p{Hangul}|\p{Hiragana}|\p{Katakana}|[\p{L}'-]+)[\p{N}\p{P}]*\s*"
-)
-TOKENS_WITHOUT_WHITESPACE = regex.compile(
-    r"\p{Han}|\p{Hangul}|\p{Hiragana}|\p{Katakana}|\p{L}+"
+    r"\s*(?:\p{Bengali}+|\p{Devanagari}+|\p{Gujarati}+|\p{Gurmukhi}+|\p{Han}|\p{Hangul}+|\p{Hiragana}|\p{Katakana}|\p{Tamil}+|\p{Telugu}+|\p{Thai}+|[\p{L}'-]+)[\p{N}\p{P}]*\s*"
 )
 
 CHARS_TO_LANGUAGES_MAPPING: dict[str, frozenset[Language]] = {

@@ -20,7 +20,7 @@ from collections import Counter
 from pathlib import Path
 
 from lingua import Language, IsoCode639_1
-from lingua._constant import LETTERS
+from lingua._constant import TOKENS_WITHOUT_WHITESPACE
 from lingua._ngram import _get_ngram_name_by_length
 
 
@@ -34,7 +34,7 @@ def identify_most_common_ngrams(
     for sentence_file in absolute_directory_path.iterdir():
         iso_code = sentence_file.parts[-1][:2]
         language = Language.from_iso_code_639_1(IsoCode639_1[iso_code.upper()])
-        words = LETTERS.findall(sentence_file.read_text().lower())
+        words = TOKENS_WITHOUT_WHITESPACE.findall(sentence_file.read_text().lower())
         counter: Counter[str] = Counter()
 
         for word in words:
