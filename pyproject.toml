@@ -15,7 +15,7 @@
 
 [tool.poetry]
 name = "lingua-language-detector"
-version = "1.3.5"
+version = "1.4.0"
 description = "An accurate natural language detection library, suitable for short text and mixed-language text"
 authors = ["Peter M. Stahl <pemistahl@gmail.com>"]
 license = "Apache-2.0"
@@ -85,11 +85,11 @@ classifiers = [
     "Natural Language :: Urdu",
     "Natural Language :: Vietnamese",
     "Operating System :: OS Independent",
-    "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
     "Topic :: Scientific/Engineering :: Information Analysis",
     "Topic :: Software Development :: Libraries :: Python Modules",
     "Topic :: Software Development :: Internationalization",
@@ -99,38 +99,28 @@ classifiers = [
 ]
 
 [tool.poetry.dependencies]
-python = ">=3.8,<3.13"
+python = ">=3.9,<3.14"
 brotli = "^1.1.0"
-regex = "^2023.12.25"
+regex = "^2024.9.11"
 
 [tool.poetry.group.dev.dependencies]
-black = "^24.3.0"
-coverage = "^7.4.4"
-mypy = "^1.9.0"
-pytest = "^8.1.1"
+black = "^24.10.0"
+coverage = "^7.6.4"
+mypy = "^1.13.0"
+pytest = "^8.3.3"
 
 [tool.poetry.group.script.dependencies]
-# https://github.com/facebookresearch/fastText/pull/1292
-fasttext = {git = "https://github.com/cfculhane/fastText.git"}
+fasttext = "^0.9.3"
 gcld3 = "^3.0.13"
 langdetect = "^1.0.9"
 langid = "^1.1.6"
-matplotlib = [
-    {version = "^3.7.3,<3.8", python = ">=3.8,<3.9"},
-    {version = "^3.8.3", python = ">=3.9,<3.13"}
-]
-numpy = [
-    {version = "^1.24.4,<1.25", python = ">=3.8,<3.9"},
-    {version = "^1.26.4", python = ">=3.9,<3.13"}
-]
-pandas = [
-    {version = "^2.0.3,<2.1", python = ">=3.8,<3.9"},
-    {version = "^2.2.1", python = ">=3.9,<3.13"}
-]
-psutil = "^5.9.8"
+matplotlib = "^3.9.2"
+numpy = "^1.26.4"
+pandas = "^2.2.3"
+psutil = "^6.1.0"
 pycld2 = "^0.41"
 seaborn = "^0.13.2"
-simplemma = "^0.9.1"
+simplemma = "0.9.1" # Most current 1.1.1 is much too slow
 
 [tool.mypy]
 files = ["lingua", "scripts", "tests"]

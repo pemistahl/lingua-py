@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from typing import FrozenSet, Iterable
+from collections.abc import Iterable
 
 from .detector import LanguageDetector
 from .isocode import IsoCode639_1, IsoCode639_3
@@ -27,7 +27,7 @@ _MISSING_LANGUAGE_MESSAGE: str = (
 class LanguageDetectorBuilder:
     """This class configures and creates an instance of LanguageDetector."""
 
-    def __init__(self, languages: FrozenSet[Language]):
+    def __init__(self, languages: frozenset[Language]):
         self._languages = languages
         self._minimum_relative_distance = 0.0
         self._is_every_language_model_preloaded = False

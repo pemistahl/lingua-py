@@ -17,14 +17,8 @@ from collections import Counter
 from dataclasses import dataclass
 from decimal import Decimal
 from math import exp
-from typing import (
-    Counter as TypedCounter,
-    Dict,
-    FrozenSet,
-    NamedTuple,
-    Optional,
-    List,
-)
+from typing import NamedTuple, Optional
+
 
 from ._constant import (
     CHARS_TO_LANGUAGES_MAPPING,
@@ -42,36 +36,36 @@ from ._model import (
     _NgramModelType,
 )
 
-_UNIGRAM_MODELS: Dict[Language, Dict[str, float]] = {}
-_BIGRAM_MODELS: Dict[Language, Dict[str, float]] = {}
-_TRIGRAM_MODELS: Dict[Language, Dict[str, float]] = {}
-_QUADRIGRAM_MODELS: Dict[Language, Dict[str, float]] = {}
-_FIVEGRAM_MODELS: Dict[Language, Dict[str, float]] = {}
-_UNIQUE_UNIGRAM_MODELS: Dict[Language, FrozenSet[str]] = {}
-_UNIQUE_BIGRAM_MODELS: Dict[Language, FrozenSet[str]] = {}
-_UNIQUE_TRIGRAM_MODELS: Dict[Language, FrozenSet[str]] = {}
-_UNIQUE_QUADRIGRAM_MODELS: Dict[Language, FrozenSet[str]] = {}
-_UNIQUE_FIVEGRAM_MODELS: Dict[Language, FrozenSet[str]] = {}
-_MOST_COMMON_UNIGRAM_MODELS: Dict[Language, FrozenSet[str]] = {}
-_MOST_COMMON_BIGRAM_MODELS: Dict[Language, FrozenSet[str]] = {}
-_MOST_COMMON_TRIGRAM_MODELS: Dict[Language, FrozenSet[str]] = {}
-_MOST_COMMON_QUADRIGRAM_MODELS: Dict[Language, FrozenSet[str]] = {}
-_MOST_COMMON_FIVEGRAM_MODELS: Dict[Language, FrozenSet[str]] = {}
-_LANGUAGES_WITH_SINGLE_UNIQUE_SCRIPT: FrozenSet[Language] = (
+_UNIGRAM_MODELS: dict[Language, dict[str, float]] = {}
+_BIGRAM_MODELS: dict[Language, dict[str, float]] = {}
+_TRIGRAM_MODELS: dict[Language, dict[str, float]] = {}
+_QUADRIGRAM_MODELS: dict[Language, dict[str, float]] = {}
+_FIVEGRAM_MODELS: dict[Language, dict[str, float]] = {}
+_UNIQUE_UNIGRAM_MODELS: dict[Language, frozenset[str]] = {}
+_UNIQUE_BIGRAM_MODELS: dict[Language, frozenset[str]] = {}
+_UNIQUE_TRIGRAM_MODELS: dict[Language, frozenset[str]] = {}
+_UNIQUE_QUADRIGRAM_MODELS: dict[Language, frozenset[str]] = {}
+_UNIQUE_FIVEGRAM_MODELS: dict[Language, frozenset[str]] = {}
+_MOST_COMMON_UNIGRAM_MODELS: dict[Language, frozenset[str]] = {}
+_MOST_COMMON_BIGRAM_MODELS: dict[Language, frozenset[str]] = {}
+_MOST_COMMON_TRIGRAM_MODELS: dict[Language, frozenset[str]] = {}
+_MOST_COMMON_QUADRIGRAM_MODELS: dict[Language, frozenset[str]] = {}
+_MOST_COMMON_FIVEGRAM_MODELS: dict[Language, frozenset[str]] = {}
+_LANGUAGES_WITH_SINGLE_UNIQUE_SCRIPT: frozenset[Language] = (
     Language.all_with_single_unique_script()
 )
 _HIGH_ACCURACY_MODE_MAX_TEXT_LENGTH = 120
 
 
-def _split_text_into_words(text: str) -> List[str]:
+def _split_text_into_words(text: str) -> list[str]:
     return LETTERS.findall(text.lower())
 
 
 def _sum_up_probabilities(
-    probabilities: List[Dict[Language, float]],
-    unigram_counts: Optional[TypedCounter[Language]],
-    filtered_languages: FrozenSet[Language],
-) -> Dict[Language, Decimal]:
+    probabilities: list[dict[Language, float]],
+    unigram_counts: Optional[Counter[Language]],
+    filtered_languages: frozenset[Language],
+) -> dict[Language, Decimal]:
     summed_up_probabilities = {}
     for language in filtered_languages:
         result = 0.0
@@ -93,21 +87,21 @@ def _compute_exponent(value: float) -> Decimal:
     return Decimal(value).exp()
 
 
-def _sort_confidence_values(values: List["ConfidenceValue"]):
+def _sort_confidence_values(values: list["ConfidenceValue"]):
     values.sort(key=lambda tup: (-tup[1], tup[0]))
 
 
 def _collect_languages_with_unique_characters(
-    languages: FrozenSet[Language],
-) -> FrozenSet[Language]:
+    languages: frozenset[Language],
+) -> frozenset[Language]:
     return frozenset(
         {language for language in languages if language._unique_characters is not None}
     )
 
 
 def _collect_single_language_alphabets(
-    languages: FrozenSet[Language],
-) -> Dict[_Alphabet, Language]:
+    languages: frozenset[Language],
+) -> dict[_Alphabet, Language]:
     return {
         alphabet: language
         for alphabet, language in _Alphabet.all_supporting_single_language().items()
@@ -116,7 +110,7 @@ def _collect_single_language_alphabets(
 
 
 def _merge_adjacent_results(
-    results: List["DetectionResult"], mergeable_result_indices: List[int]
+    results: list["DetectionResult"], mergeable_result_indices: list[int]
 ):
     mergeable_result_indices.sort(reverse=True)
 
@@ -186,27 +180,27 @@ class DetectionResult(NamedTuple):
 class LanguageDetector:
     """This class detects the language of text."""
 
-    _languages: FrozenSet[Language]
+    _languages: frozenset[Language]
     _minimum_relative_distance: float
     _is_low_accuracy_mode_enabled: bool
     _is_built_from_one_language: bool
-    _languages_with_unique_characters: FrozenSet[Language]
-    _one_language_alphabets: Dict[_Alphabet, Language]
-    _unigram_language_models: Dict[Language, Dict[str, float]]
-    _bigram_language_models: Dict[Language, Dict[str, float]]
-    _trigram_language_models: Dict[Language, Dict[str, float]]
-    _quadrigram_language_models: Dict[Language, Dict[str, float]]
-    _fivegram_language_models: Dict[Language, Dict[str, float]]
-    _unique_unigram_language_models: Dict[Language, FrozenSet[str]]
-    _unique_bigram_language_models: Dict[Language, FrozenSet[str]]
-    _unique_trigram_language_models: Dict[Language, FrozenSet[str]]
-    _unique_quadrigram_language_models: Dict[Language, FrozenSet[str]]
-    _unique_fivegram_language_models: Dict[Language, FrozenSet[str]]
-    _most_common_unigram_language_models: Dict[Language, FrozenSet[str]]
-    _most_common_bigram_language_models: Dict[Language, FrozenSet[str]]
-    _most_common_trigram_language_models: Dict[Language, FrozenSet[str]]
-    _most_common_quadrigram_language_models: Dict[Language, FrozenSet[str]]
-    _most_common_fivegram_language_models: Dict[Language, FrozenSet[str]]
+    _languages_with_unique_characters: frozenset[Language]
+    _one_language_alphabets: dict[_Alphabet, Language]
+    _unigram_language_models: dict[Language, dict[str, float]]
+    _bigram_language_models: dict[Language, dict[str, float]]
+    _trigram_language_models: dict[Language, dict[str, float]]
+    _quadrigram_language_models: dict[Language, dict[str, float]]
+    _fivegram_language_models: dict[Language, dict[str, float]]
+    _unique_unigram_language_models: dict[Language, frozenset[str]]
+    _unique_bigram_language_models: dict[Language, frozenset[str]]
+    _unique_trigram_language_models: dict[Language, frozenset[str]]
+    _unique_quadrigram_language_models: dict[Language, frozenset[str]]
+    _unique_fivegram_language_models: dict[Language, frozenset[str]]
+    _most_common_unigram_language_models: dict[Language, frozenset[str]]
+    _most_common_bigram_language_models: dict[Language, frozenset[str]]
+    _most_common_trigram_language_models: dict[Language, frozenset[str]]
+    _most_common_quadrigram_language_models: dict[Language, frozenset[str]]
+    _most_common_fivegram_language_models: dict[Language, frozenset[str]]
 
     def __repr__(self):
         languages = sorted([language.name for language in self._languages])
@@ -219,7 +213,7 @@ class LanguageDetector:
     @classmethod
     def _from(
         cls,
-        languages: FrozenSet[Language],
+        languages: frozenset[Language],
         minimum_relative_distance: float,
         is_every_language_model_preloaded: bool,
         is_low_accuracy_mode_enabled: bool,
@@ -517,7 +511,7 @@ class LanguageDetector:
 
         return most_likely_language
 
-    def detect_multiple_languages_of(self, text: str) -> List[DetectionResult]:
+    def detect_multiple_languages_of(self, text: str) -> list[DetectionResult]:
         """Attempt to detect multiple languages in mixed-language text.
 
         This feature is experimental and under continuous development.
@@ -544,7 +538,7 @@ class LanguageDetector:
             return []
 
         results = []
-        language_counts: TypedCounter[Language] = Counter()
+        language_counts: Counter[Language] = Counter()
 
         language = self.detect_language_of(text)
         if language is not None:
@@ -635,7 +629,7 @@ class LanguageDetector:
 
         return results
 
-    def compute_language_confidence_values(self, text: str) -> List[ConfidenceValue]:
+    def compute_language_confidence_values(self, text: str) -> list[ConfidenceValue]:
         """Compute confidence values for each language supported
         by this detector for the given text.
 
@@ -777,7 +771,7 @@ class LanguageDetector:
         return 0.0
 
     def _detect_language_with_unique_and_common_ngrams(
-        self, words: List[str]
+        self, words: list[str]
     ) -> Optional[Language]:
         fivegrams = _create_ngrams(words, ngram_length=5)
 
@@ -864,11 +858,11 @@ class LanguageDetector:
 
         return None
 
-    def _detect_language_with_rules(self, words: List[str]) -> Optional[Language]:
-        total_language_counts: TypedCounter[Optional[Language]] = Counter()
+    def _detect_language_with_rules(self, words: list[str]) -> Optional[Language]:
+        total_language_counts: Counter[Optional[Language]] = Counter()
         half_word_count = len(words) * 0.5
         for word in words:
-            word_language_counts: TypedCounter[Language] = Counter()
+            word_language_counts: Counter[Language] = Counter()
             for char in word:
                 is_match = False
                 for alphabet, language in self._one_language_alphabets.items():
@@ -944,8 +938,8 @@ class LanguageDetector:
 
         return most_frequent_total_language
 
-    def _filter_languages_by_rules(self, words: List[str]) -> FrozenSet[Language]:
-        detected_alphabets: TypedCounter[_Alphabet] = Counter()
+    def _filter_languages_by_rules(self, words: list[str]) -> frozenset[Language]:
+        detected_alphabets: Counter[_Alphabet] = Counter()
         half_word_count = len(words) * 0.5
 
         for word in words:
@@ -968,7 +962,7 @@ class LanguageDetector:
             for language in self._languages
             if most_frequent_alphabet in language._alphabets
         }
-        language_counts: TypedCounter[Language] = Counter()
+        language_counts: Counter[Language] = Counter()
 
         for characters, languages in CHARS_TO_LANGUAGES_MAPPING.items():
             relevant_languages = languages.intersection(filtered_languages)
@@ -992,9 +986,9 @@ class LanguageDetector:
 
     def _compute_language_probabilities(
         self,
-        ngram_model: List[List[str]],
-        filtered_languages: FrozenSet[Language],
-    ) -> Dict[Language, float]:
+        ngram_model: list[list[str]],
+        filtered_languages: frozenset[Language],
+    ) -> dict[Language, float]:
         probabilities = {}
         for language in filtered_languages:
             result = self._compute_sum_of_ngram_probabilities(language, ngram_model)
@@ -1003,7 +997,7 @@ class LanguageDetector:
         return probabilities
 
     def _compute_sum_of_ngram_probabilities(
-        self, language: Language, ngram_model: List[List[str]]
+        self, language: Language, ngram_model: list[list[str]]
     ) -> float:
         result = 0.0
         for ngrams in ngram_model:
@@ -1043,10 +1037,10 @@ class LanguageDetector:
 
     def _count_unigrams(
         self,
-        unigram_model: List[List[str]],
-        filtered_languages: FrozenSet[Language],
-    ) -> TypedCounter[Language]:
-        unigram_counts: TypedCounter[Language] = Counter()
+        unigram_model: list[list[str]],
+        filtered_languages: frozenset[Language],
+    ) -> Counter[Language]:
+        unigram_counts: Counter[Language] = Counter()
         for language in filtered_languages:
             for unigrams in unigram_model:
                 if self._look_up_ngram_probability(language, unigrams[0]) is not None:

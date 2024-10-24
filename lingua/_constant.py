@@ -15,7 +15,6 @@
 
 import regex
 from regex import Pattern
-from typing import Dict, FrozenSet
 
 from .language import Language
 
@@ -33,7 +32,7 @@ TOKENS_WITHOUT_WHITESPACE = regex.compile(
     r"\p{Han}|\p{Hangul}|\p{Hiragana}|\p{Katakana}|\p{L}+"
 )
 
-CHARS_TO_LANGUAGES_MAPPING: Dict[str, FrozenSet[Language]] = {
+CHARS_TO_LANGUAGES_MAPPING: dict[str, frozenset[Language]] = {
     "Ãã": frozenset([Language.PORTUGUESE, Language.VIETNAMESE]),
     "ĄąĘę": frozenset([Language.LITHUANIAN, Language.POLISH]),
     "Żż": frozenset([Language.POLISH, Language.ROMANIAN]),

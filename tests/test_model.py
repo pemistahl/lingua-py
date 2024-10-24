@@ -17,7 +17,6 @@ import pytest
 
 from fractions import Fraction
 from math import isclose
-from typing import Dict, List
 
 from lingua.detector import _split_text_into_words
 from lingua.language import Language
@@ -35,7 +34,7 @@ TEXT: str = """These sentences are intended for testing purposes.
     By the way, they consist of 23 words in total."""
 
 
-def map_values_to_fractions(dct: Dict[str, str]) -> Dict[str, Fraction]:
+def map_values_to_fractions(dct: dict[str, str]) -> dict[str, Fraction]:
     ngrams = {}
     for key, value in dct.items():
         numerator, denominator = value.split("/")
@@ -43,7 +42,7 @@ def map_values_to_fractions(dct: Dict[str, str]) -> Dict[str, Fraction]:
     return ngrams
 
 
-def expected_unigrams() -> List[List[str]]:
+def expected_unigrams() -> list[list[str]]:
     return [
         ["a"],
         ["b"],
@@ -68,7 +67,7 @@ def expected_unigrams() -> List[List[str]]:
     ]
 
 
-def expected_unigram_absolute_frequencies() -> Dict[str, int]:
+def expected_unigram_absolute_frequencies() -> dict[str, int]:
     return {
         "a": 3,
         "b": 1,
@@ -93,7 +92,7 @@ def expected_unigram_absolute_frequencies() -> Dict[str, int]:
     }
 
 
-def expected_unigram_relative_frequencies() -> Dict[str, Fraction]:
+def expected_unigram_relative_frequencies() -> dict[str, Fraction]:
     return map_values_to_fractions(
         {
             "a": "3/100",
@@ -139,7 +138,7 @@ def expected_unigram_model_json():
     """
 
 
-def expected_bigrams() -> List[List[str]]:
+def expected_bigrams() -> list[list[str]]:
     return [
         ["al", "a"],
         ["ar", "a"],
@@ -197,14 +196,14 @@ def expected_bigrams() -> List[List[str]]:
     ]
 
 
-def expected_unigram_json_relative_frequencies() -> Dict[str, float]:
+def expected_unigram_json_relative_frequencies() -> dict[str, float]:
     return {
         ngram: frac.numerator / frac.denominator
         for ngram, frac in expected_unigram_relative_frequencies().items()
     }
 
 
-def expected_bigram_absolute_frequencies() -> Dict[str, int]:
+def expected_bigram_absolute_frequencies() -> dict[str, int]:
     return {
         "de": 1,
         "pr": 1,
@@ -262,7 +261,7 @@ def expected_bigram_absolute_frequencies() -> Dict[str, int]:
     }
 
 
-def expected_bigram_relative_frequencies() -> Dict[str, Fraction]:
+def expected_bigram_relative_frequencies() -> dict[str, Fraction]:
     return map_values_to_fractions(
         {
             "de": "1/5",
@@ -322,7 +321,7 @@ def expected_bigram_relative_frequencies() -> Dict[str, Fraction]:
     )
 
 
-def expected_trigrams() -> List[List[str]]:
+def expected_trigrams() -> list[list[str]]:
     return [
         ["are", "ar", "a"],
         ["ces", "ce", "c"],
@@ -378,7 +377,7 @@ def expected_trigrams() -> List[List[str]]:
     ]
 
 
-def expected_trigram_absolute_frequencies() -> Dict[str, int]:
+def expected_trigram_absolute_frequencies() -> dict[str, int]:
     return {
         "rds": 1,
         "ose": 1,
@@ -434,7 +433,7 @@ def expected_trigram_absolute_frequencies() -> Dict[str, int]:
     }
 
 
-def expected_trigram_relative_frequencies() -> Dict[str, Fraction]:
+def expected_trigram_relative_frequencies() -> dict[str, Fraction]:
     return map_values_to_fractions(
         {
             "rds": "1/1",
@@ -492,7 +491,7 @@ def expected_trigram_relative_frequencies() -> Dict[str, Fraction]:
     )
 
 
-def expected_quadrigrams() -> List[List[str]]:
+def expected_quadrigrams() -> list[list[str]]:
     return [
         ["cons", "con", "co", "c"],
         ["ctio", "cti", "ct", "c"],
@@ -535,7 +534,7 @@ def expected_quadrigrams() -> List[List[str]]:
     ]
 
 
-def expected_quadrigram_absolute_frequencies() -> Dict[str, int]:
+def expected_quadrigram_absolute_frequencies() -> dict[str, int]:
     return {
         "onsi": 1,
         "sist": 1,
@@ -578,7 +577,7 @@ def expected_quadrigram_absolute_frequencies() -> Dict[str, int]:
     }
 
 
-def expected_quadrigram_relative_frequencies() -> Dict[str, Fraction]:
+def expected_quadrigram_relative_frequencies() -> dict[str, Fraction]:
     return map_values_to_fractions(
         {
             "onsi": "1/1",
@@ -623,7 +622,7 @@ def expected_quadrigram_relative_frequencies() -> Dict[str, Fraction]:
     )
 
 
-def expected_fivegrams() -> List[List[str]]:
+def expected_fivegrams() -> list[list[str]]:
     return [
         ["consi", "cons", "con", "co", "c"],
         ["ction", "ctio", "cti", "ct", "c"],
@@ -656,7 +655,7 @@ def expected_fivegrams() -> List[List[str]]:
     ]
 
 
-def expected_fivegram_absolute_frequencies() -> Dict[str, int]:
+def expected_fivegram_absolute_frequencies() -> dict[str, int]:
     return {
         "testi": 1,
         "sente": 1,
@@ -689,7 +688,7 @@ def expected_fivegram_absolute_frequencies() -> Dict[str, int]:
     }
 
 
-def expected_fivegram_relative_frequencies() -> Dict[str, Fraction]:
+def expected_fivegram_relative_frequencies() -> dict[str, Fraction]:
     return map_values_to_fractions(
         {
             "testi": "1/1",

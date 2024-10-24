@@ -17,12 +17,12 @@ import regex
 
 from enum import Enum
 from functools import total_ordering
-from typing import Dict, FrozenSet, List, Optional, Pattern
+from typing import Optional
 
 from .isocode import IsoCode639_1, IsoCode639_3
 
 
-def _pattern(char_class: str) -> Pattern[str]:
+def _pattern(char_class: str) -> regex.Pattern[str]:
     return regex.compile(r"^\p{{Is{}}}+$".format(char_class))
 
 
@@ -51,14 +51,14 @@ class _Alphabet(Enum):
         obj._value_ = args[0]
         return obj
 
-    def __init__(self, _: int, pattern: Pattern[str]):
+    def __init__(self, _: int, pattern: regex.Pattern[str]):
         self._pattern = pattern
 
     def matches(self, text: str) -> bool:
         return self._pattern.match(text) is not None
 
     @classmethod
-    def all_supporting_single_language(cls) -> Dict["_Alphabet", "Language"]:
+    def all_supporting_single_language(cls) -> dict["_Alphabet", "Language"]:
         alphabets = {}
         for alphabet in _Alphabet:
             supported_languages = alphabet._supported_languages()
@@ -66,7 +66,7 @@ class _Alphabet(Enum):
                 alphabets[alphabet] = supported_languages[0]
         return alphabets
 
-    def _supported_languages(self) -> List["Language"]:
+    def _supported_languages(self) -> list["Language"]:
         languages = []
         for language in Language:
             if self in language._alphabets:
@@ -356,7 +356,7 @@ class Language(Enum):
         _: int,
         iso_code639_1: IsoCode639_1,
         iso_code639_3: IsoCode639_3,
-        alphabets: FrozenSet[_Alphabet],
+        alphabets: frozenset[_Alphabet],
         unique_characters: Optional[str] = None,
     ):
         self.iso_code_639_1 = iso_code639_1
@@ -377,26 +377,26 @@ class Language(Enum):
         return str(self)
 
     @classmethod
-    def all(cls) -> FrozenSet["Language"]:
+    def all(cls) -> frozenset["Language"]:
         """Return a set of all supported languages."""
         return frozenset(language for language in Language)
 
     @classmethod
-    def all_spoken_ones(cls) -> FrozenSet["Language"]:
+    def all_spoken_ones(cls) -> frozenset["Language"]:
         """Return a set of all supported spoken languages."""
         return frozenset(
             language for language in Language if language is not Language.LATIN
         )
 
     @classmethod
-    def all_with_arabic_script(cls) -> FrozenSet["Language"]:
+    def all_with_arabic_script(cls) -> frozenset["Language"]:
         """Return a set of all languages supporting the Arabic script."""
         return frozenset(
             language for language in Language if _Alphabet.ARABIC in language._alphabets
         )
 
     @classmethod
-    def all_with_cyrillic_script(cls) -> FrozenSet["Language"]:
+    def all_with_cyrillic_script(cls) -> frozenset["Language"]:
         """Return a set of all languages supporting the Cyrillic script."""
         return frozenset(
             language
@@ -405,7 +405,7 @@ class Language(Enum):
         )
 
     @classmethod
-    def all_with_devanagari_script(cls) -> FrozenSet["Language"]:
+    def all_with_devanagari_script(cls) -> frozenset["Language"]:
         """Return a set of all languages supporting the Devanagari script."""
         return frozenset(
             language
@@ -414,14 +414,14 @@ class Language(Enum):
         )
 
     @classmethod
-    def all_with_latin_script(cls) -> FrozenSet["Language"]:
+    def all_with_latin_script(cls) -> frozenset["Language"]:
         """Return a set of all languages supporting the Latin script."""
         return frozenset(
             language for language in Language if _Alphabet.LATIN in language._alphabets
         )
 
     @classmethod
-    def all_with_single_unique_script(cls) -> FrozenSet["Language"]:
+    def all_with_single_unique_script(cls) -> frozenset["Language"]:
         """Return a set of all languages supporting a single unique script."""
         languages = set()
         single_language_alphabets = _Alphabet.all_supporting_single_language().keys()

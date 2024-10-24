@@ -23,7 +23,7 @@ from enum import Enum, auto
 from fractions import Fraction
 from math import log
 from pathlib import Path
-from typing import Any, Counter as TypedCounter, Dict, FrozenSet, List, Optional
+from typing import Any, Optional
 
 from .language import Language
 from ._ngram import _NgramRange, _get_ngram_name_by_length
@@ -37,7 +37,7 @@ class _NgramProbabilitiesJSONEncoder(json.JSONEncoder):
             return {"language": language, "ngrams": ngrams}
         return json.JSONEncoder.default(self, obj)
 
-    def encode_frequencies(self, obj: Optional[Dict[str, Fraction]]) -> Dict[str, str]:
+    def encode_frequencies(self, obj: Optional[dict[str, Fraction]]) -> dict[str, str]:
         fractions_to_ngrams = defaultdict(list)
         if obj is not None:
             for ngram, fraction in obj.items():
@@ -63,7 +63,7 @@ class _NgramProbabilitiesJSONDecoder(json.JSONDecoder):
             return _NgramProbabilityModel(language, ngrams)
         return obj
 
-    def parse_frequencies(self, obj: Dict[str, str]) -> Dict[str, float]:
+    def parse_frequencies(self, obj: dict[str, str]) -> dict[str, float]:
         frequencies = {}
         for fraction, ngrams in obj.items():
             numerator, denominator = fraction.split("/")
@@ -88,13 +88,13 @@ class _NgramsJSONDecoder(json.JSONDecoder):
 @dataclass
 class _NgramProbabilityModel:
     language: Language
-    ngrams: Dict[str, float]
+    ngrams: dict[str, float]
 
 
 @dataclass
 class _NgramModel:
     language: Language
-    ngrams: FrozenSet[str]
+    ngrams: frozenset[str]
 
 
 class _NgramModelType(Enum):
@@ -139,17 +139,17 @@ def _load_ngram_model(
 @dataclass
 class _TrainingDataLanguageModel:
     language: Language
-    absolute_frequencies: Optional[Dict[str, int]]
-    relative_frequencies: Optional[Dict[str, Fraction]]
+    absolute_frequencies: Optional[dict[str, int]]
+    relative_frequencies: Optional[dict[str, Fraction]]
 
     @classmethod
     def from_text(
         cls,
-        text: List[str],
+        text: list[str],
         language: Language,
         ngram_length: int,
         char_class: str,
-        lower_ngram_absolute_frequencies: Optional[Dict[str, int]],
+        lower_ngram_absolute_frequencies: Optional[dict[str, int]],
     ) -> "_TrainingDataLanguageModel":
         absolute_frequencies = cls.compute_absolute_frequencies(
             text, ngram_length, char_class
@@ -172,9 +172,9 @@ class _TrainingDataLanguageModel:
 
     @classmethod
     def compute_absolute_frequencies(
-        cls, text: List[str], ngram_length: int, char_class: str
-    ) -> Dict[str, int]:
-        absolute_frequencies: TypedCounter[str] = Counter()
+        cls, text: list[str], ngram_length: int, char_class: str
+    ) -> dict[str, int]:
+        absolute_frequencies: Counter[str] = Counter()
         regexp = regex.compile(r"^[{}]+$".format(char_class))
         for line in text:
             lowercased_line = line.lower()
@@ -188,9 +188,9 @@ class _TrainingDataLanguageModel:
     def compute_relative_frequencies(
         cls,
         ngram_length: int,
-        absolute_frequencies: Dict[str, int],
-        lower_ngram_absolute_frequencies: Optional[Dict[str, int]],
-    ) -> Dict[str, Fraction]:
+        absolute_frequencies: dict[str, int],
+        lower_ngram_absolute_frequencies: Optional[dict[str, int]],
+    ) -> dict[str, Fraction]:
         if lower_ngram_absolute_frequencies is None:
             return {}
         ngram_probabilities = {}
@@ -205,7 +205,7 @@ class _TrainingDataLanguageModel:
         return ngram_probabilities
 
 
-def _create_ngrams(words: List[str], ngram_length: int) -> FrozenSet[str]:
+def _create_ngrams(words: list[str], ngram_length: int) -> frozenset[str]:
     if ngram_length not in range(1, 6):
         raise ValueError(f"ngram length {ngram_length} is not in range 1..6")
     ngrams = set()
@@ -218,6 +218,6 @@ def _create_ngrams(words: List[str], ngram_length: int) -> FrozenSet[str]:
     return frozenset(ngrams)
 
 
-def _create_lower_order_ngrams(words: List[str], ngram_length: int) -> List[List[str]]:
+def _create_lower_order_ngrams(words: list[str], ngram_length: int) -> list[list[str]]:
     ngrams = _create_ngrams(words, ngram_length)
     return [list(_NgramRange(ngram)) for ngram in ngrams]

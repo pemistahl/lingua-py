@@ -30,7 +30,7 @@ from collections import Counter
 from dataclasses import dataclass
 from enum import Enum, auto
 from pathlib import Path
-from typing import Counter as TypedCounter, Dict, List, Optional, Tuple
+from typing import Optional
 
 from simplemma.langdetect import lang_detector as simplemma_detector
 from lingua import IsoCode639_1, Language, LanguageDetectorBuilder
@@ -155,8 +155,8 @@ class DetectorStatistics:
 
 @dataclass
 class Statistic:
-    _language_counts: TypedCounter[Optional[Language]]
-    _language_accuracies: Dict[Optional[Language], float]
+    _language_counts: Counter[Optional[Language]]
+    _language_accuracies: dict[Optional[Language], float]
     _entity_count: int
     _entity_length_count: int
 
@@ -185,7 +185,7 @@ class Statistic:
 
     def create_report_data(
         self, language: Optional[Language], description: str
-    ) -> Tuple[float, str]:
+    ) -> tuple[float, str]:
         if language in self._language_accuracies:
             accuracy = self._language_accuracies[language]
         else:
@@ -223,7 +223,7 @@ class AbstractLanguageDetector:
         self,
         detector_name: str,
         is_single_language_detector: bool,
-        languages: List[Language],
+        languages: list[Language],
     ):
         accuracy_reports_directory = Path(__file__).parent / "../accuracy-reports"
         self.detector_name = detector_name
@@ -237,10 +237,10 @@ class AbstractLanguageDetector:
     def _setup(self, language: Language) -> None:
         pass
 
-    def _detect(self, texts: List[str]) -> List[Optional[Language]]:
+    def _detect(self, texts: list[str]) -> list[Optional[Language]]:
         return []
 
-    def _get_file_content(self, subdirectory: str) -> Dict[Language, List[str]]:
+    def _get_file_content(self, subdirectory: str) -> dict[Language, list[str]]:
         file_content = {}
         test_data_directory = Path(__file__).parent / "../language-testdata"
 
@@ -257,7 +257,7 @@ class AbstractLanguageDetector:
 
         return file_content
 
-    def collect_statistics(self) -> List[DetectorStatistics]:
+    def collect_statistics(self) -> list[DetectorStatistics]:
         if not self.reports_directory.is_dir():
             os.makedirs(self.reports_directory)
 
@@ -300,7 +300,7 @@ class AbstractLanguageDetector:
 
         return all_statistics
 
-    def write_reports(self, statistics: List[DetectorStatistics]):
+    def write_reports(self, statistics: list[DetectorStatistics]):
         for stat in statistics:
             report = stat.create_report_data()
             if report is not None:
@@ -311,10 +311,10 @@ class AbstractLanguageDetector:
 
 
 class CLD2Detector(AbstractLanguageDetector):
-    def __init__(self, languages: List[Language]):
+    def __init__(self, languages: list[Language]):
         super(CLD2Detector, self).__init__("cld2", False, languages)
 
-    def _detect(self, texts: List[str]) -> List[Optional[Language]]:
+    def _detect(self, texts: list[str]) -> list[Optional[Language]]:
         results = []
         for text in texts:
             try:
@@ -325,11 +325,11 @@ class CLD2Detector(AbstractLanguageDetector):
 
 
 class CLD3Detector(AbstractLanguageDetector):
-    def __init__(self, languages: List[Language]):
+    def __init__(self, languages: list[Language]):
         super(CLD3Detector, self).__init__("cld3", False, languages)
         self.detector = gcld3.NNetLanguageIdentifier(min_num_bytes=0, max_num_bytes=512)
 
-    def _detect(self, texts: List[str]) -> List[Optional[Language]]:
+    def _detect(self, texts: list[str]) -> list[Optional[Language]]:
         return [
             map_detector_to_lingua(self.detector.FindLanguage(text).language)
             for text in texts
@@ -337,7 +337,7 @@ class CLD3Detector(AbstractLanguageDetector):
 
 
 class FastspellDetector(AbstractLanguageDetector):
-    def __init__(self, languages: List[Language], mode: str):
+    def __init__(self, languages: list[Language], mode: str):
         super(FastspellDetector, self).__init__(f"fastspell-{mode}", False, languages)
         self.mode = mode
 
@@ -346,14 +346,14 @@ class FastspellDetector(AbstractLanguageDetector):
             language.iso_code_639_1.name.lower(), mode=self.mode
         )
 
-    def _detect(self, texts: List[str]) -> List[Optional[Language]]:
+    def _detect(self, texts: list[str]) -> list[Optional[Language]]:
         return [
             map_detector_to_lingua(self.fastspell_obj.getlang(text)) for text in texts
         ]
 
 
 class FasttextDetector(AbstractLanguageDetector):
-    def __init__(self, languages: List[Language]):
+    def __init__(self, languages: list[Language]):
         super(FasttextDetector, self).__init__("fasttext", False, languages)
         fasttext_model_url = (
             "https://dl.fbaipublicfiles.com/fasttext/supervised-models/lid.176.bin"
@@ -365,7 +365,7 @@ class FasttextDetector(AbstractLanguageDetector):
             )[0]
         self.detector = fasttext.load_model(fasttext_model_file)
 
-    def _detect(self, texts: List[str]) -> List[Optional[Language]]:
+    def _detect(self, texts: list[str]) -> list[Optional[Language]]:
         return [
             map_detector_to_lingua(
                 self.detector.predict(text)[0][0].split("__label__")[1]
@@ -375,10 +375,10 @@ class FasttextDetector(AbstractLanguageDetector):
 
 
 class LangdetectDetector(AbstractLanguageDetector):
-    def __init__(self, languages: List[Language]):
+    def __init__(self, languages: list[Language]):
         super(LangdetectDetector, self).__init__("langdetect", False, languages)
 
-    def _detect(self, texts: List[str]) -> List[Optional[Language]]:
+    def _detect(self, texts: list[str]) -> list[Optional[Language]]:
         results = []
         for text in texts:
             try:
@@ -389,15 +389,15 @@ class LangdetectDetector(AbstractLanguageDetector):
 
 
 class LangidDetector(AbstractLanguageDetector):
-    def __init__(self, languages: List[Language]):
+    def __init__(self, languages: list[Language]):
         super(LangidDetector, self).__init__("langid", False, languages)
 
-    def _detect(self, texts: List[str]) -> List[Optional[Language]]:
+    def _detect(self, texts: list[str]) -> list[Optional[Language]]:
         return [map_detector_to_lingua(langid.classify(text)[0]) for text in texts]
 
 
 class LinguaLowAccuracyDetector(AbstractLanguageDetector):
-    def __init__(self, languages: List[Language]):
+    def __init__(self, languages: list[Language]):
         super(LinguaLowAccuracyDetector, self).__init__(
             "lingua-low-accuracy", False, languages
         )
@@ -408,12 +408,12 @@ class LinguaLowAccuracyDetector(AbstractLanguageDetector):
             .build()
         )
 
-    def _detect(self, texts: List[str]) -> List[Optional[Language]]:
+    def _detect(self, texts: list[str]) -> list[Optional[Language]]:
         return [self.detector.detect_language_of(text) for text in texts]
 
 
 class LinguaHighAccuracyDetector(AbstractLanguageDetector):
-    def __init__(self, languages: List[Language]):
+    def __init__(self, languages: list[Language]):
         super(LinguaHighAccuracyDetector, self).__init__(
             "lingua-high-accuracy", False, languages
         )
@@ -423,23 +423,23 @@ class LinguaHighAccuracyDetector(AbstractLanguageDetector):
             .build()
         )
 
-    def _detect(self, texts: List[str]) -> List[Optional[Language]]:
+    def _detect(self, texts: list[str]) -> list[Optional[Language]]:
         return [self.detector.detect_language_of(text) for text in texts]
 
 
 class LinguaSingleLanguageDetector(AbstractLanguageDetector):
-    def __init__(self, language: Language, languages: List[Language]):
+    def __init__(self, language: Language, languages: list[Language]):
         super(LinguaSingleLanguageDetector, self).__init__(
             f"lingua-{language.name.lower()}-detector", True, languages
         )
         self.detector = LanguageDetectorBuilder.from_languages(language).build()
 
-    def _detect(self, texts: List[str]) -> List[Optional[Language]]:
+    def _detect(self, texts: list[str]) -> list[Optional[Language]]:
         return [self.detector.detect_language_of(text) for text in texts]
 
 
 class SimplemmaDetector(AbstractLanguageDetector):
-    def __init__(self, languages: List[Language]):
+    def __init__(self, languages: list[Language]):
         super(SimplemmaDetector, self).__init__("simplemma", False, languages)
         self.iso_codes = tuple(
             language.iso_code_639_1.name.lower()
@@ -488,7 +488,7 @@ class SimplemmaDetector(AbstractLanguageDetector):
             ]
         )
 
-    def _detect(self, texts: List[str]) -> List[Optional[Language]]:
+    def _detect(self, texts: list[str]) -> list[Optional[Language]]:
         return [
             map_detector_to_lingua(simplemma_detector(text, self.iso_codes)[0][0])  # type: ignore
             for text in texts
@@ -512,7 +512,7 @@ def map_detector_to_lingua(iso_code: str) -> Optional[Language]:
         return None
 
 
-def parse_command_line_args() -> Tuple[List[str], List[str]]:
+def parse_command_line_args() -> tuple[list[str], list[str]]:
     default_languages = [language.name.lower() for language in Language]
     default_detectors = [
         "cld2",
@@ -546,7 +546,7 @@ def parse_command_line_args() -> Tuple[List[str], List[str]]:
 
 
 def create_detector_instance(
-    detector_name: str, languages: List[Language]
+    detector_name: str, languages: list[Language]
 ) -> Optional[AbstractLanguageDetector]:
     if detector_name == "cld2":
         return CLD2Detector(languages)

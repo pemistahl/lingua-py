@@ -18,14 +18,13 @@ import json
 
 from collections import defaultdict
 from pathlib import Path
-from typing import Dict, FrozenSet, Set
 
 from lingua import Language
 from lingua._model import _load_ngram_probability_model
 from lingua._ngram import _get_ngram_name_by_length
 
 
-def load_ngrams(ngram_length: int) -> Dict[Language, FrozenSet[str]]:
+def load_ngrams(ngram_length: int) -> dict[Language, frozenset[str]]:
     result = {}
     for language in Language:
         model = _load_ngram_probability_model(language, ngram_length)
@@ -35,9 +34,9 @@ def load_ngrams(ngram_length: int) -> Dict[Language, FrozenSet[str]]:
 
 
 def identify_unique_ngrams(
-    ngrams: Dict[Language, FrozenSet[str]]
-) -> Dict[Language, Set[str]]:
-    unique_ngrams: Set[str] = set()
+    ngrams: dict[Language, frozenset[str]]
+) -> dict[Language, set[str]]:
+    unique_ngrams: set[str] = set()
     for ngrams_i in ngrams.values():
         current = ngrams_i
         for ngrams_j in ngrams.values():
@@ -54,7 +53,7 @@ def identify_unique_ngrams(
     return result
 
 
-def store_unique_ngrams(unique_ngrams: Dict[Language, Set[str]], ngram_length: int):
+def store_unique_ngrams(unique_ngrams: dict[Language, set[str]], ngram_length: int):
     ngram_name = _get_ngram_name_by_length(ngram_length)
     for language, ngrams in unique_ngrams.items():
         obj = {"language": language.name, "ngrams": list(ngrams)}

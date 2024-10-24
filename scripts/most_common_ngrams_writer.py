@@ -18,7 +18,6 @@ import json
 
 from collections import Counter
 from pathlib import Path
-from typing import Counter as TypedCounter, Dict, List
 
 from lingua import Language, IsoCode639_1
 from lingua._constant import LETTERS
@@ -27,7 +26,7 @@ from lingua._ngram import _get_ngram_name_by_length
 
 def identify_most_common_ngrams(
     ngram_length: int, most_common: int
-) -> Dict[Language, List[str]]:
+) -> dict[Language, list[str]]:
     result = {}
     relative_directory_path = "../language-testdata/sentences"
     absolute_directory_path = Path(__file__).parent / relative_directory_path
@@ -36,7 +35,7 @@ def identify_most_common_ngrams(
         iso_code = sentence_file.parts[-1][:2]
         language = Language.from_iso_code_639_1(IsoCode639_1[iso_code.upper()])
         words = LETTERS.findall(sentence_file.read_text().lower())
-        counter: TypedCounter[str] = Counter()
+        counter: Counter[str] = Counter()
 
         for word in words:
             for i in range(0, len(word) - ngram_length + 1):
@@ -52,7 +51,7 @@ def identify_most_common_ngrams(
 
 
 def store_most_common_ngrams(
-    most_common_ngrams: Dict[Language, List[str]], ngram_length: int
+    most_common_ngrams: dict[Language, list[str]], ngram_length: int
 ):
     ngram_name = _get_ngram_name_by_length(ngram_length)
     for language, ngrams in most_common_ngrams.items():

@@ -17,7 +17,7 @@ import brotli
 import regex
 
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Optional
 
 from ._constant import MULTIPLE_WHITESPACE, NUMBERS, PUNCTUATION
 from .language import Language
@@ -115,7 +115,7 @@ class LanguageModelFilesWriter:
         language: Language,
         ngram_length: int,
         char_class: str,
-        lower_ngram_absolute_frequencies: Optional[Dict[str, int]],
+        lower_ngram_absolute_frequencies: Optional[dict[str, int]],
     ) -> _TrainingDataLanguageModel:
         with input_file_path.open() as input_file:
             input_file_lines = [
@@ -219,7 +219,7 @@ class TestDataFilesWriter:
         output_directory_path: Path,
         char_class: str,
         maximum_lines: int,
-    ) -> List[str]:
+    ) -> list[str]:
         single_words_file_path = output_directory_path / "single-words.txt"
         word_regex = regex.compile(f"[{char_class}]{{5,}}")
         words = []
@@ -253,7 +253,7 @@ class TestDataFilesWriter:
 
     @classmethod
     def _create_and_write_word_pairs_file(
-        cls, words: List[str], output_directory_path: Path, maximum_lines: int
+        cls, words: list[str], output_directory_path: Path, maximum_lines: int
     ):
         word_pairs_file_path = output_directory_path / "word-pairs.txt"
         word_pairs = []
