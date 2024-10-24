@@ -23,7 +23,6 @@ from typing import NamedTuple, Optional
 from ._constant import (
     CHARS_TO_LANGUAGES_MAPPING,
     JAPANESE_CHARACTER_SET,
-    LETTERS,
     TOKENS_WITHOUT_WHITESPACE,
     TOKENS_WITH_OPTIONAL_WHITESPACE,
 )
@@ -58,7 +57,7 @@ _HIGH_ACCURACY_MODE_MAX_TEXT_LENGTH = 120
 
 
 def _split_text_into_words(text: str) -> list[str]:
-    return LETTERS.findall(text.lower())
+    return TOKENS_WITHOUT_WHITESPACE.findall(text.lower())
 
 
 def _sum_up_probabilities(
