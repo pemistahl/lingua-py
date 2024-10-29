@@ -1,6 +1,6 @@
 ##### Armenian #####
 
->>> Accuracy on average: 99.97%
+>>> Accuracy on average: 99.87%
 
 >> Detection of 1000 single words (average length: 9 chars)
 Accuracy: 100.00%
@@ -11,6 +11,6 @@ Accuracy: 100.00%
 Erroneously classified as 
 
 >> Detection of 1000 sentences (average length: 122 chars)
-Accuracy: 99.90%
-Erroneously classified as Lithuanian: 0.10%
+Accuracy: 99.60%
+Erroneously classified as Lithuanian: 0.10%, Russian: 0.10%, Slovak: 0.10%, Xhosa: 0.10%
 

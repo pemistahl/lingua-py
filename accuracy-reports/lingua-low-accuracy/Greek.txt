@@ -12,5 +12,5 @@ Erroneously classified as
 
 >> Detection of 1000 sentences (average length: 122 chars)
 Accuracy: 99.80%
-Erroneously classified as English: 0.10%, Malay: 0.10%
+Erroneously classified as Azerbaijani: 0.10%, Malay: 0.10%
 

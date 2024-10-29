@@ -260,7 +260,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/lightgreen.png"> 79</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/grey.png"> -</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/orange.png"> 30</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/lightgreen.png"> 73</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/lightgreen.png"> 72</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 85</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 85</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/grey.png"> -</td>
@@ -286,7 +286,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 96</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 96</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 88</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 95</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 94</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 98</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 86</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 81</td>
@@ -481,7 +481,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 90</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/grey.png"> -</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/lightgreen.png"> 78</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 98</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 97</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 98</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/grey.png"> -</td>
@@ -598,7 +598,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 86</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/grey.png"> -</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 90</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 98</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/grey.png"> -</td>
@@ -806,7 +806,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/lightgreen.png"> 78</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/lightgreen.png"> 67</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/lightgreen.png"> 63</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/lightgreen.png"> 76</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/lightgreen.png"> 77</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 89</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 83</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/lightgreen.png"> 62</td>
@@ -871,7 +871,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/grey.png"> -</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/grey.png"> -</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/grey.png"> -</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/lightgreen.png"> 76</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/lightgreen.png"> 75</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 89</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 87</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/grey.png"> -</td>
@@ -1022,7 +1022,7 @@
         <td>80.9</td>
         <td>84.1</td>
         <td>67.1</td>
-        <td>84.6</td>
+        <td>84.8</td>
         <td>93.7</td>
         <td>90.18</td>
         <td>59.9</td>
@@ -1036,7 +1036,7 @@
         <td>26.47</td>
         <td>15.66</td>
         <td>28.52</td>
-        <td>17.05</td>
+        <td>17.03</td>
         <td>13.11</td>
         <td>6.42</td>
         <td>24.49</td>

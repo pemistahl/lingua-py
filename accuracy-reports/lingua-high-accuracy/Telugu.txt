@@ -1,6 +1,6 @@
 ##### Telugu #####
 
->>> Accuracy on average: 100.00%
+>>> Accuracy on average: 99.97%
 
 >> Detection of 1000 single words (average length: 8 chars)
 Accuracy: 100.00%
@@ -11,6 +11,6 @@ Accuracy: 100.00%
 Erroneously classified as 
 
 >> Detection of 1000 sentences (average length: 94 chars)
-Accuracy: 100.00%
-Erroneously classified as 
+Accuracy: 99.90%
+Erroneously classified as Esperanto: 0.10%
 

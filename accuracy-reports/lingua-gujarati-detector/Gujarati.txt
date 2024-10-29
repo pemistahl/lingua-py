@@ -1,10 +1,10 @@
 ##### Gujarati #####
 
->>> Accuracy on average: 99.97%
+>>> Accuracy on average: 100.00%
 
 >> Detection of 1000 single words (average length: 7 chars)
-Accuracy: 99.90%
-Erroneously classified as Unknown: 0.10%
+Accuracy: 100.00%
+Erroneously classified as 
 
 >> Detection of 1000 word pairs (average length: 14 chars)
 Accuracy: 100.00%

@@ -78,7 +78,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 98</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/grey.png"> -</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 98</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 97</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/lightgreen.png"> 75</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/grey.png"> -</td>
@@ -91,7 +91,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/grey.png"> -</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 86</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 89</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 87</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 93</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/lightgreen.png"> 61</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/grey.png"> -</td>
@@ -104,7 +104,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 98</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/grey.png"> -</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 99</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 100</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 96</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 95</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/grey.png"> -</td>
@@ -156,7 +156,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 96</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 93</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 97</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 96</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 94</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 91</td>
@@ -208,7 +208,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 92</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 88</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 86</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 88</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 86</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 91</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/lightgreen.png"> 75</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/lightgreen.png"> 76</td>
@@ -221,7 +221,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 95</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 94</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 86</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 94</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 95</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 98</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/lightgreen.png"> 64</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 83</td>
@@ -260,7 +260,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/grey.png"> -</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 96</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 90</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 89</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 98</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/lightgreen.png"> 62</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/grey.png"> -</td>
@@ -403,7 +403,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 100</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 98</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 96</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/lightgreen.png"> 72</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 95</td>
@@ -442,7 +442,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 89</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/grey.png"> -</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 97</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 95</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 96</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 96</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/lightgreen.png"> 72</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 90</td>
@@ -481,7 +481,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/grey.png"> -</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 96</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 98</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 96</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 95</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/grey.png"> -</td>
@@ -507,7 +507,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 85</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/grey.png"> -</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/lightgreen.png"> 61</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 92</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 90</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 97</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/lightgreen.png"> 64</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 93</td>
@@ -546,7 +546,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 94</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 89</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 92</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 92</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/red.png"> 15</td>
@@ -598,7 +598,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 98</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/grey.png"> -</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 99</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 94</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 98</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 97</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/grey.png"> -</td>
@@ -611,7 +611,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/lightgreen.png"> 61</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/grey.png"> -</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/lightgreen.png"> 75</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/lightgreen.png"> 76</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/lightgreen.png"> 75</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 91</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/lightgreen.png"> 62</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/yellow.png"> 45</td>
@@ -676,7 +676,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 95</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 97</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 92</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 92</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 91</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/yellow.png"> 59</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 86</td>
@@ -689,7 +689,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 95</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 91</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 90</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 92</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 98</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 95</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 83</td>
@@ -728,7 +728,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 91</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 98</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 97</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 95</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 98</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/lightgreen.png"> 72</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 93</td>
@@ -754,7 +754,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/yellow.png"> 52</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/grey.png"> -</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 95</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 94</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/lightgreen.png"> 67</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/grey.png"> -</td>
@@ -780,7 +780,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 97</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 98</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 82</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 83</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 97</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/yellow.png"> 59</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 92</td>
@@ -793,7 +793,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 92</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 98</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 83</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 88</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 98</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/lightgreen.png"> 63</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/lightgreen.png"> 72</td>
@@ -806,7 +806,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 98</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 97</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 96</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 91</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 94</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/lightgreen.png"> 64</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 87</td>
@@ -858,8 +858,8 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 100</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 100</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 100</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 99</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/grey.png"> -</td>
     </tr>
@@ -871,7 +871,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/grey.png"> -</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/grey.png"> -</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/grey.png"> -</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 94</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 91</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 98</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/lightgreen.png"> 64</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/grey.png"> -</td>
@@ -897,7 +897,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 84</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 97</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 95</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/lightgreen.png"> 63</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 96</td>
@@ -910,7 +910,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 98</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 96</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 96</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 97</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 94</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/pure-python-impl/images/green.png"> 97</td>
@@ -1036,7 +1036,7 @@
         <td>19.42</td>
         <td>2.66</td>
         <td>20.23</td>
-        <td>11.61</td>
+        <td>11.59</td>
         <td>11.06</td>
         <td>16.21</td>
         <td>31.89</td>
