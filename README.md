@@ -62,14 +62,16 @@ Because of that, the language models were then stored in NumPy arrays instead of
 dictionaries. Memory consumption reduced to approximately 800 MB but CPU
 performance dropped significantly. Both approaches were not satisfying.
 
-Starting from version 2.0.0, the pure Python implementation was replaced with
+Starting from version 2.0.0, the pure Python implementation is complemented by
 compiled Python bindings to the native
 [Rust implementation](https://github.com/pemistahl/lingua-rs) of *Lingua*.
 This decision has led to both quick performance and a small memory
 footprint of less than 1 GB. The pure Python implementation is still available
 in a [separate branch](https://github.com/pemistahl/lingua-py/tree/pure-python-impl)
 in this repository and will be kept up-to-date in subsequent 1.* releases.
-Both 1.* and 2.* versions will remain available on the Python package index (PyPI).
+There are environments that do not support native Python extensions such as
+[Juno](https://juno.sh/), so a pure Python implementation is still useful.
+Both 1.* and 2.* versions are available on the Python package index (PyPI).
 
 ## 4. Which languages are supported?
 

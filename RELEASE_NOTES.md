@@ -1,3 +1,29 @@
+## Lingua 1.4.0 (released on 29 Oct 2024)
+
+### Features
+
+- This release introduces an absolute confidence metric based on unique and most
+  common ngrams for each supported language. It allows to build
+  a language detector from a single language only. Such a detector serves as
+  a binary classifier, telling you whether some text is written in your selected
+  language or not. (#235)
+
+### Improvements
+
+- The new absolute confidence metric helps to improve accuracy in low accuracy mode.
+  The mean of average detection accuracy (single words, word pairs and sentences combined)
+  increases from 77% to 80%.
+
+### Bug Fixes
+
+- The tokenization of texts written in the Devanagari alphabet was flawed.
+  This has been fixed, leading to better detection accuracy for Hindi and Marathi.
+
+### Compatibility
+
+- The newest Python 3.13 is now officially supported.
+- Support for Python 3.8 and 3.9 has been dropped. The lowest supported Python version is 3.10 now.
+
 ## Lingua 1.3.5 (released on 03 Apr 2024)
 
 ### Improvements
