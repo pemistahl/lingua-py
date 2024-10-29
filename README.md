@@ -352,6 +352,11 @@ reports yourself for all classifiers and languages by executing:
     poetry install --only script
     poetry run python3 scripts/accuracy_reporter.py
 
+Accuracy reports for only a subset of classifiers and / or languages can be created by
+passing command line arguments:
+
+    poetry run python3 scripts/accuracy_reporter.py --detectors cld2 lingua-high-accuracy --languages bulgarian german
+
 For each detector and language, a test report file is then written into
 [`/accuracy-reports`](https://github.com/pemistahl/lingua-py/tree/pure-python-impl/accuracy-reports).
 As an example, here is the current output of the *Lingua* German report
