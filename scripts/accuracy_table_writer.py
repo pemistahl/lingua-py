@@ -24,9 +24,6 @@ class AccuracyTableWriter:
     _column_labels = {
         "cld2": "&nbsp;&nbsp;CLD2&nbsp;&nbsp;",
         "cld3": "&nbsp;&nbsp;CLD3&nbsp;&nbsp;",
-        "fastspell-aggr": "FastSpell<br>(aggressive mode)",
-        "fastspell-cons": "FastSpell<br>(conservative mode)",
-        "fasttext": "FastText",
         "langdetect": "Langdetect",
         "langid": "Langid",
         "lingua-low-accuracy": "Lingua<br>(low accuracy mode)",

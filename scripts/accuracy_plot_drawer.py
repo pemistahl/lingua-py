@@ -39,9 +39,6 @@ class AccuracyPlotDrawer:
     _column_labels = {
         "cld2": "CLD 2",
         "cld3": "CLD 3",
-        "fastspell-aggr": "FastSpell 0.11\naggressive mode",
-        "fastspell-cons": "FastSpell 0.11\nconservative mode",
-        "fasttext": "FastText 0.9.2",
         "langdetect": "Langdetect 1.0.9",
         "langid": "Langid 1.1.6",
         "lingua-low-accuracy": "Lingua 1.4.0\nlow accuracy mode",
@@ -52,11 +49,8 @@ class AccuracyPlotDrawer:
     _single_language_mode_columns = [
         f"lingua-{language.name.lower()}-detector" for language in Language
     ]
-    _hatches = ("|", "-", "/", "x", "+", "\\", "o", "oo", ".", "*", "O")
+    _hatches = ("x", "+", "\\", "o", "oo", ".", "*", "O")
     _palette = (
-        "#39d7e6",
-        "#6bbcff",
-        "#347deb",
         "#b259ff",
         "#ff6347",
         "#ff8800",

@@ -100,20 +100,19 @@ classifiers = [
 [tool.poetry.dependencies]
 python = ">=3.10,<3.14"
 brotli = "^1.1.0"
-regex = "^2024.9.11"
+regex = "^2024.11.6"
 
 [tool.poetry.group.dev.dependencies]
 black = "^24.10.0"
-coverage = "^7.6.4"
-mypy = "^1.13.0"
-pytest = "^8.3.3"
+coverage = "^7.6.10"
+mypy = "^1.14.1"
+pytest = "^8.3.4"
 
 [tool.poetry.group.script.dependencies]
-fasttext = "^0.9.3"
 gcld3 = "^3.0.13"
 langdetect = "^1.0.9"
 langid = "^1.1.6"
-matplotlib = "^3.9.2"
+matplotlib = "^3.10.0"
 numpy = "^1.26.4"
 pandas = "^2.2.3"
 psutil = "^6.1.0"

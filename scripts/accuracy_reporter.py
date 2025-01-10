@@ -14,8 +14,6 @@
 # limitations under the License.
 
 import argparse
-import fastspell
-import fasttext
 import gcld3
 import langdetect
 import langid
@@ -24,7 +22,6 @@ import os
 import pandas as pd
 import pycld2
 import time
-import urllib.request
 
 from collections import Counter
 from dataclasses import dataclass
@@ -234,9 +231,6 @@ class AbstractLanguageDetector:
         self.word_pairs = self._get_file_content(Category.WORD_PAIRS.folder_name())
         self.sentences = self._get_file_content(Category.SENTENCES.folder_name())
 
-    def _setup(self, language: Language) -> None:
-        pass
-
     def _detect(self, texts: list[str]) -> list[Optional[Language]]:
         return []
 
@@ -269,8 +263,6 @@ class AbstractLanguageDetector:
             step = f"({idx+1}/{total_language_count})"
 
             print(f"Collecting {self.detector_name} statistics for {name}... {step}")
-
-            self._setup(language)
 
             statistics = DetectorStatistics.new(
                 self.detector_name, self.is_single_language_detector, language
@@ -332,44 +324,6 @@ class CLD3Detector(AbstractLanguageDetector):
     def _detect(self, texts: list[str]) -> list[Optional[Language]]:
         return [
             map_detector_to_lingua(self.detector.FindLanguage(text).language)
-            for text in texts
-        ]
-
-
-class FastspellDetector(AbstractLanguageDetector):
-    def __init__(self, languages: list[Language], mode: str):
-        super(FastspellDetector, self).__init__(f"fastspell-{mode}", False, languages)
-        self.mode = mode
-
-    def _setup(self, language: Language) -> None:
-        self.fastspell_obj = fastspell.FastSpell(
-            language.iso_code_639_1.name.lower(), mode=self.mode
-        )
-
-    def _detect(self, texts: list[str]) -> list[Optional[Language]]:
-        return [
-            map_detector_to_lingua(self.fastspell_obj.getlang(text)) for text in texts
-        ]
-
-
-class FasttextDetector(AbstractLanguageDetector):
-    def __init__(self, languages: list[Language]):
-        super(FasttextDetector, self).__init__("fasttext", False, languages)
-        fasttext_model_url = (
-            "https://dl.fbaipublicfiles.com/fasttext/supervised-models/lid.176.bin"
-        )
-        fasttext_model_file = str(Path(__file__).parent / "fasttext_model.bin")
-        if not os.path.isfile(fasttext_model_file):
-            fasttext_model_file = urllib.request.urlretrieve(
-                fasttext_model_url, fasttext_model_file
-            )[0]
-        self.detector = fasttext.load_model(fasttext_model_file)
-
-    def _detect(self, texts: list[str]) -> list[Optional[Language]]:
-        return [
-            map_detector_to_lingua(
-                self.detector.predict(text)[0][0].split("__label__")[1]
-            )
             for text in texts
         ]
 
@@ -517,9 +471,6 @@ def parse_command_line_args() -> tuple[list[str], list[str]]:
     default_detectors = [
         "cld2",
         "cld3",
-        "fastspell-aggr",
-        "fastspell-cons",
-        "fasttext",
         "langdetect",
         "langid",
         "lingua-high-accuracy",
@@ -552,12 +503,6 @@ def create_detector_instance(
         return CLD2Detector(languages)
     if detector_name == "cld3":
         return CLD3Detector(languages)
-    if detector_name == "fastspell-aggr":
-        return FastspellDetector(languages, mode="aggr")
-    if detector_name == "fastspell-cons":
-        return FastspellDetector(languages, mode="cons")
-    if detector_name == "fasttext":
-        return FasttextDetector(languages)
     if detector_name == "langdetect":
         return LangdetectDetector(languages)
     if detector_name == "langid":
