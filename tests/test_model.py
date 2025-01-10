@@ -22,7 +22,7 @@ from lingua.detector import _split_text_into_words
 from lingua.language import Language
 from lingua._model import (
     _load_ngram_probability_model,
-    _load_ngram_model,
+    _load_ngram_count_model,
     _create_lower_order_ngrams,
     _NgramModelType,
     _TrainingDataLanguageModel,
@@ -827,6 +827,8 @@ def test_load_ngram_probability_model():
 
 
 def test_load_ngram_model():
-    unique_ngram_model = _load_ngram_model(Language.ENGLISH, 1, _NgramModelType.UNIQUE)
+    unique_ngram_model = _load_ngram_count_model(
+        Language.ENGLISH, 1, _NgramModelType.UNIQUE
+    )
     assert unique_ngram_model.language == Language.ENGLISH
     assert unique_ngram_model.ngrams == frozenset(["ɦ", "ƅ", "ﬀ", "ƴ", "ｍ", "ȼ"])

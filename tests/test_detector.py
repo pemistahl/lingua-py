@@ -216,7 +216,7 @@ def customized_detector_for_english_and_german(
         _languages_with_unique_characters=_collect_languages_with_unique_characters(
             languages
         ),
-        _one_language_alphabets=_collect_single_language_alphabets(languages),
+        _single_language_alphabets=_collect_single_language_alphabets(languages),
         _unigram_language_models=unigram_models,
         _bigram_language_models=bigram_models,
         _trigram_language_models=trigram_models,

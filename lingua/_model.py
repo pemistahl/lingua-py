@@ -81,7 +81,7 @@ class _NgramsJSONDecoder(json.JSONDecoder):
         if isinstance(obj, dict) and "language" in obj and "ngrams" in obj:
             language = Language[obj["language"]]
             ngrams = self.object_hook(obj["ngrams"])
-            return _NgramModel(language, frozenset(ngrams))
+            return _NgramCountModel(language, frozenset(ngrams))
         return obj
 
 
@@ -92,7 +92,7 @@ class _NgramProbabilityModel:
 
 
 @dataclass
-class _NgramModel:
+class _NgramCountModel:
     language: Language
     ngrams: frozenset[str]
 
@@ -117,9 +117,9 @@ def _load_ngram_probability_model(
         return None
 
 
-def _load_ngram_model(
+def _load_ngram_count_model(
     language: Language, ngram_length: int, model_type: _NgramModelType
-) -> Optional[_NgramModel]:
+) -> Optional[_NgramCountModel]:
     ngram_name = _get_ngram_name_by_length(ngram_length)
     iso_code = language.iso_code_639_1.name.lower()
     relative_file_path = (
