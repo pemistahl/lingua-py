@@ -546,7 +546,7 @@ class LanguageDetector:
                 if i == last_index and current_language is not None:
                     result = DetectionResult(
                         start_index=current_start_index,
-                        end_index=current_end_index,
+                        end_index=len(text),
                         word_count=word_count,
                         language=current_language,
                     )
