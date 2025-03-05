@@ -523,10 +523,14 @@ def test_text_is_split_into_words_correctly(text, expected_words):
         pytest.param("துன்பங்களை", Language.TAMIL),
         pytest.param("కృష్ణదేవరాయలు", Language.TELUGU),
         pytest.param("ในทางหลวงหมายเลข", Language.THAI),
+        # words with both chinese and japanese characters
+        pytest.param("人参はβ−カロテン含有量が高く栄養豊富", Language.JAPANESE),
     ],
 )
 def test_language_detection_with_rules(word, expected_language):
-    detected_language = detector_for_all_languages._detect_language_with_rules([word])
+    detected_language = detector_for_all_languages._detect_language_with_rules(
+        _split_text_into_words(word)
+    )
     assert detected_language == expected_language
 
 

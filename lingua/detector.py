@@ -856,21 +856,21 @@ class LanguageDetector:
             return None
         if len(total_language_counts) == 1:
             return list(total_language_counts)[0]
-        if (
-            len(total_language_counts) == 2
-            and Language.CHINESE in total_language_counts
-            and Language.JAPANESE in total_language_counts
-        ):
-            return Language.JAPANESE
 
         most_frequent_total_languages = total_language_counts.most_common(2)
-        (most_frequent_total_language, first_count) = most_frequent_total_languages[0]
-        (_, second_count) = most_frequent_total_languages[1]
+        (most_frequent_language, first_count) = most_frequent_total_languages[0]
+        (second_frequent_language, second_count) = most_frequent_total_languages[1]
+
+        if {most_frequent_language, second_frequent_language} == {
+            Language.JAPANESE,
+            Language.CHINESE,
+        }:
+            return Language.JAPANESE
 
         if first_count == second_count:
             return None
 
-        return most_frequent_total_language
+        return most_frequent_language
 
     def _filter_languages_by_rules(self, words: list[str]) -> frozenset[Language]:
         detected_alphabets: Counter[_Alphabet] = Counter()
