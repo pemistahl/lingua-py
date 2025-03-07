@@ -34,7 +34,7 @@ def load_ngrams(ngram_length: int) -> dict[Language, frozenset[str]]:
 
 
 def identify_unique_ngrams(
-    ngrams: dict[Language, frozenset[str]]
+    ngrams: dict[Language, frozenset[str]],
 ) -> dict[Language, set[str]]:
     unique_ngrams: set[str] = set()
     for ngrams_i in ngrams.values():
