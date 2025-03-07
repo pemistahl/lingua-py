@@ -41,9 +41,9 @@ class AccuracyPlotDrawer:
         "cld3": "CLD 3",
         "langdetect": "Langdetect 1.0.9",
         "langid": "Langid 1.1.6",
-        "lingua-low-accuracy": "Lingua 1.4.0\nlow accuracy mode",
-        "lingua-high-accuracy": "Lingua 1.4.0\nhigh accuracy mode",
-        "lingua-single-language-detector": "Lingua 1.4.0\nsingle language mode",
+        "lingua-low-accuracy": "Lingua 1.4.1\nlow accuracy mode",
+        "lingua-high-accuracy": "Lingua 1.4.1\nhigh accuracy mode",
+        "lingua-single-language-detector": "Lingua 1.4.1\nsingle language mode",
         "simplemma": "Simplemma 0.9.1",
     }
     _single_language_mode_columns = [
@@ -99,7 +99,7 @@ class AccuracyPlotDrawer:
             for color, label, hatch in zip(self._palette, labels, self._hatches)
         ]
 
-        plt.figure(figsize=(16, 220))
+        plt.figure(figsize=(16, 175))
         plt.title(
             self._plot_title + "\n",
             fontsize=self._title_fontsize,
@@ -140,7 +140,7 @@ class AccuracyPlotDrawer:
         classifiers = data[self._hue].unique()
         labels = [self._column_labels[classifier] for classifier in classifiers]
 
-        plt.figure(figsize=(20, 25))
+        plt.figure(figsize=(20, 20))
         plt.title(
             self._plot_title + "\n",
             fontsize=self._title_fontsize,
