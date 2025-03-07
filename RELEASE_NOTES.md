@@ -1,3 +1,16 @@
+## Lingua 1.4.1 (released on 07 Mar 2025)
+
+### Improvements
+
+- The rule-based algorithm for the recognition of Japanese texts has been improved.
+  Texts including both Japanese and Chinese characters are now classified more often
+  correctly as Japanese instead of Chinese.
+
+### Bug Fixes
+
+- Text spans created by `LanguageDetector.detect_multiple_languages_of()`
+  sometimes skipped characters in the last span. This has been fixed. (#247)
+
 ## Lingua 1.4.0 (released on 29 Oct 2024)
 
 ### Features

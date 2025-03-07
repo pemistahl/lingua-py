@@ -6,7 +6,7 @@
 [![codecov](https://codecov.io/gh/pemistahl/lingua-py/branch/pure-python-impl/graph/badge.svg)](https://codecov.io/gh/pemistahl/lingua-py)
 [![supported languages](https://img.shields.io/badge/supported%20languages-75-green.svg)](#4-which-languages-are-supported)
 ![supported Python versions](https://img.shields.io/badge/Python-%3E%3D%203.10-blue)
-[![pypi](https://img.shields.io/badge/PYPI-v1.4.0-blue)](https://pypi.org/project/lingua-language-detector/1.4.0/)
+[![pypi](https://img.shields.io/badge/PYPI-v1.4.1-blue)](https://pypi.org/project/lingua-language-detector/1.4.1/)
 [![license](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 </div>
 
@@ -33,8 +33,6 @@ of comprehensive open source libraries for this task, such as Google's
 [*CLD 2*](https://github.com/CLD2Owners/cld2) and
 [*CLD 3*](https://github.com/google/cld3),
 [*Langid*](https://github.com/saffsd/langid.py),
-[*fastText*](https://fasttext.cc/docs/en/language-identification.html),
-[*fastspell*](https://github.com/mbanon/fastspell),
 [*Simplemma*](https://github.com/adbar/simplemma) and
 [*Langdetect*](https://github.com/Mimino666/langdetect).
 Unfortunately, most of them have two major drawbacks:
@@ -47,9 +45,9 @@ Unfortunately, most of them have two major drawbacks:
 *Lingua* aims at eliminating these problems. She nearly does not need any
 configuration and yields pretty accurate results on both long and short text,
 even on single words and phrases. She draws on both rule-based and statistical
-methods but does not use any dictionaries of words. She does not need a
-connection to any external API or service either. Once the library has been
-downloaded, it can be used completely offline.
+Naive Bayes methods but does not use neural networks or any dictionaries of
+words. She does not need a connection to any external API or service either.
+Once the library has been downloaded, it can be used completely offline.
 
 ## 3. A short history of this library
 
@@ -200,7 +198,7 @@ subset of 1000 single words, 1000 word pairs and 1000 sentences has been
 extracted, respectively.
 
 Given the generated test data, I have compared the detection results of
-*Lingua*, *fastText*, *langdetect*, *langid*, *CLD 2* and *CLD 3* running over the data of
+*Lingua*, *langdetect*, *langid*, *simplemma*, *CLD 2* and *CLD 3* running over the data of
 *Lingua's* supported 75 languages. Languages that are not supported by the other
 detectors are simply ignored for them during the detection process.
 
@@ -298,17 +296,14 @@ The accuracy reporter script measures the time each language detector needs
 to classify 3000 input texts for each of the supported 75 languages. The results
 below have been produced on an iMac 3.6 Ghz 8-Core Intel Core i9 with 40 GB RAM.
 
-CLD 2 and 3, FastText and FastSpell have at least partially been implemented
+CLD 2 and 3 have at least partially been implemented
 in C or C++, that is why they are the most performant ones. The others have been
 implemented in pure Python including Lingua.
 
 | Detector                                     |             Time |
 |----------------------------------------------|-----------------:|
 | CLD 2                                        |         8.65 sec |
-| FastText                                     |        10.50 sec |
 | CLD 3                                        |        16.77 sec |
-| FastSpell (aggressive mode)                  |        51.92 sec |
-| FastSpell (conservative mode)                |        52.32 sec |
 | Simplemma                                    |  2 min 36.44 sec |
 | Langid                                       |  3 min 50.40 sec |
 | Lingua (low accuracy mode)                   |  4 min 05.53 sec |
@@ -382,10 +377,10 @@ Erroneously classified as Dutch: 0.20%, Latin: 0.10%
 
 ## 9. How to add it to your project?
 
-*Lingua* is available in the [Python Package Index](https://pypi.org/project/lingua-language-detector/1.3.5)
+*Lingua* is available in the [Python Package Index](https://pypi.org/project/lingua-language-detector/1.4.1)
 and can be installed with:
 
-    pip install lingua-language-detector==1.4.0
+    pip install lingua-language-detector==1.4.1
 
 ## 10. How to build?
 
@@ -542,13 +537,13 @@ build the detector from all supported languages. When you have knowledge about
 the texts you want to classify you can almost always rule out certain languages as impossible
 or unlikely to occur.
 
-### 11.6 Single language mode
+### 11.6 Single-language mode
 
-If you build a `LanguageDetector` from one language only it will operate in single language mode.
+If you build a `LanguageDetector` from one language only it will operate in single-language mode.
 This means the detector will try to find out whether a given text has been written in the given language or not.
 If not, then `None` will be returned, otherwise the given language.
 
-In single language mode, the detector decides based on a set of unique and most common n-grams which
+In single-language mode, the detector decides based on a set of unique and most common n-grams which
 have been collected beforehand for every supported language. It turns out that unique and most common
 n-grams help to improve accuracy in low accuracy mode, so they are used for that mode as well. In high
 accuracy mode, however, they do not make a significant difference, that's why they are left out.
@@ -556,7 +551,7 @@ accuracy mode, however, they do not make a significant difference, that's why th
 ### 11.7 Detection of multiple languages in mixed-language texts
 
 In contrast to most other language detectors, *Lingua* is able to detect multiple languages
-in mixed-language texts. This feature can yield quite reasonable results but it is still
+in mixed-language texts. This feature can yield quite reasonable results, but it is still
 in an experimental state and therefore the detection result is highly dependent on the input
 text. It works best in high-accuracy mode with multiple long words for each language.
 The shorter the phrases and their words are, the less accurate are the results. Reducing the
