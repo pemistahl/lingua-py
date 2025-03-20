@@ -23,7 +23,6 @@ on:
       - 'poetry.lock'
       - 'pyproject.toml'
       - '.github/**'
-      - 'lingua/**'
       - 'scripts/**'
   pull_request:
     branches:
@@ -32,7 +31,6 @@ on:
       - 'poetry.lock'
       - 'pyproject.toml'
       - '.github/**'
-      - 'lingua/**'
       - 'scripts/**'
 
 jobs:
@@ -44,7 +42,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: [ '3.8', '3.9', '3.10', '3.11', '3.12' ]
+        python-version: [ '3.10', '3.11', '3.12', '3.13' ]
 
     steps:
       - name: Check out repository
@@ -58,7 +56,7 @@ jobs:
       - name: Set up Poetry
         uses: abatilo/actions-poetry@v3
         with:
-          poetry-version: 1.7
+          poetry-version: 1.8
 
       - name: Set up virtual environment
         run: poetry env use ${{ matrix.python-version }}
