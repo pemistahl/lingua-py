@@ -198,13 +198,13 @@ subset of 1000 single words, 1000 word pairs and 1000 sentences has been
 extracted, respectively.
 
 Given the generated test data, I have compared the detection results of
-*Lingua*, *FastText*, *FastSpell*, *Langdetect*, *Langid*, *Simplemma*, *CLD 2* and *CLD 3*
+*Lingua*, *Langdetect*, *Langid*, *Simplemma*, *CLD 2* and *CLD 3*
 running over the data of *Lingua's* supported 75 languages. Languages that are
 not supported by the other detectors are simply ignored for them during the
 detection process.
 
-Each of the following sections contains two plots. The bar plot shows the detailed accuracy
-results for each supported language. The box plot illustrates the distributions of the
+Each of the following sections contains three plots. The bar plot shows the detailed accuracy
+results for each supported language. The box plots illustrate the distributions of the
 accuracy values for each classifier. The boxes themselves represent the areas which the
 middle 50 % of data lie within. Within the colored boxes, the horizontal lines mark the
 median of the distributions.
