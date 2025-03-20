@@ -395,7 +395,7 @@ git clone https://github.com/pemistahl/lingua-py.git
 cd lingua-py
 python3 -m venv .venv
 source .venv/bin/activate
-pip install --find-links=lingua lingua-language-detector
+pip install lingua-language-detector
 ```
 
 In the scripts directory, there are Python scripts for writing accuracy reports,

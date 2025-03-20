@@ -1,4 +1,111 @@
-### Lingua 2.0.2 (released on 12 Dec 2023)
+## Lingua 2.1.0 (released on 20 Mar 2025)
+
+### Features
+
+- This release introduces an absolute confidence metric based on unique and most
+  common ngrams for each supported language. It allows to build
+  a language detector from a single language only. Such a detector serves as
+  a binary classifier, telling you whether some text is written in your selected
+  language or not. (#235)
+
+### Improvements
+
+- The new absolute confidence metric helps to improve accuracy in low accuracy mode.
+  The mean of average detection accuracy (single words, word pairs and sentences combined)
+  increases from 77% to 80%.
+
+- The rule-based algorithm for the recognition of Japanese texts has been improved.
+  Texts including both Japanese and Chinese characters are now classified more often
+  correctly as Japanese instead of Chinese.
+
+- The characters `Щщ` are now correctly identified as possible indicators for
+  the Ukrainian language, leading to slightly higher accuracy when identifying
+  Ukrainian texts.
+
+- The enums provided by this library can now be copied and pickled. (#199)
+
+- Members of the enums provided by this library can now be created dynamically
+  with the function `from_str()`. (#225)
+
+- The library can now be used with Azure Artifacts. (#209)
+
+### Bug Fixes
+
+- Text spans created by `LanguageDetector.detect_multiple_languages_of()`
+  sometimes skipped characters in the last span. This has been fixed.
+
+- The tokenization of texts written in the Devanagari alphabet was flawed.
+  This has been fixed, leading to better detection accuracy for Hindi and Marathi.
+
+- The classes provided by this library are not part of the `builtins` module anymore
+  but of the correct `lingua` module. (#255)
+
+### Compatibility
+
+- The newest Python 3.13 is now officially supported.
+- Support for Python 3.8 and 3.9 has been dropped. The lowest supported Python version is 3.10 now.
+
+## Lingua 1.4.1 (released on 07 Mar 2025)
+
+### Improvements
+
+- The rule-based algorithm for the recognition of Japanese texts has been improved.
+  Texts including both Japanese and Chinese characters are now classified more often
+  correctly as Japanese instead of Chinese.
+
+### Bug Fixes
+
+- Text spans created by `LanguageDetector.detect_multiple_languages_of()`
+  sometimes skipped characters in the last span. This has been fixed. (#247)
+
+## Lingua 1.4.0 (released on 29 Oct 2024)
+
+### Features
+
+- This release introduces an absolute confidence metric based on unique and most
+  common ngrams for each supported language. It allows to build
+  a language detector from a single language only. Such a detector serves as
+  a binary classifier, telling you whether some text is written in your selected
+  language or not. (#235)
+
+### Improvements
+
+- The new absolute confidence metric helps to improve accuracy in low accuracy mode.
+  The mean of average detection accuracy (single words, word pairs and sentences combined)
+  increases from 77% to 80%.
+
+### Bug Fixes
+
+- The tokenization of texts written in the Devanagari alphabet was flawed.
+  This has been fixed, leading to better detection accuracy for Hindi and Marathi.
+
+### Compatibility
+
+- The newest Python 3.13 is now officially supported.
+- Support for Python 3.8 and 3.9 has been dropped. The lowest supported Python version is 3.10 now.
+
+## Lingua 1.3.5 (released on 03 Apr 2024)
+
+### Improvements
+
+- The language models are now stored in dictionaries instead of NumPy arrays.
+  This change leads to significantly improved runtime performance at the cost
+  of higher memory consumption (up to 3 GB for all models). As the runtime
+  performance was much too slow with the former approach, this change makes
+  sense because adding more memory is quite cheap.
+
+- The language model files are now compressed with the Brotli algorithm which
+  reduces the file size by 15 %, on average.
+
+- The characters `Щщ` are now correctly identified as possible indicators for
+  the Ukrainian language, leading to slightly higher accuracy when identifying
+  Ukrainian texts.
+
+### Miscellaneous
+
+- All dependencies have been updated to their latest versions.
+
+## Lingua 2.0.2 (released on 12 Dec 2023)
 
 ### Improvements
 
@@ -12,7 +119,7 @@
   indices instead of byte indices when only a single `DetectionResult` was produced.
   This has been fixed. (#203, #205)
 
-### Lingua 2.0.1 (released on 23 Nov 2023)
+## Lingua 2.0.1 (released on 23 Nov 2023)
 
 ### Bug Fixes
 
@@ -25,7 +132,7 @@
 - Some minor bugs in the WASM module have been fixed to prepare the first release
   of [Lingua for JavaScript](https://github.com/pemistahl/lingua-js).
 
-### Lingua 2.0.0 (released on 14 Nov 2023)
+## Lingua 2.0.0 (released on 14 Nov 2023)
 
 ### Features
 
