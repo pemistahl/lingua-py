@@ -1,0 +1,16 @@
+##### Vietnamese #####
+
+>>> Accuracy on average: 93.83%
+
+>> Detection of 879 single words (average length: 4 chars)
+Accuracy: 99.54%
+Erroneously classified as Spanish: 0.46%
+
+>> Detection of 957 word pairs (average length: 12 chars)
+Accuracy: 96.55%
+Erroneously classified as Spanish: 3.45%
+
+>> Detection of 1000 sentences (average length: 120 chars)
+Accuracy: 85.40%
+Erroneously classified as Spanish: 14.60%
+

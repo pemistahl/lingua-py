@@ -1,0 +1,16 @@
+##### Vietnamese #####
+
+>>> Accuracy on average: 87.04%
+
+>> Detection of 879 single words (average length: 4 chars)
+Accuracy: 98.52%
+Erroneously classified as Irish: 1.48%
+
+>> Detection of 957 word pairs (average length: 12 chars)
+Accuracy: 91.01%
+Erroneously classified as Irish: 8.99%
+
+>> Detection of 1000 sentences (average length: 120 chars)
+Accuracy: 71.60%
+Erroneously classified as Irish: 28.40%
+

@@ -1,0 +1,16 @@
+##### Dutch #####
+
+>>> Accuracy on average: 67.97%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 85.70%
+Erroneously classified as Estonian: 14.30%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 75.80%
+Erroneously classified as Estonian: 24.20%
+
+>> Detection of 1000 sentences (average length: 107 chars)
+Accuracy: 42.40%
+Erroneously classified as Estonian: 57.60%
+

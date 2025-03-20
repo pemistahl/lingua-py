@@ -1,0 +1,16 @@
+##### Ganda #####
+
+>>> Accuracy on average: 76.43%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 92.80%
+Erroneously classified as Azerbaijani: 7.20%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 87.30%
+Erroneously classified as Azerbaijani: 12.70%
+
+>> Detection of 1000 sentences (average length: 125 chars)
+Accuracy: 49.20%
+Erroneously classified as Azerbaijani: 50.80%
+

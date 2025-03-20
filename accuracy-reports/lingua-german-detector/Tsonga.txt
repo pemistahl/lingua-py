@@ -1,0 +1,16 @@
+##### Tsonga #####
+
+>>> Accuracy on average: 71.90%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 88.10%
+Erroneously classified as German: 11.90%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 81.80%
+Erroneously classified as German: 18.20%
+
+>> Detection of 1000 sentences (average length: 121 chars)
+Accuracy: 45.80%
+Erroneously classified as German: 54.20%
+

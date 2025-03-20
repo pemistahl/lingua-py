@@ -1,0 +1,16 @@
+##### Zulu #####
+
+>>> Accuracy on average: 93.83%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 99.00%
+Erroneously classified as Czech: 1.00%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 96.90%
+Erroneously classified as Czech: 3.10%
+
+>> Detection of 1000 sentences (average length: 115 chars)
+Accuracy: 85.60%
+Erroneously classified as Czech: 14.40%
+

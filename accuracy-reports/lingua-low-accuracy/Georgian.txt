@@ -1,6 +1,6 @@
 ##### Georgian #####
 
->>> Accuracy on average: 99.97%
+>>> Accuracy on average: 99.87%
 
 >> Detection of 1000 single words (average length: 9 chars)
 Accuracy: 100.00%
@@ -11,6 +11,6 @@ Accuracy: 100.00%
 Erroneously classified as 
 
 >> Detection of 1000 sentences (average length: 102 chars)
-Accuracy: 99.90%
-Erroneously classified as Latin: 0.10%
+Accuracy: 99.60%
+Erroneously classified as Armenian: 0.10%, Dutch: 0.10%, Finnish: 0.10%, Spanish: 0.10%
 

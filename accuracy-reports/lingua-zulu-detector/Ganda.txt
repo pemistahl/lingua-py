@@ -1,0 +1,16 @@
+##### Ganda #####
+
+>>> Accuracy on average: 36.60%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 66.60%
+Erroneously classified as Zulu: 33.40%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 41.60%
+Erroneously classified as Zulu: 58.40%
+
+>> Detection of 1000 sentences (average length: 125 chars)
+Accuracy: 1.60%
+Erroneously classified as Zulu: 98.40%
+

@@ -1,0 +1,16 @@
+##### Nynorsk #####
+
+>>> Accuracy on average: 81.90%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 95.40%
+Erroneously classified as Latvian: 4.60%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 92.30%
+Erroneously classified as Latvian: 7.70%
+
+>> Detection of 1000 sentences (average length: 96 chars)
+Accuracy: 58.00%
+Erroneously classified as Latvian: 42.00%
+

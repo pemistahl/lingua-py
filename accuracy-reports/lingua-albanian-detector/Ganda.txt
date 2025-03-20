@@ -1,0 +1,16 @@
+##### Ganda #####
+
+>>> Accuracy on average: 75.13%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 92.70%
+Erroneously classified as Albanian: 7.30%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 87.00%
+Erroneously classified as Albanian: 13.00%
+
+>> Detection of 1000 sentences (average length: 125 chars)
+Accuracy: 45.70%
+Erroneously classified as Albanian: 54.30%
+

@@ -1,0 +1,16 @@
+##### Vietnamese #####
+
+>>> Accuracy on average: 96.71%
+
+>> Detection of 879 single words (average length: 4 chars)
+Accuracy: 99.66%
+Erroneously classified as Bosnian: 0.34%
+
+>> Detection of 957 word pairs (average length: 12 chars)
+Accuracy: 96.97%
+Erroneously classified as Bosnian: 3.03%
+
+>> Detection of 1000 sentences (average length: 120 chars)
+Accuracy: 93.50%
+Erroneously classified as Bosnian: 6.50%
+

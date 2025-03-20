@@ -1,0 +1,16 @@
+##### Welsh #####
+
+>>> Accuracy on average: 81.77%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 93.30%
+Erroneously classified as Icelandic: 6.70%
+
+>> Detection of 1000 word pairs (average length: 15 chars)
+Accuracy: 88.30%
+Erroneously classified as Icelandic: 11.70%
+
+>> Detection of 1000 sentences (average length: 97 chars)
+Accuracy: 63.70%
+Erroneously classified as Icelandic: 36.30%
+

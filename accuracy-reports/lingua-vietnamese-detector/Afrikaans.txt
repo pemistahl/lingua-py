@@ -1,0 +1,16 @@
+##### Afrikaans #####
+
+>>> Accuracy on average: 93.10%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 97.00%
+Erroneously classified as Vietnamese: 3.00%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 95.90%
+Erroneously classified as Vietnamese: 4.10%
+
+>> Detection of 1000 sentences (average length: 102 chars)
+Accuracy: 86.40%
+Erroneously classified as Vietnamese: 13.60%
+

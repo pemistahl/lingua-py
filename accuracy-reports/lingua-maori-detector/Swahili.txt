@@ -1,0 +1,16 @@
+##### Swahili #####
+
+>>> Accuracy on average: 53.80%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 80.10%
+Erroneously classified as Maori: 19.90%
+
+>> Detection of 1000 word pairs (average length: 15 chars)
+Accuracy: 68.50%
+Erroneously classified as Maori: 31.50%
+
+>> Detection of 1000 sentences (average length: 108 chars)
+Accuracy: 12.80%
+Erroneously classified as Maori: 87.20%
+

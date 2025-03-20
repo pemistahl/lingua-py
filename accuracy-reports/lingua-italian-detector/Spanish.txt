@@ -1,0 +1,16 @@
+##### Spanish #####
+
+>>> Accuracy on average: 41.10%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 70.00%
+Erroneously classified as Italian: 30.00%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 47.20%
+Erroneously classified as Italian: 52.80%
+
+>> Detection of 1000 sentences (average length: 126 chars)
+Accuracy: 6.10%
+Erroneously classified as Italian: 93.90%
+

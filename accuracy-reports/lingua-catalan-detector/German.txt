@@ -1,0 +1,16 @@
+##### German #####
+
+>>> Accuracy on average: 64.20%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 85.80%
+Erroneously classified as Catalan: 14.20%
+
+>> Detection of 1000 word pairs (average length: 18 chars)
+Accuracy: 73.50%
+Erroneously classified as Catalan: 26.50%
+
+>> Detection of 1000 sentences (average length: 111 chars)
+Accuracy: 33.30%
+Erroneously classified as Catalan: 66.70%
+

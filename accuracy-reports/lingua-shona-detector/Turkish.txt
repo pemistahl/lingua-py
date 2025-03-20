@@ -1,0 +1,16 @@
+##### Turkish #####
+
+>>> Accuracy on average: 76.57%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 93.50%
+Erroneously classified as Shona: 6.50%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 86.60%
+Erroneously classified as Shona: 13.40%
+
+>> Detection of 1000 sentences (average length: 119 chars)
+Accuracy: 49.60%
+Erroneously classified as Shona: 50.40%
+

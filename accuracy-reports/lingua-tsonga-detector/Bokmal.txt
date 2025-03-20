@@ -1,0 +1,16 @@
+##### Bokmal #####
+
+>>> Accuracy on average: 76.50%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 90.50%
+Erroneously classified as Tsonga: 9.50%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 83.90%
+Erroneously classified as Tsonga: 16.10%
+
+>> Detection of 1000 sentences (average length: 98 chars)
+Accuracy: 55.10%
+Erroneously classified as Tsonga: 44.90%
+

@@ -1,0 +1,16 @@
+##### Italian #####
+
+>>> Accuracy on average: 72.17%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 91.30%
+Erroneously classified as Maori: 8.70%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 83.80%
+Erroneously classified as Maori: 16.20%
+
+>> Detection of 1000 sentences (average length: 123 chars)
+Accuracy: 41.40%
+Erroneously classified as Maori: 58.60%
+

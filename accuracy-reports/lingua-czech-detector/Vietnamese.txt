@@ -1,0 +1,16 @@
+##### Vietnamese #####
+
+>>> Accuracy on average: 96.02%
+
+>> Detection of 879 single words (average length: 4 chars)
+Accuracy: 99.54%
+Erroneously classified as Czech: 0.46%
+
+>> Detection of 957 word pairs (average length: 12 chars)
+Accuracy: 98.01%
+Erroneously classified as Czech: 1.99%
+
+>> Detection of 1000 sentences (average length: 120 chars)
+Accuracy: 90.50%
+Erroneously classified as Czech: 9.50%
+

@@ -1,0 +1,16 @@
+##### Hungarian #####
+
+>>> Accuracy on average: 71.60%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 90.80%
+Erroneously classified as Malay: 9.20%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 81.50%
+Erroneously classified as Malay: 18.50%
+
+>> Detection of 1000 sentences (average length: 116 chars)
+Accuracy: 42.50%
+Erroneously classified as Malay: 57.50%
+

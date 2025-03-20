@@ -1,0 +1,16 @@
+##### Estonian #####
+
+>>> Accuracy on average: 65.57%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 85.10%
+Erroneously classified as Slovak: 14.90%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 76.30%
+Erroneously classified as Slovak: 23.70%
+
+>> Detection of 1000 sentences (average length: 101 chars)
+Accuracy: 35.30%
+Erroneously classified as Slovak: 64.70%
+

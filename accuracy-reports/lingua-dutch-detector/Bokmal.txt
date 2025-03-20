@@ -1,0 +1,16 @@
+##### Bokmal #####
+
+>>> Accuracy on average: 44.77%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 69.50%
+Erroneously classified as Dutch: 30.50%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 50.30%
+Erroneously classified as Dutch: 49.70%
+
+>> Detection of 1000 sentences (average length: 98 chars)
+Accuracy: 14.50%
+Erroneously classified as Dutch: 85.50%
+

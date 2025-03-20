@@ -1,0 +1,16 @@
+##### Slovak #####
+
+>>> Accuracy on average: 82.33%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 93.40%
+Erroneously classified as Turkish: 6.60%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 90.00%
+Erroneously classified as Turkish: 10.00%
+
+>> Detection of 1000 sentences (average length: 101 chars)
+Accuracy: 63.60%
+Erroneously classified as Turkish: 36.40%
+

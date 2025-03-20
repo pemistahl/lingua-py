@@ -1,0 +1,16 @@
+##### Welsh #####
+
+>>> Accuracy on average: 91.77%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 96.00%
+Erroneously classified as Albanian: 4.00%
+
+>> Detection of 1000 word pairs (average length: 15 chars)
+Accuracy: 95.30%
+Erroneously classified as Albanian: 4.70%
+
+>> Detection of 1000 sentences (average length: 97 chars)
+Accuracy: 84.00%
+Erroneously classified as Albanian: 16.00%
+

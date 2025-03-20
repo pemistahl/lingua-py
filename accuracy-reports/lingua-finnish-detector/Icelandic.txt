@@ -1,0 +1,16 @@
+##### Icelandic #####
+
+>>> Accuracy on average: 70.97%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 88.90%
+Erroneously classified as Finnish: 11.10%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 80.80%
+Erroneously classified as Finnish: 19.20%
+
+>> Detection of 1000 sentences (average length: 108 chars)
+Accuracy: 43.20%
+Erroneously classified as Finnish: 56.80%
+

@@ -1,0 +1,16 @@
+##### Italian #####
+
+>>> Accuracy on average: 73.80%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 90.60%
+Erroneously classified as Tswana: 9.40%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 86.00%
+Erroneously classified as Tswana: 14.00%
+
+>> Detection of 1000 sentences (average length: 123 chars)
+Accuracy: 44.80%
+Erroneously classified as Tswana: 55.20%
+

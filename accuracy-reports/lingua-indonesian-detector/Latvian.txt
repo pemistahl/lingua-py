@@ -1,0 +1,16 @@
+##### Latvian #####
+
+>>> Accuracy on average: 79.43%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 94.50%
+Erroneously classified as Indonesian: 5.50%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 88.00%
+Erroneously classified as Indonesian: 12.00%
+
+>> Detection of 1000 sentences (average length: 109 chars)
+Accuracy: 55.80%
+Erroneously classified as Indonesian: 44.20%
+

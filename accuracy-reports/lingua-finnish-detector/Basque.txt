@@ -1,0 +1,16 @@
+##### Basque #####
+
+>>> Accuracy on average: 78.40%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 93.50%
+Erroneously classified as Finnish: 6.50%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 86.80%
+Erroneously classified as Finnish: 13.20%
+
+>> Detection of 1000 sentences (average length: 102 chars)
+Accuracy: 54.90%
+Erroneously classified as Finnish: 45.10%
+

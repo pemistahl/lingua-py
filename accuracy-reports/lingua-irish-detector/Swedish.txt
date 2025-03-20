@@ -1,0 +1,16 @@
+##### Swedish #####
+
+>>> Accuracy on average: 87.87%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 96.80%
+Erroneously classified as Irish: 3.20%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 91.10%
+Erroneously classified as Irish: 8.90%
+
+>> Detection of 1000 sentences (average length: 90 chars)
+Accuracy: 75.70%
+Erroneously classified as Irish: 24.30%
+

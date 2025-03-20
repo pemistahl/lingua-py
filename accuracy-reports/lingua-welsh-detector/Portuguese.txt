@@ -1,0 +1,16 @@
+##### Portuguese #####
+
+>>> Accuracy on average: 94.23%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 98.60%
+Erroneously classified as Welsh: 1.40%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 96.80%
+Erroneously classified as Welsh: 3.20%
+
+>> Detection of 1000 sentences (average length: 127 chars)
+Accuracy: 87.30%
+Erroneously classified as Welsh: 12.70%
+

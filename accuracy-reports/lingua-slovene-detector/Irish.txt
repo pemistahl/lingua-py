@@ -1,0 +1,16 @@
+##### Irish #####
+
+>>> Accuracy on average: 91.23%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 97.40%
+Erroneously classified as Slovene: 2.60%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 95.30%
+Erroneously classified as Slovene: 4.70%
+
+>> Detection of 1000 sentences (average length: 113 chars)
+Accuracy: 81.00%
+Erroneously classified as Slovene: 19.00%
+

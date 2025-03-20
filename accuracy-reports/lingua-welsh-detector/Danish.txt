@@ -1,0 +1,16 @@
+##### Danish #####
+
+>>> Accuracy on average: 78.87%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 93.90%
+Erroneously classified as Welsh: 6.10%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 86.00%
+Erroneously classified as Welsh: 14.00%
+
+>> Detection of 1000 sentences (average length: 112 chars)
+Accuracy: 56.70%
+Erroneously classified as Welsh: 43.30%
+

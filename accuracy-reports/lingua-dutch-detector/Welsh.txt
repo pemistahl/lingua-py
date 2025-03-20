@@ -1,0 +1,16 @@
+##### Welsh #####
+
+>>> Accuracy on average: 83.33%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 94.50%
+Erroneously classified as Dutch: 5.50%
+
+>> Detection of 1000 word pairs (average length: 15 chars)
+Accuracy: 89.20%
+Erroneously classified as Dutch: 10.80%
+
+>> Detection of 1000 sentences (average length: 97 chars)
+Accuracy: 66.30%
+Erroneously classified as Dutch: 33.70%
+

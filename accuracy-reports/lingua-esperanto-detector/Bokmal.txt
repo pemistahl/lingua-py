@@ -1,0 +1,16 @@
+##### Bokmal #####
+
+>>> Accuracy on average: 56.57%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 78.30%
+Erroneously classified as Esperanto: 21.70%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 63.30%
+Erroneously classified as Esperanto: 36.70%
+
+>> Detection of 1000 sentences (average length: 98 chars)
+Accuracy: 28.10%
+Erroneously classified as Esperanto: 71.90%
+

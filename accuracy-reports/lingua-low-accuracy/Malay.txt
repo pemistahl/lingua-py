@@ -1,16 +1,16 @@
 ##### Malay #####
 
->>> Accuracy on average: 30.90%
+>>> Accuracy on average: 30.53%
 
 >> Detection of 1000 single words (average length: 7 chars)
-Accuracy: 21.70%
-Erroneously classified as Indonesian: 17.10%, English: 3.60%, Latin: 3.50%, Maori: 3.50%, Tsonga: 3.20%, Tswana: 2.90%, Tagalog: 2.50%, Zulu: 2.40%, French: 2.00%, Swahili: 2.00%, Lithuanian: 1.80%, Esperanto: 1.70%, Shona: 1.70%, Turkish: 1.60%, Basque: 1.50%, Ganda: 1.50%, Sotho: 1.50%, Icelandic: 1.40%, Xhosa: 1.30%, Somali: 1.20%, Estonian: 1.10%, Finnish: 1.10%, Yoruba: 1.10%, Albanian: 1.00%, Portuguese: 1.00%, Spanish: 1.00%, Welsh: 1.00%, Bokmal: 0.90%, German: 0.90%, Vietnamese: 0.90%, Afrikaans: 0.80%, Azerbaijani: 0.80%, Italian: 0.80%, Polish: 0.80%, Bosnian: 0.70%, Dutch: 0.70%, Hungarian: 0.70%, Nynorsk: 0.70%, Danish: 0.60%, Latvian: 0.60%, Romanian: 0.60%, Slovene: 0.60%, Catalan: 0.50%, Slovak: 0.50%, Irish: 0.40%, Swedish: 0.30%, Croatian: 0.10%, Czech: 0.10%, Unknown: 0.10%
+Accuracy: 21.80%
+Erroneously classified as Indonesian: 17.60%, English: 3.60%, Maori: 3.40%, Latin: 3.30%, Tsonga: 3.10%, Tswana: 2.80%, Tagalog: 2.60%, Zulu: 2.30%, French: 2.10%, Lithuanian: 2.00%, Swahili: 2.00%, Turkish: 1.80%, Esperanto: 1.70%, Shona: 1.60%, Basque: 1.50%, Ganda: 1.50%, Sotho: 1.50%, Icelandic: 1.40%, Xhosa: 1.30%, Somali: 1.20%, Bokmal: 1.10%, Estonian: 1.10%, Albanian: 1.00%, Finnish: 1.00%, Portuguese: 1.00%, Spanish: 1.00%, Yoruba: 1.00%, German: 0.90%, Vietnamese: 0.90%, Welsh: 0.90%, Afrikaans: 0.80%, Hungarian: 0.80%, Italian: 0.80%, Bosnian: 0.70%, Dutch: 0.70%, Nynorsk: 0.70%, Azerbaijani: 0.60%, Danish: 0.60%, Latvian: 0.60%, Polish: 0.60%, Romanian: 0.60%, Slovene: 0.60%, Catalan: 0.50%, Slovak: 0.50%, Irish: 0.40%, Swedish: 0.30%, Croatian: 0.10%, Czech: 0.10%
 
 >> Detection of 1000 word pairs (average length: 15 chars)
-Accuracy: 35.70%
-Erroneously classified as Indonesian: 33.00%, Tagalog: 2.50%, German: 1.90%, Latin: 1.90%, Shona: 1.60%, Albanian: 1.50%, English: 1.50%, Maori: 1.50%, Swahili: 1.50%, Tsonga: 1.40%, Esperanto: 1.20%, Lithuanian: 1.10%, Basque: 1.00%, Sotho: 1.00%, Finnish: 0.90%, Bokmal: 0.80%, Zulu: 0.80%, Ganda: 0.70%, Tswana: 0.70%, Catalan: 0.60%, Estonian: 0.50%, Somali: 0.50%, Yoruba: 0.50%, French: 0.40%, Italian: 0.40%, Portuguese: 0.40%, Swedish: 0.40%, Turkish: 0.40%, Xhosa: 0.40%, Croatian: 0.30%, Irish: 0.30%, Polish: 0.30%, Spanish: 0.30%, Vietnamese: 0.30%, Welsh: 0.30%, Afrikaans: 0.20%, Azerbaijani: 0.20%, Dutch: 0.20%, Nynorsk: 0.20%, Romanian: 0.20%, Bosnian: 0.10%, Czech: 0.10%, Hungarian: 0.10%, Latvian: 0.10%, Slovene: 0.10%
+Accuracy: 35.90%
+Erroneously classified as Indonesian: 32.70%, Tagalog: 2.60%, German: 1.90%, Latin: 1.90%, Albanian: 1.60%, Tsonga: 1.60%, English: 1.50%, Maori: 1.50%, Shona: 1.50%, Swahili: 1.50%, Esperanto: 1.20%, Lithuanian: 1.10%, Basque: 1.00%, Sotho: 1.00%, Finnish: 0.90%, Bokmal: 0.80%, Ganda: 0.70%, Zulu: 0.70%, Catalan: 0.60%, Tswana: 0.60%, Estonian: 0.50%, Somali: 0.50%, Yoruba: 0.50%, French: 0.40%, Italian: 0.40%, Polish: 0.40%, Portuguese: 0.40%, Swedish: 0.40%, Xhosa: 0.40%, Croatian: 0.30%, Irish: 0.30%, Spanish: 0.30%, Turkish: 0.30%, Vietnamese: 0.30%, Welsh: 0.30%, Afrikaans: 0.20%, Azerbaijani: 0.20%, Dutch: 0.20%, Nynorsk: 0.20%, Romanian: 0.20%, Bosnian: 0.10%, Czech: 0.10%, Hungarian: 0.10%, Latvian: 0.10%, Slovene: 0.10%
 
 >> Detection of 1000 sentences (average length: 116 chars)
-Accuracy: 35.30%
-Erroneously classified as Indonesian: 59.30%, Tagalog: 1.40%, German: 1.20%, English: 0.70%, Latin: 0.40%, Estonian: 0.30%, Swahili: 0.20%, Tsonga: 0.20%, Xhosa: 0.20%, Afrikaans: 0.10%, Bokmal: 0.10%, Esperanto: 0.10%, Finnish: 0.10%, Maori: 0.10%, Romanian: 0.10%, Sotho: 0.10%, Spanish: 0.10%
+Accuracy: 33.90%
+Erroneously classified as Indonesian: 58.10%, Tagalog: 1.50%, German: 1.30%, English: 0.80%, Estonian: 0.40%, Hungarian: 0.40%, Latin: 0.40%, Croatian: 0.30%, Catalan: 0.20%, Polish: 0.20%, Sotho: 0.20%, Swahili: 0.20%, Tsonga: 0.20%, Afrikaans: 0.10%, Albanian: 0.10%, Bokmal: 0.10%, Czech: 0.10%, Esperanto: 0.10%, Finnish: 0.10%, French: 0.10%, Greek: 0.10%, Irish: 0.10%, Italian: 0.10%, Korean: 0.10%, Latvian: 0.10%, Maori: 0.10%, Romanian: 0.10%, Slovak: 0.10%, Spanish: 0.10%, Swedish: 0.10%, Vietnamese: 0.10%, Xhosa: 0.10%
 

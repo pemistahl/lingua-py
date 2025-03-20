@@ -1,0 +1,16 @@
+##### Italian #####
+
+>>> Accuracy on average: 59.33%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 82.80%
+Erroneously classified as Croatian: 17.20%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 71.90%
+Erroneously classified as Croatian: 28.10%
+
+>> Detection of 1000 sentences (average length: 123 chars)
+Accuracy: 23.30%
+Erroneously classified as Croatian: 76.70%
+

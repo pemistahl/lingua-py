@@ -1,0 +1,16 @@
+##### Finnish #####
+
+>>> Accuracy on average: 70.07%
+
+>> Detection of 1000 single words (average length: 10 chars)
+Accuracy: 87.50%
+Erroneously classified as Indonesian: 12.50%
+
+>> Detection of 1000 word pairs (average length: 19 chars)
+Accuracy: 80.40%
+Erroneously classified as Indonesian: 19.60%
+
+>> Detection of 1000 sentences (average length: 103 chars)
+Accuracy: 42.30%
+Erroneously classified as Indonesian: 57.70%
+

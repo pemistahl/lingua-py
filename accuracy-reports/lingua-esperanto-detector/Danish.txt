@@ -1,0 +1,16 @@
+##### Danish #####
+
+>>> Accuracy on average: 62.60%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 82.60%
+Erroneously classified as Esperanto: 17.40%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 71.10%
+Erroneously classified as Esperanto: 28.90%
+
+>> Detection of 1000 sentences (average length: 112 chars)
+Accuracy: 34.10%
+Erroneously classified as Esperanto: 65.90%
+

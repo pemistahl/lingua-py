@@ -1,0 +1,16 @@
+##### Catalan #####
+
+>>> Accuracy on average: 64.13%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 85.30%
+Erroneously classified as Bosnian: 14.70%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 70.50%
+Erroneously classified as Bosnian: 29.50%
+
+>> Detection of 1000 sentences (average length: 103 chars)
+Accuracy: 36.60%
+Erroneously classified as Bosnian: 63.40%
+

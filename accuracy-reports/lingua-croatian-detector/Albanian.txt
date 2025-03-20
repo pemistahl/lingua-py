@@ -1,0 +1,16 @@
+##### Albanian #####
+
+>>> Accuracy on average: 68.77%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 88.60%
+Erroneously classified as Croatian: 11.40%
+
+>> Detection of 1000 word pairs (average length: 15 chars)
+Accuracy: 81.20%
+Erroneously classified as Croatian: 18.80%
+
+>> Detection of 1000 sentences (average length: 118 chars)
+Accuracy: 36.50%
+Erroneously classified as Croatian: 63.50%
+

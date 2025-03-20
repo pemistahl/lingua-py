@@ -1,0 +1,16 @@
+##### Nynorsk #####
+
+>>> Accuracy on average: 70.90%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 86.60%
+Erroneously classified as Bosnian: 13.40%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 79.50%
+Erroneously classified as Bosnian: 20.50%
+
+>> Detection of 1000 sentences (average length: 96 chars)
+Accuracy: 46.60%
+Erroneously classified as Bosnian: 53.40%
+

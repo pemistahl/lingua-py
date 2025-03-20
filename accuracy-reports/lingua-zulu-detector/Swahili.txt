@@ -1,0 +1,16 @@
+##### Swahili #####
+
+>>> Accuracy on average: 59.07%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 82.00%
+Erroneously classified as Zulu: 18.00%
+
+>> Detection of 1000 word pairs (average length: 15 chars)
+Accuracy: 70.10%
+Erroneously classified as Zulu: 29.90%
+
+>> Detection of 1000 sentences (average length: 108 chars)
+Accuracy: 25.10%
+Erroneously classified as Zulu: 74.90%
+

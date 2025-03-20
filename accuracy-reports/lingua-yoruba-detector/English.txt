@@ -1,0 +1,16 @@
+##### English #####
+
+>>> Accuracy on average: 71.43%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 87.40%
+Erroneously classified as Yoruba: 12.60%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 82.70%
+Erroneously classified as Yoruba: 17.30%
+
+>> Detection of 1000 sentences (average length: 108 chars)
+Accuracy: 44.20%
+Erroneously classified as Yoruba: 55.80%
+

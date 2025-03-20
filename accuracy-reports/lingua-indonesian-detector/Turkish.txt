@@ -1,0 +1,16 @@
+##### Turkish #####
+
+>>> Accuracy on average: 59.97%
+
+>> Detection of 1000 single words (average length: 9 chars)
+Accuracy: 83.70%
+Erroneously classified as Indonesian: 16.30%
+
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 72.40%
+Erroneously classified as Indonesian: 27.60%
+
+>> Detection of 1000 sentences (average length: 119 chars)
+Accuracy: 23.80%
+Erroneously classified as Indonesian: 76.20%
+

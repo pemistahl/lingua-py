@@ -18,6 +18,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import seaborn as sns
+from lingua import Language
 from math import floor
 from matplotlib.patches import Patch
 from pathlib import Path
@@ -35,91 +36,74 @@ class AccuracyPlotDrawer:
     _fontweight = "bold"
     _hue = "classifier"
     _grid_color = "#474747"
-    _plot_filepath = Path(__file__).parent / "../images/plots/"
-    _plot_titles = ("Single Word", "Word Pair", "Sentence", "Average")
-    _plot_title_suffix = "Detection Performance"
-    _column_prefixes = ("single-words", "word-pairs", "sentences", "average")
-    _column_suffixes = (
-        "simplemma",
-        "cld2",
-        "cld3",
-        "langid",
-        "fasttext",
-        "fastspell-cons",
-        "fastspell-aggr",
-        "langdetect",
-        "lingua-low",
-        "lingua-high",
-    )
-    _legend_labels = (
-        "Simplemma 0.9.1",
-        "CLD 2",
-        "CLD 3",
-        "Langid 1.1.6",
-        "FastText 0.9.2",
-        "FastSpell 0.11\nconservative mode",
-        "FastSpell 0.11\naggressive mode",
-        "Langdetect 1.0.9",
-        "Lingua 2.0.0\nlow accuracy mode",
-        "Lingua 2.0.0\nhigh accuracy mode",
-    )
-    _hatches = ("|", "-", "/", "x", "+", "\\", "o", ".", "*", "O")
+    _column_labels = {
+        "cld2": "CLD 2",
+        "cld3": "CLD 3",
+        "langdetect": "Langdetect 1.0.9",
+        "langid": "Langid 1.1.6",
+        "lingua-low-accuracy": "Lingua 2.1.0\nlow accuracy mode",
+        "lingua-high-accuracy": "Lingua 2.1.0\nhigh accuracy mode",
+        "lingua-single-language-detector": "Lingua 2.1.0\nsingle language mode",
+        "simplemma": "Simplemma 0.9.1",
+    }
+    _single_language_mode_columns = [
+        f"lingua-{language.name.lower()}-detector" for language in Language
+    ]
+    _hatches = ("x", "+", "\\", "o", "oo", ".", "*", "O")
     _palette = (
-        "#39d7e6",
-        "#6bbcff",
-        "#347deb",
         "#b259ff",
         "#ff6347",
         "#ff8800",
         "#ffb866",
         "#ffc400",
+        "#fff480",
         "#8edca7",
         "#41c46b",
     )
     _ticks = np.arange(0, 101, 10)
-    _legend_handles = [
-        Patch(facecolor=color, edgecolor="black", label=label, hatch=hatch)
-        for color, label, hatch in zip(_palette, _legend_labels, _hatches)
-    ]
 
-    def __init__(self, file_path):
-        self._dataframe = self._read_into_dataframe(file_path)
+    def __init__(self, plot_title: str, report_file_path: Path):
+        self._plot_title = plot_title
+        self._dataframe = self._read_into_dataframe(report_file_path)
 
-    def draw_all_barplots(self):
-        for title, prefix in zip(self._plot_titles, self._column_prefixes):
-            suffixed_title = f"{title} {self._plot_title_suffix}"
-            columns = [f"{prefix}-{suffix}" for suffix in self._column_suffixes]
-            self._draw_barplot(
-                columns,
-                suffixed_title,
-                xlim=(0, 100),
-                filename=f"barplot-{prefix}.png",
-            )
+    def _read_into_dataframe(self, report_file_path: Path) -> pd.DataFrame:
+        df = pd.read_csv(report_file_path, index_col="language")
 
-    def draw_all_boxplots(self):
-        for title, prefix in zip(self._plot_titles, self._column_prefixes):
-            suffixed_title = f"{title} {self._plot_title_suffix}"
-            columns = [f"{prefix}-{suffix}" for suffix in self._column_suffixes]
-            self._draw_boxplot(
-                columns,
-                suffixed_title,
-                xlim=(0, 100),
-                filename=f"boxplot-{prefix}.png",
-            )
+        merged_single_language_mode_column = {
+            "lingua-single-language-detector": df[
+                self._single_language_mode_columns
+            ].mean(axis="columns")
+        }
 
-    def _read_into_dataframe(self, file_path):
-        frame = pd.read_csv(filepath_or_buffer=file_path)
+        df = df.assign(**merged_single_language_mode_column)
+
+        # Sort classifier columns by their mean value
+        df = df.reindex(df.mean().sort_values().index, axis="columns")
+
         return pd.melt(
-            frame=frame, id_vars="language", value_name="accuracy", var_name=self._hue
+            frame=df.reset_index(),
+            id_vars="language",
+            value_name="accuracy",
+            var_name=self._hue,
         )
 
-    def _draw_barplot(self, columns, title, xlim, filename):
-        row_filter = self._dataframe[self._hue].isin(columns)
+    def draw_barplot(self, file_path: Path):
+        column_labels = self._column_labels.copy()
+        del column_labels["lingua-single-language-detector"]
+        row_filter = self._dataframe[self._hue].isin(column_labels.keys())
         data = self._dataframe[row_filter]
+        classifiers = data[self._hue].unique()
+        labels = [column_labels[classifier] for classifier in classifiers]
+        handles = [
+            Patch(facecolor=color, edgecolor="black", label=label, hatch=hatch)
+            for color, label, hatch in zip(self._palette, labels, self._hatches)
+        ]
 
-        plt.figure(figsize=(16, 220))
+        plt.figure(figsize=(16, 175))
         plt.title(
-            title + "\n", fontsize=self._title_fontsize, fontweight=self._fontweight
+            self._plot_title + "\n",
+            fontsize=self._title_fontsize,
+            fontweight=self._fontweight,
         )
         plt.xticks(fontsize=self._ticks_fontsize, ticks=self._ticks)
         plt.yticks(fontsize=self._ticks_fontsize)
@@ -135,32 +119,36 @@ class AccuracyPlotDrawer:
         axes.set_ylabel(
             "Language", fontsize=self._label_fontsize, fontweight=self._fontweight
         )
-        axes.set_xlim(xlim)
+        axes.set_xlim((0, 100))
         axes.xaxis.tick_top()
         axes.xaxis.set_label_position("top")
         axes.tick_params(axis="both", which="major", labelsize=self._label_fontsize)
         axes.tick_params(axis="both", which="minor", labelsize=self._label_fontsize)
-        axes.legend(handles=self._legend_handles, fontsize=28, loc="upper left")
+        axes.legend(handles=handles, fontsize=28, loc="upper left")
 
-        language_count = len(axes.patches) / len(self._legend_labels)
+        language_count = len(axes.patches) / len(self._column_labels)
         for i, current_bar in enumerate(axes.patches):
             current_bar.set_edgecolor(self._grid_color)
             current_bar.set_hatch(self._hatches[floor(i / language_count)])
 
         plt.tight_layout()
-        plt.savefig(self._plot_filepath / filename, dpi=self._dpi)
+        plt.savefig(file_path, dpi=self._dpi)
 
-    def _draw_boxplot(self, columns, title, xlim, filename):
-        row_filter = self._dataframe[self._hue].isin(columns)
+    def draw_boxplot(self, file_path: Path):
+        row_filter = self._dataframe[self._hue].isin(self._column_labels.keys())
         data = self._dataframe[row_filter]
+        classifiers = data[self._hue].unique()
+        labels = [self._column_labels[classifier] for classifier in classifiers]
 
-        plt.figure(figsize=(20, 25))
+        plt.figure(figsize=(20, 20))
         plt.title(
-            title + "\n", fontsize=self._title_fontsize, fontweight=self._fontweight
+            self._plot_title + "\n",
+            fontsize=self._title_fontsize,
+            fontweight=self._fontweight,
         )
         plt.xticks(fontsize=self._ticks_fontsize, ticks=self._ticks)
         plt.yticks(fontsize=self._ticks_fontsize)
-        plt.grid(self._grid_color)
+        plt.grid(color=self._grid_color)
 
         axes = sns.boxplot(
             data=data,
@@ -172,7 +160,7 @@ class AccuracyPlotDrawer:
             legend=False,
         )
 
-        axes.set_xlim(xlim)
+        axes.set_xlim((0, 100))
         axes.xaxis.tick_top()
         axes.xaxis.set_label_position("top")
         axes.tick_params(axis="both", which="major", labelsize=self._label_fontsize)
@@ -185,17 +173,70 @@ class AccuracyPlotDrawer:
         )
         # set_yticklabels should only be called after set_yticks
         axes.set_yticks(axes.get_yticks())
-        axes.set_yticklabels(self._legend_labels)
+        axes.set_yticklabels(labels)
 
         plt.tight_layout()
-        plt.savefig(self._plot_filepath / filename, dpi=self._dpi)
+        plt.savefig(file_path, dpi=self._dpi)
+
+    def draw_single_language_mode_boxplot(self, file_path: Path):
+        row_filter = self._dataframe[self._hue].isin(self._single_language_mode_columns)
+        data = self._dataframe[row_filter].sort_values(by=self._hue)
+        classifiers = data[self._hue].unique()
+        labels = [classifier.split("-")[1].title() for classifier in classifiers]
+
+        plt.figure(figsize=(20, 150))
+        plt.title(
+            self._plot_title + "\nSingle Language Mode\n",
+            fontsize=self._title_fontsize,
+            fontweight=self._fontweight,
+        )
+        plt.xticks(fontsize=self._ticks_fontsize, ticks=self._ticks)
+        plt.yticks(fontsize=self._ticks_fontsize)
+        plt.grid(color=self._grid_color)
+
+        axes = sns.boxplot(
+            data=data,
+            x="accuracy",
+            hue="classifier",
+            y="classifier",
+            linewidth=5,
+            legend=False,
+        )
+
+        axes.set_xlim((0, 100))
+        axes.xaxis.tick_top()
+        axes.xaxis.set_label_position("top")
+        axes.tick_params(axis="both", which="major", labelsize=self._label_fontsize)
+        axes.tick_params(axis="both", which="minor", labelsize=self._label_fontsize)
+        axes.set_ylabel(
+            "Classifier", fontsize=self._label_fontsize, fontweight=self._fontweight
+        )
+        axes.set_xlabel(
+            "Accuracy (%)\n", fontsize=self._label_fontsize, fontweight=self._fontweight
+        )
+        # set_yticklabels should only be called after set_yticks
+        axes.set_yticks(axes.get_yticks())
+        axes.set_yticklabels(labels)
+
+        plt.tight_layout()
+        plt.savefig(file_path, dpi=self._dpi)
 
 
 if __name__ == "__main__":
-    file_path = (
-        Path(__file__).parent / "../accuracy-reports/aggregated-accuracy-values.csv"
-    )
-    drawer = AccuracyPlotDrawer(file_path)
-    drawer.draw_all_barplots()
-    drawer.draw_all_boxplots()
+    report_directory_path = Path(__file__).parent / "../accuracy-reports"
+    plot_directory_path = Path(__file__).parent / "../images/plots"
+    prefixes = ("average", "single-words", "word-pairs", "sentences")
+
+    for prefix in prefixes:
+        plot_title = prefix.title().replace("-", " ")
+        drawer = AccuracyPlotDrawer(
+            plot_title=f"{plot_title} Detection Performance",
+            report_file_path=report_directory_path / f"{prefix}-accuracy-values.csv",
+        )
+        drawer.draw_barplot(file_path=plot_directory_path / f"barplot-{prefix}.png")
+        drawer.draw_boxplot(file_path=plot_directory_path / f"boxplot-{prefix}.png")
+        drawer.draw_single_language_mode_boxplot(
+            file_path=plot_directory_path / f"boxplot-single-language-mode-{prefix}.png"
+        )
+
     print("All plots created successfully")

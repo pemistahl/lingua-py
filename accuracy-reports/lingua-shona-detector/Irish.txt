@@ -1,0 +1,16 @@
+##### Irish #####
+
+>>> Accuracy on average: 62.80%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 82.90%
+Erroneously classified as Shona: 17.10%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 75.00%
+Erroneously classified as Shona: 25.00%
+
+>> Detection of 1000 sentences (average length: 113 chars)
+Accuracy: 30.50%
+Erroneously classified as Shona: 69.50%
+

@@ -1,0 +1,16 @@
+##### Italian #####
+
+>>> Accuracy on average: 90.90%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 98.10%
+Erroneously classified as Vietnamese: 1.90%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 95.70%
+Erroneously classified as Vietnamese: 4.30%
+
+>> Detection of 1000 sentences (average length: 123 chars)
+Accuracy: 78.90%
+Erroneously classified as Vietnamese: 21.10%
+

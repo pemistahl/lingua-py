@@ -1,0 +1,16 @@
+##### Portuguese #####
+
+>>> Accuracy on average: 58.87%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 82.20%
+Erroneously classified as Slovene: 17.80%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 69.10%
+Erroneously classified as Slovene: 30.90%
+
+>> Detection of 1000 sentences (average length: 127 chars)
+Accuracy: 25.30%
+Erroneously classified as Slovene: 74.70%
+

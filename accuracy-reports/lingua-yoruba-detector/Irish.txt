@@ -1,0 +1,16 @@
+##### Irish #####
+
+>>> Accuracy on average: 82.87%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 96.50%
+Erroneously classified as Yoruba: 3.50%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 91.60%
+Erroneously classified as Yoruba: 8.40%
+
+>> Detection of 1000 sentences (average length: 113 chars)
+Accuracy: 60.50%
+Erroneously classified as Yoruba: 39.50%
+

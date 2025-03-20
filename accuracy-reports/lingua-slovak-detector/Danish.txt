@@ -1,0 +1,16 @@
+##### Danish #####
+
+>>> Accuracy on average: 70.80%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 87.50%
+Erroneously classified as Slovak: 12.50%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 81.20%
+Erroneously classified as Slovak: 18.80%
+
+>> Detection of 1000 sentences (average length: 112 chars)
+Accuracy: 43.70%
+Erroneously classified as Slovak: 56.30%
+

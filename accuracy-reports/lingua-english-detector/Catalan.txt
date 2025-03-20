@@ -1,0 +1,16 @@
+##### Catalan #####
+
+>>> Accuracy on average: 46.13%
+
+>> Detection of 1000 single words (average length: 8 chars)
+Accuracy: 69.20%
+Erroneously classified as English: 30.80%
+
+>> Detection of 1000 word pairs (average length: 16 chars)
+Accuracy: 49.60%
+Erroneously classified as English: 50.40%
+
+>> Detection of 1000 sentences (average length: 103 chars)
+Accuracy: 19.60%
+Erroneously classified as English: 80.40%
+
