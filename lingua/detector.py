@@ -306,10 +306,8 @@ class LanguageDetector:
         if is_every_language_model_preloaded:
             detector._preload_language_models()
 
-        if is_built_from_one_language or is_low_accuracy_mode_enabled:
-            detector._preload_unique_ngram_models()
-
         if is_built_from_one_language:
+            detector._preload_unique_ngram_models()
             detector._preload_most_common_ngram_models()
 
         return detector
@@ -402,17 +400,12 @@ class LanguageDetector:
                     self._quadrigram_language_models.pop(language)
                     self._fivegram_language_models.pop(language)
 
-                if (
-                    self._is_built_from_one_language
-                    or self._is_low_accuracy_mode_enabled
-                ):
+                if self._is_built_from_one_language:
                     self._unique_unigram_language_models.pop(language)
                     self._unique_bigram_language_models.pop(language)
                     self._unique_trigram_language_models.pop(language)
                     self._unique_quadrigram_language_models.pop(language)
                     self._unique_fivegram_language_models.pop(language)
-
-                if self._is_built_from_one_language:
                     self._most_common_unigram_language_models.pop(language)
                     self._most_common_bigram_language_models.pop(language)
                     self._most_common_trigram_language_models.pop(language)
@@ -604,7 +597,7 @@ class LanguageDetector:
         if len(words) == 0:
             return values
 
-        if self._is_built_from_one_language or self._is_low_accuracy_mode_enabled:
+        if self._is_built_from_one_language:
             language_detected_by_ngrams = (
                 self._detect_language_with_unique_and_common_ngrams(words)
             )
