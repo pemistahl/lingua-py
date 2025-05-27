@@ -1,3 +1,10 @@
+## Lingua 2.1.1 (released on 27 May 2025)
+
+### Bug Fixes
+
+- In low accuracy mode, the language detector could produce random results for
+  certain kinds of text. This has been fixed.
+
 ## Lingua 2.1.0 (released on 20 Mar 2025)
 
 ### Features
