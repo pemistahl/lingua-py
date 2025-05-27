@@ -6,7 +6,7 @@
 [![codecov](https://codecov.io/gh/pemistahl/lingua-py/branch/pure-python-impl/graph/badge.svg)](https://codecov.io/gh/pemistahl/lingua-py)
 [![supported languages](https://img.shields.io/badge/supported%20languages-75-green.svg)](#4-which-languages-are-supported)
 ![supported Python versions](https://img.shields.io/badge/Python-%3E%3D%203.10-blue)
-[![pypi](https://img.shields.io/badge/PYPI-v1.4.1-blue)](https://pypi.org/project/lingua-language-detector/1.4.1/)
+[![pypi](https://img.shields.io/badge/PYPI-v1.4.2-blue)](https://pypi.org/project/lingua-language-detector/1.4.2/)
 [![license](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 </div>
 
@@ -377,10 +377,10 @@ Erroneously classified as Dutch: 0.20%, Latin: 0.10%
 
 ## 9. How to add it to your project?
 
-*Lingua* is available in the [Python Package Index](https://pypi.org/project/lingua-language-detector/1.4.1)
+*Lingua* is available in the [Python Package Index](https://pypi.org/project/lingua-language-detector/1.4.2)
 and can be installed with:
 
-    pip install lingua-language-detector==1.4.1
+    pip install lingua-language-detector==1.4.2
 
 ## 10. How to build?
 
@@ -541,12 +541,8 @@ or unlikely to occur.
 
 If you build a `LanguageDetector` from one language only it will operate in single-language mode.
 This means the detector will try to find out whether a given text has been written in the given language or not.
-If not, then `None` will be returned, otherwise the given language.
-
-In single-language mode, the detector decides based on a set of unique and most common n-grams which
-have been collected beforehand for every supported language. It turns out that unique and most common
-n-grams help to improve accuracy in low accuracy mode, so they are used for that mode as well. In high
-accuracy mode, however, they do not make a significant difference, that's why they are left out.
+If not, then `None` will be returned, otherwise the given language. In single-language mode, the detector decides based on a set of unique and most common n-grams which
+have been collected beforehand for every supported language.
 
 ### 11.7 Detection of multiple languages in mixed-language texts
 

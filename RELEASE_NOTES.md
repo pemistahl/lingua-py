@@ -1,3 +1,10 @@
+## Lingua 1.4.2 (released on 27 May 2025)
+
+### Bug Fixes
+
+- In low accuracy mode, the language detector could produce random results for
+  certain kinds of text. This has been fixed.
+
 ## Lingua 1.4.1 (released on 07 Mar 2025)
 
 ### Improvements
