@@ -296,7 +296,7 @@ The accuracy reporter script measures the time each language detector needs
 to classify 3000 input texts for each of the supported 75 languages. The results
 below have been produced on an iMac 3.6 Ghz 8-Core Intel Core i9 with 40 GB RAM.
 
-Lingua in [multi-threaded mode](https://github.com/pemistahl/lingua-py#117-single-threaded-versus-multi-threaded-language-detection)
+Lingua in [multi-threaded mode](https://github.com/pemistahl/lingua-py#118-single-threaded-versus-multi-threaded-language-detection)
 is one of the fastest algorithms in this comparison. CLD 2 and 3
 are similarly fast as they have been implemented in C or C++. Pure Python libraries
 such as Simplemma, Langid or Langdetect a significantly slower.
@@ -588,7 +588,7 @@ ENGLISH: 'A little bit is better than nothing.'
 ```
 
 In the example above, a list of
-[`DetectionResult`](https://github.com/pemistahl/lingua-py/blob/pure-python-impl/lingua/detector.py#L148)
+[`DetectionResult`](https://github.com/pemistahl/lingua-py/blob/pure-python-impl/lingua/detector.py#L210)
 is returned. Each entry in the list describes a contiguous single-language text section,
 providing start and end indices of the respective substring.
 
