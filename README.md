@@ -213,17 +213,17 @@ median of the distributions.
 
 <br/>
 
-<img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/plots/boxplot-single-words.png" alt="Single Word Detection Performance" />
+<img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/plots/boxplot-single-words.png" alt="Single Word Detection Performance" width="50%" />
 
 <br/><br/>
 
-<img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/plots/boxplot-single-language-mode-single-words.png" alt="Single Word Detection Performance" />
+<img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/plots/boxplot-single-language-mode-single-words.png" alt="Single Word Detection Performance" width="50%" />
 
 <br/>
 
 <details>
     <summary>Bar plot</summary>
-    <img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/plots/barplot-single-words.png" alt="Single Word Detection Performance" />
+    <img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/plots/barplot-single-words.png" alt="Single Word Detection Performance" width="50%" />
 </details>
 
 <br/><br/>
@@ -232,17 +232,17 @@ median of the distributions.
 
 <br/>
 
-<img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/plots/boxplot-word-pairs.png" alt="Word Pair Detection Performance" />
+<img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/plots/boxplot-word-pairs.png" alt="Word Pair Detection Performance" width="50%" />
 
 <br/><br/>
 
-<img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/plots/boxplot-single-language-mode-word-pairs.png" alt="Word Pair Detection Performance" />
+<img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/plots/boxplot-single-language-mode-word-pairs.png" alt="Word Pair Detection Performance" width="50%"/>
 
 <br/>
 
 <details>
     <summary>Bar plot</summary>
-    <img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/plots/barplot-word-pairs.png" alt="Word Pair Detection Performance" />
+    <img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/plots/barplot-word-pairs.png" alt="Word Pair Detection Performance" width="50%" />
 </details>
 
 <br/><br/>
@@ -251,17 +251,17 @@ median of the distributions.
 
 <br/>
 
-<img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/plots/boxplot-sentences.png" alt="Sentence Detection Performance" />
+<img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/plots/boxplot-sentences.png" alt="Sentence Detection Performance" width="50%" />
 
 <br/><br/>
 
-<img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/plots/boxplot-single-language-mode-sentences.png" alt="Sentence Detection Performance" />
+<img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/plots/boxplot-single-language-mode-sentences.png" alt="Sentence Detection Performance" width="50%" />
 
 <br/>
 
 <details>
     <summary>Bar plot</summary>
-    <img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/plots/barplot-sentences.png" alt="Sentence Detection Performance" />
+    <img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/plots/barplot-sentences.png" alt="Sentence Detection Performance" width="50%" />
 </details>
 
 <br/><br/>
@@ -270,17 +270,17 @@ median of the distributions.
 
 <br/>
 
-<img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/plots/boxplot-average.png" alt="Average Detection Performance" />
+<img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/plots/boxplot-average.png" alt="Average Detection Performance" width="50%" />
 
 <br/><br/>
 
-<img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/plots/boxplot-single-language-mode-average.png" alt="Average Detection Performance" />
+<img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/plots/boxplot-single-language-mode-average.png" alt="Average Detection Performance" width="50%" />
 
 <br/>
 
 <details>
     <summary>Bar plot</summary>
-    <img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/plots/barplot-average.png" alt="Average Detection Performance" />
+    <img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/plots/barplot-average.png" alt="Average Detection Performance" width="50%" />
 </details>
 
 <br/><br/>
