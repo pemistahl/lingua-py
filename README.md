@@ -11,6 +11,32 @@
 </div>
 
 <br>
+Fast and accurate language detection for text.
+
+## Quick Start
+
+Simply define your target languages to detect and start classifying languages:
+
+```python
+>>> from lingua import Language, LanguageDetectorBuilder
+>>> languages = [Language.ENGLISH, Language.FRENCH, Language.GERMAN, Language.SPANISH]
+>>> detector = LanguageDetectorBuilder.from_languages(*languages).build()
+>>> text = "languages are awesome"
+>>> language = detector.detect_language_of(text)
+>>> language
+Language.ENGLISH
+>>> confidence_value = detector.compute_language_confidence(text, Language.ENGLISH)
+>>> confidence_value
+0.9250120192490813
+```
+
+## Installation
+
+```
+pip install lingua-language-detector
+```
+
+--------------
 
 ## 1. What does this library do?
 
