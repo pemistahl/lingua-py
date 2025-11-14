@@ -17,9 +17,10 @@ import brotli
 import regex
 
 from pathlib import Path
+from random import randrange
 from typing import Optional
 
-from ._constant import MULTIPLE_WHITESPACE, NUMBERS, PUNCTUATION
+from ._constant import DIGITS_AT_BEGINNING, MULTIPLE_WHITESPACE, NUMBERS, PUNCTUATION
 from .language import Language
 from ._model import _TrainingDataLanguageModel
 
@@ -199,12 +200,29 @@ class TestDataFilesWriter:
         sentences_file_path = output_directory_path / "sentences.txt"
         if sentences_file_path.is_file():
             sentences_file_path.unlink()
+
         with input_file_path.open() as input_file:
+            input_file_lines = input_file.readlines()
+            input_lines_count = len(input_file_lines)
+
             with sentences_file_path.open(mode="w") as sentences_file:
                 line_counter = 0
-                for line in input_file:
+                random_line_numbers = set()
+
+                while True:
+                    n = randrange(0, input_lines_count)
+                    random_line_numbers.add(n)
+                    if len(random_line_numbers) == maximum_lines:
+                        break
+
+                for i, line in enumerate(input_file_lines):
+                    if i not in random_line_numbers:
+                        continue
+
                     normalized_whitespace = MULTIPLE_WHITESPACE.sub(" ", line.strip())
-                    removed_quotes = normalized_whitespace.replace('"', "")
+                    removed_sentence_numbers = DIGITS_AT_BEGINNING.sub("", normalized_whitespace)
+                    removed_quotes = removed_sentence_numbers.replace('"', "")
+
                     if line_counter < maximum_lines:
                         sentences_file.write(removed_quotes)
                         sentences_file.write("\n")

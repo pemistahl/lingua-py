@@ -21,6 +21,7 @@ from .language import Language
 JAPANESE_CHARACTER_SET: Pattern = regex.compile(r"^[\p{Hiragana}\p{Katakana}\p{Han}]+$")
 MULTIPLE_WHITESPACE: Pattern = regex.compile(r"\s+")
 NUMBERS: Pattern = regex.compile(r"\p{N}")
+DIGITS_AT_BEGINNING: Pattern = regex.compile(r"\d+\s+")
 PUNCTUATION: Pattern = regex.compile(r"\p{P}")
 TOKENS_WITHOUT_WHITESPACE: Pattern = regex.compile(
     r"\p{Bengali}+|\p{Devanagari}+|\p{Gujarati}+|\p{Gurmukhi}+|\p{Han}|\p{Hangul}+|\p{Hiragana}|\p{Katakana}|\p{Tamil}+|\p{Telugu}+|\p{Thai}+|\p{L}+"
