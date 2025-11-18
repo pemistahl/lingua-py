@@ -1,6 +1,6 @@
 ##### German #####
 
->>> Accuracy on average: 80.13%
+>>> Accuracy on average: 80.33%
 
 >> Detection of 1000 single words (average length: 9 chars)
 Accuracy: 57.90%
@@ -11,6 +11,6 @@ Accuracy: 84.50%
 Erroneously classified as Dutch: 1.50%, Bokmal: 1.40%, English: 1.40%, Danish: 1.30%, Swedish: 1.30%, Latin: 0.90%, Nynorsk: 0.90%, Afrikaans: 0.50%, French: 0.50%, Albanian: 0.40%, Basque: 0.40%, Estonian: 0.40%, Spanish: 0.40%, Catalan: 0.30%, Esperanto: 0.30%, Lithuanian: 0.30%, Tsonga: 0.30%, Tswana: 0.30%, Xhosa: 0.30%, Finnish: 0.20%, Irish: 0.20%, Latvian: 0.20%, Sotho: 0.20%, Yoruba: 0.20%, Zulu: 0.20%, Azerbaijani: 0.10%, Czech: 0.10%, Indonesian: 0.10%, Italian: 0.10%, Malay: 0.10%, Portuguese: 0.10%, Shona: 0.10%, Slovene: 0.10%, Swahili: 0.10%, Tagalog: 0.10%, Turkish: 0.10%, Welsh: 0.10%
 
 >> Detection of 1000 sentences (average length: 111 chars)
-Accuracy: 98.00%
-Erroneously classified as Estonian: 0.30%, Slovak: 0.30%, Finnish: 0.20%, Sotho: 0.20%, Afrikaans: 0.10%, Czech: 0.10%, Dutch: 0.10%, Esperanto: 0.10%, Hungarian: 0.10%, Nynorsk: 0.10%, Slovene: 0.10%, Spanish: 0.10%, Swedish: 0.10%, Zulu: 0.10%
+Accuracy: 98.60%
+Erroneously classified as Estonian: 0.20%, Finnish: 0.20%, Sotho: 0.20%, Dutch: 0.10%, Esperanto: 0.10%, Hungarian: 0.10%, Nynorsk: 0.10%, Slovene: 0.10%, Spanish: 0.10%, Swedish: 0.10%, Zulu: 0.10%
 

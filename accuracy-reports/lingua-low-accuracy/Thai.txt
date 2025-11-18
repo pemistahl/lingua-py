@@ -1,6 +1,6 @@
 ##### Thai #####
 
->>> Accuracy on average: 99.87%
+>>> Accuracy on average: 99.97%
 
 >> Detection of 1000 single words (average length: 20 chars)
 Accuracy: 100.00%
@@ -11,6 +11,6 @@ Accuracy: 100.00%
 Erroneously classified as 
 
 >> Detection of 1000 sentences (average length: 116 chars)
-Accuracy: 99.60%
-Erroneously classified as Slovak: 0.30%, Welsh: 0.10%
+Accuracy: 99.90%
+Erroneously classified as Welsh: 0.10%
 

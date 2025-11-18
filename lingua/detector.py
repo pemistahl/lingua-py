@@ -306,7 +306,7 @@ class LanguageDetector:
         if is_every_language_model_preloaded:
             detector._preload_language_models()
 
-        if is_built_from_one_language:
+        if is_built_from_one_language or is_low_accuracy_mode_enabled:
             detector._preload_unique_ngram_models()
             detector._preload_most_common_ngram_models()
 
@@ -400,7 +400,10 @@ class LanguageDetector:
                     self._quadrigram_language_models.pop(language)
                     self._fivegram_language_models.pop(language)
 
-                if self._is_built_from_one_language:
+                if (
+                    self._is_built_from_one_language
+                    or self._is_low_accuracy_mode_enabled
+                ):
                     self._unique_unigram_language_models.pop(language)
                     self._unique_bigram_language_models.pop(language)
                     self._unique_trigram_language_models.pop(language)
@@ -597,7 +600,7 @@ class LanguageDetector:
         if len(words) == 0:
             return values
 
-        if self._is_built_from_one_language:
+        if self._is_built_from_one_language or self._is_low_accuracy_mode_enabled:
             language_detected_by_ngrams = (
                 self._detect_language_with_unique_and_common_ngrams(words)
             )
@@ -711,6 +714,7 @@ class LanguageDetector:
     def _detect_language_with_unique_and_common_ngrams(
         self, words: list[str]
     ) -> Optional[Language]:
+        filtered_languages = set()
         for ngram_length in reversed(range(1, 6)):
             ngrams = _create_ngrams(words, ngram_length)
             optional_language = None
@@ -740,7 +744,10 @@ class LanguageDetector:
                     )
 
                 if optional_language is not None:
-                    return optional_language
+                    filtered_languages.add(optional_language)
+
+        if len(filtered_languages) == 1:
+            return next(iter(filtered_languages))
         return None
 
     def _search_unique_and_most_common_ngrams(

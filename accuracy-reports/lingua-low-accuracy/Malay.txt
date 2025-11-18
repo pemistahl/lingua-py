@@ -1,6 +1,6 @@
 ##### Malay #####
 
->>> Accuracy on average: 30.53%
+>>> Accuracy on average: 30.67%
 
 >> Detection of 1000 single words (average length: 7 chars)
 Accuracy: 21.80%
@@ -11,6 +11,6 @@ Accuracy: 35.90%
 Erroneously classified as Indonesian: 32.70%, Tagalog: 2.60%, German: 1.90%, Latin: 1.90%, Albanian: 1.60%, Tsonga: 1.60%, English: 1.50%, Maori: 1.50%, Shona: 1.50%, Swahili: 1.50%, Esperanto: 1.20%, Lithuanian: 1.10%, Basque: 1.00%, Sotho: 1.00%, Finnish: 0.90%, Bokmal: 0.80%, Ganda: 0.70%, Zulu: 0.70%, Catalan: 0.60%, Tswana: 0.60%, Estonian: 0.50%, Somali: 0.50%, Yoruba: 0.50%, French: 0.40%, Italian: 0.40%, Polish: 0.40%, Portuguese: 0.40%, Swedish: 0.40%, Xhosa: 0.40%, Croatian: 0.30%, Irish: 0.30%, Spanish: 0.30%, Turkish: 0.30%, Vietnamese: 0.30%, Welsh: 0.30%, Afrikaans: 0.20%, Azerbaijani: 0.20%, Dutch: 0.20%, Nynorsk: 0.20%, Romanian: 0.20%, Bosnian: 0.10%, Czech: 0.10%, Hungarian: 0.10%, Latvian: 0.10%, Slovene: 0.10%
 
 >> Detection of 1000 sentences (average length: 116 chars)
-Accuracy: 33.90%
-Erroneously classified as Indonesian: 58.10%, Tagalog: 1.50%, German: 1.30%, English: 0.80%, Estonian: 0.40%, Hungarian: 0.40%, Latin: 0.40%, Croatian: 0.30%, Catalan: 0.20%, Polish: 0.20%, Sotho: 0.20%, Swahili: 0.20%, Tsonga: 0.20%, Afrikaans: 0.10%, Albanian: 0.10%, Bokmal: 0.10%, Czech: 0.10%, Esperanto: 0.10%, Finnish: 0.10%, French: 0.10%, Greek: 0.10%, Irish: 0.10%, Italian: 0.10%, Korean: 0.10%, Latvian: 0.10%, Maori: 0.10%, Romanian: 0.10%, Slovak: 0.10%, Spanish: 0.10%, Swedish: 0.10%, Vietnamese: 0.10%, Xhosa: 0.10%
+Accuracy: 34.30%
+Erroneously classified as Indonesian: 58.10%, Tagalog: 1.50%, German: 1.20%, English: 0.80%, Estonian: 0.40%, Hungarian: 0.40%, Latin: 0.40%, Croatian: 0.30%, Catalan: 0.20%, Sotho: 0.20%, Swahili: 0.20%, Tsonga: 0.20%, Afrikaans: 0.10%, Albanian: 0.10%, Bokmal: 0.10%, Czech: 0.10%, Esperanto: 0.10%, Finnish: 0.10%, French: 0.10%, Irish: 0.10%, Italian: 0.10%, Korean: 0.10%, Latvian: 0.10%, Maori: 0.10%, Polish: 0.10%, Romanian: 0.10%, Spanish: 0.10%, Swedish: 0.10%, Vietnamese: 0.10%, Xhosa: 0.10%
 
