@@ -46,19 +46,20 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: [ '3.10', '3.11', '3.12', '3.13' ]
+        python-version: [ '3.12', '3.13', '3.14' ]
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: ${{ matrix.python-version }}
+          cache: 'pip'
 
       - name: Set up Poetry
-        uses: abatilo/actions-poetry@v2
+        uses: abatilo/actions-poetry@v4
         with:
           poetry-version: 1.8
 
@@ -80,7 +81,7 @@ jobs:
           poetry run coverage xml
 
       - name: Upload code coverage report
-        if: ${{ github.event_name == 'push' && matrix.python-version == '3.13' }}
+        if: ${{ github.event_name == 'push' && matrix.python-version == '3.14' }}
         uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}

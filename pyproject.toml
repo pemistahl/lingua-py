@@ -15,7 +15,7 @@
 
 [tool.poetry]
 name = "lingua-language-detector"
-version = "1.4.2"
+version = "1.5.0"
 description = "An accurate natural language detection library, suitable for short text and mixed-language text"
 authors = ["Peter M. Stahl <pemistahl@gmail.com>"]
 license = "Apache-2.0"
@@ -85,10 +85,9 @@ classifiers = [
     "Natural Language :: Urdu",
     "Natural Language :: Vietnamese",
     "Operating System :: OS Independent",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
     "Topic :: Scientific/Engineering :: Information Analysis",
     "Topic :: Software Development :: Libraries :: Python Modules",
     "Topic :: Software Development :: Internationalization",
@@ -98,7 +97,7 @@ classifiers = [
 ]
 
 [tool.poetry.dependencies]
-python = ">=3.10,<3.14"
+python = ">=3.12,<3.15"
 brotli = "^1.1.0"
 regex = "^2024.11.6"
 

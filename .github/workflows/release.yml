@@ -21,7 +21,7 @@ on:
       - v*
 
 env:
-  PYTHON_VERSION: 3.13
+  PYTHON_VERSION: 3.14
 
 jobs:
   release:
@@ -29,15 +29,16 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: ${{ env.PYTHON_VERSION }}
+          cache: 'pip'
 
       - name: Set up Poetry
-        uses: abatilo/actions-poetry@v3
+        uses: abatilo/actions-poetry@v4
         with:
           poetry-version: 1.8
 
