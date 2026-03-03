@@ -37,13 +37,13 @@ class AccuracyPlotDrawer:
     _hue = "classifier"
     _grid_color = "#474747"
     _column_labels = {
-        "cld2": "CLD 2",
-        "cld3": "CLD 3",
+        "cld2": "PyCLD2 0.42",
+        "cld3": "GCLD3 3.0.13",
         "langdetect": "Langdetect 1.0.9",
         "langid": "Langid 1.1.6",
-        "lingua-low-accuracy": "Lingua 2.1.0\nlow accuracy mode",
-        "lingua-high-accuracy": "Lingua 2.1.0\nhigh accuracy mode",
-        "lingua-single-language-detector": "Lingua 2.1.0\nsingle language mode",
+        "lingua-low-accuracy": "Lingua 2.2.0\nlow accuracy mode",
+        "lingua-high-accuracy": "Lingua 2.2.0\nhigh accuracy mode",
+        "lingua-single-language-detector": "Lingua 2.2.0\nsingle language mode",
         "simplemma": "Simplemma 0.9.1",
     }
     _single_language_mode_columns = [

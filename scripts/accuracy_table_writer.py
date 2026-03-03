@@ -22,8 +22,8 @@ from pathlib import Path
 
 class AccuracyTableWriter:
     _column_labels = {
-        "cld2": "&nbsp;&nbsp;CLD2&nbsp;&nbsp;",
-        "cld3": "&nbsp;&nbsp;CLD3&nbsp;&nbsp;",
+        "cld2": "&nbsp;&nbsp;PyCLD2&nbsp;&nbsp;",
+        "cld3": "&nbsp;&nbsp;GCLD3&nbsp;&nbsp;",
         "langdetect": "Langdetect",
         "langid": "Langid",
         "lingua-low-accuracy": "Lingua<br>(low accuracy mode)",

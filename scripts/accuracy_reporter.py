@@ -200,16 +200,15 @@ class Statistic:
         sorted_accuracies = []
         for lang, accuracy in self._language_accuracies.items():
             if lang != language:
-                sorted_accuracies.append((lang, accuracy))
+                if lang is None:
+                    sorted_accuracies.append(("Unknown", accuracy))
+                else:
+                    sorted_accuracies.append((lang.name.title(), accuracy))
 
         sorted_accuracies.sort(key=lambda elem: (-elem[1], elem[0]))
 
         substrs = [
-            (
-                f"{language.name.title()}: {format_accuracy(accuracy)}%"
-                if language is not None
-                else f"Unknown: {format_accuracy(accuracy)}%"
-            )
+            f"{language}: {format_accuracy(accuracy)}%"
             for language, accuracy in sorted_accuracies
         ]
         return ", ".join(substrs)
@@ -457,17 +456,17 @@ def map_detector_to_lingua(iso_code: str) -> Optional[Language]:
     if iso_code in ["zh-cn", "zh-tw"]:
         iso_code = "zh"
     try:
-        lingua_iso_code = IsoCode639_1[iso_code.upper()]
-        for language in Language:
+        lingua_iso_code = IsoCode639_1.from_str(iso_code.upper())
+        for language in Language.all():
             if language.iso_code_639_1 == lingua_iso_code:
                 return language
         return None
-    except KeyError:
+    except ValueError:
         return None
 
 
 def parse_command_line_args() -> tuple[list[str], list[str]]:
-    default_languages = [language.name.lower() for language in Language]
+    default_languages = [language.name.lower() for language in Language.all()]
     default_detectors = [
         "cld2",
         "cld3",
@@ -513,7 +512,7 @@ def create_detector_instance(
         return LinguaLowAccuracyDetector(languages)
     if detector_name.startswith("lingua-") and detector_name.endswith("-detector"):
         language_name = detector_name.split("-")[1]
-        language = Language[language_name.upper()]
+        language = Language.from_str(language_name)
         return LinguaSingleLanguageDetector(language, languages)
     if detector_name == "simplemma":
         return SimplemmaDetector(languages)
@@ -523,7 +522,7 @@ def create_detector_instance(
 def main():
     total_start = time.perf_counter()
     detector_names, language_names = parse_command_line_args()
-    languages = sorted([Language[name.upper()] for name in language_names])
+    languages = sorted([Language.from_str(name) for name in language_names])
     all_statistics = {}
     all_single_language_detectors_name = "lingua-all-single-language-detectors"
 
