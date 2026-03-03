@@ -1,16 +1,16 @@
 ##### Latin #####
 
->>> Accuracy on average: 65.90%
+>>> Accuracy on average: 62.40%
 
 >> Detection of 1000 single words (average length: 8 chars)
-Accuracy: 85.60%
-Erroneously classified as Basque: 14.40%
+Accuracy: 84.90%
+Erroneously classified as Basque: 15.10%
 
->> Detection of 1000 word pairs (average length: 16 chars)
-Accuracy: 73.90%
-Erroneously classified as Basque: 26.10%
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 71.10%
+Erroneously classified as Basque: 28.90%
 
->> Detection of 1000 sentences (average length: 91 chars)
-Accuracy: 38.20%
-Erroneously classified as Basque: 61.80%
+>> Detection of 1000 sentences (average length: 86 chars)
+Accuracy: 31.20%
+Erroneously classified as Basque: 68.80%
 

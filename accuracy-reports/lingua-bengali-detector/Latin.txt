@@ -6,11 +6,11 @@
 Accuracy: 100.00%
 Erroneously classified as 
 
->> Detection of 1000 word pairs (average length: 16 chars)
+>> Detection of 1000 word pairs (average length: 17 chars)
 Accuracy: 100.00%
 Erroneously classified as 
 
->> Detection of 1000 sentences (average length: 91 chars)
+>> Detection of 1000 sentences (average length: 86 chars)
 Accuracy: 100.00%
 Erroneously classified as 
 

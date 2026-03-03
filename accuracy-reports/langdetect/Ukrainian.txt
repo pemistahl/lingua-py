@@ -1,16 +1,16 @@
 ##### Ukrainian #####
 
->>> Accuracy on average: 82.73%
+>>> Accuracy on average: 83.00%
 
 >> Detection of 1000 single words (average length: 8 chars)
-Accuracy: 66.00%
-Erroneously classified as Russian: 19.30%, Macedonian: 9.10%, Bulgarian: 5.60%
+Accuracy: 66.30%
+Erroneously classified as Russian: 19.10%, Macedonian: 9.00%, Bulgarian: 5.60%
 
 >> Detection of 1000 word pairs (average length: 17 chars)
-Accuracy: 84.40%
-Erroneously classified as Russian: 10.40%, Macedonian: 3.20%, Bulgarian: 2.00%
+Accuracy: 85.00%
+Erroneously classified as Russian: 9.90%, Macedonian: 3.30%, Bulgarian: 1.80%
 
 >> Detection of 1000 sentences (average length: 108 chars)
-Accuracy: 97.80%
-Erroneously classified as Russian: 1.60%, Bulgarian: 0.30%, Macedonian: 0.30%
+Accuracy: 97.70%
+Erroneously classified as Russian: 1.80%, Bulgarian: 0.30%, Macedonian: 0.20%
 

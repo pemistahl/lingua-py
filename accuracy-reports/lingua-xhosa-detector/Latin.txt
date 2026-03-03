@@ -1,16 +1,16 @@
 ##### Latin #####
 
->>> Accuracy on average: 88.00%
+>>> Accuracy on average: 87.17%
 
 >> Detection of 1000 single words (average length: 8 chars)
-Accuracy: 95.80%
-Erroneously classified as Xhosa: 4.20%
+Accuracy: 94.20%
+Erroneously classified as Xhosa: 5.80%
 
->> Detection of 1000 word pairs (average length: 16 chars)
-Accuracy: 93.80%
-Erroneously classified as Xhosa: 6.20%
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 90.50%
+Erroneously classified as Xhosa: 9.50%
 
->> Detection of 1000 sentences (average length: 91 chars)
-Accuracy: 74.40%
-Erroneously classified as Xhosa: 25.60%
+>> Detection of 1000 sentences (average length: 86 chars)
+Accuracy: 76.80%
+Erroneously classified as Xhosa: 23.20%
 

@@ -1,16 +1,16 @@
 ##### Latin #####
 
->>> Accuracy on average: 65.13%
+>>> Accuracy on average: 64.13%
 
 >> Detection of 1000 single words (average length: 8 chars)
-Accuracy: 85.70%
-Erroneously classified as Indonesian: 14.30%
+Accuracy: 87.10%
+Erroneously classified as Indonesian: 12.90%
 
->> Detection of 1000 word pairs (average length: 16 chars)
-Accuracy: 72.30%
-Erroneously classified as Indonesian: 27.70%
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 74.30%
+Erroneously classified as Indonesian: 25.70%
 
->> Detection of 1000 sentences (average length: 91 chars)
-Accuracy: 37.40%
-Erroneously classified as Indonesian: 62.60%
+>> Detection of 1000 sentences (average length: 86 chars)
+Accuracy: 31.00%
+Erroneously classified as Indonesian: 69.00%
 

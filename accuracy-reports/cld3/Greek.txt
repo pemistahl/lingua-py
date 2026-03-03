@@ -12,5 +12,5 @@ Erroneously classified as
 
 >> Detection of 1000 sentences (average length: 122 chars)
 Accuracy: 99.70%
-Erroneously classified as Kazakh: 0.10%, Welsh: 0.10%, Unknown: 0.10%
+Erroneously classified as Kazakh: 0.10%, Unknown: 0.10%, Welsh: 0.10%
 

@@ -1,16 +1,16 @@
 ##### Latin #####
 
->>> Accuracy on average: 93.43%
+>>> Accuracy on average: 94.17%
 
 >> Detection of 1000 single words (average length: 8 chars)
-Accuracy: 97.90%
-Erroneously classified as Somali: 2.10%
+Accuracy: 98.00%
+Erroneously classified as Somali: 2.00%
 
->> Detection of 1000 word pairs (average length: 16 chars)
-Accuracy: 95.30%
-Erroneously classified as Somali: 4.70%
+>> Detection of 1000 word pairs (average length: 17 chars)
+Accuracy: 96.60%
+Erroneously classified as Somali: 3.40%
 
->> Detection of 1000 sentences (average length: 91 chars)
-Accuracy: 87.10%
-Erroneously classified as Somali: 12.90%
+>> Detection of 1000 sentences (average length: 86 chars)
+Accuracy: 87.90%
+Erroneously classified as Somali: 12.10%
 
