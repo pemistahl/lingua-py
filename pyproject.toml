@@ -15,7 +15,7 @@
 
 [tool.poetry]
 name = "lingua-language-detector"
-version = "2.1.1"
+version = "2.2.0"
 description = "An accurate natural language detection library, suitable for long and short text alike"
 authors = ["Peter M. Stahl <pemistahl@gmail.com>"]
 license = "Apache-2.0"
@@ -82,8 +82,6 @@ classifiers = [
     "Natural Language :: Urdu",
     "Natural Language :: Vietnamese",
     "Operating System :: OS Independent",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
     "Programming Language :: Python :: 3.14",
@@ -97,24 +95,23 @@ classifiers = [
 ]
 
 [tool.poetry.dependencies]
-python = ">=3.10,<3.15"
+python = ">=3.12,<3.15"
 
 [tool.poetry.group.dev.dependencies]
-mypy = "^1.15.0"
-black = "^25.1.0"
+mypy = "^1.19.1"
+black = "^25.12.0"
 
 [tool.poetry.group.script.dependencies]
-brotli = "^1.1.0"
 gcld3 = "^3.0.13"
 langdetect = "^1.0.9"
 langid = "^1.1.6"
-matplotlib = "^3.10.1"
-numpy = "^2.2.3"
-pandas = "^2.2.3"
+matplotlib = "^3.10.8"
+numpy = "^2.4.2"
+pandas = "^2.3.3"
 psutil = "7.0.0"
-pycld2 = "^0.41"
+pycld2 = "^0.42"
 seaborn = "^0.13.2"
-simplemma = "0.9.1" # Most current 1.1.1 is much too slow
+simplemma = "0.9.1" # Most current 1.1.2 is much too slow
 
 [tool.mypy]
 files = ["scripts"]
