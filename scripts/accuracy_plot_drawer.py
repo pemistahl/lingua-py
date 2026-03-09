@@ -47,7 +47,7 @@ class AccuracyPlotDrawer:
         "simplemma": "Simplemma 0.9.1",
     }
     _single_language_mode_columns = [
-        f"lingua-{language.name.lower()}-detector" for language in Language
+        f"lingua-{language.name.lower()}-detector" for language in Language.all()
     ]
     _hatches = ("x", "+", "\\", "o", "oo", ".", "*", "O")
     _palette = (
