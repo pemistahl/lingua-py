@@ -4,9 +4,9 @@
 
 [![build status](https://github.com/pemistahl/lingua-rs/actions/workflows/python-build.yml/badge.svg)](https://github.com/pemistahl/lingua-rs/actions/workflows/python-build.yml)
 [![codecov](https://codecov.io/gh/pemistahl/lingua-rs/branch/main/graph/badge.svg)](https://codecov.io/gh/pemistahl/lingua-rs)
-[![supported languages](https://img.shields.io/badge/supported%20languages-75-green.svg)](#3-which-languages-are-supported)
-![supported Python versions](https://img.shields.io/badge/Python-%3E%3D%203.10-blue)
-[![pypi](https://img.shields.io/badge/PYPI-v2.1.1-blue)](https://pypi.org/project/lingua-language-detector)
+[![supported languages](https://img.shields.io/badge/supported%20languages-75-green.svg)](#4-which-languages-are-supported)
+![supported Python versions](https://img.shields.io/badge/Python-%3E%3D%203.12-blue)
+[![pypi](https://img.shields.io/badge/PYPI-v2.2.0-blue)](https://pypi.org/project/lingua-language-detector)
 [![license](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 </div>
 
@@ -64,7 +64,7 @@ Starting from version 2.0.0, the pure Python implementation was replaced with
 compiled Python bindings to the native
 [Rust implementation](https://github.com/pemistahl/lingua-rs) of *Lingua*.
 This decision has led to both quick performance and a small memory
-footprint of less than 1 GB. The pure Python implementation is still available
+footprint. The pure Python implementation is still available
 in a [separate branch](https://github.com/pemistahl/lingua-py/tree/pure-python-impl)
 in this repository and will be kept up-to-date in subsequent 1.* releases.
 There are environments that do not support native Python extensions such as
@@ -296,22 +296,20 @@ The accuracy reporter script measures the time each language detector needs
 to classify 3000 input texts for each of the supported 75 languages. The results
 below have been produced on an iMac 3.6 Ghz 8-Core Intel Core i9 with 40 GB RAM.
 
-Lingua in [multi-threaded mode](https://github.com/pemistahl/lingua-py#118-single-threaded-versus-multi-threaded-language-detection)
+Lingua in [multi-threaded mode](https://github.com/pemistahl/lingua-py#117-single-threaded-versus-multi-threaded-language-detection)
 is one of the fastest algorithms in this comparison. CLD 2 and 3
 are similarly fast as they have been implemented in C or C++. Pure Python libraries
-such as Simplemma, Langid or Langdetect a significantly slower.
+such as Simplemma, Langid or Langdetect are significantly slower.
 
-| Detector                                     |             Time |
-|----------------------------------------------|-----------------:|
-| Lingua (low accuracy mode, multi-threaded)   |         3.00 sec |
-| Lingua (high accuracy mode, multi-threaded)  |         7.97 sec |
-| CLD 2                                        |         8.65 sec |
-| CLD 3                                        |        16.77 sec |
-| Lingua (low accuracy mode, single-threaded)  |        20.46 sec |
-| Lingua (high accuracy mode, single-threaded) |        51.88 sec |
-| Simplemma                                    |  2 min 36.44 sec |
-| Langid                                       |  3 min 50.40 sec |
-| Langdetect                                   | 10 min 43.96 sec |
+| Detector                                    |             Time |
+|---------------------------------------------|-----------------:|
+| CLD 2                                       |         8.65 sec |
+| CLD 3                                       |        16.77 sec |
+| Lingua (low accuracy mode, multi-threaded)  |        11.81 sec |
+| Lingua (high accuracy mode, multi-threaded) |        21.13 sec |
+| Simplemma                                   |  2 min 36.44 sec |
+| Langid                                      |  3 min 50.40 sec |
+| Langdetect                                  | 10 min 43.96 sec |
 
 ## 7. Why is it better than other libraries?
 
@@ -341,6 +339,10 @@ If you know beforehand that certain languages are never to occur in an input
 text, do not let those take part in the classification process. The filtering
 mechanism of the rule-based engine is quite good, however, filtering based on
 your own knowledge of the input text is always preferable.
+
+Even when taking all language models into account, the library uses only a few dozen megabytes of memory during runtime.
+This is because the models are stored as finite-state transducers (FSTs). FSTs allow to be searched on disk without
+actually reading them entirely into memory, making the library suitable for low-resource environments.
 
 ## 8. Test report generation
 
@@ -387,7 +389,7 @@ and can be installed with:
 
 ## 10. How to build?
 
-*Lingua* requires Python >= 3.10.
+*Lingua* requires Python >= 3.12.
 First create a virtualenv and install the Python wheel for your platform with `pip`.
 
 ```
@@ -395,7 +397,7 @@ git clone https://github.com/pemistahl/lingua-py.git
 cd lingua-py
 python3 -m venv .venv
 source .venv/bin/activate
-pip install lingua-language-detector
+pip install --find-links=lingua lingua-language-detector
 ```
 
 In the scripts directory, there are Python scripts for writing accuracy reports,
@@ -531,8 +533,7 @@ memory which are accessed asynchronously by the instances.
 ### 11.5 Low accuracy mode versus high accuracy mode
 
 *Lingua's* high detection accuracy comes at the cost of being noticeably slower
-than other language detectors. The large language models also consume significant
-amounts of memory. These requirements might not be feasible for systems running low
+than other language detectors. This requirement might not be feasible for systems running low
 on resources. If you want to classify mostly long texts or need to save resources,
 you can enable a *low accuracy mode* that loads only a small subset of the language
 models into memory:
@@ -545,11 +546,7 @@ The downside of this approach is that detection accuracy for short texts consist
 of less than 120 characters will drop significantly. However, detection accuracy for
 texts which are longer than 120 characters will remain mostly unaffected.
 
-In high accuracy mode (the default), the language detector consumes approximately
-1 GB of memory if all language models are loaded. In low accuracy mode, memory
-consumption is reduced to approximately 100 MB.
-
-An alternative for a smaller memory footprint and faster performance is to reduce the set
+An alternative for a faster performance is to reduce the set
 of languages when building the language detector. In most cases, it is not advisable to
 build the detector from all supported languages. When you have knowledge about
 the texts you want to classify you can almost always rule out certain languages as impossible
@@ -588,7 +585,7 @@ ENGLISH: 'A little bit is better than nothing.'
 ```
 
 In the example above, a list of
-[`DetectionResult`](https://github.com/pemistahl/lingua-py/blob/pure-python-impl/lingua/detector.py#L210)
+[`DetectionResult`](https://github.com/pemistahl/lingua-py/blob/pure-python-impl/lingua/detector.py#L148)
 is returned. Each entry in the list describes a contiguous single-language text section,
 providing start and end indices of the respective substring.
 
@@ -673,6 +670,6 @@ assert Language.from_str("german") == Language.GERMAN
 assert Language.from_str("GeRmAn") == Language.GERMAN
 ```
 
-## 12. What's next for version 2.2.0?
+## 12. What's next for version 2.3.0?
 
-Take a look at the [planned issues](https://github.com/pemistahl/lingua-py/milestone/10).
+Take a look at the [planned issues](https://github.com/pemistahl/lingua-py/milestone/13).
