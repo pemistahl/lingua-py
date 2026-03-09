@@ -1,3 +1,37 @@
+## Lingua 2.2.0 (released on 9 Mar 2026)
+
+### Improvements
+
+- The language model files have been converted into a new storage format.
+  They are now stored as finite-state transducers (FSTs) which reduces memory
+  consumption drastically at the cost of a slightly slower runtime performance.
+  FSTs allow to be searched on disk without actually reading them entirely into
+  memory which requires only a few dozen megabytes of memory even when loading
+  all languages. The former hashmap-based approach required at least hundreds
+  of megabytes of memory. (#287)
+
+- The language model files are not compressed by the Brotli algorithm anymore.
+  This means that they can be loaded into memory much faster and thereby avoid
+  latency issues in e.g. web services nearly entirely. The new FST storage helps
+  in this regard as well. The only downside is that the language model files have
+  grown in size on disk. They now consume approximately 300 MB altogether instead
+  of 110 MB as before. The file size of the WASM module is also affected by that.
+
+- The unique and most common ngrams for each language now improve
+  language detection accuracy a bit when the low-accuracy mode is enabled.
+  In previous releases, unique and most common ngrams were only taken into
+  consideration when the single-language mode was active.
+
+### Bug Fixes
+
+- The test data files for Latin and Welsh contained broken characters which resulted
+  in inaccurate accuracy reports for these languages. This has been fixed. (#288)
+
+### Compatibility
+
+- The newest Python 3.14 is now officially supported. (#273)
+- Support for Python 3.10 and 3.11 has been dropped. The lowest supported Python version is 3.12 now.
+
 ## Lingua 2.1.1 (released on 27 May 2025)
 
 ### Bug Fixes
