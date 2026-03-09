@@ -5,8 +5,8 @@
     </tr>
     <tr>
         <th></th>
-        <th>&nbsp;&nbsp;CLD2&nbsp;&nbsp;</th>
-        <th>&nbsp;&nbsp;CLD3&nbsp;&nbsp;</th>
+        <th>&nbsp;&nbsp;PyCLD2&nbsp;&nbsp;</th>
+        <th>&nbsp;&nbsp;GCLD3&nbsp;&nbsp;</th>
         <th>Langdetect</th>
         <th>Langid</th>
         <th>Lingua<br>(low accuracy mode)</th>
@@ -20,7 +20,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 98</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 98</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/lightgreen.png"> 80</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 91</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 93</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 97</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/lightgreen.png"> 66</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/grey.png"> -</td>
@@ -28,7 +28,7 @@
         <td>Albanian</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 98</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 98</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 100</td>
@@ -40,7 +40,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 98</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/grey.png"> -</td>
@@ -60,7 +60,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/grey.png"> -</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 98</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 97</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/lightgreen.png"> 75</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/grey.png"> -</td>
@@ -70,7 +70,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 92</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/grey.png"> -</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 86</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 88</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 89</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 93</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/lightgreen.png"> 61</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/grey.png"> -</td>
@@ -80,7 +80,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/grey.png"> -</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 98</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 95</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/grey.png"> -</td>
@@ -100,7 +100,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/grey.png"> -</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/grey.png"> -</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/orange.png"> 23</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/lightgreen.png"> 72</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/lightgreen.png"> 73</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/lightgreen.png"> 77</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/lightgreen.png"> 62</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 90</td>
@@ -128,9 +128,9 @@
         <td>Catalan</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/lightgreen.png"> 79</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 84</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 86</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 87</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 81</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 83</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 82</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 87</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/lightgreen.png"> 66</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 81</td>
@@ -138,7 +138,7 @@
         <td>Chinese</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 98</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 100</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 96</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 98</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 100</td>
@@ -158,9 +158,9 @@
         <td>Czech</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 91</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 88</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 88</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 89</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 86</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 85</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 88</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 91</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/lightgreen.png"> 75</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/lightgreen.png"> 76</td>
@@ -170,7 +170,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 95</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 94</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 86</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 93</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 95</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 98</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/lightgreen.png"> 64</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 83</td>
@@ -180,7 +180,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 97</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 98</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 98</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 92</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 93</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 96</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/lightgreen.png"> 62</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 92</td>
@@ -200,7 +200,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 98</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/grey.png"> -</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 96</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 89</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 94</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 98</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/lightgreen.png"> 62</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/grey.png"> -</td>
@@ -210,7 +210,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 98</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/lightgreen.png"> 65</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 97</td>
@@ -220,7 +220,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 100</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/lightgreen.png"> 63</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 100</td>
@@ -230,7 +230,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 94</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 98</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 96</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 97</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/lightgreen.png"> 65</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 94</td>
@@ -260,7 +260,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 98</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 100</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 98</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/lightgreen.png"> 63</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
@@ -310,7 +310,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 100</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 98</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/lightgreen.png"> 72</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 95</td>
@@ -320,7 +320,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/grey.png"> -</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 98</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/lightgreen.png"> 70</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 90</td>
@@ -340,7 +340,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 94</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/grey.png"> -</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 97</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 90</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 96</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 96</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/lightgreen.png"> 72</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 90</td>
@@ -370,7 +370,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/grey.png"> -</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 96</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 96</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 95</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/grey.png"> -</td>
@@ -386,12 +386,12 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/grey.png"> -</td>
     </tr>
         <td>Latin</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 88</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 83</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 89</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 89</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/grey.png"> -</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/lightgreen.png"> 61</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 91</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 97</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/yellow.png"> 59</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 94</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/lightgreen.png"> 64</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 93</td>
     </tr>
@@ -400,7 +400,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 98</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 98</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 98</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/lightgreen.png"> 73</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/lightgreen.png"> 65</td>
@@ -420,7 +420,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 97</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 94</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 86</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 92</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 92</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/red.png"> 15</td>
@@ -440,7 +440,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 91</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/grey.png"> -</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/grey.png"> -</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 98</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/lightgreen.png"> 72</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/grey.png"> -</td>
@@ -450,7 +450,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 98</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 98</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 91</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 94</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 95</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 95</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/grey.png"> -</td>
@@ -460,7 +460,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/grey.png"> -</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 96</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 97</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/grey.png"> -</td>
@@ -470,7 +470,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/grey.png"> -</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/grey.png"> -</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/lightgreen.png"> 75</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/lightgreen.png"> 75</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/lightgreen.png"> 76</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 91</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/lightgreen.png"> 62</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/yellow.png"> 45</td>
@@ -478,9 +478,9 @@
         <td>Persian</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 100</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 93</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 100</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 98</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 98</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/red.png"> 18</td>
@@ -490,7 +490,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 100</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/lightgreen.png"> 72</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
@@ -500,8 +500,8 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 97</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 98</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 98</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 94</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 95</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 98</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/yellow.png"> 60</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 97</td>
     </tr>
@@ -520,7 +520,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 88</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 97</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 92</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 91</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 94</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/yellow.png"> 59</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 86</td>
@@ -530,7 +530,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 93</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 95</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 91</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 90</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 92</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 98</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 95</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 83</td>
@@ -580,7 +580,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/grey.png"> -</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/lightgreen.png"> 67</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/grey.png"> -</td>
@@ -598,9 +598,9 @@
         <td>Spanish</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 85</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 96</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 97</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 98</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 82</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 98</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 85</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 97</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/yellow.png"> 59</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 92</td>
@@ -610,7 +610,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 98</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 98</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 84</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 91</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 98</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/lightgreen.png"> 63</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/lightgreen.png"> 72</td>
@@ -618,9 +618,9 @@
         <td>Swedish</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 93</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 96</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 97</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 96</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 92</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 96</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 94</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/lightgreen.png"> 64</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 87</td>
@@ -670,7 +670,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/grey.png"> -</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/grey.png"> -</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/grey.png"> -</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 94</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 95</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 98</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/lightgreen.png"> 64</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/grey.png"> -</td>
@@ -690,7 +690,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 97</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 84</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 93</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/lightgreen.png"> 63</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 96</td>
@@ -700,15 +700,15 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 98</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 98</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 96</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 98</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 95</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 94</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 97</td>
     </tr>
         <td>Urdu</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 92</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 97</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 98</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 96</td>
@@ -730,10 +730,10 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 98</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 95</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 98</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 99</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 100</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/lightgreen.png"> 77</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 90</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 91</td>
     </tr>
         <td>Xhosa</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 97</td>
@@ -760,7 +760,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 92</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/grey.png"> -</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/red.png"> 11</td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 93</td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 94</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> 97</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/lightgreen.png"> 61</td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/grey.png"> -</td>
@@ -774,7 +774,7 @@
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> <strong>93.0</strong></td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> <strong>98.0</strong></td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> <strong>90.0</strong></td>
-        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> <strong>93.0</strong></td>
+        <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> <strong>94.0</strong></td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/green.png"> <strong>96.0</strong></td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/lightgreen.png"> <strong>77.0</strong></td>
         <td><img src="https://raw.githubusercontent.com/pemistahl/lingua-py/main/images/lightgreen.png"> <strong>73.0</strong></td>
@@ -785,23 +785,23 @@
     <tr>
         <td>Median</td>
         <td>98.3</td>
-        <td>97.85</td>
-        <td>99.2</td>
+        <td>97.8</td>
+        <td>99.35</td>
         <td>97.7</td>
-        <td>96.7</td>
+        <td>98.2</td>
         <td>99.2</td>
         <td>70.02</td>
-        <td>89.6</td>
+        <td>89.9</td>
     </tr>
     <tr>
         <td>Standard Deviation</td>
-        <td>12.26</td>
-        <td>13.92</td>
-        <td>2.66</td>
-        <td>20.23</td>
-        <td>11.66</td>
+        <td>12.25</td>
+        <td>13.87</td>
+        <td>2.61</td>
+        <td>20.28</td>
+        <td>11.58</td>
         <td>11.06</td>
         <td>16.21</td>
-        <td>31.89</td>
+        <td>31.91</td>
     </tr>
 </table>

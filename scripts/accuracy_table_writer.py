@@ -106,7 +106,7 @@ class AccuracyTableWriter:
         df = pd.read_csv(report_file_path, index_col="language")
 
         single_language_mode_columns = [
-            f"lingua-{language.name.lower()}-detector" for language in Language
+            f"lingua-{language.name.lower()}-detector" for language in Language.all()
         ]
         merged_single_language_mode_column = {
             "lingua-single-language-detector": df[single_language_mode_columns].mean(
