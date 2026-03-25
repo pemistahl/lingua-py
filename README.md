@@ -88,7 +88,6 @@ are supported:
     - Basque
     - Belarusian
     - Bengali
-    - Norwegian Bokmal
     - Bosnian
     - Bulgarian
 - C
@@ -137,6 +136,7 @@ are supported:
     - Marathi
     - Mongolian
 - N
+    - Norwegian Bokmal
     - Norwegian Nynorsk
 - P
     - Persian
