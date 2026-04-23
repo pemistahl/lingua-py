@@ -111,7 +111,7 @@ pandas = "^2.3.3"
 psutil = "7.0.0"
 pycld2 = "^0.42"
 seaborn = "^0.13.2"
-simplemma = "0.9.1" # Most current 1.1.2 is much too slow
+simplemma = "1.1.2" # Most current 1.1.2 is much too slow
 
 [tool.mypy]
 files = ["scripts"]
